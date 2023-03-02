@@ -12,6 +12,9 @@ public:
     virtual ~MetroXMLParser();
 
     bool parse();
+
+    const std::vector<Tram *> &getTrams() const;
+    const std::vector<Station *> &getStations() const;
 private:
     std::vector<Tram*> trams;
     std::vector<Station*> stations;
