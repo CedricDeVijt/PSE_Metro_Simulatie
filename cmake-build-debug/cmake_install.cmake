@@ -1,8 +1,8 @@
-# Install script for directory: /Users/cedric/Library/Mobile Documents/com~apple~CloudDocs/School/Informatica 1/2 Project software engineering/PSE_Metro_Simulatie
+# Install script for directory: C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/usr/local")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/PSE_Metro_Simulatie")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -34,7 +34,7 @@ endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "/Library/Developer/CommandLineTools/usr/bin/objdump")
+  set(CMAKE_OBJDUMP "C:/Qt/Tools/mingw810_64/bin/objdump.exe")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/cedric/Library/Mobile Documents/com~apple~CloudDocs/School/Informatica 1/2 Project software engineering/PSE_Metro_Simulatie/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

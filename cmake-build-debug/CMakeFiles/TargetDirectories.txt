@@ -1,4 +1,4 @@
-/Users/cedric/Library/Mobile Documents/com~apple~CloudDocs/School/Informatica 1/2 Project software engineering/PSE_Metro_Simulatie/cmake-build-debug/CMakeFiles/MetroSim.dir
-/Users/cedric/Library/Mobile Documents/com~apple~CloudDocs/School/Informatica 1/2 Project software engineering/PSE_Metro_Simulatie/cmake-build-debug/CMakeFiles/MetroSimDebug.dir
-/Users/cedric/Library/Mobile Documents/com~apple~CloudDocs/School/Informatica 1/2 Project software engineering/PSE_Metro_Simulatie/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/cedric/Library/Mobile Documents/com~apple~CloudDocs/School/Informatica 1/2 Project software engineering/PSE_Metro_Simulatie/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/cmake-build-debug/CMakeFiles/MetroSim.dir
+C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/cmake-build-debug/CMakeFiles/MetroSimDebug.dir
+C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/cmake-build-debug/CMakeFiles/rebuild_cache.dir
