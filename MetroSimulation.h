@@ -9,6 +9,9 @@ class Station;
 class MetroSimulation {
 public:
     explicit MetroSimulation(const std::string& filename);
+
+    bool isProperlyInitialized() const;
+
 private:
     std::vector<Tram*> trams;
     std::vector<Station*> stations;
