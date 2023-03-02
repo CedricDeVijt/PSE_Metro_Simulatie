@@ -1,7 +1,5 @@
 #ifndef PSE_METRO_SIMULATIE_STATION_H
 #define PSE_METRO_SIMULATIE_STATION_H
-
-
 #include <string>
 
 class Station {
