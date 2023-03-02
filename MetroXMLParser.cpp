@@ -40,4 +40,12 @@ bool MetroXMLParser::parse() {
     return true;
 }
 
+const std::vector<Tram *> &MetroXMLParser::getTrams() const {
+    return trams;
+}
+
+const std::vector<Station *> &MetroXMLParser::getStations() const {
+    return stations;
+}
+
 
