@@ -46,5 +46,13 @@ void Station::setTrackNumber(int trackNumber_) {
 Station::~Station() {
 }
 
+bool Station::isProperlyInitialized() const {
+    return properlyInitialized;
+}
+
+void Station::setProperlyInitialized(bool properlyInitialized_) {
+    Station::properlyInitialized = properlyInitialized_;
+}
+
 
 

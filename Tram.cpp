@@ -1,7 +1,7 @@
 #include "Tram.h"
 
 Tram::Tram() {}
-Tram::Tram(int lineNumber, int speed, Station *startStation) : lineNumber(lineNumber), speed(speed),
+Tram::Tram(int trackNumber, int speed, Station *startStation) : trackNumber(trackNumber), speed(speed),
                                                                startStation(startStation) {
     properlyInitialized = true;
 }
@@ -10,12 +10,12 @@ Tram::~Tram() {
 
 }
 
-int Tram::getLineNumber() const {
-    return lineNumber;
+int Tram::getTrackNumber() const {
+    return trackNumber;
 }
 
-void Tram::setLineNumber(int lineNumber_) {
-    Tram::lineNumber = lineNumber_;
+void Tram::setTrackNumber(int trackNumber_) {
+    Tram::trackNumber = trackNumber_;
 }
 
 int Tram::getSpeed() const {

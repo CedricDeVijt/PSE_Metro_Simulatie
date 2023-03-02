@@ -17,7 +17,9 @@ public:
     const std::vector<Tram *> &getTrams() const;
     const std::vector<Station *> &getStations() const;
 
-    bool handleMaps();
+    void handleStations();
+    void handleTrams();
+    bool verify();
     bool isProperlyInitialized() const;
     bool isProperlyParsed() const;
 private:

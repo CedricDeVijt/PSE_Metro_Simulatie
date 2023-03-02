@@ -126,4 +126,5 @@ CMakeFiles/MetroSim.dir/MetroXMLParser.cpp.obj: \
  C:/Qt/Tools/mingw810_64/x86_64-w64-mingw32/include/assert.h \
  C:\Users\arne\Documents\2022-2023\s2\Talen\ En\ Automaten\PSE_Metro_Simulatie\tinyxml/tinystr.h \
  C:\Users\arne\Documents\2022-2023\s2\Talen\ En\ Automaten\PSE_Metro_Simulatie\Tram.h \
- C:\Users\arne\Documents\2022-2023\s2\Talen\ En\ Automaten\PSE_Metro_Simulatie\Station.h
+ C:\Users\arne\Documents\2022-2023\s2\Talen\ En\ Automaten\PSE_Metro_Simulatie\Station.h \
+ C:\Users\arne\Documents\2022-2023\s2\Talen\ En\ Automaten\PSE_Metro_Simulatie\DesignByContract.h

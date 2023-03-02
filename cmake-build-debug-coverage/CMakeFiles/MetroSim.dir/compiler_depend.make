@@ -232,7 +232,8 @@ CMakeFiles/MetroSim.dir/MetroXMLParser.cpp.obj: ../MetroXMLParser.cpp \
   C:/Qt/Tools/mingw810_64/x86_64-w64-mingw32/include/assert.h \
   ../tinyxml/tinystr.h \
   ../Tram.h \
-  ../Station.h
+  ../Station.h \
+  ../DesignByContract.h
 
 CMakeFiles/MetroSim.dir/Station.cpp.obj: ../Station.cpp \
   ../Station.h \

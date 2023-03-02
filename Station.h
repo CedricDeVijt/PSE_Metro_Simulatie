@@ -17,13 +17,14 @@ public:
     Station *getNextStation() const;
     Station *getPreviousStation() const;
     int getTrackNumber() const;
+    bool isProperlyInitialized() const;
 
     // Setters
     void setName(const std::string &name);
     void setNextStation(Station *nextStation);
     void setPreviousStation(Station *previousStation);
     void setTrackNumber(int trackNumber);
-
+    void setProperlyInitialized(bool properlyInitialized);
 private:
     std::string name;
     Station* nextStation;
