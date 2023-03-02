@@ -6,7 +6,6 @@ class Station {
 public:
     // Constructor
     Station(const std::string &name, Station *nextStation, Station *previousStation, int trackNumber);
-
     Station();
 
     // Destructor
@@ -27,8 +26,8 @@ public:
     void setProperlyInitialized(bool properlyInitialized);
 private:
     std::string name;
-    Station* nextStation;
-    Station* previousStation;
+    Station *nextStation;
+    Station *previousStation;
     int trackNumber;
 
     bool properlyInitialized;

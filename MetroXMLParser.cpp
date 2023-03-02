@@ -7,7 +7,7 @@
 
 MetroXMLParser::MetroXMLParser(const std::string &filename) : filename(filename) {
     properlyParsed = parse();
-    isVerified = verify();
+    verify();
     properlyInitialized = isVerified && properlyParsed;
 }
 
@@ -115,21 +115,33 @@ void MetroXMLParser::handleStations() {
     }
 }
 
-bool MetroXMLParser::verify() {
+void MetroXMLParser::verify() {
+    isVerified = true;
     bool connectedProperly;
     for (int i = 0; i < static_cast<int>(stations.size()); i++) {
         connectedProperly = stations[i]->getPreviousStation() != NULL && stations[i]->getNextStation() != NULL;
         ENSURE(connectedProperly, "Stations not connected properly");
         stations[i]->setProperlyInitialized(connectedProperly);
+        if (!connectedProperly) {
+            isVerified = false;
+        }
     }
+
     bool hasCorrespondingLine;
     bool validStartstation;
     for (int i = 0; i < static_cast<int>(trams.size()); i++) {
-        validStartstation = trams[i]->getStartStation()->isProperlyInitialized();
+        validStartstation = trams[i]->getStartStation() != NULL;
         ENSURE(validStartstation, "Invalid startstation of tram");
 
-        hasCorrespondingLine = trams[i]->getTrackNumber() == trams[i]->getStartStation()->getTrackNumber();
-        ENSURE(hasCorrespondingLine, "Line of tram does not correspond with startStation");
+        if (validStartstation) {
+            hasCorrespondingLine = trams[i]->getTrackNumber() == trams[i]->getStartStation()->getTrackNumber();
+            ENSURE(hasCorrespondingLine, "Track of tram does not correspond with track startStation");
+
+            if (!hasCorrespondingLine) {
+                isVerified = false;
+            }
+        } else {
+            isVerified = false;
+        }
     }
-    return true;
 }

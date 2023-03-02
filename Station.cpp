@@ -1,6 +1,9 @@
 #include "Station.h"
 
-Station::Station() {}
+Station::Station() {
+    previousStation = NULL;
+    nextStation = NULL;
+}
 Station::Station(const std::string &name, Station *nextStation, Station *previousStation, int trackNumber) : name(name),
                                                                                                             nextStation(
                                                                                                                     nextStation),

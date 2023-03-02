@@ -19,7 +19,7 @@ public:
 
     void handleStations();
     void handleTrams();
-    bool verify();
+    void verify();
     bool isProperlyInitialized() const;
     bool isProperlyParsed() const;
 private:

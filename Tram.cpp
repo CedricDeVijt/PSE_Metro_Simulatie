@@ -1,6 +1,8 @@
 #include "Tram.h"
 
-Tram::Tram() {}
+Tram::Tram() {
+    startStation = NULL;
+}
 Tram::Tram(int trackNumber, int speed, Station *startStation) : trackNumber(trackNumber), speed(speed),
                                                                startStation(startStation) {
     properlyInitialized = true;
