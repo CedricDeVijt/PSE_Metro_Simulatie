@@ -1,0 +1,11 @@
+#ifndef PSE_METRO_SIMULATIE_METROSIMULATION_H
+#define PSE_METRO_SIMULATIE_METROSIMULATION_H
+
+
+class MetroSimulation {
+private:
+public:
+};
+
+
+#endif //PSE_METRO_SIMULATIE_METROSIMULATION_H
