@@ -3,7 +3,8 @@
 #include "tinyxml/tinyxml.h"
 
 MetroXMLParser::MetroXMLParser(const std::string &filename) : filename(filename) {
-    parse();
+    properlyInitialized = true;
+    properlyParsed = parse();
 }
 
 MetroXMLParser::~MetroXMLParser() {}
@@ -15,7 +16,7 @@ bool MetroXMLParser::parse() {
         return false;
     }
 
-    TiXmlElement* root = doc.FirstChildElement();
+    TiXmlElement* root = doc.FirstChildElement("SIMDATA");
     if (root == NULL) {
         std::cerr << "Failed to load file: No root element." << std::endl;
         doc.Clear();
@@ -23,25 +24,30 @@ bool MetroXMLParser::parse() {
     }
 
     TiXmlElement* elem = root->FirstChildElement();
-    while (elem->NextSiblingElement()) {
+    while (elem) {
         std::string elemName = elem->Value();
+        std::cout << elemName << std::endl;
         if (elemName == "STATION") {
             std::string naam = elem->FirstChildElement("naam")->GetText();
-            std::cout << naam << std::endl;
+            std::string volgende = elem->FirstChildElement("volgende")->GetText();
+            std::string vorige = elem->FirstChildElement("vorige")->GetText();
+            std::string spoorNr = elem->FirstChildElement("spoorNr")->GetText();
+        } else if (elemName == "TRAM") {
+            std::string lijnNr = elem->FirstChildElement("lijnNr")->GetText();
+            std::string snelheid = elem->FirstChildElement("snelheid")->GetText();
+            std::string begin = elem->FirstChildElement("beginStation")->GetText();
         }
-
-
         elem = elem->NextSiblingElement();
     }
     return true;
 }
 
-const std::vector<Tram *> &MetroXMLParser::getTrams() const {
-    return trams;
-}
+const std::vector<Tram *> &MetroXMLParser::getTrams() const {return trams;}
+const std::vector<Station *> &MetroXMLParser::getStations() const {return stations;}
+bool MetroXMLParser::isProperlyInitialized() const {return properlyInitialized;}
+bool MetroXMLParser::isProperlyParsed() const {return properlyParsed;}
 
-const std::vector<Station *> &MetroXMLParser::getStations() const {
-    return stations;
+bool MetroXMLParser::verify() const {
+    return false;
 }
-
 

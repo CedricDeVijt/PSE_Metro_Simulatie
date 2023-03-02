@@ -8,10 +8,12 @@ class Station;
 
 class MetroSimulation {
 public:
-    MetroSimulation(const std::string& filename);
+    explicit MetroSimulation(const std::string& filename);
 private:
     std::vector<Tram*> trams;
     std::vector<Station*> stations;
+
+    bool properlyInitialized;
 };
 
 

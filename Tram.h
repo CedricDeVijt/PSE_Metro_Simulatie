@@ -24,6 +24,8 @@ private:
     int lineNumber;
     int speed;
     Station *startStation;
+
+    bool properlyInitialized;
 };
 
 

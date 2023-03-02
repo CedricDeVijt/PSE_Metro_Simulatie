@@ -1,7 +1,9 @@
 #include "Tram.h"
 
 Tram::Tram(int lineNumber, int speed, Station *startStation) : lineNumber(lineNumber), speed(speed),
-                                                               startStation(startStation) {}
+                                                               startStation(startStation) {
+    properlyInitialized = true;
+}
 
 Tram::~Tram() {
 

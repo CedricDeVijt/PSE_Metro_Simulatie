@@ -28,6 +28,8 @@ private:
     Station* nextStation;
     Station* previousStation;
     int trackNumber;
+
+    bool properlyInitialized;
 };
 
 

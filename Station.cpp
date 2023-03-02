@@ -7,7 +7,9 @@ Station::Station(const std::string &name, Station *nextStation, Station *previou
                                                                                                             previousStation(
                                                                                                                     previousStation),
                                                                                                             trackNumber(
-                                                                                                                    trackNumber) {}
+                                                                                                                    trackNumber) {
+    properlyInitialized = true;
+}
 
 const std::string &Station::getName() const {
     return name;
