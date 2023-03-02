@@ -1,0 +1,3 @@
+"C:\Program Files\JetBrains\CLion 2022.2.4\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\MetroSim.dir/objects.a
+C:\Qt\Tools\mingw810_64\bin\ar.exe qc CMakeFiles\MetroSim.dir/objects.a @CMakeFiles\MetroSim.dir\objects1.rsp
+C:\Qt\Tools\mingw810_64\bin\g++.exe -std=c++98 -Wall -Werror -g -pthread -Wl,--whole-archive CMakeFiles\MetroSim.dir/objects.a -Wl,--no-whole-archive -o MetroSim.exe -Wl,--out-implib,libMetroSim.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\MetroSim.dir\linklibs.rsp

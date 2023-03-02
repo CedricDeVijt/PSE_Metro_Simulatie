@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="PSE_Metro_Simulatie"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/cmake-build-debug-coverage"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/Qt/Tools/mingw810_64/bin/mingw32-make.exe -f &quot;C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/Qt/Tools/mingw810_64/bin/mingw32-make.exe -f &quot;C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Qt/Tools/mingw810_64/bin/mingw32-make.exe -f &quot;C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Qt/Tools/mingw810_64/bin/mingw32-make.exe -f &quot;C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="MetroSim">
+				<Option output="C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/cmake-build-debug-coverage/MetroSim.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/cmake-build-debug-coverage"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/gtest/include"/>
+					<Add directory="C:/Qt/Tools/mingw810_64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="C:/Qt/Tools/mingw810_64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Qt/Tools/mingw810_64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="C:/Qt/Tools/mingw810_64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
+					<Add directory="C:/Qt/Tools/mingw810_64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="C:/Qt/Tools/mingw810_64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/Qt/Tools/mingw810_64/bin/mingw32-make.exe -f &quot;C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 MetroSim"/>
+					<CompileFile command="C:/Qt/Tools/mingw810_64/bin/mingw32-make.exe -f &quot;C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Qt/Tools/mingw810_64/bin/mingw32-make.exe -f &quot;C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Qt/Tools/mingw810_64/bin/mingw32-make.exe -f &quot;C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="MetroSim/fast">
+				<Option output="C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/cmake-build-debug-coverage/MetroSim.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/cmake-build-debug-coverage"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/gtest/include"/>
+					<Add directory="C:/Qt/Tools/mingw810_64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="C:/Qt/Tools/mingw810_64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Qt/Tools/mingw810_64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="C:/Qt/Tools/mingw810_64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
+					<Add directory="C:/Qt/Tools/mingw810_64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="C:/Qt/Tools/mingw810_64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/Qt/Tools/mingw810_64/bin/mingw32-make.exe -f &quot;C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 MetroSim/fast"/>
+					<CompileFile command="C:/Qt/Tools/mingw810_64/bin/mingw32-make.exe -f &quot;C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Qt/Tools/mingw810_64/bin/mingw32-make.exe -f &quot;C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Qt/Tools/mingw810_64/bin/mingw32-make.exe -f &quot;C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="MetroSimDebug">
+				<Option output="C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/cmake-build-debug-coverage/MetroSimDebug.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/cmake-build-debug-coverage"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/gtest/include"/>
+					<Add directory="C:/Qt/Tools/mingw810_64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="C:/Qt/Tools/mingw810_64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Qt/Tools/mingw810_64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="C:/Qt/Tools/mingw810_64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
+					<Add directory="C:/Qt/Tools/mingw810_64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="C:/Qt/Tools/mingw810_64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/Qt/Tools/mingw810_64/bin/mingw32-make.exe -f &quot;C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 MetroSimDebug"/>
+					<CompileFile command="C:/Qt/Tools/mingw810_64/bin/mingw32-make.exe -f &quot;C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Qt/Tools/mingw810_64/bin/mingw32-make.exe -f &quot;C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Qt/Tools/mingw810_64/bin/mingw32-make.exe -f &quot;C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="MetroSimDebug/fast">
+				<Option output="C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/cmake-build-debug-coverage/MetroSimDebug.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/cmake-build-debug-coverage"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/gtest/include"/>
+					<Add directory="C:/Qt/Tools/mingw810_64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="C:/Qt/Tools/mingw810_64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Qt/Tools/mingw810_64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="C:/Qt/Tools/mingw810_64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
+					<Add directory="C:/Qt/Tools/mingw810_64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="C:/Qt/Tools/mingw810_64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/Qt/Tools/mingw810_64/bin/mingw32-make.exe -f &quot;C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 MetroSimDebug/fast"/>
+					<CompileFile command="C:/Qt/Tools/mingw810_64/bin/mingw32-make.exe -f &quot;C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Qt/Tools/mingw810_64/bin/mingw32-make.exe -f &quot;C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Qt/Tools/mingw810_64/bin/mingw32-make.exe -f &quot;C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/cmake-build-debug-coverage"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/Qt/Tools/mingw810_64/bin/mingw32-make.exe -f &quot;C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/Qt/Tools/mingw810_64/bin/mingw32-make.exe -f &quot;C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Qt/Tools/mingw810_64/bin/mingw32-make.exe -f &quot;C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Qt/Tools/mingw810_64/bin/mingw32-make.exe -f &quot;C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/cmake-build-debug-coverage"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/Qt/Tools/mingw810_64/bin/mingw32-make.exe -f &quot;C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/Qt/Tools/mingw810_64/bin/mingw32-make.exe -f &quot;C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Qt/Tools/mingw810_64/bin/mingw32-make.exe -f &quot;C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Qt/Tools/mingw810_64/bin/mingw32-make.exe -f &quot;C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/DesignByContract.h">
+			<Option target="MetroSim"/>
+		</Unit>
+		<Unit filename="C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/MetroSimulation.cpp">
+			<Option target="MetroSim"/>
+		</Unit>
+		<Unit filename="C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/MetroSimulation.h">
+			<Option target="MetroSim"/>
+		</Unit>
+		<Unit filename="C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/MetroXMLParser.cpp">
+			<Option target="MetroSim"/>
+		</Unit>
+		<Unit filename="C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/MetroXMLParser.h">
+			<Option target="MetroSim"/>
+		</Unit>
+		<Unit filename="C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/Station.cpp">
+			<Option target="MetroSim"/>
+		</Unit>
+		<Unit filename="C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/Station.h">
+			<Option target="MetroSim"/>
+		</Unit>
+		<Unit filename="C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/Tram.cpp">
+			<Option target="MetroSim"/>
+		</Unit>
+		<Unit filename="C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/Tram.h">
+			<Option target="MetroSim"/>
+		</Unit>
+		<Unit filename="C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/main.cpp">
+			<Option target="MetroSim"/>
+			<Option target="MetroSimDebug"/>
+		</Unit>
+		<Unit filename="C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/tinyxml/tinystr.cpp">
+			<Option target="MetroSim"/>
+		</Unit>
+		<Unit filename="C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/tinyxml/tinystr.h">
+			<Option target="MetroSim"/>
+		</Unit>
+		<Unit filename="C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/tinyxml/tinyxml.cpp">
+			<Option target="MetroSim"/>
+		</Unit>
+		<Unit filename="C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/tinyxml/tinyxml.h">
+			<Option target="MetroSim"/>
+		</Unit>
+		<Unit filename="C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/tinyxml/tinyxmlerror.cpp">
+			<Option target="MetroSim"/>
+		</Unit>
+		<Unit filename="C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/tinyxml/tinyxmlparser.cpp">
+			<Option target="MetroSim"/>
+		</Unit>
+		<Unit filename="C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

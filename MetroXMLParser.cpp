@@ -3,7 +3,6 @@
 #include "tinyxml/tinyxml.h"
 #include "Tram.h"
 #include "Station.h"
-#include "algorithm"
 
 MetroXMLParser::MetroXMLParser(const std::string &filename) : filename(filename) {
     properlyParsed = parse();
@@ -55,22 +54,56 @@ bool MetroXMLParser::parse() {
         }
         elem = elem->NextSiblingElement();
     }
-    return true;
+    return handleMaps();
 }
 
 
-void MetroXMLParser::handleMaps() {
-    for (int i = 0; i < stations.size(); i++) {
-        Station* s = stations[i];
-        std::pair<std::string, std::string> p = stationMap[s];
+bool MetroXMLParser::handleMaps() {
+    Station *target;
+    for (int i = 0; i < static_cast<int>(stations.size()); i++) {
+        Station* current = stations[i];
+        std::pair<std::string, std::string> p = stationMap[current];
         std::string volgende = p.first;
         std::string vorige = p.second;
 
-        for (int j = 0; j < stations.size(); ++j) {
-            return;
+        bool vorigeFound = false;
+        bool volgendeFound = false;
+        for (int j = 0; j < static_cast<int>(stations.size()); j++) {
+            if (vorigeFound && volgendeFound) { continue; }
+            target = stations[j];
+            if (target->getName()==volgende) {
+                volgendeFound = true;
+                current->setNextStation(target);
+            } else if (target->getName()==vorige) {
+                vorigeFound = true;
+                current->setNextStation(target);
+            }
+        }
+        if (!vorigeFound && !volgendeFound) {
+            std::cerr << "Failed to init stations" << std::endl;
+            return false;
         }
     }
 
+    for (int i = 0; i < static_cast<int>(trams.size()); ++i) {
+        Tram *current = trams[i];
+        std::string beginString = tramMap[current];
+
+        bool found = false;
+        for (int j = 0; j < static_cast<int>(stations.size()); j++) {
+            if (found) { continue; }
+            target = stations[j];
+            if (target->getName()==beginString) {
+                found = true;
+                current->setStartStation(target);
+            }
+        }
+        if (!found) {
+            std::cerr << "Failed to init trams" << std::endl;
+            return false;
+        }
+    }
+    return true;
 }
 
 const std::vector<Tram *> &MetroXMLParser::getTrams() const {return trams;}

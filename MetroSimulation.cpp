@@ -12,3 +12,7 @@ MetroSimulation::MetroSimulation(const std::string& filename) {
         properlyInitialized = false;
     }
 }
+
+bool MetroSimulation::isProperlyInitialized() const {
+    return properlyInitialized;
+}
