@@ -33,10 +33,6 @@ bool MetroXMLParser::parse() {
 
         elem = elem->NextSiblingElement();
     }
-
-
-
-
     return true;
 }
 

@@ -13,10 +13,18 @@ link_directories(gtest/lib)
 
 # Set source files for RELEASE target
 set(RELEASE_SOURCE_FILES main.cpp
+        # Metro Files
         MetroSimulation.cpp MetroSimulation.h
         Station.cpp Station.h
         Tram.cpp Tram.h
-        MetroXMLParser.cpp MetroXMLParser.h)
+        MetroXMLParser.cpp MetroXMLParser.h
+        # Set source files for tinyXml
+        ./tinyxml/tinystr.cpp
+        ./tinyxml/tinyxmlerror.cpp
+        ./tinyxml/tinystr.cpp ./tinyxml/tinystr.h
+        ./tinyxml/tinyxml.cpp ./tinyxml/tinyxml.h
+        ./tinyxml/tinyxmlparser.cpp
+        )
 
 # Set source files for DEBUG target
 set(DEBUG_SOURCE_FILES )

@@ -1,5 +1,5 @@
 #include "MetroSimulation.h"
 
 int main() {
-    MetroSimulation sim("file");
+    MetroSimulation sim("xmlFiles/test.xml");
 }
