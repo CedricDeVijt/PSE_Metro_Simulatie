@@ -8,6 +8,9 @@ class Station {
 public:
     // Constructor
     Station(const std::string &name, Station *nextStation, Station *previousStation, int trackNumber);
+
+    Station();
+
     // Destructor
     ~Station();
 

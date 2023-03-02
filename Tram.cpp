@@ -1,5 +1,6 @@
 #include "Tram.h"
 
+Tram::Tram() {}
 Tram::Tram(int lineNumber, int speed, Station *startStation) : lineNumber(lineNumber), speed(speed),
                                                                startStation(startStation) {
     properlyInitialized = true;
@@ -32,3 +33,5 @@ Station *Tram::getStartStation() const {
 void Tram::setStartStation(Station *startStation_) {
     Tram::startStation = startStation_;
 }
+
+

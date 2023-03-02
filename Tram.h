@@ -7,6 +7,8 @@ class Tram {
 public:
     // Constructor
     Tram(int lineNumber, int speed, Station *startStation);
+    Tram();
+
     // Destructor
     virtual ~Tram();
 

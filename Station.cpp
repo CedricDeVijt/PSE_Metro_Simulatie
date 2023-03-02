@@ -1,6 +1,6 @@
 #include "Station.h"
 
-
+Station::Station() {}
 Station::Station(const std::string &name, Station *nextStation, Station *previousStation, int trackNumber) : name(name),
                                                                                                             nextStation(
                                                                                                                     nextStation),
@@ -45,4 +45,6 @@ void Station::setTrackNumber(int trackNumber_) {
 
 Station::~Station() {
 }
+
+
 
