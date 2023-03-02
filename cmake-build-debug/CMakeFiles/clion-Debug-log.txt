@@ -1,11 +1,4 @@
 "/Users/cedric/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=/Users/cedric/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/ninja/mac/ninja" -G Ninja -S "/Users/cedric/Library/Mobile Documents/com~apple~CloudDocs/School/Informatica 1/2 Project software engineering/PSE_Metro_Simulatie" -B "/Users/cedric/Library/Mobile Documents/com~apple~CloudDocs/School/Informatica 1/2 Project software engineering/PSE_Metro_Simulatie/cmake-build-debug"
 -- Configuring done
-CMake Error at CMakeLists.txt:21 (add_executable):
-  No SOURCES given to target: MetroSim
-
-
-CMake Error at CMakeLists.txt:24 (add_executable):
-  No SOURCES given to target: MetroSimDebug
-
-
-CMake Generate step failed.  Build files cannot be regenerated correctly.
+-- Generating done
+-- Build files have been written to: /Users/cedric/Library/Mobile Documents/com~apple~CloudDocs/School/Informatica 1/2 Project software engineering/PSE_Metro_Simulatie/cmake-build-debug

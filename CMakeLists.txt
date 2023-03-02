@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.6)
-project(ttt)
+project(PSE_Metro_Simulatie)
 
 set(CMAKE_CXX_STANDARD 98)
 set(CMAKE_CXX_FLAGS "-std=c++98 -Wall -Werror")
@@ -12,16 +12,16 @@ include_directories(gtest/include)
 link_directories(gtest/lib)
 
 # Set source files for RELEASE target
-set(RELEASE_SOURCE_FILES)
+set(RELEASE_SOURCE_FILES main.cpp)
 
 # Set source files for DEBUG target
 set(DEBUG_SOURCE_FILES )
 
 # Create RELEASE target
-add_executable(MetroSim ${RELEASE_SOURCE_FILES})
+add_executable(MetroSim main.cpp ${RELEASE_SOURCE_FILES})
 
 # Create DEBUG target
-add_executable(MetroSimDebug ${DEBUG_SOURCE_FILES})
+add_executable(MetroSimDebug main.cpp ${DEBUG_SOURCE_FILES})
 
 # Link library
 target_link_libraries(MetroSimDebug gtest)

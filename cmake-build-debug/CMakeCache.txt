@@ -146,7 +146,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=ttt
+CMAKE_PROJECT_NAME:STATIC=PSE_Metro_Simulatie
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/Library/Developer/CommandLineTools/usr/bin/ranlib
@@ -209,6 +209,42 @@ CMAKE_STRIP:FILEPATH=/Library/Developer/CommandLineTools/usr/bin/strip
 // during the make.  This is useful for debugging only. With Visual
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
+
+//Value Computed by CMake
+PSE_Metro_BINARY_DIR:STATIC=/Users/cedric/Library/Mobile Documents/com~apple~CloudDocs/School/Informatica 1/2 Project software engineering/PSE_Metro_Simulatie/cmake-build-debug
+
+//Value Computed by CMake
+PSE_Metro_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+PSE_Metro_SOURCE_DIR:STATIC=/Users/cedric/Library/Mobile Documents/com~apple~CloudDocs/School/Informatica 1/2 Project software engineering/PSE_Metro_Simulatie
+
+//Value Computed by CMake
+PSE_Metro_Si_BINARY_DIR:STATIC=/Users/cedric/Library/Mobile Documents/com~apple~CloudDocs/School/Informatica 1/2 Project software engineering/PSE_Metro_Simulatie/cmake-build-debug
+
+//Value Computed by CMake
+PSE_Metro_Si_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+PSE_Metro_Si_SOURCE_DIR:STATIC=/Users/cedric/Library/Mobile Documents/com~apple~CloudDocs/School/Informatica 1/2 Project software engineering/PSE_Metro_Simulatie
+
+//Value Computed by CMake
+PSE_Metro_Simulatie_BINARY_DIR:STATIC=/Users/cedric/Library/Mobile Documents/com~apple~CloudDocs/School/Informatica 1/2 Project software engineering/PSE_Metro_Simulatie/cmake-build-debug
+
+//Value Computed by CMake
+PSE_Metro_Simulatie_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+PSE_Metro_Simulatie_SOURCE_DIR:STATIC=/Users/cedric/Library/Mobile Documents/com~apple~CloudDocs/School/Informatica 1/2 Project software engineering/PSE_Metro_Simulatie
+
+//Value Computed by CMake
+PSE__BINARY_DIR:STATIC=/Users/cedric/Library/Mobile Documents/com~apple~CloudDocs/School/Informatica 1/2 Project software engineering/PSE_Metro_Simulatie/cmake-build-debug
+
+//Value Computed by CMake
+PSE__IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+PSE__SOURCE_DIR:STATIC=/Users/cedric/Library/Mobile Documents/com~apple~CloudDocs/School/Informatica 1/2 Project software engineering/PSE_Metro_Simulatie
 
 //Value Computed by CMake
 Project_BINARY_DIR:STATIC=/Users/cedric/Library/Mobile Documents/com~apple~CloudDocs/School/Informatica 1/2 Project software engineering/PSE_Metro_Simulatie/cmake-build-debug
