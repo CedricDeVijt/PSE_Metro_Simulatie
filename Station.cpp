@@ -25,11 +25,11 @@ void Station::setNextStation(Station *nextStation_) {
     Station::nextStation = nextStation_;
 }
 
-Station *Station::getPreviousStaion() const {
+Station *Station::getPreviousStation() const {
     return previousStation;
 }
 
-void Station::setPreviousStaion(Station *previousStation_) {
+void Station::setPreviousStation(Station *previousStation_) {
     Station::previousStation = previousStation_;
 }
 

@@ -14,13 +14,13 @@ public:
     // Getters
     const std::string &getName() const;
     Station *getNextStation() const;
-    Station *getPreviousStaion() const;
+    Station *getPreviousStation() const;
     int getTrackNumber() const;
 
     // Setters
     void setName(const std::string &name);
     void setNextStation(Station *nextStation);
-    void setPreviousStaion(Station *previousStaion);
+    void setPreviousStation(Station *previousStation);
     void setTrackNumber(int trackNumber);
 
 private:
