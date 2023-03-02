@@ -7,16 +7,27 @@
 class Station {
 public:
     // Constructor
-    Station(std::string name, Station nextStation, Station previousStaion, int trackNumber);
+    Station(const std::string &name, Station *nextStation, Station *previousStation, int trackNumber);
     // Destructor
     ~Station();
 
-    getName();
-    getNextStation();
-    getPreviousStation();
-    get
+    // Getters
+    const std::string &getName() const;
+    Station *getNextStation() const;
+    Station *getPreviousStaion() const;
+    int getTrackNumber() const;
 
+    // Setters
+    void setName(const std::string &name);
+    void setNextStation(Station *nextStation);
+    void setPreviousStaion(Station *previousStaion);
+    void setTrackNumber(int trackNumber);
 
+private:
+    std::string name;
+    Station* nextStation;
+    Station* previousStation;
+    int trackNumber;
 };
 
 

@@ -1,1 +1,46 @@
 #include "Station.h"
+
+
+Station::Station(const std::string &name, Station *nextStation, Station *previousStation, int trackNumber) : name(name),
+                                                                                                            nextStation(
+                                                                                                                    nextStation),
+                                                                                                            previousStation(
+                                                                                                                    previousStation),
+                                                                                                            trackNumber(
+                                                                                                                    trackNumber) {}
+
+const std::string &Station::getName() const {
+    return name;
+}
+
+void Station::setName(const std::string &name_) {
+    Station::name = name_;
+}
+
+Station *Station::getNextStation() const {
+    return nextStation;
+}
+
+void Station::setNextStation(Station *nextStation_) {
+    Station::nextStation = nextStation_;
+}
+
+Station *Station::getPreviousStaion() const {
+    return previousStation;
+}
+
+void Station::setPreviousStaion(Station *previousStation_) {
+    Station::previousStation = previousStation_;
+}
+
+int Station::getTrackNumber() const {
+    return trackNumber;
+}
+
+void Station::setTrackNumber(int trackNumber_) {
+    Station::trackNumber = trackNumber_;
+}
+
+Station::~Station() {
+}
+
