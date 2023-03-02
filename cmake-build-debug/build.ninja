@@ -53,6 +53,27 @@ build CMakeFiles/MetroSim.dir/main.cpp.o: CXX_COMPILER__MetroSim_Debug /Users/ce
   OBJECT_DIR = CMakeFiles/MetroSim.dir
   OBJECT_FILE_DIR = CMakeFiles/MetroSim.dir
 
+build CMakeFiles/MetroSim.dir/MetroSimultie.cpp.o: CXX_COMPILER__MetroSim_Debug /Users/cedric/Library/Mobile$ Documents/com~apple~CloudDocs/School/Informatica$ 1/2$ Project$ software$ engineering/PSE_Metro_Simulatie/MetroSimultie.cpp || cmake_object_order_depends_target_MetroSim
+  DEP_FILE = CMakeFiles/MetroSim.dir/MetroSimultie.cpp.o.d
+  FLAGS = -std=c++98 -Wall -Werror -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -std=gnu++98
+  INCLUDES = -I"/Users/cedric/Library/Mobile Documents/com~apple~CloudDocs/School/Informatica 1/2 Project software engineering/PSE_Metro_Simulatie/gtest/include"
+  OBJECT_DIR = CMakeFiles/MetroSim.dir
+  OBJECT_FILE_DIR = CMakeFiles/MetroSim.dir
+
+build CMakeFiles/MetroSim.dir/Station.cpp.o: CXX_COMPILER__MetroSim_Debug /Users/cedric/Library/Mobile$ Documents/com~apple~CloudDocs/School/Informatica$ 1/2$ Project$ software$ engineering/PSE_Metro_Simulatie/Station.cpp || cmake_object_order_depends_target_MetroSim
+  DEP_FILE = CMakeFiles/MetroSim.dir/Station.cpp.o.d
+  FLAGS = -std=c++98 -Wall -Werror -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -std=gnu++98
+  INCLUDES = -I"/Users/cedric/Library/Mobile Documents/com~apple~CloudDocs/School/Informatica 1/2 Project software engineering/PSE_Metro_Simulatie/gtest/include"
+  OBJECT_DIR = CMakeFiles/MetroSim.dir
+  OBJECT_FILE_DIR = CMakeFiles/MetroSim.dir
+
+build CMakeFiles/MetroSim.dir/Tram.cpp.o: CXX_COMPILER__MetroSim_Debug /Users/cedric/Library/Mobile$ Documents/com~apple~CloudDocs/School/Informatica$ 1/2$ Project$ software$ engineering/PSE_Metro_Simulatie/Tram.cpp || cmake_object_order_depends_target_MetroSim
+  DEP_FILE = CMakeFiles/MetroSim.dir/Tram.cpp.o.d
+  FLAGS = -std=c++98 -Wall -Werror -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -std=gnu++98
+  INCLUDES = -I"/Users/cedric/Library/Mobile Documents/com~apple~CloudDocs/School/Informatica 1/2 Project software engineering/PSE_Metro_Simulatie/gtest/include"
+  OBJECT_DIR = CMakeFiles/MetroSim.dir
+  OBJECT_FILE_DIR = CMakeFiles/MetroSim.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target MetroSim
@@ -61,7 +82,7 @@ build CMakeFiles/MetroSim.dir/main.cpp.o: CXX_COMPILER__MetroSim_Debug /Users/ce
 #############################################
 # Link the executable MetroSim
 
-build MetroSim: CXX_EXECUTABLE_LINKER__MetroSim_Debug CMakeFiles/MetroSim.dir/main.cpp.o
+build MetroSim: CXX_EXECUTABLE_LINKER__MetroSim_Debug CMakeFiles/MetroSim.dir/main.cpp.o CMakeFiles/MetroSim.dir/MetroSimultie.cpp.o CMakeFiles/MetroSim.dir/Station.cpp.o CMakeFiles/MetroSim.dir/Tram.cpp.o
   FLAGS = -std=c++98 -Wall -Werror -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk
   LINK_FLAGS = -pthread
   LINK_PATH = -L"/Users/cedric/Library/Mobile Documents/com~apple~CloudDocs/School/Informatica 1/2 Project software engineering/PSE_Metro_Simulatie/gtest/lib"

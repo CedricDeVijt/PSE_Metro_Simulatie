@@ -819,7 +819,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "Project"
+			"value" : "PSE_Metro_Simulatie"
 		},
 		{
 			"name" : "CMAKE_RANLIB",
@@ -1102,6 +1102,150 @@
 			"value" : "FALSE"
 		},
 		{
+			"name" : "PSE_Metro_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/Users/cedric/Library/Mobile Documents/com~apple~CloudDocs/School/Informatica 1/2 Project software engineering/PSE_Metro_Simulatie/cmake-build-debug"
+		},
+		{
+			"name" : "PSE_Metro_IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "ON"
+		},
+		{
+			"name" : "PSE_Metro_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/Users/cedric/Library/Mobile Documents/com~apple~CloudDocs/School/Informatica 1/2 Project software engineering/PSE_Metro_Simulatie"
+		},
+		{
+			"name" : "PSE_Metro_Si_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/Users/cedric/Library/Mobile Documents/com~apple~CloudDocs/School/Informatica 1/2 Project software engineering/PSE_Metro_Simulatie/cmake-build-debug"
+		},
+		{
+			"name" : "PSE_Metro_Si_IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "ON"
+		},
+		{
+			"name" : "PSE_Metro_Si_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/Users/cedric/Library/Mobile Documents/com~apple~CloudDocs/School/Informatica 1/2 Project software engineering/PSE_Metro_Simulatie"
+		},
+		{
+			"name" : "PSE_Metro_Simulatie_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/Users/cedric/Library/Mobile Documents/com~apple~CloudDocs/School/Informatica 1/2 Project software engineering/PSE_Metro_Simulatie/cmake-build-debug"
+		},
+		{
+			"name" : "PSE_Metro_Simulatie_IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "ON"
+		},
+		{
+			"name" : "PSE_Metro_Simulatie_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/Users/cedric/Library/Mobile Documents/com~apple~CloudDocs/School/Informatica 1/2 Project software engineering/PSE_Metro_Simulatie"
+		},
+		{
+			"name" : "PSE__BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/Users/cedric/Library/Mobile Documents/com~apple~CloudDocs/School/Informatica 1/2 Project software engineering/PSE_Metro_Simulatie/cmake-build-debug"
+		},
+		{
+			"name" : "PSE__IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "ON"
+		},
+		{
+			"name" : "PSE__SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/Users/cedric/Library/Mobile Documents/com~apple~CloudDocs/School/Informatica 1/2 Project software engineering/PSE_Metro_Simulatie"
+		},
+		{
 			"name" : "Project_BINARY_DIR",
 			"properties" : 
 			[
@@ -1127,6 +1271,42 @@
 		},
 		{
 			"name" : "Project_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/Users/cedric/Library/Mobile Documents/com~apple~CloudDocs/School/Informatica 1/2 Project software engineering/PSE_Metro_Simulatie"
+		},
+		{
+			"name" : "ttt_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/Users/cedric/Library/Mobile Documents/com~apple~CloudDocs/School/Informatica 1/2 Project software engineering/PSE_Metro_Simulatie/cmake-build-debug"
+		},
+		{
+			"name" : "ttt_IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "ON"
+		},
+		{
+			"name" : "ttt_SOURCE_DIR",
 			"properties" : 
 			[
 				{

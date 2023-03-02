@@ -12,7 +12,7 @@ include_directories(gtest/include)
 link_directories(gtest/lib)
 
 # Set source files for RELEASE target
-set(RELEASE_SOURCE_FILES main.cpp)
+set(RELEASE_SOURCE_FILES main.cpp MetroSimultie.cpp MetroSimultie.h Station.cpp Station.h Tram.cpp Tram.h)
 
 # Set source files for DEBUG target
 set(DEBUG_SOURCE_FILES )

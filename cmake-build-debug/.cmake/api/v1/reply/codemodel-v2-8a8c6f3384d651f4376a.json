@@ -7,8 +7,17 @@
 				{
 					"build" : ".",
 					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.6"
+					},
 					"projectIndex" : 0,
-					"source" : "."
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
 				}
 			],
 			"name" : "Debug",
@@ -19,10 +28,31 @@
 					[
 						0
 					],
-					"name" : "Project"
+					"name" : "PSE_Metro_Simulatie",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
 				}
 			],
-			"targets" : []
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "MetroSim::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-MetroSim-Debug-d4353fe3cb8c8b52eaca.json",
+					"name" : "MetroSim",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "MetroSimDebug::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-MetroSimDebug-Debug-7e687b24e52fd8e79c49.json",
+					"name" : "MetroSimDebug",
+					"projectIndex" : 0
+				}
+			]
 		}
 	],
 	"kind" : "codemodel",
