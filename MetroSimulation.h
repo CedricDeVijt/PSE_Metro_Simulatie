@@ -5,6 +5,7 @@
 
 class Tram;
 class Station;
+class Line;
 
 class MetroSimulation {
 public:
@@ -14,6 +15,7 @@ public:
 private:
     std::vector<Tram*> trams;
     std::vector<Station*> stations;
+    std::vector<Line*> lines;
 
     bool properlyInitialized;
 };

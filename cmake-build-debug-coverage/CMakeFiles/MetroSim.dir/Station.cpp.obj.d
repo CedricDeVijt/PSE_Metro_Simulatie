@@ -82,4 +82,5 @@ CMakeFiles/MetroSim.dir/Station.cpp.obj: \
  C:/Qt/Tools/mingw810_64/x86_64-w64-mingw32/include/pthread_unistd.h \
  C:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/atomic_word.h \
  C:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/ext/alloc_traits.h \
- C:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/basic_string.tcc
+ C:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/basic_string.tcc \
+ C:\Users\arne\Documents\2022-2023\s2\Talen\ En\ Automaten\PSE_Metro_Simulatie\Track.h

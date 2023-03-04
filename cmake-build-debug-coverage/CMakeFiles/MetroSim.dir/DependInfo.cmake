@@ -8,9 +8,11 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/Line.cpp" "CMakeFiles/MetroSim.dir/Line.cpp.obj" "gcc" "CMakeFiles/MetroSim.dir/Line.cpp.obj.d"
   "C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/MetroSimulation.cpp" "CMakeFiles/MetroSim.dir/MetroSimulation.cpp.obj" "gcc" "CMakeFiles/MetroSim.dir/MetroSimulation.cpp.obj.d"
   "C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/MetroXMLParser.cpp" "CMakeFiles/MetroSim.dir/MetroXMLParser.cpp.obj" "gcc" "CMakeFiles/MetroSim.dir/MetroXMLParser.cpp.obj.d"
   "C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/Station.cpp" "CMakeFiles/MetroSim.dir/Station.cpp.obj" "gcc" "CMakeFiles/MetroSim.dir/Station.cpp.obj.d"
+  "C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/Track.cpp" "CMakeFiles/MetroSim.dir/Track.cpp.obj" "gcc" "CMakeFiles/MetroSim.dir/Track.cpp.obj.d"
   "C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/Tram.cpp" "CMakeFiles/MetroSim.dir/Tram.cpp.obj" "gcc" "CMakeFiles/MetroSim.dir/Tram.cpp.obj.d"
   "C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/main.cpp" "CMakeFiles/MetroSim.dir/main.cpp.obj" "gcc" "CMakeFiles/MetroSim.dir/main.cpp.obj.d"
   "C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/tinyxml/tinystr.cpp" "CMakeFiles/MetroSim.dir/tinyxml/tinystr.cpp.obj" "gcc" "CMakeFiles/MetroSim.dir/tinyxml/tinystr.cpp.obj.d"

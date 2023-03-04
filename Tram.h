@@ -5,24 +5,24 @@
 class Tram {
 public:
     // Constructor
-    Tram(int trackNumber, int speed, Station *startStation);
+    Tram(int lineNumber, int speed, Station *startStation);
     Tram();
 
     // Destructor
     virtual ~Tram();
 
     // Getters
-    int getTrackNumber() const;
+    int getLineNumber() const;
     int getSpeed() const;
     Station *getStartStation() const;
 
     // Setters
-    void setTrackNumber(int lineNumber);
+    void setLineNumber(int lineNumber);
     void setSpeed(int speed);
     void setStartStation(Station *startStation);
 
 private:
-    int trackNumber;
+    int lineNumber;
     int speed;
     Station *startStation;
 

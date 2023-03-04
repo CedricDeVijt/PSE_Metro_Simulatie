@@ -7,12 +7,11 @@ MetroSimulation::MetroSimulation(const std::string& filename) {
     if (parser.isProperlyInitialized() && parser.isProperlyParsed()) {
         trams = parser.getTrams();
         stations = parser.getStations();
+        lines = parser.getLines();
         properlyInitialized = true;
     } else {
         properlyInitialized = false;
     }
 }
 
-bool MetroSimulation::isProperlyInitialized() const {
-    return properlyInitialized;
-}
+bool MetroSimulation::isProperlyInitialized() const { return properlyInitialized; }

@@ -24,7 +24,7 @@ set(RELEASE_SOURCE_FILES main.cpp
         ./tinyxml/tinystr.cpp ./tinyxml/tinystr.h
         ./tinyxml/tinyxml.cpp ./tinyxml/tinyxml.h
         ./tinyxml/tinyxmlparser.cpp
-        DesignByContract.h)
+        DesignByContract.h Track.cpp Track.h Line.cpp Line.h)
 
 # Set source files for DEBUG target
 set(DEBUG_SOURCE_FILES )

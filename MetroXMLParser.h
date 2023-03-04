@@ -6,6 +6,7 @@
 
 class Tram;
 class Station;
+class Line;
 
 class MetroXMLParser {
 public:
@@ -16,6 +17,7 @@ public:
 
     const std::vector<Tram *> &getTrams() const;
     const std::vector<Station *> &getStations() const;
+    const std::vector<Line *> &getLines() const;
 
     void handleStations();
     void handleTrams();
@@ -25,6 +27,7 @@ public:
 private:
     std::vector<Tram*> trams;
     std::vector<Station*> stations;
+    std::vector<Line*> lines;
     std::string filename;
 
     bool properlyInitialized;

@@ -4,6 +4,8 @@
 #include "Tram.h"
 #include "Station.h"
 #include "DesignByContract.h"
+#include "Track.h"
+#include "Line.h"
 
 MetroXMLParser::MetroXMLParser(const std::string &filename) : filename(filename) {
     properlyParsed = parse();
@@ -34,21 +36,22 @@ bool MetroXMLParser::parse() {
             std::string naam = elem->FirstChildElement("naam")->GetText();
             std::string volgende = elem->FirstChildElement("volgende")->GetText();
             std::string vorige = elem->FirstChildElement("vorige")->GetText();
-            int spoorNr = atoi(elem->FirstChildElement("spoorNr")->GetText());
+            int lineNr = atoi(elem->FirstChildElement("spoorNr")->GetText());
 
             Station *newStation = new Station;
             newStation->setName(naam);
-            newStation->setTrackNumber(spoorNr);
+            newStation->setLineNumber(lineNr);
             stations.push_back(newStation);
 
             stationMap[newStation] = std::pair<std::string, std::string> (volgende, vorige);
+
         } else if (elemName == "TRAM") {
             int lijnNr = atoi(elem->FirstChildElement("lijnNr")->GetText());
             int snelheid = atoi(elem->FirstChildElement("snelheid")->GetText());
             std::string begin = elem->FirstChildElement("beginStation")->GetText();
 
             Tram *newTram = new Tram;
-            newTram->setTrackNumber(lijnNr);
+            newTram->setLineNumber(lijnNr);
             newTram->setSpeed(snelheid);
             trams.push_back(newTram);
 
@@ -61,11 +64,6 @@ bool MetroXMLParser::parse() {
     handleTrams();
     return true;
 }
-
-const std::vector<Tram *> &MetroXMLParser::getTrams() const {return trams;}
-const std::vector<Station *> &MetroXMLParser::getStations() const {return stations;}
-bool MetroXMLParser::isProperlyInitialized() const {return properlyInitialized;}
-bool MetroXMLParser::isProperlyParsed() const {return properlyParsed;}
 
 void MetroXMLParser::handleTrams() {
     REQUIRE(!tramMap.empty(),"tramMap is empty");
@@ -84,6 +82,20 @@ void MetroXMLParser::handleTrams() {
                 found = true;
                 current->setStartStation(target);
             }
+        }
+
+        bool foundLine = false;
+        for (int j = 0; j < static_cast<int>(lines.size()); j++) {
+            if (foundLine) { continue; }
+            if (lines[j]->getLineNumber() == trams[i]->getLineNumber()) {
+                foundLine = true;
+                lines[j]->addTram(trams[i]);
+            }
+        }
+        if (!foundLine) {
+            Line *newLine = new Line(trams[i]->getLineNumber());
+            newLine->addTram(trams[i]);
+            lines.push_back(newLine);
         }
     }
 }
@@ -106,11 +118,25 @@ void MetroXMLParser::handleStations() {
             target = stations[j];
             if (target->getName()==volgende) {
                 volgendeFound = true;
-                current->setNextStation(target);
+                current->setNextTrack(target);
             } else if (target->getName()==vorige) {
                 vorigeFound = true;
-                current->setPreviousStation(target);
+                current->setPrevTrack(target);
             }
+        }
+
+        bool foundLine = false;
+        for (int j = 0; j < static_cast<int>(lines.size()); j++) {
+            if (foundLine) { continue; }
+            if (lines[j]->getLineNumber() == stations[i]->getLineNumber()) {
+                foundLine = true;
+                lines[j]->addTrack(stations[i]->getNextTrack());
+            }
+        }
+        if (!foundLine) {
+            Line *newLine = new Line(stations[i]->getLineNumber());
+            newLine->addTrack(stations[i]->getNextTrack());
+            lines.push_back(newLine);
         }
     }
 }
@@ -119,7 +145,7 @@ void MetroXMLParser::verify() {
     isVerified = true;
     bool connectedProperly;
     for (int i = 0; i < static_cast<int>(stations.size()); i++) {
-        connectedProperly = stations[i]->getPreviousStation() != NULL && stations[i]->getNextStation() != NULL;
+        connectedProperly = stations[i]->getPrevTrack()->getBegin() != NULL && stations[i]->getNextTrack()->getAnEnd() != NULL;
         ENSURE(connectedProperly, "Stations not connected properly");
         stations[i]->setProperlyInitialized(connectedProperly);
         if (!connectedProperly) {
@@ -134,7 +160,7 @@ void MetroXMLParser::verify() {
         ENSURE(validStartstation, "Invalid startstation of tram");
 
         if (validStartstation) {
-            hasCorrespondingLine = trams[i]->getTrackNumber() == trams[i]->getStartStation()->getTrackNumber();
+            hasCorrespondingLine = trams[i]->getLineNumber() == trams[i]->getStartStation()->getLineNumber();
             ENSURE(hasCorrespondingLine, "Track of tram does not correspond with track startStation");
 
             if (!hasCorrespondingLine) {
@@ -144,4 +170,19 @@ void MetroXMLParser::verify() {
             isVerified = false;
         }
     }
+
+    bool lineHasTram;
+    for (int i = 0; i < static_cast<int>(lines.size()); ++i) {
+        lineHasTram = lines[i]->getTrams().size() > 0;
+        ENSURE(lineHasTram, "Not every line has a tram");
+        if (!lineHasTram) {
+            isVerified = false;
+        }
+    }
 }
+
+const std::vector<Tram *> &MetroXMLParser::getTrams() const {return trams;}
+const std::vector<Station *> &MetroXMLParser::getStations() const {return stations;}
+bool MetroXMLParser::isProperlyInitialized() const {return properlyInitialized;}
+bool MetroXMLParser::isProperlyParsed() const {return properlyParsed;}
+const std::vector<Line *> &MetroXMLParser::getLines() const { return lines; }

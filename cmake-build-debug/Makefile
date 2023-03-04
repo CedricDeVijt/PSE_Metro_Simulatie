@@ -141,6 +141,30 @@ MetroSimDebug/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\MetroSimDebug.dir\build.make CMakeFiles/MetroSimDebug.dir/build
 .PHONY : MetroSimDebug/fast
 
+Line.obj: Line.cpp.obj
+.PHONY : Line.obj
+
+# target to build an object file
+Line.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\MetroSim.dir\build.make CMakeFiles/MetroSim.dir/Line.cpp.obj
+.PHONY : Line.cpp.obj
+
+Line.i: Line.cpp.i
+.PHONY : Line.i
+
+# target to preprocess a source file
+Line.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\MetroSim.dir\build.make CMakeFiles/MetroSim.dir/Line.cpp.i
+.PHONY : Line.cpp.i
+
+Line.s: Line.cpp.s
+.PHONY : Line.s
+
+# target to generate assembly for a file
+Line.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\MetroSim.dir\build.make CMakeFiles/MetroSim.dir/Line.cpp.s
+.PHONY : Line.cpp.s
+
 MetroSimulation.obj: MetroSimulation.cpp.obj
 .PHONY : MetroSimulation.obj
 
@@ -212,6 +236,30 @@ Station.s: Station.cpp.s
 Station.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\MetroSim.dir\build.make CMakeFiles/MetroSim.dir/Station.cpp.s
 .PHONY : Station.cpp.s
+
+Track.obj: Track.cpp.obj
+.PHONY : Track.obj
+
+# target to build an object file
+Track.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\MetroSim.dir\build.make CMakeFiles/MetroSim.dir/Track.cpp.obj
+.PHONY : Track.cpp.obj
+
+Track.i: Track.cpp.i
+.PHONY : Track.i
+
+# target to preprocess a source file
+Track.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\MetroSim.dir\build.make CMakeFiles/MetroSim.dir/Track.cpp.i
+.PHONY : Track.cpp.i
+
+Track.s: Track.cpp.s
+.PHONY : Track.s
+
+# target to generate assembly for a file
+Track.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\MetroSim.dir\build.make CMakeFiles/MetroSim.dir/Track.cpp.s
+.PHONY : Track.cpp.s
 
 Tram.obj: Tram.cpp.obj
 .PHONY : Tram.obj
@@ -370,6 +418,9 @@ help:
 	@echo ... rebuild_cache
 	@echo ... MetroSim
 	@echo ... MetroSimDebug
+	@echo ... Line.obj
+	@echo ... Line.i
+	@echo ... Line.s
 	@echo ... MetroSimulation.obj
 	@echo ... MetroSimulation.i
 	@echo ... MetroSimulation.s
@@ -379,6 +430,9 @@ help:
 	@echo ... Station.obj
 	@echo ... Station.i
 	@echo ... Station.s
+	@echo ... Track.obj
+	@echo ... Track.i
+	@echo ... Track.s
 	@echo ... Tram.obj
 	@echo ... Tram.i
 	@echo ... Tram.s

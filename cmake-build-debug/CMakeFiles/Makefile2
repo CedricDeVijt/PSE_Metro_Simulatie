@@ -82,12 +82,12 @@ clean: CMakeFiles/MetroSimDebug.dir/clean
 CMakeFiles/MetroSim.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\MetroSim.dir\build.make CMakeFiles/MetroSim.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\MetroSim.dir\build.make CMakeFiles/MetroSim.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\Users\arne\Documents\2022-2023\s2\Talen En Automaten\PSE_Metro_Simulatie\cmake-build-debug\CMakeFiles" --progress-num=1,2,3,4,5,6,7,8,9,10 "Built target MetroSim"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\Users\arne\Documents\2022-2023\s2\Talen En Automaten\PSE_Metro_Simulatie\cmake-build-debug\CMakeFiles" --progress-num=1,2,3,4,5,6,7,8,9,10,11,12 "Built target MetroSim"
 .PHONY : CMakeFiles/MetroSim.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/MetroSim.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\arne\Documents\2022-2023\s2\Talen En Automaten\PSE_Metro_Simulatie\cmake-build-debug\CMakeFiles" 10
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\arne\Documents\2022-2023\s2\Talen En Automaten\PSE_Metro_Simulatie\cmake-build-debug\CMakeFiles" 12
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/MetroSim.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\arne\Documents\2022-2023\s2\Talen En Automaten\PSE_Metro_Simulatie\cmake-build-debug\CMakeFiles" 0
 .PHONY : CMakeFiles/MetroSim.dir/rule
@@ -108,7 +108,7 @@ CMakeFiles/MetroSim.dir/clean:
 CMakeFiles/MetroSimDebug.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\MetroSimDebug.dir\build.make CMakeFiles/MetroSimDebug.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\MetroSimDebug.dir\build.make CMakeFiles/MetroSimDebug.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\Users\arne\Documents\2022-2023\s2\Talen En Automaten\PSE_Metro_Simulatie\cmake-build-debug\CMakeFiles" --progress-num=11,12 "Built target MetroSimDebug"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\Users\arne\Documents\2022-2023\s2\Talen En Automaten\PSE_Metro_Simulatie\cmake-build-debug\CMakeFiles" --progress-num=13,14 "Built target MetroSimDebug"
 .PHONY : CMakeFiles/MetroSimDebug.dir/all
 
 # Build rule for subdir invocation for target.

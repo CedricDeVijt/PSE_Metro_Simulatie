@@ -2,10 +2,12 @@
 #define PSE_METRO_SIMULATIE_STATION_H
 #include <string>
 
+class Track;
+
 class Station {
 public:
     // Constructor
-    Station(const std::string &name, Station *nextStation, Station *previousStation, int trackNumber);
+    Station(const std::string &name, Track *nextTrack, Track *prevTrack, int lineNumber);
     Station();
 
     // Destructor
@@ -13,22 +15,22 @@ public:
 
     // Getters
     const std::string &getName() const;
-    Station *getNextStation() const;
-    Station *getPreviousStation() const;
-    int getTrackNumber() const;
+    Track *getNextTrack() const;
+    Track *getPrevTrack() const;
+    int getLineNumber() const;
     bool isProperlyInitialized() const;
 
     // Setters
     void setName(const std::string &name);
-    void setNextStation(Station *nextStation);
-    void setPreviousStation(Station *previousStation);
-    void setTrackNumber(int trackNumber);
+    void setNextTrack(Station *nextStation);
+    void setPrevTrack(Station *prevStation);
+    void setLineNumber(int lineNumber);
     void setProperlyInitialized(bool properlyInitialized);
 private:
     std::string name;
-    Station *nextStation;
-    Station *previousStation;
-    int trackNumber;
+    Track *nextTrack;
+    Track *prevTrack;
+    int lineNumber;
 
     bool properlyInitialized;
 };

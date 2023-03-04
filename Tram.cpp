@@ -3,7 +3,7 @@
 Tram::Tram() {
     startStation = NULL;
 }
-Tram::Tram(int trackNumber, int speed, Station *startStation) : trackNumber(trackNumber), speed(speed),
+Tram::Tram(int lineNumber, int speed, Station *startStation) : lineNumber(lineNumber), speed(speed),
                                                                startStation(startStation) {
     properlyInitialized = true;
 }
@@ -12,12 +12,12 @@ Tram::~Tram() {
 
 }
 
-int Tram::getTrackNumber() const {
-    return trackNumber;
+int Tram::getLineNumber() const {
+    return lineNumber;
 }
 
-void Tram::setTrackNumber(int trackNumber_) {
-    Tram::trackNumber = trackNumber_;
+void Tram::setLineNumber(int lineNumber_) {
+    Tram::lineNumber = lineNumber_;
 }
 
 int Tram::getSpeed() const {

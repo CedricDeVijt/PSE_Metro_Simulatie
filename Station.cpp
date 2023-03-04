@@ -1,61 +1,31 @@
 #include "Station.h"
+#include "Track.h"
 
 Station::Station() {
-    previousStation = NULL;
-    nextStation = NULL;
+    nextTrack = NULL;
+    prevTrack = NULL;
 }
-Station::Station(const std::string &name, Station *nextStation, Station *previousStation, int trackNumber) : name(name),
-                                                                                                            nextStation(
-                                                                                                                    nextStation),
-                                                                                                            previousStation(
-                                                                                                                    previousStation),
-                                                                                                            trackNumber(
-                                                                                                                    trackNumber) {
+
+Station::Station(const std::string &name, Track *nextTrack, Track *prevTrack, int lineNumber) : name(name),
+                                                                                                nextTrack(nextTrack),
+                                                                                                prevTrack(prevTrack),
+                                                                                                lineNumber(
+                                                                                                        lineNumber) {
     properlyInitialized = true;
 }
 
-const std::string &Station::getName() const {
-    return name;
-}
+Station::~Station() {}
 
-void Station::setName(const std::string &name_) {
-    Station::name = name_;
-}
+//getters
+const std::string &Station::getName() const { return name; }
+int Station::getLineNumber() const { return lineNumber; }
+bool Station::isProperlyInitialized() const { return properlyInitialized; }
+Track *Station::getNextTrack() const { return nextTrack; }
+Track *Station::getPrevTrack() const { return prevTrack; }
 
-Station *Station::getNextStation() const {
-    return nextStation;
-}
-
-void Station::setNextStation(Station *nextStation_) {
-    Station::nextStation = nextStation_;
-}
-
-Station *Station::getPreviousStation() const {
-    return previousStation;
-}
-
-void Station::setPreviousStation(Station *previousStation_) {
-    Station::previousStation = previousStation_;
-}
-
-int Station::getTrackNumber() const {
-    return trackNumber;
-}
-
-void Station::setTrackNumber(int trackNumber_) {
-    Station::trackNumber = trackNumber_;
-}
-
-Station::~Station() {
-}
-
-bool Station::isProperlyInitialized() const {
-    return properlyInitialized;
-}
-
-void Station::setProperlyInitialized(bool properlyInitialized_) {
-    Station::properlyInitialized = properlyInitialized_;
-}
-
-
-
+//setters
+void Station::setNextTrack(Station *nextStation) { Station::nextTrack = new Track(this, nextStation); }
+void Station::setPrevTrack(Station *prevStation) { Station::prevTrack = new Track(prevStation, this); }
+void Station::setLineNumber(int lineNumber_) { Station::lineNumber = lineNumber_; }
+void Station::setName(const std::string &name_) { Station::name = name_; }
+void Station::setProperlyInitialized(bool properlyInitialized_) { Station::properlyInitialized = properlyInitialized_; }

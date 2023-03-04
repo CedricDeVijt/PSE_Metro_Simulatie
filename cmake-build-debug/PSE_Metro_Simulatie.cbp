@@ -129,6 +129,12 @@
 		<Unit filename="C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/DesignByContract.h">
 			<Option target="MetroSim"/>
 		</Unit>
+		<Unit filename="C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/Line.cpp">
+			<Option target="MetroSim"/>
+		</Unit>
+		<Unit filename="C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/Line.h">
+			<Option target="MetroSim"/>
+		</Unit>
 		<Unit filename="C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/MetroSimulation.cpp">
 			<Option target="MetroSim"/>
 		</Unit>
@@ -145,6 +151,12 @@
 			<Option target="MetroSim"/>
 		</Unit>
 		<Unit filename="C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/Station.h">
+			<Option target="MetroSim"/>
+		</Unit>
+		<Unit filename="C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/Track.cpp">
+			<Option target="MetroSim"/>
+		</Unit>
+		<Unit filename="C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/Track.h">
 			<Option target="MetroSim"/>
 		</Unit>
 		<Unit filename="C:/Users/arne/Documents/2022-2023/s2/Talen En Automaten/PSE_Metro_Simulatie/Tram.cpp">
