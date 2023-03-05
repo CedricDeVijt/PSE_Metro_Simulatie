@@ -1,6 +1,6 @@
 #include "iostream"
 #include "MetroXMLParser.h"
-#include "tinyxml/tinyxml.h"
+#include "../tinyxml/tinyxml.h"
 #include "Tram.h"
 #include "Station.h"
 #include "DesignByContract.h"

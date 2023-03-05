@@ -56,10 +56,10 @@ RM = "C:\Program Files\JetBrains\CLion 2022.2.4\bin\cmake\win\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\Users\arne\Documents\2022-2023\s2\Talen En Automaten\PSE_Metro_Simulatie"
+CMAKE_SOURCE_DIR = C:\Users\arne\Documents\2022-2023\s2\PSE\PSE_Metro_Simulatie
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\Users\arne\Documents\2022-2023\s2\Talen En Automaten\PSE_Metro_Simulatie\cmake-build-debug"
+CMAKE_BINARY_DIR = C:\Users\arne\Documents\2022-2023\s2\PSE\PSE_Metro_Simulatie\cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -86,9 +86,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\arne\Documents\2022-2023\s2\Talen En Automaten\PSE_Metro_Simulatie\cmake-build-debug\CMakeFiles" "C:\Users\arne\Documents\2022-2023\s2\Talen En Automaten\PSE_Metro_Simulatie\cmake-build-debug\\CMakeFiles\progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\arne\Documents\2022-2023\s2\PSE\PSE_Metro_Simulatie\cmake-build-debug\CMakeFiles C:\Users\arne\Documents\2022-2023\s2\PSE\PSE_Metro_Simulatie\cmake-build-debug\\CMakeFiles\progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\arne\Documents\2022-2023\s2\Talen En Automaten\PSE_Metro_Simulatie\cmake-build-debug\CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\arne\Documents\2022-2023\s2\PSE\PSE_Metro_Simulatie\cmake-build-debug\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -116,17 +116,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named MetroSim
+# Target rules for targets named main_executable
 
 # Build rule for target.
-MetroSim: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 MetroSim
-.PHONY : MetroSim
+main_executable: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 main_executable
+.PHONY : main_executable
 
 # fast build rule for target.
-MetroSim/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MetroSim.dir\build.make CMakeFiles/MetroSim.dir/build
-.PHONY : MetroSim/fast
+main_executable/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_executable.dir\build.make CMakeFiles/main_executable.dir/build
+.PHONY : main_executable/fast
 
 #=============================================================================
 # Target rules for targets named testing_tool
@@ -141,228 +141,247 @@ testing_tool/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\testing_tool.dir\build.make CMakeFiles/testing_tool.dir/build
 .PHONY : testing_tool/fast
 
-Line.obj: Line.cpp.obj
-.PHONY : Line.obj
+src/Line.obj: src/Line.cpp.obj
+.PHONY : src/Line.obj
 
 # target to build an object file
-Line.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MetroSim.dir\build.make CMakeFiles/MetroSim.dir/Line.cpp.obj
-.PHONY : Line.cpp.obj
+src/Line.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_executable.dir\build.make CMakeFiles/main_executable.dir/src/Line.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\testing_tool.dir\build.make CMakeFiles/testing_tool.dir/src/Line.cpp.obj
+.PHONY : src/Line.cpp.obj
 
-Line.i: Line.cpp.i
-.PHONY : Line.i
+src/Line.i: src/Line.cpp.i
+.PHONY : src/Line.i
 
 # target to preprocess a source file
-Line.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MetroSim.dir\build.make CMakeFiles/MetroSim.dir/Line.cpp.i
-.PHONY : Line.cpp.i
+src/Line.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_executable.dir\build.make CMakeFiles/main_executable.dir/src/Line.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\testing_tool.dir\build.make CMakeFiles/testing_tool.dir/src/Line.cpp.i
+.PHONY : src/Line.cpp.i
 
-Line.s: Line.cpp.s
-.PHONY : Line.s
+src/Line.s: src/Line.cpp.s
+.PHONY : src/Line.s
 
 # target to generate assembly for a file
-Line.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MetroSim.dir\build.make CMakeFiles/MetroSim.dir/Line.cpp.s
-.PHONY : Line.cpp.s
+src/Line.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_executable.dir\build.make CMakeFiles/main_executable.dir/src/Line.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\testing_tool.dir\build.make CMakeFiles/testing_tool.dir/src/Line.cpp.s
+.PHONY : src/Line.cpp.s
 
-MetroSimulation.obj: MetroSimulation.cpp.obj
-.PHONY : MetroSimulation.obj
+src/MetroSimulation.obj: src/MetroSimulation.cpp.obj
+.PHONY : src/MetroSimulation.obj
 
 # target to build an object file
-MetroSimulation.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MetroSim.dir\build.make CMakeFiles/MetroSim.dir/MetroSimulation.cpp.obj
-.PHONY : MetroSimulation.cpp.obj
+src/MetroSimulation.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_executable.dir\build.make CMakeFiles/main_executable.dir/src/MetroSimulation.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\testing_tool.dir\build.make CMakeFiles/testing_tool.dir/src/MetroSimulation.cpp.obj
+.PHONY : src/MetroSimulation.cpp.obj
 
-MetroSimulation.i: MetroSimulation.cpp.i
-.PHONY : MetroSimulation.i
+src/MetroSimulation.i: src/MetroSimulation.cpp.i
+.PHONY : src/MetroSimulation.i
 
 # target to preprocess a source file
-MetroSimulation.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MetroSim.dir\build.make CMakeFiles/MetroSim.dir/MetroSimulation.cpp.i
-.PHONY : MetroSimulation.cpp.i
+src/MetroSimulation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_executable.dir\build.make CMakeFiles/main_executable.dir/src/MetroSimulation.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\testing_tool.dir\build.make CMakeFiles/testing_tool.dir/src/MetroSimulation.cpp.i
+.PHONY : src/MetroSimulation.cpp.i
 
-MetroSimulation.s: MetroSimulation.cpp.s
-.PHONY : MetroSimulation.s
+src/MetroSimulation.s: src/MetroSimulation.cpp.s
+.PHONY : src/MetroSimulation.s
 
 # target to generate assembly for a file
-MetroSimulation.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MetroSim.dir\build.make CMakeFiles/MetroSim.dir/MetroSimulation.cpp.s
-.PHONY : MetroSimulation.cpp.s
+src/MetroSimulation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_executable.dir\build.make CMakeFiles/main_executable.dir/src/MetroSimulation.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\testing_tool.dir\build.make CMakeFiles/testing_tool.dir/src/MetroSimulation.cpp.s
+.PHONY : src/MetroSimulation.cpp.s
 
-MetroXMLParser.obj: MetroXMLParser.cpp.obj
-.PHONY : MetroXMLParser.obj
+src/MetroXMLParser.obj: src/MetroXMLParser.cpp.obj
+.PHONY : src/MetroXMLParser.obj
 
 # target to build an object file
-MetroXMLParser.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MetroSim.dir\build.make CMakeFiles/MetroSim.dir/MetroXMLParser.cpp.obj
-.PHONY : MetroXMLParser.cpp.obj
+src/MetroXMLParser.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_executable.dir\build.make CMakeFiles/main_executable.dir/src/MetroXMLParser.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\testing_tool.dir\build.make CMakeFiles/testing_tool.dir/src/MetroXMLParser.cpp.obj
+.PHONY : src/MetroXMLParser.cpp.obj
 
-MetroXMLParser.i: MetroXMLParser.cpp.i
-.PHONY : MetroXMLParser.i
+src/MetroXMLParser.i: src/MetroXMLParser.cpp.i
+.PHONY : src/MetroXMLParser.i
 
 # target to preprocess a source file
-MetroXMLParser.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MetroSim.dir\build.make CMakeFiles/MetroSim.dir/MetroXMLParser.cpp.i
-.PHONY : MetroXMLParser.cpp.i
+src/MetroXMLParser.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_executable.dir\build.make CMakeFiles/main_executable.dir/src/MetroXMLParser.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\testing_tool.dir\build.make CMakeFiles/testing_tool.dir/src/MetroXMLParser.cpp.i
+.PHONY : src/MetroXMLParser.cpp.i
 
-MetroXMLParser.s: MetroXMLParser.cpp.s
-.PHONY : MetroXMLParser.s
+src/MetroXMLParser.s: src/MetroXMLParser.cpp.s
+.PHONY : src/MetroXMLParser.s
 
 # target to generate assembly for a file
-MetroXMLParser.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MetroSim.dir\build.make CMakeFiles/MetroSim.dir/MetroXMLParser.cpp.s
-.PHONY : MetroXMLParser.cpp.s
+src/MetroXMLParser.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_executable.dir\build.make CMakeFiles/main_executable.dir/src/MetroXMLParser.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\testing_tool.dir\build.make CMakeFiles/testing_tool.dir/src/MetroXMLParser.cpp.s
+.PHONY : src/MetroXMLParser.cpp.s
 
-ParserTest.obj: ParserTest.cpp.obj
-.PHONY : ParserTest.obj
+src/ParserTest.obj: src/ParserTest.cpp.obj
+.PHONY : src/ParserTest.obj
 
 # target to build an object file
-ParserTest.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\testing_tool.dir\build.make CMakeFiles/testing_tool.dir/ParserTest.cpp.obj
-.PHONY : ParserTest.cpp.obj
+src/ParserTest.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\testing_tool.dir\build.make CMakeFiles/testing_tool.dir/src/ParserTest.cpp.obj
+.PHONY : src/ParserTest.cpp.obj
 
-ParserTest.i: ParserTest.cpp.i
-.PHONY : ParserTest.i
+src/ParserTest.i: src/ParserTest.cpp.i
+.PHONY : src/ParserTest.i
 
 # target to preprocess a source file
-ParserTest.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\testing_tool.dir\build.make CMakeFiles/testing_tool.dir/ParserTest.cpp.i
-.PHONY : ParserTest.cpp.i
+src/ParserTest.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\testing_tool.dir\build.make CMakeFiles/testing_tool.dir/src/ParserTest.cpp.i
+.PHONY : src/ParserTest.cpp.i
 
-ParserTest.s: ParserTest.cpp.s
-.PHONY : ParserTest.s
+src/ParserTest.s: src/ParserTest.cpp.s
+.PHONY : src/ParserTest.s
 
 # target to generate assembly for a file
-ParserTest.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\testing_tool.dir\build.make CMakeFiles/testing_tool.dir/ParserTest.cpp.s
-.PHONY : ParserTest.cpp.s
+src/ParserTest.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\testing_tool.dir\build.make CMakeFiles/testing_tool.dir/src/ParserTest.cpp.s
+.PHONY : src/ParserTest.cpp.s
 
-Station.obj: Station.cpp.obj
-.PHONY : Station.obj
+src/Station.obj: src/Station.cpp.obj
+.PHONY : src/Station.obj
 
 # target to build an object file
-Station.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MetroSim.dir\build.make CMakeFiles/MetroSim.dir/Station.cpp.obj
-.PHONY : Station.cpp.obj
+src/Station.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_executable.dir\build.make CMakeFiles/main_executable.dir/src/Station.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\testing_tool.dir\build.make CMakeFiles/testing_tool.dir/src/Station.cpp.obj
+.PHONY : src/Station.cpp.obj
 
-Station.i: Station.cpp.i
-.PHONY : Station.i
+src/Station.i: src/Station.cpp.i
+.PHONY : src/Station.i
 
 # target to preprocess a source file
-Station.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MetroSim.dir\build.make CMakeFiles/MetroSim.dir/Station.cpp.i
-.PHONY : Station.cpp.i
+src/Station.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_executable.dir\build.make CMakeFiles/main_executable.dir/src/Station.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\testing_tool.dir\build.make CMakeFiles/testing_tool.dir/src/Station.cpp.i
+.PHONY : src/Station.cpp.i
 
-Station.s: Station.cpp.s
-.PHONY : Station.s
+src/Station.s: src/Station.cpp.s
+.PHONY : src/Station.s
 
 # target to generate assembly for a file
-Station.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MetroSim.dir\build.make CMakeFiles/MetroSim.dir/Station.cpp.s
-.PHONY : Station.cpp.s
+src/Station.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_executable.dir\build.make CMakeFiles/main_executable.dir/src/Station.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\testing_tool.dir\build.make CMakeFiles/testing_tool.dir/src/Station.cpp.s
+.PHONY : src/Station.cpp.s
 
-Track.obj: Track.cpp.obj
-.PHONY : Track.obj
+src/Track.obj: src/Track.cpp.obj
+.PHONY : src/Track.obj
 
 # target to build an object file
-Track.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MetroSim.dir\build.make CMakeFiles/MetroSim.dir/Track.cpp.obj
-.PHONY : Track.cpp.obj
+src/Track.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_executable.dir\build.make CMakeFiles/main_executable.dir/src/Track.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\testing_tool.dir\build.make CMakeFiles/testing_tool.dir/src/Track.cpp.obj
+.PHONY : src/Track.cpp.obj
 
-Track.i: Track.cpp.i
-.PHONY : Track.i
+src/Track.i: src/Track.cpp.i
+.PHONY : src/Track.i
 
 # target to preprocess a source file
-Track.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MetroSim.dir\build.make CMakeFiles/MetroSim.dir/Track.cpp.i
-.PHONY : Track.cpp.i
+src/Track.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_executable.dir\build.make CMakeFiles/main_executable.dir/src/Track.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\testing_tool.dir\build.make CMakeFiles/testing_tool.dir/src/Track.cpp.i
+.PHONY : src/Track.cpp.i
 
-Track.s: Track.cpp.s
-.PHONY : Track.s
+src/Track.s: src/Track.cpp.s
+.PHONY : src/Track.s
 
 # target to generate assembly for a file
-Track.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MetroSim.dir\build.make CMakeFiles/MetroSim.dir/Track.cpp.s
-.PHONY : Track.cpp.s
+src/Track.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_executable.dir\build.make CMakeFiles/main_executable.dir/src/Track.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\testing_tool.dir\build.make CMakeFiles/testing_tool.dir/src/Track.cpp.s
+.PHONY : src/Track.cpp.s
 
-Tram.obj: Tram.cpp.obj
-.PHONY : Tram.obj
+src/Tram.obj: src/Tram.cpp.obj
+.PHONY : src/Tram.obj
 
 # target to build an object file
-Tram.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MetroSim.dir\build.make CMakeFiles/MetroSim.dir/Tram.cpp.obj
-.PHONY : Tram.cpp.obj
+src/Tram.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_executable.dir\build.make CMakeFiles/main_executable.dir/src/Tram.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\testing_tool.dir\build.make CMakeFiles/testing_tool.dir/src/Tram.cpp.obj
+.PHONY : src/Tram.cpp.obj
 
-Tram.i: Tram.cpp.i
-.PHONY : Tram.i
+src/Tram.i: src/Tram.cpp.i
+.PHONY : src/Tram.i
 
 # target to preprocess a source file
-Tram.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MetroSim.dir\build.make CMakeFiles/MetroSim.dir/Tram.cpp.i
-.PHONY : Tram.cpp.i
+src/Tram.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_executable.dir\build.make CMakeFiles/main_executable.dir/src/Tram.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\testing_tool.dir\build.make CMakeFiles/testing_tool.dir/src/Tram.cpp.i
+.PHONY : src/Tram.cpp.i
 
-Tram.s: Tram.cpp.s
-.PHONY : Tram.s
+src/Tram.s: src/Tram.cpp.s
+.PHONY : src/Tram.s
 
 # target to generate assembly for a file
-Tram.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MetroSim.dir\build.make CMakeFiles/MetroSim.dir/Tram.cpp.s
-.PHONY : Tram.cpp.s
+src/Tram.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_executable.dir\build.make CMakeFiles/main_executable.dir/src/Tram.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\testing_tool.dir\build.make CMakeFiles/testing_tool.dir/src/Tram.cpp.s
+.PHONY : src/Tram.cpp.s
 
-main.obj: main.cpp.obj
-.PHONY : main.obj
+src/main.obj: src/main.cpp.obj
+.PHONY : src/main.obj
 
 # target to build an object file
-main.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MetroSim.dir\build.make CMakeFiles/MetroSim.dir/main.cpp.obj
-.PHONY : main.cpp.obj
+src/main.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_executable.dir\build.make CMakeFiles/main_executable.dir/src/main.cpp.obj
+.PHONY : src/main.cpp.obj
 
-main.i: main.cpp.i
-.PHONY : main.i
+src/main.i: src/main.cpp.i
+.PHONY : src/main.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MetroSim.dir\build.make CMakeFiles/MetroSim.dir/main.cpp.i
-.PHONY : main.cpp.i
+src/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_executable.dir\build.make CMakeFiles/main_executable.dir/src/main.cpp.i
+.PHONY : src/main.cpp.i
 
-main.s: main.cpp.s
-.PHONY : main.s
+src/main.s: src/main.cpp.s
+.PHONY : src/main.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MetroSim.dir\build.make CMakeFiles/MetroSim.dir/main.cpp.s
-.PHONY : main.cpp.s
+src/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_executable.dir\build.make CMakeFiles/main_executable.dir/src/main.cpp.s
+.PHONY : src/main.cpp.s
 
-tests.obj: tests.cpp.obj
-.PHONY : tests.obj
+src/tests.obj: src/tests.cpp.obj
+.PHONY : src/tests.obj
 
 # target to build an object file
-tests.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\testing_tool.dir\build.make CMakeFiles/testing_tool.dir/tests.cpp.obj
-.PHONY : tests.cpp.obj
+src/tests.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\testing_tool.dir\build.make CMakeFiles/testing_tool.dir/src/tests.cpp.obj
+.PHONY : src/tests.cpp.obj
 
-tests.i: tests.cpp.i
-.PHONY : tests.i
+src/tests.i: src/tests.cpp.i
+.PHONY : src/tests.i
 
 # target to preprocess a source file
-tests.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\testing_tool.dir\build.make CMakeFiles/testing_tool.dir/tests.cpp.i
-.PHONY : tests.cpp.i
+src/tests.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\testing_tool.dir\build.make CMakeFiles/testing_tool.dir/src/tests.cpp.i
+.PHONY : src/tests.cpp.i
 
-tests.s: tests.cpp.s
-.PHONY : tests.s
+src/tests.s: src/tests.cpp.s
+.PHONY : src/tests.s
 
 # target to generate assembly for a file
-tests.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\testing_tool.dir\build.make CMakeFiles/testing_tool.dir/tests.cpp.s
-.PHONY : tests.cpp.s
+src/tests.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\testing_tool.dir\build.make CMakeFiles/testing_tool.dir/src/tests.cpp.s
+.PHONY : src/tests.cpp.s
 
 tinyxml/tinystr.obj: tinyxml/tinystr.cpp.obj
 .PHONY : tinyxml/tinystr.obj
 
 # target to build an object file
 tinyxml/tinystr.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MetroSim.dir\build.make CMakeFiles/MetroSim.dir/tinyxml/tinystr.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_executable.dir\build.make CMakeFiles/main_executable.dir/tinyxml/tinystr.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\testing_tool.dir\build.make CMakeFiles/testing_tool.dir/tinyxml/tinystr.cpp.obj
 .PHONY : tinyxml/tinystr.cpp.obj
 
 tinyxml/tinystr.i: tinyxml/tinystr.cpp.i
@@ -370,7 +389,8 @@ tinyxml/tinystr.i: tinyxml/tinystr.cpp.i
 
 # target to preprocess a source file
 tinyxml/tinystr.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MetroSim.dir\build.make CMakeFiles/MetroSim.dir/tinyxml/tinystr.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_executable.dir\build.make CMakeFiles/main_executable.dir/tinyxml/tinystr.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\testing_tool.dir\build.make CMakeFiles/testing_tool.dir/tinyxml/tinystr.cpp.i
 .PHONY : tinyxml/tinystr.cpp.i
 
 tinyxml/tinystr.s: tinyxml/tinystr.cpp.s
@@ -378,7 +398,8 @@ tinyxml/tinystr.s: tinyxml/tinystr.cpp.s
 
 # target to generate assembly for a file
 tinyxml/tinystr.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MetroSim.dir\build.make CMakeFiles/MetroSim.dir/tinyxml/tinystr.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_executable.dir\build.make CMakeFiles/main_executable.dir/tinyxml/tinystr.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\testing_tool.dir\build.make CMakeFiles/testing_tool.dir/tinyxml/tinystr.cpp.s
 .PHONY : tinyxml/tinystr.cpp.s
 
 tinyxml/tinyxml.obj: tinyxml/tinyxml.cpp.obj
@@ -386,7 +407,8 @@ tinyxml/tinyxml.obj: tinyxml/tinyxml.cpp.obj
 
 # target to build an object file
 tinyxml/tinyxml.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MetroSim.dir\build.make CMakeFiles/MetroSim.dir/tinyxml/tinyxml.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_executable.dir\build.make CMakeFiles/main_executable.dir/tinyxml/tinyxml.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\testing_tool.dir\build.make CMakeFiles/testing_tool.dir/tinyxml/tinyxml.cpp.obj
 .PHONY : tinyxml/tinyxml.cpp.obj
 
 tinyxml/tinyxml.i: tinyxml/tinyxml.cpp.i
@@ -394,7 +416,8 @@ tinyxml/tinyxml.i: tinyxml/tinyxml.cpp.i
 
 # target to preprocess a source file
 tinyxml/tinyxml.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MetroSim.dir\build.make CMakeFiles/MetroSim.dir/tinyxml/tinyxml.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_executable.dir\build.make CMakeFiles/main_executable.dir/tinyxml/tinyxml.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\testing_tool.dir\build.make CMakeFiles/testing_tool.dir/tinyxml/tinyxml.cpp.i
 .PHONY : tinyxml/tinyxml.cpp.i
 
 tinyxml/tinyxml.s: tinyxml/tinyxml.cpp.s
@@ -402,7 +425,8 @@ tinyxml/tinyxml.s: tinyxml/tinyxml.cpp.s
 
 # target to generate assembly for a file
 tinyxml/tinyxml.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MetroSim.dir\build.make CMakeFiles/MetroSim.dir/tinyxml/tinyxml.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_executable.dir\build.make CMakeFiles/main_executable.dir/tinyxml/tinyxml.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\testing_tool.dir\build.make CMakeFiles/testing_tool.dir/tinyxml/tinyxml.cpp.s
 .PHONY : tinyxml/tinyxml.cpp.s
 
 tinyxml/tinyxmlerror.obj: tinyxml/tinyxmlerror.cpp.obj
@@ -410,7 +434,8 @@ tinyxml/tinyxmlerror.obj: tinyxml/tinyxmlerror.cpp.obj
 
 # target to build an object file
 tinyxml/tinyxmlerror.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MetroSim.dir\build.make CMakeFiles/MetroSim.dir/tinyxml/tinyxmlerror.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_executable.dir\build.make CMakeFiles/main_executable.dir/tinyxml/tinyxmlerror.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\testing_tool.dir\build.make CMakeFiles/testing_tool.dir/tinyxml/tinyxmlerror.cpp.obj
 .PHONY : tinyxml/tinyxmlerror.cpp.obj
 
 tinyxml/tinyxmlerror.i: tinyxml/tinyxmlerror.cpp.i
@@ -418,7 +443,8 @@ tinyxml/tinyxmlerror.i: tinyxml/tinyxmlerror.cpp.i
 
 # target to preprocess a source file
 tinyxml/tinyxmlerror.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MetroSim.dir\build.make CMakeFiles/MetroSim.dir/tinyxml/tinyxmlerror.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_executable.dir\build.make CMakeFiles/main_executable.dir/tinyxml/tinyxmlerror.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\testing_tool.dir\build.make CMakeFiles/testing_tool.dir/tinyxml/tinyxmlerror.cpp.i
 .PHONY : tinyxml/tinyxmlerror.cpp.i
 
 tinyxml/tinyxmlerror.s: tinyxml/tinyxmlerror.cpp.s
@@ -426,7 +452,8 @@ tinyxml/tinyxmlerror.s: tinyxml/tinyxmlerror.cpp.s
 
 # target to generate assembly for a file
 tinyxml/tinyxmlerror.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MetroSim.dir\build.make CMakeFiles/MetroSim.dir/tinyxml/tinyxmlerror.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_executable.dir\build.make CMakeFiles/main_executable.dir/tinyxml/tinyxmlerror.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\testing_tool.dir\build.make CMakeFiles/testing_tool.dir/tinyxml/tinyxmlerror.cpp.s
 .PHONY : tinyxml/tinyxmlerror.cpp.s
 
 tinyxml/tinyxmlparser.obj: tinyxml/tinyxmlparser.cpp.obj
@@ -434,7 +461,8 @@ tinyxml/tinyxmlparser.obj: tinyxml/tinyxmlparser.cpp.obj
 
 # target to build an object file
 tinyxml/tinyxmlparser.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MetroSim.dir\build.make CMakeFiles/MetroSim.dir/tinyxml/tinyxmlparser.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_executable.dir\build.make CMakeFiles/main_executable.dir/tinyxml/tinyxmlparser.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\testing_tool.dir\build.make CMakeFiles/testing_tool.dir/tinyxml/tinyxmlparser.cpp.obj
 .PHONY : tinyxml/tinyxmlparser.cpp.obj
 
 tinyxml/tinyxmlparser.i: tinyxml/tinyxmlparser.cpp.i
@@ -442,7 +470,8 @@ tinyxml/tinyxmlparser.i: tinyxml/tinyxmlparser.cpp.i
 
 # target to preprocess a source file
 tinyxml/tinyxmlparser.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MetroSim.dir\build.make CMakeFiles/MetroSim.dir/tinyxml/tinyxmlparser.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_executable.dir\build.make CMakeFiles/main_executable.dir/tinyxml/tinyxmlparser.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\testing_tool.dir\build.make CMakeFiles/testing_tool.dir/tinyxml/tinyxmlparser.cpp.i
 .PHONY : tinyxml/tinyxmlparser.cpp.i
 
 tinyxml/tinyxmlparser.s: tinyxml/tinyxmlparser.cpp.s
@@ -450,7 +479,8 @@ tinyxml/tinyxmlparser.s: tinyxml/tinyxmlparser.cpp.s
 
 # target to generate assembly for a file
 tinyxml/tinyxmlparser.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MetroSim.dir\build.make CMakeFiles/MetroSim.dir/tinyxml/tinyxmlparser.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_executable.dir\build.make CMakeFiles/main_executable.dir/tinyxml/tinyxmlparser.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\testing_tool.dir\build.make CMakeFiles/testing_tool.dir/tinyxml/tinyxmlparser.cpp.s
 .PHONY : tinyxml/tinyxmlparser.cpp.s
 
 # Help Target
@@ -461,35 +491,35 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... MetroSim
+	@echo ... main_executable
 	@echo ... testing_tool
-	@echo ... Line.obj
-	@echo ... Line.i
-	@echo ... Line.s
-	@echo ... MetroSimulation.obj
-	@echo ... MetroSimulation.i
-	@echo ... MetroSimulation.s
-	@echo ... MetroXMLParser.obj
-	@echo ... MetroXMLParser.i
-	@echo ... MetroXMLParser.s
-	@echo ... ParserTest.obj
-	@echo ... ParserTest.i
-	@echo ... ParserTest.s
-	@echo ... Station.obj
-	@echo ... Station.i
-	@echo ... Station.s
-	@echo ... Track.obj
-	@echo ... Track.i
-	@echo ... Track.s
-	@echo ... Tram.obj
-	@echo ... Tram.i
-	@echo ... Tram.s
-	@echo ... main.obj
-	@echo ... main.i
-	@echo ... main.s
-	@echo ... tests.obj
-	@echo ... tests.i
-	@echo ... tests.s
+	@echo ... src/Line.obj
+	@echo ... src/Line.i
+	@echo ... src/Line.s
+	@echo ... src/MetroSimulation.obj
+	@echo ... src/MetroSimulation.i
+	@echo ... src/MetroSimulation.s
+	@echo ... src/MetroXMLParser.obj
+	@echo ... src/MetroXMLParser.i
+	@echo ... src/MetroXMLParser.s
+	@echo ... src/ParserTest.obj
+	@echo ... src/ParserTest.i
+	@echo ... src/ParserTest.s
+	@echo ... src/Station.obj
+	@echo ... src/Station.i
+	@echo ... src/Station.s
+	@echo ... src/Track.obj
+	@echo ... src/Track.i
+	@echo ... src/Track.s
+	@echo ... src/Tram.obj
+	@echo ... src/Tram.i
+	@echo ... src/Tram.s
+	@echo ... src/main.obj
+	@echo ... src/main.i
+	@echo ... src/main.s
+	@echo ... src/tests.obj
+	@echo ... src/tests.i
+	@echo ... src/tests.s
 	@echo ... tinyxml/tinystr.obj
 	@echo ... tinyxml/tinystr.i
 	@echo ... tinyxml/tinystr.s
