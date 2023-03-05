@@ -129,17 +129,17 @@ MetroSim/fast:
 .PHONY : MetroSim/fast
 
 #=============================================================================
-# Target rules for targets named MetroSimDebug
+# Target rules for targets named testing_tool
 
 # Build rule for target.
-MetroSimDebug: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 MetroSimDebug
-.PHONY : MetroSimDebug
+testing_tool: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 testing_tool
+.PHONY : testing_tool
 
 # fast build rule for target.
-MetroSimDebug/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MetroSimDebug.dir\build.make CMakeFiles/MetroSimDebug.dir/build
-.PHONY : MetroSimDebug/fast
+testing_tool/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\testing_tool.dir\build.make CMakeFiles/testing_tool.dir/build
+.PHONY : testing_tool/fast
 
 Line.obj: Line.cpp.obj
 .PHONY : Line.obj
@@ -212,6 +212,30 @@ MetroXMLParser.s: MetroXMLParser.cpp.s
 MetroXMLParser.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\MetroSim.dir\build.make CMakeFiles/MetroSim.dir/MetroXMLParser.cpp.s
 .PHONY : MetroXMLParser.cpp.s
+
+ParserTest.obj: ParserTest.cpp.obj
+.PHONY : ParserTest.obj
+
+# target to build an object file
+ParserTest.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\testing_tool.dir\build.make CMakeFiles/testing_tool.dir/ParserTest.cpp.obj
+.PHONY : ParserTest.cpp.obj
+
+ParserTest.i: ParserTest.cpp.i
+.PHONY : ParserTest.i
+
+# target to preprocess a source file
+ParserTest.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\testing_tool.dir\build.make CMakeFiles/testing_tool.dir/ParserTest.cpp.i
+.PHONY : ParserTest.cpp.i
+
+ParserTest.s: ParserTest.cpp.s
+.PHONY : ParserTest.s
+
+# target to generate assembly for a file
+ParserTest.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\testing_tool.dir\build.make CMakeFiles/testing_tool.dir/ParserTest.cpp.s
+.PHONY : ParserTest.cpp.s
 
 Station.obj: Station.cpp.obj
 .PHONY : Station.obj
@@ -291,7 +315,6 @@ main.obj: main.cpp.obj
 # target to build an object file
 main.cpp.obj:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\MetroSim.dir\build.make CMakeFiles/MetroSim.dir/main.cpp.obj
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MetroSimDebug.dir\build.make CMakeFiles/MetroSimDebug.dir/main.cpp.obj
 .PHONY : main.cpp.obj
 
 main.i: main.cpp.i
@@ -300,7 +323,6 @@ main.i: main.cpp.i
 # target to preprocess a source file
 main.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\MetroSim.dir\build.make CMakeFiles/MetroSim.dir/main.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MetroSimDebug.dir\build.make CMakeFiles/MetroSimDebug.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -309,8 +331,31 @@ main.s: main.cpp.s
 # target to generate assembly for a file
 main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\MetroSim.dir\build.make CMakeFiles/MetroSim.dir/main.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MetroSimDebug.dir\build.make CMakeFiles/MetroSimDebug.dir/main.cpp.s
 .PHONY : main.cpp.s
+
+tests.obj: tests.cpp.obj
+.PHONY : tests.obj
+
+# target to build an object file
+tests.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\testing_tool.dir\build.make CMakeFiles/testing_tool.dir/tests.cpp.obj
+.PHONY : tests.cpp.obj
+
+tests.i: tests.cpp.i
+.PHONY : tests.i
+
+# target to preprocess a source file
+tests.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\testing_tool.dir\build.make CMakeFiles/testing_tool.dir/tests.cpp.i
+.PHONY : tests.cpp.i
+
+tests.s: tests.cpp.s
+.PHONY : tests.s
+
+# target to generate assembly for a file
+tests.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\testing_tool.dir\build.make CMakeFiles/testing_tool.dir/tests.cpp.s
+.PHONY : tests.cpp.s
 
 tinyxml/tinystr.obj: tinyxml/tinystr.cpp.obj
 .PHONY : tinyxml/tinystr.obj
@@ -417,7 +462,7 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... MetroSim
-	@echo ... MetroSimDebug
+	@echo ... testing_tool
 	@echo ... Line.obj
 	@echo ... Line.i
 	@echo ... Line.s
@@ -427,6 +472,9 @@ help:
 	@echo ... MetroXMLParser.obj
 	@echo ... MetroXMLParser.i
 	@echo ... MetroXMLParser.s
+	@echo ... ParserTest.obj
+	@echo ... ParserTest.i
+	@echo ... ParserTest.s
 	@echo ... Station.obj
 	@echo ... Station.i
 	@echo ... Station.s
@@ -439,6 +487,9 @@ help:
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... tests.obj
+	@echo ... tests.i
+	@echo ... tests.s
 	@echo ... tinyxml/tinystr.obj
 	@echo ... tinyxml/tinystr.i
 	@echo ... tinyxml/tinystr.s

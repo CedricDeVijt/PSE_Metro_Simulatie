@@ -6,13 +6,14 @@ set(CMAKE_CXX_FLAGS "-std=c++98 -Wall -Werror")
 set(CMAKE_EXE_LINKER_FLAGS -pthread)
 
 # Set include dir
-include_directories(gtest/include)
+include_directories(./gtest/include)
 
 # Set Library dir
-link_directories(gtest/lib)
+link_directories(./gtest/lib)
 
 # Set source files for RELEASE target
 set(RELEASE_SOURCE_FILES main.cpp
+        DesignByContract.h
         # Metro Files
         MetroSimulation.cpp MetroSimulation.h
         Station.cpp Station.h
@@ -24,16 +25,18 @@ set(RELEASE_SOURCE_FILES main.cpp
         ./tinyxml/tinystr.cpp ./tinyxml/tinystr.h
         ./tinyxml/tinyxml.cpp ./tinyxml/tinyxml.h
         ./tinyxml/tinyxmlparser.cpp
-        DesignByContract.h Track.cpp Track.h Line.cpp Line.h)
+        Track.cpp Track.h
+        Line.cpp Line.h
+        )
 
 # Set source files for DEBUG target
-set(DEBUG_SOURCE_FILES )
+set(DEBUG_SOURCE_FILES ParserTest.cpp tests.cpp)
 
 # Create RELEASE target
 add_executable(MetroSim main.cpp ${RELEASE_SOURCE_FILES})
 
 # Create DEBUG target
-add_executable(MetroSimDebug main.cpp ${DEBUG_SOURCE_FILES})
+add_executable(testing_tool ${DEBUG_SOURCE_FILES})
 
 # Link library
-target_link_libraries(MetroSimDebug gtest)
+target_link_libraries(testing_tool gtest)

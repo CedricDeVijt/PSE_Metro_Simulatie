@@ -83,19 +83,53 @@ CMakeFiles/MetroSimDebug.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MetroSimDebug.dir/main.cpp.s"
 	C:\Qt\Tools\mingw810_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\arne\Documents\2022-2023\s2\Talen En Automaten\PSE_Metro_Simulatie\main.cpp" -o CMakeFiles\MetroSimDebug.dir\main.cpp.s
 
+CMakeFiles/MetroSimDebug.dir/ParserTest.cpp.obj: CMakeFiles/MetroSimDebug.dir/flags.make
+CMakeFiles/MetroSimDebug.dir/ParserTest.cpp.obj: CMakeFiles/MetroSimDebug.dir/includes_CXX.rsp
+CMakeFiles/MetroSimDebug.dir/ParserTest.cpp.obj: ../ParserTest.cpp
+CMakeFiles/MetroSimDebug.dir/ParserTest.cpp.obj: CMakeFiles/MetroSimDebug.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\arne\Documents\2022-2023\s2\Talen En Automaten\PSE_Metro_Simulatie\cmake-build-debug-coverage\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/MetroSimDebug.dir/ParserTest.cpp.obj"
+	C:\Qt\Tools\mingw810_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MetroSimDebug.dir/ParserTest.cpp.obj -MF CMakeFiles\MetroSimDebug.dir\ParserTest.cpp.obj.d -o CMakeFiles\MetroSimDebug.dir\ParserTest.cpp.obj -c "C:\Users\arne\Documents\2022-2023\s2\Talen En Automaten\PSE_Metro_Simulatie\ParserTest.cpp"
+
+CMakeFiles/MetroSimDebug.dir/ParserTest.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MetroSimDebug.dir/ParserTest.cpp.i"
+	C:\Qt\Tools\mingw810_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\arne\Documents\2022-2023\s2\Talen En Automaten\PSE_Metro_Simulatie\ParserTest.cpp" > CMakeFiles\MetroSimDebug.dir\ParserTest.cpp.i
+
+CMakeFiles/MetroSimDebug.dir/ParserTest.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MetroSimDebug.dir/ParserTest.cpp.s"
+	C:\Qt\Tools\mingw810_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\arne\Documents\2022-2023\s2\Talen En Automaten\PSE_Metro_Simulatie\ParserTest.cpp" -o CMakeFiles\MetroSimDebug.dir\ParserTest.cpp.s
+
+CMakeFiles/MetroSimDebug.dir/tests.cpp.obj: CMakeFiles/MetroSimDebug.dir/flags.make
+CMakeFiles/MetroSimDebug.dir/tests.cpp.obj: CMakeFiles/MetroSimDebug.dir/includes_CXX.rsp
+CMakeFiles/MetroSimDebug.dir/tests.cpp.obj: ../tests.cpp
+CMakeFiles/MetroSimDebug.dir/tests.cpp.obj: CMakeFiles/MetroSimDebug.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\arne\Documents\2022-2023\s2\Talen En Automaten\PSE_Metro_Simulatie\cmake-build-debug-coverage\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/MetroSimDebug.dir/tests.cpp.obj"
+	C:\Qt\Tools\mingw810_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MetroSimDebug.dir/tests.cpp.obj -MF CMakeFiles\MetroSimDebug.dir\tests.cpp.obj.d -o CMakeFiles\MetroSimDebug.dir\tests.cpp.obj -c "C:\Users\arne\Documents\2022-2023\s2\Talen En Automaten\PSE_Metro_Simulatie\tests.cpp"
+
+CMakeFiles/MetroSimDebug.dir/tests.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MetroSimDebug.dir/tests.cpp.i"
+	C:\Qt\Tools\mingw810_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\arne\Documents\2022-2023\s2\Talen En Automaten\PSE_Metro_Simulatie\tests.cpp" > CMakeFiles\MetroSimDebug.dir\tests.cpp.i
+
+CMakeFiles/MetroSimDebug.dir/tests.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MetroSimDebug.dir/tests.cpp.s"
+	C:\Qt\Tools\mingw810_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\arne\Documents\2022-2023\s2\Talen En Automaten\PSE_Metro_Simulatie\tests.cpp" -o CMakeFiles\MetroSimDebug.dir\tests.cpp.s
+
 # Object files for target MetroSimDebug
 MetroSimDebug_OBJECTS = \
-"CMakeFiles/MetroSimDebug.dir/main.cpp.obj"
+"CMakeFiles/MetroSimDebug.dir/main.cpp.obj" \
+"CMakeFiles/MetroSimDebug.dir/ParserTest.cpp.obj" \
+"CMakeFiles/MetroSimDebug.dir/tests.cpp.obj"
 
 # External object files for target MetroSimDebug
 MetroSimDebug_EXTERNAL_OBJECTS =
 
 MetroSimDebug.exe: CMakeFiles/MetroSimDebug.dir/main.cpp.obj
+MetroSimDebug.exe: CMakeFiles/MetroSimDebug.dir/ParserTest.cpp.obj
+MetroSimDebug.exe: CMakeFiles/MetroSimDebug.dir/tests.cpp.obj
 MetroSimDebug.exe: CMakeFiles/MetroSimDebug.dir/build.make
 MetroSimDebug.exe: CMakeFiles/MetroSimDebug.dir/linklibs.rsp
 MetroSimDebug.exe: CMakeFiles/MetroSimDebug.dir/objects1.rsp
 MetroSimDebug.exe: CMakeFiles/MetroSimDebug.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\arne\Documents\2022-2023\s2\Talen En Automaten\PSE_Metro_Simulatie\cmake-build-debug-coverage\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable MetroSimDebug.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\arne\Documents\2022-2023\s2\Talen En Automaten\PSE_Metro_Simulatie\cmake-build-debug-coverage\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable MetroSimDebug.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\MetroSimDebug.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

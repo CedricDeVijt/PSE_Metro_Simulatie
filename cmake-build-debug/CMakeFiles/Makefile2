@@ -63,7 +63,7 @@ CMAKE_BINARY_DIR = "C:\Users\arne\Documents\2022-2023\s2\Talen En Automaten\PSE_
 
 # The main recursive "all" target.
 all: CMakeFiles/MetroSim.dir/all
-all: CMakeFiles/MetroSimDebug.dir/all
+all: CMakeFiles/testing_tool.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -72,7 +72,7 @@ preinstall:
 
 # The main recursive "clean" target.
 clean: CMakeFiles/MetroSim.dir/clean
-clean: CMakeFiles/MetroSimDebug.dir/clean
+clean: CMakeFiles/testing_tool.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -102,30 +102,30 @@ CMakeFiles/MetroSim.dir/clean:
 .PHONY : CMakeFiles/MetroSim.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/MetroSimDebug.dir
+# Target rules for target CMakeFiles/testing_tool.dir
 
 # All Build rule for target.
-CMakeFiles/MetroSimDebug.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MetroSimDebug.dir\build.make CMakeFiles/MetroSimDebug.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MetroSimDebug.dir\build.make CMakeFiles/MetroSimDebug.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\Users\arne\Documents\2022-2023\s2\Talen En Automaten\PSE_Metro_Simulatie\cmake-build-debug\CMakeFiles" --progress-num=13,14 "Built target MetroSimDebug"
-.PHONY : CMakeFiles/MetroSimDebug.dir/all
+CMakeFiles/testing_tool.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\testing_tool.dir\build.make CMakeFiles/testing_tool.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\testing_tool.dir\build.make CMakeFiles/testing_tool.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\Users\arne\Documents\2022-2023\s2\Talen En Automaten\PSE_Metro_Simulatie\cmake-build-debug\CMakeFiles" --progress-num=13,14,15 "Built target testing_tool"
+.PHONY : CMakeFiles/testing_tool.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/MetroSimDebug.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\arne\Documents\2022-2023\s2\Talen En Automaten\PSE_Metro_Simulatie\cmake-build-debug\CMakeFiles" 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/MetroSimDebug.dir/all
+CMakeFiles/testing_tool.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\arne\Documents\2022-2023\s2\Talen En Automaten\PSE_Metro_Simulatie\cmake-build-debug\CMakeFiles" 3
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/testing_tool.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\arne\Documents\2022-2023\s2\Talen En Automaten\PSE_Metro_Simulatie\cmake-build-debug\CMakeFiles" 0
-.PHONY : CMakeFiles/MetroSimDebug.dir/rule
+.PHONY : CMakeFiles/testing_tool.dir/rule
 
 # Convenience name for target.
-MetroSimDebug: CMakeFiles/MetroSimDebug.dir/rule
-.PHONY : MetroSimDebug
+testing_tool: CMakeFiles/testing_tool.dir/rule
+.PHONY : testing_tool
 
 # clean rule for target.
-CMakeFiles/MetroSimDebug.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MetroSimDebug.dir\build.make CMakeFiles/MetroSimDebug.dir/clean
-.PHONY : CMakeFiles/MetroSimDebug.dir/clean
+CMakeFiles/testing_tool.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\testing_tool.dir\build.make CMakeFiles/testing_tool.dir/clean
+.PHONY : CMakeFiles/testing_tool.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

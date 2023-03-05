@@ -1,6 +1,10 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/MetroSimDebug.dir/ParserTest.cpp.obj"
+  "CMakeFiles/MetroSimDebug.dir/ParserTest.cpp.obj.d"
   "CMakeFiles/MetroSimDebug.dir/main.cpp.obj"
   "CMakeFiles/MetroSimDebug.dir/main.cpp.obj.d"
+  "CMakeFiles/MetroSimDebug.dir/tests.cpp.obj"
+  "CMakeFiles/MetroSimDebug.dir/tests.cpp.obj.d"
   "MetroSimDebug.exe"
   "MetroSimDebug.exe.manifest"
   "MetroSimDebug.pdb"
