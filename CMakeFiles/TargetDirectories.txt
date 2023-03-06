@@ -1,0 +1,4 @@
+/mnt/c/Users/arne/Documents/2022-2023/s2/PSE/PSE_Metro_Simulatie/CMakeFiles/rebuild_cache.dir
+/mnt/c/Users/arne/Documents/2022-2023/s2/PSE/PSE_Metro_Simulatie/CMakeFiles/edit_cache.dir
+/mnt/c/Users/arne/Documents/2022-2023/s2/PSE/PSE_Metro_Simulatie/CMakeFiles/testing_tool.dir
+/mnt/c/Users/arne/Documents/2022-2023/s2/PSE/PSE_Metro_Simulatie/CMakeFiles/main_executable.dir

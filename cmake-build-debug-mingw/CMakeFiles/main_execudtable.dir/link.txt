@@ -1,0 +1,3 @@
+"C:\Program Files\JetBrains\CLion 2022.3.2\bin\cmake\win\x64\bin\cmake.exe" -E rm -f CMakeFiles\main_execudtable.dir/objects.a
+C:\MinGW\bin\ar.exe qc CMakeFiles\main_execudtable.dir/objects.a @CMakeFiles\main_execudtable.dir\objects1.rsp
+C:\MinGW\bin\c++.exe -std=c++98 -Wall -Werror -O2 -g -pthread -Wl,--whole-archive CMakeFiles\main_execudtable.dir/objects.a -Wl,--no-whole-archive -o main_execudtable.exe -Wl,--out-implib,libmain_execudtable.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\main_execudtable.dir\linklibs.rsp

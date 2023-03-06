@@ -33,10 +33,10 @@ set(RELEASE_SOURCE_FILES
 
 # Set source files for DEBUG target
 set(DEBUG_SOURCE_FILES
-        src/tests.cpp
+        tst/main.cpp
 
         #Tests
-        src/ParserTest.cpp
+        tst/ParserTest.cpp
         #REST
         src/DesignByContract.h
         # Metro Files

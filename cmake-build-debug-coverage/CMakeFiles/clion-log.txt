@@ -1,4 +1,0 @@
-"C:\Program Files\JetBrains\CLion 2022.2.4\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS=--coverage -DCMAKE_C_FLAGS=--coverage -G "CodeBlocks - MinGW Makefiles" -S C:\Users\arne\Documents\2022-2023\s2\PSE\PSE_Metro_Simulatie -B C:\Users\arne\Documents\2022-2023\s2\PSE\PSE_Metro_Simulatie\cmake-build-debug-coverage
--- Configuring done
--- Generating done
--- Build files have been written to: C:/Users/arne/Documents/2022-2023/s2/PSE/PSE_Metro_Simulatie/cmake-build-debug-coverage
