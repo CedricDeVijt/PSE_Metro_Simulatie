@@ -21,6 +21,8 @@ private:
     int lineNumber;
     std::vector<Track*> tracks;
     std::vector<Tram*> trams;
+
+    bool properlyInitialised;
 };
 
 

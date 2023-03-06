@@ -16,6 +16,7 @@ MetroSimulation::MetroSimulation(const std::string& filename) {
 bool MetroSimulation::isProperlyInitialized() const { return properlyInitialized; }
 
 void MetroSimulation::start(std::ostream &os) {
+    REQUIRE(properlyInitialized, "Metrosimulation was not properly initialised.")
     for (int i = 0; i < 10; i++) {
         for (int j = 0; j < static_cast<int>(lines.size()); ++j) {
             lines[j]->update(os);
