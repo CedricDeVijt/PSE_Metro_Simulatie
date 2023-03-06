@@ -3,11 +3,8 @@
 #include "MetroXMLParser.h"
 
 class ParserTest : public ::testing::Test {
-    virtual void SetUp() {
-    }
-
-    virtual void TearDown() {
-    }
+    virtual void SetUp() {}
+    virtual void TearDown() {}
 };
 
 TEST_F(ParserTest, Test1) {

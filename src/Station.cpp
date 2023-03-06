@@ -29,3 +29,7 @@ void Station::setPrevTrack(Station *prevStation) { Station::prevTrack = new Trac
 void Station::setLineNumber(int lineNumber_) { Station::lineNumber = lineNumber_; }
 void Station::setName(const std::string &name_) { Station::name = name_; }
 void Station::setProperlyInitialized(bool properlyInitialized_) { Station::properlyInitialized = properlyInitialized_; }
+
+std::ostream &operator<<(std::ostream &os, const Station &station) {
+    return os << "Station " << station.getName();
+}

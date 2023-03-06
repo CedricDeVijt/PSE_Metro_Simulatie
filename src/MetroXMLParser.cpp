@@ -53,6 +53,7 @@ bool MetroXMLParser::parse() {
             Tram *newTram = new Tram;
             newTram->setLineNumber(lijnNr);
             newTram->setSpeed(snelheid);
+            newTram->setTramNumber(static_cast<int>(trams.size()));
             trams.push_back(newTram);
 
             tramMap[newTram] = begin;

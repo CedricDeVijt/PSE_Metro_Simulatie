@@ -1,6 +1,7 @@
 #ifndef PSE_METRO_SIMULATIE_STATION_H
 #define PSE_METRO_SIMULATIE_STATION_H
 #include <string>
+#include <ostream>
 
 class Track;
 
@@ -12,6 +13,7 @@ public:
 
     // Destructor
     ~Station();
+
 
     // Getters
     const std::string &getName() const;
@@ -33,6 +35,9 @@ private:
     int lineNumber;
 
     bool properlyInitialized;
+
+    // OS
+    friend std::ostream &operator<<(std::ostream &os, const Station &station);
 };
 
 
