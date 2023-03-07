@@ -39,7 +39,7 @@ CMAKE_CODEBLOCKS_MAKE_ARGUMENTS:STRING=
 CMAKE_COLOR_DIAGNOSTICS:BOOL=ON
 
 //CXX compiler
-CMAKE_CXX_COMPILER:FILEPATH=C:/MinGW/bin/c++.exe
+CMAKE_CXX_COMPILER:STRING=C:/MinGW/bin/c++.exe
 
 //A wrapper around 'ar' adding the appropriate '--plugin' option
 // for the GCC compiler
@@ -49,26 +49,11 @@ CMAKE_CXX_COMPILER_AR:FILEPATH=C:/MinGW/bin/gcc-ar.exe
 // for the GCC compiler
 CMAKE_CXX_COMPILER_RANLIB:FILEPATH=C:/MinGW/bin/gcc-ranlib.exe
 
-//Flags used by the CXX compiler during all build types.
-CMAKE_CXX_FLAGS:STRING=--coverage
-
-//Flags used by the CXX compiler during DEBUG builds.
-CMAKE_CXX_FLAGS_DEBUG:STRING=-g
-
-//Flags used by the CXX compiler during MINSIZEREL builds.
-CMAKE_CXX_FLAGS_MINSIZEREL:STRING=-Os -DNDEBUG
-
-//Flags used by the CXX compiler during RELEASE builds.
-CMAKE_CXX_FLAGS_RELEASE:STRING=-O3 -DNDEBUG
-
-//Flags used by the CXX compiler during RELWITHDEBINFO builds.
-CMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
-
-//Libraries linked by default with all C++ applications.
-CMAKE_CXX_STANDARD_LIBRARIES:STRING=-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+//No help, variable specified on the command line.
+CMAKE_CXX_FLAGS:UNINITIALIZED=--coverage
 
 //C compiler
-CMAKE_C_COMPILER:FILEPATH=C:/MinGW/bin/gcc.exe
+CMAKE_C_COMPILER:STRING=C:/MinGW/bin/gcc.exe
 
 //A wrapper around 'ar' adding the appropriate '--plugin' option
 // for the GCC compiler
@@ -79,7 +64,7 @@ CMAKE_C_COMPILER_AR:FILEPATH=C:/MinGW/bin/gcc-ar.exe
 CMAKE_C_COMPILER_RANLIB:FILEPATH=C:/MinGW/bin/gcc-ranlib.exe
 
 //Flags used by the C compiler during all build types.
-CMAKE_C_FLAGS:STRING=--coverage
+CMAKE_C_FLAGS:STRING=--coverageC:/Users/arne/Documents/2022-2023/s2/PSE/PSE_Metro_Simulatie/..
 
 //Flags used by the C compiler during DEBUG builds.
 CMAKE_C_FLAGS_DEBUG:STRING=-g
@@ -116,9 +101,6 @@ CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 
 //Value Computed by CMake.
 CMAKE_FIND_PACKAGE_REDIRECTS_DIR:STATIC=C:/Users/arne/Documents/2022-2023/s2/PSE/PSE_Metro_Simulatie/cmake-build-debug-coverage/CMakeFiles/pkgRedirects
-
-//Convert GNU import libraries to MS format (requires Visual Studio)
-CMAKE_GNUtoMS:BOOL=OFF
 
 //Install path prefix, prepended onto install directories.
 CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/PSE_Metro_Simulatie
@@ -285,18 +267,6 @@ CMAKE_CXX_COMPILER-ADVANCED:INTERNAL=1
 CMAKE_CXX_COMPILER_AR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_CXX_COMPILER_RANLIB
 CMAKE_CXX_COMPILER_RANLIB-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: CMAKE_CXX_FLAGS
-CMAKE_CXX_FLAGS-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: CMAKE_CXX_FLAGS_DEBUG
-CMAKE_CXX_FLAGS_DEBUG-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: CMAKE_CXX_FLAGS_MINSIZEREL
-CMAKE_CXX_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: CMAKE_CXX_FLAGS_RELEASE
-CMAKE_CXX_FLAGS_RELEASE-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: CMAKE_CXX_FLAGS_RELWITHDEBINFO
-CMAKE_CXX_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: CMAKE_CXX_STANDARD_LIBRARIES
-CMAKE_CXX_STANDARD_LIBRARIES-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_C_COMPILER
 CMAKE_C_COMPILER-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_C_COMPILER_AR
