@@ -9,7 +9,7 @@ class ParserTest : public ::testing::Test {
     virtual void TearDown() {}
 };
 
-TEST_F(ParserTest, Test1) {
+TEST_F(ParserTest, VariableDistributionTest) {
     MetroXMLParser parser("xmlFiles/test1.xml");
     std::vector<Line*> lines = parser.getLines();
     std::vector<Tram*> trams = parser.getTrams();
@@ -47,4 +47,29 @@ TEST_F(ParserTest, Test1) {
     EXPECT_EQ(12, lines[0]->getLineNumber());
     EXPECT_EQ(3, static_cast<int>(lines[0]->getTracks().size()));
     EXPECT_EQ(1, static_cast<int>(lines[0]->getTrams().size()));
+}
+
+TEST_F(ParserTest, VerifyTest1) {
+    MetroXMLParser parser("xmlFiles/test2.xml");
+    EXPECT_FALSE(parser.isProperlyInitialized());
+}
+
+TEST_F(ParserTest, VerifyTest2) {
+    MetroXMLParser parser("xmlFiles/test2.xml");
+    EXPECT_FALSE(parser.isProperlyInitialized());
+}
+
+TEST_F(ParserTest, VerifyTest3) {
+    MetroXMLParser parser("xmlFiles/test2.xml");
+    EXPECT_FALSE(parser.isProperlyInitialized());
+}
+
+TEST_F(ParserTest, VerifyTest4) {
+    MetroXMLParser parser("xmlFiles/test2.xml");
+    EXPECT_FALSE(parser.isProperlyInitialized());
+}
+
+TEST_F(ParserTest, VerifyTest5) {
+    MetroXMLParser parser("xmlFiles/test2.xml");
+    EXPECT_FALSE(parser.isProperlyInitialized());
 }
