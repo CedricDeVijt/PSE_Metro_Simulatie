@@ -756,7 +756,9 @@ CMakeFiles/testing_tool.dir/tst/ParserTest.cpp.obj: C:/Users/arne/Documents/2022
   C:/Users/arne/Documents/2022-2023/s2/PSE/PSE_Metro_Simulatie/src/MetroXMLParser.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/map \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_map.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_multimap.h
+  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_multimap.h \
+  C:/Users/arne/Documents/2022-2023/s2/PSE/PSE_Metro_Simulatie/src/Track.h \
+  C:/Users/arne/Documents/2022-2023/s2/PSE/PSE_Metro_Simulatie/src/Line.h
 
 CMakeFiles/testing_tool.dir/tst/main.cpp.obj: C:/Users/arne/Documents/2022-2023/s2/PSE/PSE_Metro_Simulatie/tst/main.cpp \
   C:/Users/arne/Documents/2022-2023/s2/PSE/PSE_Metro_Simulatie/gtest/include/gtest/gtest.h \

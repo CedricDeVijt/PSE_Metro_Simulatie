@@ -2,6 +2,6 @@
 #include "iostream"
 
 int main() {
-    MetroSimulation sim("xmlFiles/test.xml");
+    MetroSimulation sim("xmlFiles/simFile.xml");
     sim.start(std::cout);
 }
