@@ -14,8 +14,6 @@ link_directories(./gtest/lib)
 # Set source files for RELEASE target
 set(RELEASE_SOURCE_FILES
         src/main.cpp
-
-        src/DesignByContract.h
         # Metro Files
         src/MetroSimulation.cpp
         src/Station.cpp
@@ -26,10 +24,10 @@ set(RELEASE_SOURCE_FILES
         # Set source files for tinyXml
         ./tinyxml/tinystr.cpp
         ./tinyxml/tinyxmlerror.cpp
-        ./tinyxml/tinystr.cpp ./tinyxml/tinystr.h
-        ./tinyxml/tinyxml.cpp ./tinyxml/tinyxml.h
+        ./tinyxml/tinystr.cpp
+        ./tinyxml/tinyxml.cpp
         ./tinyxml/tinyxmlparser.cpp
-        src/SimpleOutput.cpp src/SimpleOutput.h)
+        src/SimpleOutput.cpp)
 
 # Set source files for DEBUG target
 set(DEBUG_SOURCE_FILES
@@ -37,8 +35,6 @@ set(DEBUG_SOURCE_FILES
 
         #Tests
         tst/ParserTest.cpp
-        #REST
-        src/DesignByContract.h
         # Metro Files
         src/MetroSimulation.cpp
         src/Station.cpp
@@ -49,8 +45,8 @@ set(DEBUG_SOURCE_FILES
         # Set source files for tinyXml
         ./tinyxml/tinystr.cpp
         ./tinyxml/tinyxmlerror.cpp
-        ./tinyxml/tinystr.cpp ./tinyxml/tinystr.h
-        ./tinyxml/tinyxml.cpp ./tinyxml/tinyxml.h
+        ./tinyxml/tinystr.cpp
+        ./tinyxml/tinyxml.cpp
         ./tinyxml/tinyxmlparser.cpp
         )
 
