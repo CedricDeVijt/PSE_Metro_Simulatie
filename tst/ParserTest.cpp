@@ -48,28 +48,3 @@ TEST_F(ParserTest, VariableDistributionTest) {
     EXPECT_EQ(3, static_cast<int>(lines[0]->getTracks().size()));
     EXPECT_EQ(1, static_cast<int>(lines[0]->getTrams().size()));
 }
-
-//TEST_F(ParserTest, VerifyTest1) {
-//    MetroXMLParser parser("xmlFiles/test2.xml");
-//    EXPECT_FALSE(parser.isProperlyInitialized());
-//}
-//
-//TEST_F(ParserTest, VerifyTest2) {
-//    MetroXMLParser parser("xmlFiles/test2.xml");
-//    EXPECT_FALSE(parser.isProperlyInitialized());
-//}
-//
-//TEST_F(ParserTest, VerifyTest3) {
-//    MetroXMLParser parser("xmlFiles/test2.xml");
-//    EXPECT_FALSE(parser.isProperlyInitialized());
-//}
-//
-//TEST_F(ParserTest, VerifyTest4) {
-//    MetroXMLParser parser("xmlFiles/test2.xml");
-//    EXPECT_FALSE(parser.isProperlyInitialized());
-//}
-//
-//TEST_F(ParserTest, VerifyTest5) {
-//    MetroXMLParser parser("xmlFiles/test2.xml");
-//    EXPECT_FALSE(parser.isProperlyInitialized());
-//}

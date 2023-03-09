@@ -7,6 +7,8 @@ MetroSimulation::MetroSimulation(const std::string& filename, unsigned int runti
     MetroXMLParser parser(filename);
     if (parser.isProperlyInitialized() && parser.isProperlyParsed()) {
         lines = parser.getLines();
+        stations = parser.getStations();
+        trams = parser.getTrams();
         properlyInitialized = true;
     } else {
         properlyInitialized = false;

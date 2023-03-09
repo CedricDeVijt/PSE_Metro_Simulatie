@@ -64,6 +64,6 @@ std::ostream &operator<<(std::ostream &os, const Tram &tram) {
 }
 
 Tram::operator std::string() {
-
-    return "Tram " + std::to_string(this->getTramNumber()) + " in Station " + this->getCurrentStation()->getName();
+    return "";
+//    return "Tram " + std::to_string(this->getTramNumber()) + " in Station " + this->getCurrentStation()->getName();
 }
