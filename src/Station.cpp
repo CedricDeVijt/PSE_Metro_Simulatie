@@ -1,3 +1,4 @@
+#include <cstdlib>
 #include "Station.h"
 #include "Track.h"
 
@@ -39,7 +40,7 @@ Station::operator std::string() {
     output += "Station" + this->getName() + "\n";
     output += "<- Station " + this->prevTrack->getBegin()->getName() + "\n";
     output += "-> Station " + this->nextTrack->getAnEnd()->getName() + "\n";
-    output += "Spoor " + std::to_string(this->getLineNumber()) + "\n";
-
+    //TODO int to str
+    output += "Spoor " + atoi(this->getLineNumber()) + "\n";
     return output;
 }
