@@ -10,16 +10,16 @@ class Line;
 
 class MetroSimulation {
 public:
-    explicit MetroSimulation(const std::string& filename, unsigned int runtime);
+    explicit MetroSimulation(const std::string& filename);
     bool isProperlyInitialized() const;
     void start(std::ostream &os);
-    void update(std::ostream &os);
+
+
 
 private:
     std::vector<Line*> lines;
+
     bool properlyInitialized;
-    unsigned int runtime;
-    unsigned int time;
 };
 
 
