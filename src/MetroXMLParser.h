@@ -10,6 +10,8 @@ class Line;
 
 class MetroXMLParser {
 public:
+    MetroXMLParser();
+
     explicit MetroXMLParser(const std::string &filename);
     virtual ~MetroXMLParser();
 

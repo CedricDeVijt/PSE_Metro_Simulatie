@@ -10,7 +10,7 @@ class ParserTest : public ::testing::Test {
 };
 
 TEST_F(ParserTest, VariableDistributionTest) {
-    MetroXMLParser parser("xmlFiles/test1.xml");
+    MetroXMLParser parser("../xmlFiles/test1.xml");
     std::vector<Line*> lines = parser.getLines();
     std::vector<Tram*> trams = parser.getTrams();
     std::vector<Station*> stations = parser.getStations();
@@ -48,3 +48,11 @@ TEST_F(ParserTest, VariableDistributionTest) {
     EXPECT_EQ(3, static_cast<int>(lines[0]->getTracks().size()));
     EXPECT_EQ(1, static_cast<int>(lines[0]->getTrams().size()));
 }
+
+
+//TODO assertions thrown bij testen?
+//TEST_F(ParserTest, VerifyTest1) {
+//    MetroXMLParser parser;
+//    EXPECT_DEATH(parser=MetroXMLParser("../xmlFiles/test2.xml"),"Assertion failed: Stations not connected properly");
+//    EXPECT_FALSE(parser.isProperlyInitialized());
+//}

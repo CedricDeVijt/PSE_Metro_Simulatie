@@ -7,6 +7,10 @@
 #include "Track.h"
 #include "Line.h"
 
+MetroXMLParser::MetroXMLParser() {
+
+}
+
 MetroXMLParser::MetroXMLParser(const std::string &filename) : filename(filename) {
     properlyParsed = parse();
     verify();
@@ -146,7 +150,8 @@ void MetroXMLParser::verify() {
     isVerified = true;
     bool connectedProperly;
     for (int i = 0; i < static_cast<int>(stations.size()); i++) {
-        connectedProperly = stations[i]->getPrevTrack()->getBegin() != NULL && stations[i]->getNextTrack()->getAnEnd() != NULL;
+
+        connectedProperly = stations[i]->getPrevTrack() != NULL && stations[i]->getNextTrack() != NULL;
         ENSURE(connectedProperly, "Stations not connected properly");
         stations[i]->setProperlyInitialized(connectedProperly);
         if (!connectedProperly) {
@@ -187,3 +192,5 @@ const std::vector<Station *> &MetroXMLParser::getStations() const {return statio
 bool MetroXMLParser::isProperlyInitialized() const {return properlyInitialized;}
 bool MetroXMLParser::isProperlyParsed() const {return properlyParsed;}
 const std::vector<Line *> &MetroXMLParser::getLines() const { return lines; }
+
+
