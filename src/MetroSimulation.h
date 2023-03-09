@@ -15,6 +15,13 @@ public:
     void start(std::ostream &os);
     void update(std::ostream &os);
 
+    // getters
+    const std::vector<Station *> &getStations() const;
+    const std::vector<Tram *> &getTrams() const;
+
+    // Other
+    void outputMetroSimulation(std::ostream &stream);
+
 private:
     std::vector<Line*> lines;
     std::vector<Station*> stations;

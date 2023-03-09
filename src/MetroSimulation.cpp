@@ -2,6 +2,8 @@
 #include "MetroXMLParser.h"
 #include "DesignByContract.h"
 #include "Line.h"
+#include "Station.h"
+#include "Tram.h"
 
 MetroSimulation::MetroSimulation(const std::string& filename, unsigned int runtime) : runtime(runtime), time(0) {
     MetroXMLParser parser(filename);
@@ -13,6 +15,14 @@ MetroSimulation::MetroSimulation(const std::string& filename, unsigned int runti
     } else {
         properlyInitialized = false;
     }
+}
+
+const std::vector<Station *> &MetroSimulation::getStations() const {
+    return stations;
+}
+
+const std::vector<Tram *> &MetroSimulation::getTrams() const {
+    return trams;
 }
 
 bool MetroSimulation::isProperlyInitialized() const { return properlyInitialized; }
@@ -28,5 +38,16 @@ void MetroSimulation::start(std::ostream &os) {
 void MetroSimulation::update(std::ostream &os) {
     for (int j = 0; j < static_cast<int>(lines.size()); ++j) {
         lines[j]->update(os);
+    }
+}
+
+void MetroSimulation::outputMetroSimulation(std::ostream &stream) {
+    // Stations
+    for (int i = 0; i < stations.size(); ++i) {
+        stream << std::string(*stations[i]) << std::endl;
+    }
+
+    for (int i = 0; i < trams.size(); ++i) {
+        stream << std::string(*trams[i]) << std::endl;
     }
 }

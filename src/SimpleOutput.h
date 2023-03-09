@@ -6,7 +6,7 @@
 class SimpleOutput {
     SimpleOutput();
 
-    void outputMetroSimulation(MetroSimulation simulation);
+    void outputMetroSimulation(MetroSimulation simulation, std::ofstream stream);
 };
 
 

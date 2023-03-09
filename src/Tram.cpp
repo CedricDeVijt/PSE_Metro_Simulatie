@@ -1,6 +1,9 @@
 #include "Tram.h"
 #include "Track.h"
 
+#include <sstream>
+#include "iostream"
+
 Tram::Tram() {
     startStation = NULL;
 }
@@ -64,6 +67,8 @@ std::ostream &operator<<(std::ostream &os, const Tram &tram) {
 }
 
 Tram::operator std::string() {
-    return "";
-//    return "Tram " + std::to_string(this->getTramNumber()) + " in Station " + this->getCurrentStation()->getName();
+    std::ostringstream output;
+    output << "Tram " << this->tramNumber << " in Station " << this->getCurrentStation()->getName();
+    std::string outputString  = output.str();
+    return outputString;
 }

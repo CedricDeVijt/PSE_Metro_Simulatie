@@ -1,4 +1,5 @@
 #include <cstdlib>
+#include <sstream>
 #include "Station.h"
 #include "Track.h"
 
@@ -36,11 +37,12 @@ std::ostream &operator<<(std::ostream &os, const Station &station) {
 }
 
 Station::operator std::string() {
-    std::string output;
-    output += "Station" + this->getName() + "\n";
-    output += "<- Station " + this->prevTrack->getBegin()->getName() + "\n";
-    output += "-> Station " + this->nextTrack->getAnEnd()->getName() + "\n";
-    //TODO int to str
-//    output += "Spoor " + atoi(this->getLineNumber()) + "\n";
-    return output;
+    std::ostringstream output;
+    output <<  "Station " << this->getName() << "\n";
+    output << "<- Station " << this->prevTrack->getBegin()->getName() << "\n";
+    output << "-> Station " << this->nextTrack->getAnEnd()->getName() << "\n";
+
+    std::string outputString  = output.str();
+
+    return outputString;
 }

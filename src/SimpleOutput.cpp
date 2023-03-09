@@ -4,16 +4,19 @@
 
 #include <fstream>
 #include "SimpleOutput.h"
+#include "Station.h"
+#include "Tram.h"
 
-void SimpleOutput::outputMetroSimulation(MetroSimulation simulation) {
-    std::ofstream output;
+void SimpleOutput::outputMetroSimulation(MetroSimulation simulation, std::ofstream stream) {
+    std::vector<Station *> stations = simulation.getStations();
+    std::vector<Tram *> trams = simulation.getTrams();
 
-    // loop over all stations
-        // format: "Station" station.getName()
-        // "<- Station ", station.getPrevTrack.getAnStart.getName()
-        // "-> Station ", station.getNextTrack.getAnEnd.getName()
+    // Stations
+    for (int i = 0; i < stations.size(); ++i) {
+        stream << std::string(*stations[i]) << std::endl;
+    }
 
-    // loop over all trams
-
-
+    for (int i = 0; i < trams.size(); ++i) {
+        stream << std::string(*trams[i]) << std::endl;
+    }
 }
