@@ -16,7 +16,7 @@ const std::vector<Track *> &Line::getTracks() const { return tracks; }
 const std::vector<Tram *> &Line::getTrams() const { return trams; }
 
 void Line::update(std::ostream &os) {
-    REQUIRE(properlyInitialised, "The line was not properlyInitialised.");
+    REQUIRE(properlyInitialised, "The line was not properly initialised.");
     for (int i = 0; i < static_cast<int>(trams.size()); i++) {
         Tram *currentTram = trams[i];
         bool drove = false;

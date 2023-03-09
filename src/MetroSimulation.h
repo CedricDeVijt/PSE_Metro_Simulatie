@@ -13,6 +13,9 @@ public:
     explicit MetroSimulation(const std::string& filename);
     bool isProperlyInitialized() const;
     void start(std::ostream &os);
+
+
+
 private:
     std::vector<Line*> lines;
 
