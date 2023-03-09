@@ -1,7 +1,9 @@
-Vragen:
+# Metro Simulation
 
-input ander formaat (voertuignummer toevoegen)
-output zelfde formaat als input
-klassestructuur logisch?
+### TODO
+-[ ] metroSimulation stations en trams in lijsten zetten
+-[ ] Destructors voor elke klasse? (alles kan ook verwijderd worden in klasse destructor)
 
-automatische simulatie hoe lang
+### Done
+-[x] station to string
+-[x] tram to string
