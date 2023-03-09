@@ -15,11 +15,16 @@ public:
     // Destructor
     virtual ~Tram();
 
+    // Operators
+    operator std::string();
 
     // Getters
     int getLineNumber() const;
     int getSpeed() const;
     Station *getStartStation() const;
+    int getTramNumber() const;
+
+    Station *getCurrentStation() const;
 
     // Setters
     void setLineNumber(int lineNumber);
@@ -34,6 +39,8 @@ private:
     int tramNumber;
     int speed;
     Station *startStation;
+
+private:
     Station *currentStation;
 
     // OS

@@ -34,6 +34,14 @@ Station *Tram::getStartStation() const {
     return startStation;
 }
 
+int Tram::getTramNumber() const {
+    return tramNumber;
+}
+
+Station *Tram::getCurrentStation() const {
+    return currentStation;
+}
+
 void Tram::setStartStation(Station *startStation_) {
     Tram::startStation = startStation_;
     currentStation = startStation_;
@@ -55,6 +63,7 @@ std::ostream &operator<<(std::ostream &os, const Tram &tram) {
     return os << "Tram " << tram.tramNumber;
 }
 
+Tram::operator std::string() {
 
-
-
+    return "Tram " + std::to_string(this->getTramNumber()) + " in Station " + this->getCurrentStation()->getName();
+}

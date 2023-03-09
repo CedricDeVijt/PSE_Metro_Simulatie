@@ -5,7 +5,11 @@ class Station;
 
 class Track {
 public:
+    // Constructor
     Track(Station *begin, Station *anEnd);
+
+    // Destructor
+    //...
 
     Station *getBegin() const;
 

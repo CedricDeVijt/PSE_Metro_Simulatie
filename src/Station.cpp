@@ -33,3 +33,13 @@ void Station::setProperlyInitialized(bool properlyInitialized_) { Station::prope
 std::ostream &operator<<(std::ostream &os, const Station &station) {
     return os << "Station " << station.getName();
 }
+
+Station::operator std::string() {
+    std::string output;
+    output += "Station" + this->getName() + "\n";
+    output += "<- Station " + this->prevTrack->getBegin()->getName() + "\n";
+    output += "-> Station " + this->nextTrack->getAnEnd()->getName() + "\n";
+    output += "Spoor " + std::to_string(this->getLineNumber()) + "\n";
+
+    return output;
+}

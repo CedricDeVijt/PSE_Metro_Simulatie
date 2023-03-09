@@ -14,6 +14,8 @@ public:
     // Destructor
     ~Station();
 
+    // Operators
+    operator std::string();
 
     // Getters
     const std::string &getName() const;
