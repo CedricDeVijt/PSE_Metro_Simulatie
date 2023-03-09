@@ -1,4 +1,0 @@
-C:/Users/arne/Documents/2022-2023/s2/PSE/PSE_Metro_Simulatie/cmake-build-debug-mingw/CMakeFiles/main_executable.dir
-C:/Users/arne/Documents/2022-2023/s2/PSE/PSE_Metro_Simulatie/cmake-build-debug-mingw/CMakeFiles/testing_tool.dir
-C:/Users/arne/Documents/2022-2023/s2/PSE/PSE_Metro_Simulatie/cmake-build-debug-mingw/CMakeFiles/edit_cache.dir
-C:/Users/arne/Documents/2022-2023/s2/PSE/PSE_Metro_Simulatie/cmake-build-debug-mingw/CMakeFiles/rebuild_cache.dir
