@@ -3,7 +3,7 @@
 #include "DesignByContract.h"
 #include "Line.h"
 
-MetroSimulation::MetroSimulation(const std::string& filename) {
+MetroSimulation::MetroSimulation(const std::string& filename, unsigned int runtime) : runtime(runtime), time(0) {
     MetroXMLParser parser(filename);
     if (parser.isProperlyInitialized() && parser.isProperlyParsed()) {
         lines = parser.getLines();
@@ -17,9 +17,14 @@ bool MetroSimulation::isProperlyInitialized() const { return properlyInitialized
 
 void MetroSimulation::start(std::ostream &os) {
     REQUIRE(properlyInitialized, "Metrosimulation was not properly initialised.");
-    for (int i = 0; i < 10; i++) {
-        for (int j = 0; j < static_cast<int>(lines.size()); ++j) {
-            lines[j]->update(os);
-        }
+    while (time<runtime) {
+        update(os);
+        time++;
+    }
+}
+
+void MetroSimulation::update(std::ostream &os) {
+    for (int j = 0; j < static_cast<int>(lines.size()); ++j) {
+        lines[j]->update(os);
     }
 }
