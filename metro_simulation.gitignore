@@ -3,6 +3,8 @@
 
 #GTEST
 gtest/lib/
+
+#builds
 cmake-build-debug
 cmake-build-debug-coverage
 cmake-build-debug-mingw
