@@ -4,13 +4,15 @@
 #include "../src/Track.h"
 #include "../src/Line.h"
 
+std::string FOLDERPATH = "../xmlFiles/tests/Parsertests/";
+
 class ParserTest : public ::testing::Test {
     virtual void SetUp() {}
     virtual void TearDown() {}
 };
 
 TEST_F(ParserTest, VariableDistributionTest) {
-    MetroXMLParser parser("../xmlFiles/variableDistributionTest.xml");
+    MetroXMLParser parser(FOLDERPATH+"variableDistributionTest.xml");
     std::vector<Line*> lines = parser.getLines();
     std::vector<Tram*> trams = parser.getTrams();
     std::vector<Station*> stations = parser.getStations();
@@ -52,23 +54,47 @@ TEST_F(ParserTest, VariableDistributionTest) {
 //FOUTE LINK
 TEST_F(ParserTest, VerifyTest1) {
     MetroXMLParser parser;
-    EXPECT_DEATH(parser = MetroXMLParser("../xmlFiles/verifyTest1.xml"),"Stations not connected properly*");
+    EXPECT_DEATH(parser = MetroXMLParser(FOLDERPATH+"verifyTest1.xml"),"Stations not connected properly*");
 }
 
 //FOUT STARTSTATION
 TEST_F(ParserTest, VerifyTest2) {
     MetroXMLParser parser;
-    EXPECT_DEATH(parser = MetroXMLParser("../xmlFiles/verifyTest2.xml"),"Invalid startstation of tram*");
+    EXPECT_DEATH(parser = MetroXMLParser(FOLDERPATH+"verifyTest2.xml"),"Invalid startstation of tram*");
 }
 
 //FOUT TRAMLINE_NR
 TEST_F(ParserTest, VerifyTest3) {
     MetroXMLParser parser;
-    EXPECT_DEATH(parser = MetroXMLParser("../xmlFiles/verifyTest3.xml"),"LineNumber of tram does not correspond with LineNumber of startStation*");
+    EXPECT_DEATH(parser = MetroXMLParser(FOLDERPATH+"verifyTest3.xml"),"LineNumber of tram does not correspond with LineNumber of startStation*");
 }
 
 //Not every line has a tram
 TEST_F(ParserTest, VerifyTest4) {
     MetroXMLParser parser;
-    EXPECT_DEATH(parser = MetroXMLParser("../xmlFiles/verifyTest4.xml"),"Not every line has a tram*");
+    EXPECT_DEATH(parser = MetroXMLParser(FOLDERPATH+"verifyTest4.xml"),"Not every line has a tram*");
+}
+
+//No stations
+TEST_F(ParserTest, VerifyTest5) {
+    MetroXMLParser parser;
+    EXPECT_DEATH(parser = MetroXMLParser(FOLDERPATH+"verifyTest5.xml"),"No input stations*");
+}
+
+//No trams
+TEST_F(ParserTest, VerifyTest6) {
+    MetroXMLParser parser;
+    EXPECT_DEATH(parser = MetroXMLParser(FOLDERPATH+"verifyTest6.xml"),"No input trams*");
+}
+
+//No file in dir
+TEST_F(ParserTest, LoadFileTest1) {
+    MetroXMLParser parser;
+    EXPECT_DEATH(parser = MetroXMLParser(FOLDERPATH+"baba.xml"),"Failed to load file*");
+}
+
+//No simdata
+TEST_F(ParserTest, LoadFileTest2) {
+    MetroXMLParser parser;
+    EXPECT_DEATH(parser = MetroXMLParser(FOLDERPATH+"nosimdata.xml"),"Failed to load file: No SIMDATA element*");
 }

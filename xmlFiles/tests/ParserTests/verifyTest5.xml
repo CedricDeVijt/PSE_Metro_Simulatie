@@ -1,0 +1,7 @@
+<SIMDATA>
+    <TRAM>
+        <lijnNr>12</lijnNr>
+        <snelheid>60</snelheid>
+        <beginStation>A</beginStation>
+    </TRAM>
+</SIMDATA>

@@ -2,7 +2,9 @@
 #include "iostream"
 
 int main() {
-    MetroSimulation sim("xmlFiles/simFile.xml", 6);
+    std::string FOLDERPATH = "../xmlFiles/sims/";
+
+    MetroSimulation sim(FOLDERPATH+"simFile.xml", 6);
 
     sim.outputMetroSimulation(std::cout);
 

@@ -21,17 +21,9 @@ MetroXMLParser::~MetroXMLParser() {}
 
 bool MetroXMLParser::parse() {
     TiXmlDocument doc(filename.c_str());
-    if (!doc.LoadFile()) {
-        std::cerr << doc.ErrorDesc() << std::endl;
-        return false;
-    }
-
+    ENSURE(doc.LoadFile(), "Failed to load file");
     TiXmlElement* root = doc.FirstChildElement("SIMDATA");
-    if (root == NULL) {
-        std::cerr << "Failed to load file: No root element." << std::endl;
-        doc.Clear();
-        return false;
-    }
+    ENSURE(root!=NULL, "Failed to load file: No SIMDATA element");
 
     TiXmlElement* elem = root->FirstChildElement();
     while (elem) {
@@ -71,8 +63,8 @@ bool MetroXMLParser::parse() {
 }
 
 void MetroXMLParser::handleTrams() {
+    REQUIRE(!trams.empty(), "No input trams");
     REQUIRE(!tramMap.empty(),"tramMap is empty");
-    REQUIRE(!trams.empty(), "trams is empty");
 
     Station *target;
     for (int i = 0; i < static_cast<int>(trams.size()); i++) {
@@ -106,8 +98,8 @@ void MetroXMLParser::handleTrams() {
 }
 
 void MetroXMLParser::handleStations() {
+    REQUIRE(!stations.empty(), "No input stations");
     REQUIRE(!stationMap.empty(),"StationMap is empty");
-    REQUIRE(!stations.empty(), "stations is empty");
 
     Station *target;
     for (int i = 0; i < static_cast<int>(stations.size()); i++) {
