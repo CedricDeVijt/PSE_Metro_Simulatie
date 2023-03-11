@@ -150,7 +150,6 @@ void MetroXMLParser::verify() {
     isVerified = true;
     bool connectedProperly;
     for (int i = 0; i < static_cast<int>(stations.size()); i++) {
-
         connectedProperly = stations[i]->getPrevTrack() != NULL && stations[i]->getNextTrack() != NULL;
         ENSURE(connectedProperly, "Stations not connected properly");
         stations[i]->setProperlyInitialized(connectedProperly);
@@ -167,7 +166,7 @@ void MetroXMLParser::verify() {
 
         if (validStartstation) {
             hasCorrespondingLine = trams[i]->getLineNumber() == trams[i]->getStartStation()->getLineNumber();
-            ENSURE(hasCorrespondingLine, "Track of tram does not correspond with track startStation");
+            ENSURE(hasCorrespondingLine, "LineNumber of tram does not correspond with LineNumber of startStation");
 
             if (!hasCorrespondingLine) {
                 isVerified = false;

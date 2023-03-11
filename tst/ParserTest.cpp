@@ -10,7 +10,7 @@ class ParserTest : public ::testing::Test {
 };
 
 TEST_F(ParserTest, VariableDistributionTest) {
-    MetroXMLParser parser("../xmlFiles/test1.xml");
+    MetroXMLParser parser("../xmlFiles/variableDistributionTest.xml");
     std::vector<Line*> lines = parser.getLines();
     std::vector<Tram*> trams = parser.getTrams();
     std::vector<Station*> stations = parser.getStations();
@@ -49,10 +49,26 @@ TEST_F(ParserTest, VariableDistributionTest) {
     EXPECT_EQ(1, static_cast<int>(lines[0]->getTrams().size()));
 }
 
+//FOUTE LINK
+TEST_F(ParserTest, VerifyTest1) {
+    MetroXMLParser parser;
+    EXPECT_DEATH(parser = MetroXMLParser("../xmlFiles/verifyTest1.xml"),"Stations not connected properly*");
+}
 
-//TODO assertions thrown bij testen?
-//TEST_F(ParserTest, VerifyTest1) {
-//    MetroXMLParser parser;
-//    EXPECT_DEATH(parser=MetroXMLParser("../xmlFiles/test2.xml"),"Assertion failed: Stations not connected properly");
-//    EXPECT_FALSE(parser.isProperlyInitialized());
-//}
+//FOUT STARTSTATION
+TEST_F(ParserTest, VerifyTest2) {
+    MetroXMLParser parser;
+    EXPECT_DEATH(parser = MetroXMLParser("../xmlFiles/verifyTest2.xml"),"Invalid startstation of tram*");
+}
+
+//FOUT TRAMLINE_NR
+TEST_F(ParserTest, VerifyTest3) {
+    MetroXMLParser parser;
+    EXPECT_DEATH(parser = MetroXMLParser("../xmlFiles/verifyTest3.xml"),"LineNumber of tram does not correspond with LineNumber of startStation*");
+}
+
+//Not every line has a tram
+TEST_F(ParserTest, VerifyTest4) {
+    MetroXMLParser parser;
+    EXPECT_DEATH(parser = MetroXMLParser("../xmlFiles/verifyTest4.xml"),"Not every line has a tram*");
+}
