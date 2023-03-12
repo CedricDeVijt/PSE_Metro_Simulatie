@@ -11,12 +11,10 @@ class SimTest : public ::testing::Test {
     virtual void TearDown() {}
 };
 
-TEST(SimTest, test1) {
+void testFile(std::string filename) {
     //WERKT NOG NIET
 //    ASSERT_TRUE(DirectoryExists(OUTPUTFOLDERPATH));
 //    ASSERT_TRUE(DirectoryExists(INPUTFOLDERPATH));
-
-    std::string filename = "test1.xml";
 
     MetroSimulation sim(INPUTFOLDERPATH+filename, 10);
 
@@ -31,3 +29,11 @@ TEST(SimTest, test1) {
         EXPECT_TRUE(FileCompare(COMPAREFOLDERPATH+filename, OUTPUTFOLDERPATH+filename));
     }
 }
+
+TEST(SimTest, test1) {
+    testFile("test1.xml");
+}
+
+//TEST(SimTest, test2) {
+//    testFile("test2.xml");
+//}
