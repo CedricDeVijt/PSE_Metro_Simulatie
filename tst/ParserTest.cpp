@@ -4,7 +4,7 @@
 #include "../src/Track.h"
 #include "../src/Line.h"
 
-std::string FOLDERPATH = "../xmlFiles/tests/Parsertests/";
+std::string FOLDERPATH = "xmlFiles/tests/Parsertests/";
 
 class ParserTest : public ::testing::Test {
     virtual void SetUp() {}

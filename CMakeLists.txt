@@ -27,7 +27,7 @@ set(RELEASE_SOURCE_FILES
         ./tinyxml/tinystr.cpp
         ./tinyxml/tinyxml.cpp
         ./tinyxml/tinyxmlparser.cpp
-        src/SimpleOutput.cpp)
+        )
 
 # Set source files for DEBUG target
 set(DEBUG_SOURCE_FILES
@@ -48,7 +48,7 @@ set(DEBUG_SOURCE_FILES
         ./tinyxml/tinystr.cpp
         ./tinyxml/tinyxml.cpp
         ./tinyxml/tinyxmlparser.cpp
-        )
+        tst/TestFuncs.h tst/SimTest.cpp)
 
 # Create RELEASE target
 add_executable(main_executable ${RELEASE_SOURCE_FILES})
