@@ -11,15 +11,15 @@ MetroXMLParser::MetroXMLParser() {
 
 }
 
-MetroXMLParser::MetroXMLParser(const std::string &filename) : filename(filename) {
-    properlyParsed = parse();
+MetroXMLParser::MetroXMLParser(const std::string &filename) {
+    properlyParsed = parse(filename);
     verify();
     properlyInitialized = isVerified && properlyParsed;
 }
 
 MetroXMLParser::~MetroXMLParser() {}
 
-bool MetroXMLParser::parse() {
+bool MetroXMLParser::parse(const std::string& filename) {
     TiXmlDocument doc(filename.c_str());
     ENSURE(doc.LoadFile(), "Failed to load file");
     TiXmlElement* root = doc.FirstChildElement("SIMDATA");
