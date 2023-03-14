@@ -7,14 +7,12 @@ class Track {
 public:
     // Constructor
     Track(Station *begin, Station *anEnd);
-
     // Destructor
-    //...
+    virtual ~Track();
 
+    //Getters
     Station *getBegin() const;
-
     Station *getAnEnd() const;
-
 private:
     Station *begin;
     Station *end;

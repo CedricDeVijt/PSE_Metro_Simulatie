@@ -10,7 +10,6 @@ public:
     // Constructor
     Station(const std::string &name, Track *nextTrack, Track *prevTrack, int lineNumber);
     Station();
-
     // Destructor
     ~Station();
 

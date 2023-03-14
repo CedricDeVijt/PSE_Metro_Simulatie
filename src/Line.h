@@ -10,6 +10,8 @@ class Line {
 public:
     explicit Line(int lineNumber);
 
+    virtual ~Line();
+
     const std::vector<Track *> &getTracks() const;
     const std::vector<Tram *> &getTrams() const;
 
