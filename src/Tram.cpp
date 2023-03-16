@@ -3,6 +3,7 @@
 
 #include <sstream>
 #include "iostream"
+#include "DesignByContract.h"
 
 Tram::Tram() {
     startStation = NULL;
@@ -14,48 +15,56 @@ Tram::Tram(int lineNumber, int tramNumber, int speed, Station *startStation) : l
     _initCheck = this;
 }
 
-Tram::~Tram() {
-
-}
+Tram::~Tram() {}
 
 int Tram::getLineNumber() const {
+    REQUIRE(properlyInitialized(), "Tram was not properly initialised.");
     return lineNumber;
 }
 
 void Tram::setLineNumber(int lineNumber_) {
+    REQUIRE(properlyInitialized(), "Tram was not properly initialised.");
     Tram::lineNumber = lineNumber_;
 }
 
 int Tram::getSpeed() const {
+    REQUIRE(properlyInitialized(), "Tram was not properly initialised.");
     return speed;
 }
 
 void Tram::setSpeed(int speed_) {
+    REQUIRE(properlyInitialized(), "Tram was not properly initialised.");
     Tram::speed = speed_;
 }
 
 Station *Tram::getStartStation() const {
+    REQUIRE(properlyInitialized(), "Tram was not properly initialised.");
     return startStation;
 }
 
 int Tram::getTramNumber() const {
+    REQUIRE(properlyInitialized(), "Tram was not properly initialised.");
     return tramNumber;
 }
 
 Station *Tram::getCurrentStation() const {
+    REQUIRE(properlyInitialized(), "Tram was not properly initialised.");
     return currentStation;
 }
 
 void Tram::setStartStation(Station *startStation_) {
+    REQUIRE(properlyInitialized(), "Tram was not properly initialised.");
     Tram::startStation = startStation_;
     currentStation = startStation_;
 }
 
 void Tram::setTramNumber(int tramNumber_) {
+    REQUIRE(properlyInitialized(), "Tram was not properly initialised.");
     Tram::tramNumber = tramNumber_;
 }
 
 bool Tram::drive(Track *track, std::ostream &os) {
+    REQUIRE(properlyInitialized(), "Tram was not properly initialised.");
     if (currentStation != track->getBegin()) { return false; }
 
     currentStation = track->getAnEnd();
@@ -72,4 +81,8 @@ Tram::operator std::string() {
     output << "Tram " << this->tramNumber << " in Station " << this->getCurrentStation()->getName();
     std::string outputString  = output.str();
     return outputString;
+}
+
+bool Tram::properlyInitialized() const {
+    return _initCheck == this;
 }

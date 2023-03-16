@@ -26,9 +26,11 @@ public:
 
     // Other
     void outputMetroSimulation(std::ostream &stream);
-    bool properlyInitialized() const;
 
 private:
+    // Other
+    bool properlyInitialized() const;
+
     // Data
     std::vector<Line*> lines;
     std::vector<Station*> stations;

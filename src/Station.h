@@ -29,10 +29,10 @@ public:
     void setPrevTrack(Station *prevStation);
     void setLineNumber(int lineNumber);
 
+private:
     // other
     bool properlyInitialized() const;
 
-private:
     // Data
     std::string name;
     Track *nextTrack;

@@ -14,8 +14,13 @@ public:
     Station *getBegin() const;
     Station *getAnEnd() const;
 private:
+    // Other
+    bool properlyInitialized() const;
+
     Station *begin;
     Station *end;
+
+    Track* _initCheck;
 };
 
 

@@ -47,6 +47,8 @@ private:
     friend std::ostream &operator<<(std::ostream &os, const Tram &tram);
 
     Tram* _initCheck;
+
+    bool properlyInitialized() const;
 };
 
 
