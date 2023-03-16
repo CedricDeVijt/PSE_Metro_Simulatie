@@ -5,9 +5,10 @@
 #include "Station.h"
 #include "Tram.h"
 
-MetroSimulation::MetroSimulation(const std::string& filename, unsigned int runtime) : runtime(runtime), time(0) {
-    MetroXMLParser parser(filename);
-    if (parser.isProperlyInitialized() && parser.isProperlyParsed()) {
+MetroSimulation::MetroSimulation(const std::string& filename, std::ostream *logstream, unsigned int runtime) : runtime(runtime), time(0) {
+    logger = new Logger(logstream);
+    MetroXMLParser parser(logger, filename);
+    if (parser.isProperlyParsed()) {
         lines = parser.getLines();
         stations = parser.getStations();
         trams = parser.getTrams();

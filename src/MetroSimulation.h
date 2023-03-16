@@ -3,6 +3,7 @@
 #include "string"
 #include "vector"
 #include "ostream"
+#include "Logger.h"
 
 class Tram;
 class Station;
@@ -11,7 +12,7 @@ class Line;
 class MetroSimulation {
 public:
     // Constructor
-    explicit MetroSimulation(const std::string& filename, unsigned int runtime);
+    explicit MetroSimulation(const std::string& filename, std::ostream *logstream, unsigned int runtime);
 
     // Destructor
     // TODO destructor maken
@@ -37,6 +38,8 @@ private:
     bool properlyInitialized;
     unsigned int runtime;
     unsigned int time;
+
+    Logger *logger;
 };
 
 

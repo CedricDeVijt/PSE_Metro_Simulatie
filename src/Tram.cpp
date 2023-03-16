@@ -5,7 +5,7 @@
 #include "iostream"
 
 Tram::Tram() {
-    startStation = nullptr;
+    startStation = NULL;
 }
 Tram::Tram(int lineNumber, int tramNumber, int speed, Station *startStation) : lineNumber(lineNumber),
                                                                                tramNumber(tramNumber), speed(speed),

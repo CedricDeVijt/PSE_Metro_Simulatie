@@ -27,7 +27,7 @@ set(RELEASE_SOURCE_FILES
         ./tinyxml/tinystr.cpp
         ./tinyxml/tinyxml.cpp
         ./tinyxml/tinyxmlparser.cpp
-        )
+        src/Logger.cpp src/Logger.h)
 
 # Set source files for DEBUG target
 set(DEBUG_SOURCE_FILES

@@ -3,6 +3,9 @@
 #include "string"
 #include "vector"
 #include "map"
+#include "ostream"
+#include "Logger.h"
+#include "../tinyxml/tinyxml.h"
 
 class Tram;
 class Station;
@@ -14,8 +17,7 @@ class Line;
 class MetroXMLParser {
 public:
     //CONSTRUCT-DESTRUCT
-    MetroXMLParser();
-    explicit MetroXMLParser(const std::string &filename);
+    explicit MetroXMLParser(Logger *logger, const std::string &filename);
     virtual ~MetroXMLParser();
 
     /**
@@ -30,6 +32,13 @@ public:
      * @return bool: True if parsed properly, False if failed to parse
      */
     bool parse(const std::string& filename);
+
+    std::pair<std::string, bool> readKey(TiXmlElement* elem, const std::string &key);
+
+    void parseStation(TiXmlElement* stationElem);
+
+    void parseTram(TiXmlElement* tramElem);
+
 
     /**
      * Initialises the stations completely
@@ -59,22 +68,24 @@ public:
      * @ENSURE CORRESPONDING LINENUMBER BETWEEN TRAM AND STARTSTATION
      * @ENSURE EVERY LINE HAS A TRAM
      */
-    void verify();
+    bool verify();
 
     //GETTERS
-    bool isProperlyInitialized() const;
+    bool properlyInitialized() const;
     bool isProperlyParsed() const;
     const std::vector<Tram *> &getTrams() const;
     const std::vector<Station *> &getStations() const;
     const std::vector<Line *> &getLines() const;
 private:
+    MetroXMLParser *_initCheck;
+
+    Logger *logger;
+
     std::vector<Tram*> trams;
     std::vector<Station*> stations;
     std::vector<Line*> lines;
 
-    bool properlyInitialized;
     bool properlyParsed;
-    bool isVerified;
 
     std::map<Station*, std::pair<std::string, std::string> > stationMap;
     std::map<Tram*, std::string> tramMap;
