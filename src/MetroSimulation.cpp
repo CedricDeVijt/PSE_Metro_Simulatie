@@ -11,9 +11,10 @@ MetroSimulation::MetroSimulation(const std::string& filename, unsigned int runti
         lines = parser.getLines();
         stations = parser.getStations();
         trams = parser.getTrams();
-        properlyInitialized = true;
+        _initCheck = this;
     } else {
-        properlyInitialized = false;
+        _initCheck = NULL;
+//        properlyInitialized = false;
     }
 }
 

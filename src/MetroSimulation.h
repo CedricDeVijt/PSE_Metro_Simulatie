@@ -37,6 +37,8 @@ private:
     bool properlyInitialized;
     unsigned int runtime;
     unsigned int time;
+
+    MetroSimulation* _initCheck;
 };
 
 
