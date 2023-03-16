@@ -7,7 +7,7 @@
 Station::Station() {
     nextTrack = NULL;
     prevTrack = NULL;
-    _initCheck = NULL;
+    _initCheck = this;
 }
 
 Station::Station(const std::string &name, Track *nextTrack, Track *prevTrack, int lineNumber) : name(name),

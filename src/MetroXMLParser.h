@@ -18,6 +18,7 @@ class MetroXMLParser {
 public:
     //CONSTRUCT-DESTRUCT
     explicit MetroXMLParser(Logger *logger, const std::string &filename);
+
     virtual ~MetroXMLParser();
 
     /**
