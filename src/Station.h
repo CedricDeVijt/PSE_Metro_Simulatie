@@ -8,8 +8,9 @@ class Track;
 class Station {
 public:
     // Constructor
-    Station(const std::string &name, Track *nextTrack, Track *prevTrack, int lineNumber);
     Station();
+    Station(const std::string &name, Track *nextTrack, Track *prevTrack, int lineNumber);
+
     // Destructor
     ~Station();
 
@@ -29,7 +30,9 @@ public:
     void setPrevTrack(Station *prevStation);
     void setLineNumber(int lineNumber);
     void setProperlyInitialized(bool properlyInitialized);
+
 private:
+    // Data
     std::string name;
     Track *nextTrack;
     Track *prevTrack;

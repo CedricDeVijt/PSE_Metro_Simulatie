@@ -17,13 +17,9 @@ MetroSimulation::MetroSimulation(const std::string& filename, unsigned int runti
     }
 }
 
-const std::vector<Station *> &MetroSimulation::getStations() const {
-    return stations;
-}
+const std::vector<Station *> &MetroSimulation::getStations() const { return stations; }
 
-const std::vector<Tram *> &MetroSimulation::getTrams() const {
-    return trams;
-}
+const std::vector<Tram *> &MetroSimulation::getTrams() const { return trams; }
 
 bool MetroSimulation::isProperlyInitialized() const { return properlyInitialized; }
 
@@ -47,6 +43,7 @@ void MetroSimulation::outputMetroSimulation(std::ostream &stream) {
         stream << std::string(*stations[i]) << std::endl;
     }
 
+    // Trams
     for (int i = 0; i < static_cast<int>(trams.size()); i++) {
         stream << std::string(*trams[i]) << std::endl;
     }
