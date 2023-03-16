@@ -6,17 +6,19 @@
 #include "Tram.h"
 
 MetroSimulation::MetroSimulation(const std::string& filename, std::ostream *logstream, unsigned int runtime) : runtime(runtime), time(0) {
+    _initCheck = this;
     logger = new Logger(logstream);
     MetroXMLParser parser(logger, filename);
     if (parser.isProperlyParsed()) {
         lines = parser.getLines();
         stations = parser.getStations();
         trams = parser.getTrams();
-        _initCheck = this;
     } else {
-        _initCheck = NULL;
-//        properlyInitialized = false;
+        logger->error("File was not parsed properly");
     }
+
+    ENSURE(properlyInitialized(), "Metrosimulation was not initialized properly");
+    ENSURE(parser.isProperlyParsed(), "File was not parsed properly");
 }
 
 const std::vector<Station *> &MetroSimulation::getStations() const {
