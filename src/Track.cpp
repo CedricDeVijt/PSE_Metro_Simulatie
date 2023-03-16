@@ -1,7 +1,18 @@
 #include "Track.h"
+#include "DesignByContract.h"
 
-Track::Track(Station *begin, Station *anEnd) : begin(begin), end(anEnd) {}
+Track::Track(Station *begin, Station *anEnd) : begin(begin), end(anEnd) {
+    _initCheck = this;
+}
 Track::~Track() {}
 
-Station *Track::getBegin() const { return begin; }
-Station *Track::getAnEnd() const { return end; }
+Station *Track::getBegin() const {
+    REQUIRE(properlyInitialized(), "Track was not properly initialised.");
+    return begin; }
+Station *Track::getAnEnd() const {
+    REQUIRE(properlyInitialized(), "Station was not properly initialised.");
+    return end; }
+
+bool Track::properlyInitialized() const {
+    return _initCheck == this;
+}

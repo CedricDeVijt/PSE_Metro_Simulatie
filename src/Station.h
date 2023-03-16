@@ -22,23 +22,25 @@ public:
     Track *getNextTrack() const;
     Track *getPrevTrack() const;
     int getLineNumber() const;
-    bool isProperlyInitialized() const;
 
     // Setters
     void setName(const std::string &name);
     void setNextTrack(Station *nextStation);
     void setPrevTrack(Station *prevStation);
     void setLineNumber(int lineNumber);
-    void setProperlyInitialized(bool properlyInitialized);
 
 private:
+    // other
+    bool properlyInitialized() const;
+
     // Data
     std::string name;
     Track *nextTrack;
     Track *prevTrack;
     int lineNumber;
 
-    bool properlyInitialized;
+
+    Station* _initCheck;
 
     // OS
     friend std::ostream &operator<<(std::ostream &os, const Station &station);

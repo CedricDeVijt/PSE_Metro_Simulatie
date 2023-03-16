@@ -24,7 +24,9 @@ private:
     std::vector<Track*> tracks;
     std::vector<Tram*> trams;
 
-    bool properlyInitialised;
+    Line* _initCheck;
+
+    bool properlyInitialised() const;
 };
 
 
