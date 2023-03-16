@@ -1,7 +1,7 @@
 # Metro Simulation
 
 ## TODO
--[ ] Destructors voor elke klasse? (alles kan ook verwijderd worden in klasse destructor)
+-[ ] Destructors voor elke klasse
 
 ## Test
 ### MetroSimulation
