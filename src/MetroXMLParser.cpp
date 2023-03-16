@@ -6,8 +6,10 @@
 #include "DesignByContract.h"
 #include "Track.h"
 #include "Line.h"
+#include "Logger.h"
 
-MetroXMLParser::MetroXMLParser(Logger *logger, const std::string &filename) : logger(logger) {
+
+MetroXMLParser::MetroXMLParser(const std::string &filename, std::ostream &errorStream) : errorstream(errorStream) {
     _initCheck = this;
     properlyParsed = parse(filename);
     ENSURE(properlyInitialized(), "constructor must end in properlyInitialized state");
@@ -20,12 +22,12 @@ bool MetroXMLParser::parse(const std::string &filename) {
 
     TiXmlDocument doc(filename.c_str());
     if (!doc.LoadFile()) {
-        logger->error("Failed to load file: File not found");
+        Logger::writeError(errorstream,"Failed to load file: File not found");
         return false;
     }
     TiXmlElement* root = doc.FirstChildElement("SIMDATA");
     if (root==NULL) {
-        logger->error("Failed to load file: No SIMDATA element");
+        Logger::writeError(errorstream, "Failed to load file: No SIMDATA element");
         return false;
     }
 
@@ -37,7 +39,7 @@ bool MetroXMLParser::parse(const std::string &filename) {
         } else if (elemName == "TRAM") {
             parseTram(elem);
         } else {
-            logger->error("Unknown Element");
+            Logger::writeError(errorstream, "Unknown Element");
         }
         elem = elem->NextSiblingElement();
     }
@@ -51,7 +53,7 @@ std::pair<std::string,bool> MetroXMLParser::readKey(TiXmlElement *elem, const st
     REQUIRE(properlyInitialized(), "MetroXMLParser was not initialized when calling readKey");
     elem = elem->FirstChildElement(key.c_str());
     if (elem == NULL) {
-        logger->error("Invalid Information: \"" + key + "\" element not found");
+        Logger::writeError(errorstream, "Invalid Information: \"" + key + "\" element not found");
         return std::pair<std::string,bool> ("", false);
     }
     return std::pair<std::string,bool> (elem->GetText(), true);
@@ -190,7 +192,7 @@ bool MetroXMLParser::verify() {
     for (int i = 0; i < static_cast<int>(stations.size()); i++) {
         connectedProperly = stations[i]->getPrevTrack() != NULL && stations[i]->getNextTrack() != NULL;
         if (!connectedProperly) {
-            logger->error("VerificationError: Stations are not connected properly");
+            Logger::writeError(errorstream, "VerificationError: Stations are not connected properly");
             isVerified = false;
         }
     }
@@ -202,11 +204,11 @@ bool MetroXMLParser::verify() {
         if (validStartstation) {
             hasCorrespondingLine = trams[i]->getLineNumber() == trams[i]->getStartStation()->getLineNumber();
             if (!hasCorrespondingLine) {
-                logger->error("VerificationError: LineNumber of tram does not correspond with LineNumber of startStation");
+                Logger::writeError(errorstream, "VerificationError: LineNumber of tram does not correspond with LineNumber of startStation");
                 isVerified = false;
             }
         } else {
-            logger->error("VerificationError: Invalid startstation of tram");
+            Logger::writeError(errorstream, "VerificationError: Invalid startstation of tram");
             isVerified = false;
         }
     }
@@ -215,7 +217,7 @@ bool MetroXMLParser::verify() {
     for (int i = 0; i < static_cast<int>(lines.size()); ++i) {
         lineHasTram = lines[i]->getTrams().size() > 0;
         if (!lineHasTram) {
-            logger->error("VerificationError: Invalid startstation of tram");
+            Logger::writeError(errorstream, "VerificationError: Invalid startstation of tram");
             isVerified = false;
         }
     }
@@ -227,3 +229,4 @@ const std::vector<Station *> &MetroXMLParser::getStations() const {return statio
 bool MetroXMLParser::properlyInitialized() const {return _initCheck==this;}
 bool MetroXMLParser::isProperlyParsed() const {return properlyParsed;}
 const std::vector<Line *> &MetroXMLParser::getLines() const { return lines; }
+

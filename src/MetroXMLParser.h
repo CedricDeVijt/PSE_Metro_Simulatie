@@ -4,12 +4,11 @@
 #include "vector"
 #include "map"
 #include "ostream"
-#include "Logger.h"
 #include "../tinyxml/tinyxml.h"
-
-class Tram;
-class Station;
-class Line;
+#include "Tram.h"
+#include "Station.h"
+#include "Line.h"
+#include "fstream"
 
 /**
  * Parser for MetroSimulation
@@ -17,7 +16,7 @@ class Line;
 class MetroXMLParser {
 public:
     //CONSTRUCT-DESTRUCT
-    explicit MetroXMLParser(Logger *logger, const std::string &filename);
+    explicit MetroXMLParser(const std::string &filename, std::ostream &errorStream);
 
     virtual ~MetroXMLParser();
 
@@ -80,7 +79,7 @@ public:
 private:
     MetroXMLParser *_initCheck;
 
-    Logger *logger;
+    std::ostream &errorstream;
 
     std::vector<Tram*> trams;
     std::vector<Station*> stations;

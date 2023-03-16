@@ -1,23 +1,20 @@
 #include "MetroSimulation.h"
 #include "MetroXMLParser.h"
 #include "DesignByContract.h"
-#include "Line.h"
-#include "Station.h"
-#include "Tram.h"
+#include "Logger.h"
 
-MetroSimulation::MetroSimulation(const std::string& filename, std::ostream *logstream, unsigned int runtime) : runtime(runtime), time(0) {
+MetroSimulation::MetroSimulation(const std::string& inputfile, std::ostream &errorstream, unsigned int runtime) : runtime(runtime), time(0), errorstream(errorstream) {
     _initCheck = this;
-    logger = new Logger(logstream);
-    MetroXMLParser parser(logger, filename);
+    MetroXMLParser parser(inputfile, errorstream);
     if (parser.isProperlyParsed()) {
         lines = parser.getLines();
         stations = parser.getStations();
         trams = parser.getTrams();
     } else {
-        logger->error("File was not parsed properly");
+        Logger::writeError(errorstream,"File was not parsed properly");
     }
 
-    ENSURE(properlyInitialized(), "Metrosimulation was not initialized properly");
+    ENSURE(properlyInitialized(), "\"constructor must end in properlyInitialized state");
     ENSURE(parser.isProperlyParsed(), "File was not parsed properly");
 }
 

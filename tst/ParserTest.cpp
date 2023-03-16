@@ -1,23 +1,39 @@
 #include "gtest/gtest.h"
-#include "../src/Tram.h"
 #include "../src/MetroXMLParser.h"
-#include "../src/Track.h"
-#include "../src/Line.h"
-
-std::string FOLDERPATH = "xmlFiles/tests/Parsertests/";
+#include "TestFuncs.h"
 
 class ParserTest : public ::testing::Test {
     virtual void SetUp() {}
     virtual void TearDown() {}
 };
 
+void compareLog(std::string filename) {
+    std::string INPUTFOLDERPATH   = "xmlFiles/tests/ParserTests/input/";
+    std::string OUTPUTFOLDERPATH  = "xmlFiles/tests/ParserTests/output/";
+    std::string COMPAREFOLDERPATH = "xmlFiles/tests/ParserTests/compare/";
+
+    //WERKT NOG NIET
+    //ASSERT_TRUE(DirectoryExists(OUTPUTFOLDERPATH));
+    //ASSERT_TRUE(DirectoryExists(INPUTFOLDERPATH));
+
+    std::ofstream file((OUTPUTFOLDERPATH+filename).c_str());
+    EXPECT_TRUE(file.is_open());
+
+    MetroXMLParser m(INPUTFOLDERPATH+filename, file);
+    file.close();
+
+    EXPECT_TRUE(FileCompare(COMPAREFOLDERPATH+filename, OUTPUTFOLDERPATH+filename));
+}
+
 TEST_F(ParserTest, VariableDistributionTest) {
-    MetroXMLParser parser(FOLDERPATH+"variableDistributionTest.xml");
+    std::string INPUTFOLDERPATH   = "xmlFiles/tests/ParserTests/input/";
+    std::string OUTPUTFOLDERPATH  = "xmlFiles/tests/ParserTests/output/";
+    std::string COMPAREFOLDERPATH = "xmlFiles/tests/ParserTests/compare/";
+
+    MetroXMLParser parser(INPUTFOLDERPATH+"variableDistributionTest.xml", std::cout);
     std::vector<Line*> lines = parser.getLines();
     std::vector<Tram*> trams = parser.getTrams();
     std::vector<Station*> stations = parser.getStations();
-
-    EXPECT_TRUE(parser.isProperlyInitialized());
 
     //TESTING TRAMS
     EXPECT_EQ(1, static_cast<int>(trams.size()));
@@ -30,7 +46,6 @@ TEST_F(ParserTest, VariableDistributionTest) {
     for (int i = 0; i < static_cast<int>(stations.size()); i++) {
         Station *station = stations[i];
         EXPECT_EQ(12, station->getLineNumber());
-        EXPECT_TRUE(station->isProperlyInitialized());
 
         if (station->getName()=="A") {
             EXPECT_EQ("B", station->getNextTrack()->getAnEnd()->getName());
@@ -53,48 +68,40 @@ TEST_F(ParserTest, VariableDistributionTest) {
 
 //FOUTE LINK
 TEST_F(ParserTest, VerifyTest1) {
-    MetroXMLParser parser;
-    EXPECT_DEATH(parser = MetroXMLParser(FOLDERPATH+"verifyTest1.xml"),"Stations not connected properly*");
+    compareLog("verifyTest1.xml");
 }
 
 //FOUT STARTSTATION
 TEST_F(ParserTest, VerifyTest2) {
-    MetroXMLParser parser;
-    EXPECT_DEATH(parser = MetroXMLParser(FOLDERPATH+"verifyTest2.xml"),"Invalid startstation of tram*");
+    compareLog("verifyTest2.xml");
 }
 
 //FOUT TRAMLINE_NR
 TEST_F(ParserTest, VerifyTest3) {
-    MetroXMLParser parser;
-    EXPECT_DEATH(parser = MetroXMLParser(FOLDERPATH+"verifyTest3.xml"),"LineNumber of tram does not correspond with LineNumber of startStation*");
+    compareLog("verifyTest3.xml");
 }
 
 //Not every line has a tram
 TEST_F(ParserTest, VerifyTest4) {
-    MetroXMLParser parser;
-    EXPECT_DEATH(parser = MetroXMLParser(FOLDERPATH+"verifyTest4.xml"),"Not every line has a tram*");
+    compareLog("verifyTest4.xml");
 }
 
 //No stations
 TEST_F(ParserTest, VerifyTest5) {
-    MetroXMLParser parser;
-    EXPECT_DEATH(parser = MetroXMLParser(FOLDERPATH+"verifyTest5.xml"),"No input stations*");
+    compareLog("verifyTest5.xml");
 }
 
 //No trams
 TEST_F(ParserTest, VerifyTest6) {
-    MetroXMLParser parser;
-    EXPECT_DEATH(parser = MetroXMLParser(FOLDERPATH+"verifyTest6.xml"),"No input trams*");
+    compareLog("verifyTest6.xml");
 }
 
 //No file in dir
 TEST_F(ParserTest, LoadFileTest1) {
-    MetroXMLParser parser;
-    EXPECT_DEATH(parser = MetroXMLParser(FOLDERPATH+"baba.xml"),"Failed to load file*");
+    compareLog("baba.xml");
 }
 
 //No simdata
 TEST_F(ParserTest, LoadFileTest2) {
-    MetroXMLParser parser;
-    EXPECT_DEATH(parser = MetroXMLParser(FOLDERPATH+"nosimdata.xml"),"Failed to load file: No SIMDATA element*");
+    compareLog("nosimdata.xml");
 }

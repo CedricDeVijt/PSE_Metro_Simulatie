@@ -2,8 +2,7 @@
 #define PSE_METRO_SIMULATIE_TRAM_H
 #include <ostream>
 #include "Station.h"
-
-class Track;
+#include "Track.h"
 
 class Tram {
 public:
