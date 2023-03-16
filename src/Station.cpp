@@ -6,6 +6,7 @@
 Station::Station() {
     nextTrack = NULL;
     prevTrack = NULL;
+    _initCheck = NULL;
 }
 
 Station::Station(const std::string &name, Track *nextTrack, Track *prevTrack, int lineNumber) : name(name),
@@ -13,7 +14,7 @@ Station::Station(const std::string &name, Track *nextTrack, Track *prevTrack, in
                                                                                                 prevTrack(prevTrack),
                                                                                                 lineNumber(
                                                                                                         lineNumber) {
-    properlyInitialized = true;
+    _initCheck = this;
 }
 
 Station::~Station() {}
@@ -36,7 +37,6 @@ Station::operator std::string() {
 //getters
 const std::string &Station::getName() const { return name; }
 int Station::getLineNumber() const { return lineNumber; }
-bool Station::isProperlyInitialized() const { return properlyInitialized; }
 Track *Station::getNextTrack() const { return nextTrack; }
 Track *Station::getPrevTrack() const { return prevTrack; }
 
@@ -45,4 +45,5 @@ void Station::setNextTrack(Station *nextStation) { Station::nextTrack = new Trac
 void Station::setPrevTrack(Station *prevStation) { Station::prevTrack = new Track(prevStation, this); }
 void Station::setLineNumber(int lineNumber_) { Station::lineNumber = lineNumber_; }
 void Station::setName(const std::string &name_) { Station::name = name_; }
-void Station::setProperlyInitialized(bool properlyInitialized_) { Station::properlyInitialized = properlyInitialized_; }
+
+bool Station::properlyInitialized() const{ return _initCheck == this; }

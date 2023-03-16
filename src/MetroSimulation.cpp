@@ -18,14 +18,18 @@ MetroSimulation::MetroSimulation(const std::string& filename, unsigned int runti
     }
 }
 
-const std::vector<Station *> &MetroSimulation::getStations() const { return stations; }
+const std::vector<Station *> &MetroSimulation::getStations() const {
+    REQUIRE(properlyInitialized(), "Metrosimulation was not properly initialised.");
+    return stations;
+}
 
-const std::vector<Tram *> &MetroSimulation::getTrams() const { return trams; }
-
-bool MetroSimulation::isProperlyInitialized() const { return properlyInitialized; }
+const std::vector<Tram *> &MetroSimulation::getTrams() const {
+    REQUIRE(properlyInitialized(), "Metrosimulation was not properly initialised.");
+    return trams;
+}
 
 void MetroSimulation::start(std::ostream &os) {
-    REQUIRE(properlyInitialized, "Metrosimulation was not properly initialised.");
+    REQUIRE(properlyInitialized(), "Metrosimulation was not properly initialised.");
     while (time<runtime) {
         update(os);
         time++;
@@ -33,12 +37,14 @@ void MetroSimulation::start(std::ostream &os) {
 }
 
 void MetroSimulation::update(std::ostream &os) {
+    REQUIRE(properlyInitialized(), "Metrosimulation is not properly initialised.");
     for (int j = 0; j < static_cast<int>(lines.size()); ++j) {
         lines[j]->update(os);
     }
 }
 
 void MetroSimulation::outputMetroSimulation(std::ostream &stream) {
+    REQUIRE(properlyInitialized(), "Metrosimulation was not properly initialised.");
     // Stations
     for (int i = 0; i < static_cast<int>(stations.size()); i++) {
         stream << std::string(*stations[i]) << std::endl;
@@ -48,4 +54,8 @@ void MetroSimulation::outputMetroSimulation(std::ostream &stream) {
     for (int i = 0; i < static_cast<int>(trams.size()); i++) {
         stream << std::string(*trams[i]) << std::endl;
     }
+}
+
+bool MetroSimulation::properlyInitialized() const{
+    return _initCheck == this;
 }

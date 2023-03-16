@@ -6,11 +6,12 @@
 
 Tram::Tram() {
     startStation = NULL;
+    _initCheck = NULL;
 }
 Tram::Tram(int lineNumber, int tramNumber, int speed, Station *startStation) : lineNumber(lineNumber),
                                                                                tramNumber(tramNumber), speed(speed),
                                                                                startStation(startStation) {
-    properlyInitialized = true;
+    _initCheck = this;
 }
 
 Tram::~Tram() {

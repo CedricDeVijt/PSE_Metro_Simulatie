@@ -144,7 +144,6 @@ void MetroXMLParser::verify() {
     for (int i = 0; i < static_cast<int>(stations.size()); i++) {
         connectedProperly = stations[i]->getPrevTrack() != NULL && stations[i]->getNextTrack() != NULL;
         ENSURE(connectedProperly, "Stations not connected properly");
-        stations[i]->setProperlyInitialized(connectedProperly);
         if (!connectedProperly) {
             isVerified = false;
         }

@@ -23,10 +23,10 @@ public:
     // Getters
     const std::vector<Station *> &getStations() const;
     const std::vector<Tram *> &getTrams() const;
-    bool isProperlyInitialized() const;
 
     // Other
     void outputMetroSimulation(std::ostream &stream);
+    bool properlyInitialized() const;
 
 private:
     // Data
@@ -34,7 +34,6 @@ private:
     std::vector<Station*> stations;
     std::vector<Tram*> trams;
 
-    bool properlyInitialized;
     unsigned int runtime;
     unsigned int time;
 
