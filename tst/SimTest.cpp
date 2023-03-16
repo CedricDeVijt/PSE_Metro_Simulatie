@@ -2,11 +2,12 @@
 #include "gtest/gtest.h"
 #include "../src/MetroSimulation.h"
 
-std::string INPUTFOLDERPATH   = "xmlFiles/tests/simTest/input/";
-std::string OUTPUTFOLDERPATH  = "xmlFiles/tests/simTest/output/";
-std::string COMPAREFOLDERPATH = "xmlFiles/tests/simTest/compare/";
+const std::string INPUTFOLDERPATH   = "xmlFiles/tests/simTest/input/";
+const std::string OUTPUTFOLDERPATH  = "xmlFiles/tests/simTest/output/";
+const std::string COMPAREFOLDERPATH = "xmlFiles/tests/simTest/compare/";
 
 class SimTest : public ::testing::Test {
+protected:
     virtual void SetUp() {}
     virtual void TearDown() {}
 };
@@ -16,7 +17,7 @@ void testFile(std::string filename) {
 //    ASSERT_TRUE(DirectoryExists(OUTPUTFOLDERPATH));
 //    ASSERT_TRUE(DirectoryExists(INPUTFOLDERPATH));
 
-    MetroSimulation sim(INPUTFOLDERPATH+filename, 10);
+    MetroSimulation sim(INPUTFOLDERPATH+filename, &std::cout, 10);
 
     std::ofstream file;
     file.open((OUTPUTFOLDERPATH+filename).c_str(), std::ios::out);

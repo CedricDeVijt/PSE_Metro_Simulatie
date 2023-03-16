@@ -22,7 +22,6 @@
 ## Test
 ### MetroSimulation
 - [x] Properly initialized (_initCheck)
-- [ ] Constructor
 - [ ] start
 - [ ] update
 - [ ] outputMetroSimulation
