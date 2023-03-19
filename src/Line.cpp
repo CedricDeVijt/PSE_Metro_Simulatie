@@ -3,9 +3,13 @@
 #include "Tram.h"
 #include "DesignByContract.h"
 
-Line::Line(int lineNumber) : lineNumber(lineNumber) { _initCheck = this; }
+Line::Line(int lineNumber) : lineNumber(lineNumber) {
+    _initCheck = this;
+    ENSURE(properlyInitialised(), "constructor must end in properlyInitialized state");
+}
 
 Line::~Line() {
+    REQUIRE(properlyInitialised(), "The line was not properly initialised.");
     for (int i = 0; i < static_cast<int>(trams.size()); ++i) {
         delete trams[i];
     }
@@ -24,7 +28,6 @@ void Line::update(std::ostream &os) {
             Track *currentTrack = tracks[j];
             drove = currentTram->drive(currentTrack, os);
         }
-        ENSURE(drove, "The tram did not find the right track to drive on.");
     }
 }
 
@@ -37,12 +40,15 @@ void Line::addTram(Tram *newTram) {
     trams.push_back(newTram);
 }
 int Line::getLineNumber() const {
+    REQUIRE(properlyInitialised(), "The line was not properly initialised.");
     return lineNumber;
 }
 const std::vector<Track *> &Line::getTracks() const {
+    REQUIRE(properlyInitialised(), "The line was not properly initialised.");
     return tracks;
 }
 const std::vector<Tram *> &Line::getTrams() const {
+    REQUIRE(properlyInitialised(), "The line was not properly initialised.");
     return trams;
 }
 
