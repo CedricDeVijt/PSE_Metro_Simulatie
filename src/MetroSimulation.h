@@ -1,45 +1,23 @@
 #ifndef PSE_METRO_SIMULATIE_METROSIMULATION_H
 #define PSE_METRO_SIMULATIE_METROSIMULATION_H
-#include "string"
-#include "vector"
-#include "ostream"
-#include "Tram.h"
-#include "Station.h"
-#include "Line.h"
+#include "MetroSystem.h"
 
-class MetroSimulation {
+class MetroSimulation  {
 public:
     // Constructor
-    explicit MetroSimulation(const std::string& filename, std::ostream &errorstream, unsigned int runtime);
+    MetroSimulation(const std::string &inputFile, std::ostream &errorstream, unsigned int runtime);
+    virtual ~MetroSimulation();
 
-    // Destructor
-    // TODO destructor maken
-
-    // System operations
-    void startSystem(std::ostream &os);
-    void updateSystem(std::ostream &os);
-
-    // Getters
-    const std::vector<Station *> &getStations() const;
-    const std::vector<Tram *> &getTrams() const;
-
-    // Other
-    void outputMetroSimulation(std::ostream &stream);
-
+    MetroSystem *getSystem() const;
+    void run(std::ostream &os);
 private:
-    // Other
     bool properlyInitialized() const;
 
-    // Data
-    std::vector<Line*> lines;
-    std::vector<Station*> stations;
-    std::vector<Tram*> trams;
-
+    MetroSystem *system;
     unsigned int runtime;
     unsigned int time;
 
     MetroSimulation* _initCheck;
-    std::ostream &errorstream;
 };
 
 

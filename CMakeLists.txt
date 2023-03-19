@@ -21,6 +21,7 @@ set(METRO_SOURCE_FILES
         src/MetroXMLParser.cpp
         src/Track.cpp
         src/Line.cpp
+        src/MetroSystem.cpp
         )
 
 set(TINY_XML_SOURCE_FILES
