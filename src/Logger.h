@@ -5,7 +5,7 @@
 
 class Logger {
 public:
-    static void writeError(std::ostream &stream, const std::string msg) {
+    static void writeError(std::ostream &stream, const std::string &msg) {
         stream << "ERROR: " << msg << std::endl;
     }
 };
