@@ -2,7 +2,7 @@
 #include "MetroXMLParser.h"
 #include "DesignByContract.h"
 #include "Logger.h"
-//
+
 MetroSimulation::MetroSimulation(const std::string& inputfile, std::ostream &errorstream, unsigned int runtime) : runtime(runtime), time(0), errorstream(errorstream) {
     _initCheck = this;
     MetroXMLParser parser(inputfile, errorstream);

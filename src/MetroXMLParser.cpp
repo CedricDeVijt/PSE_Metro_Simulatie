@@ -7,7 +7,6 @@
 #include "Track.h"
 #include "Line.h"
 #include "Logger.h"
-//
 
 MetroXMLParser::MetroXMLParser(const std::string &filename, std::ostream &errorStream) : errorstream(errorStream) {
     _initCheck = this;
@@ -80,10 +79,7 @@ void MetroXMLParser::parseStation(TiXmlElement *stationElem) {
     if (!p.second) return;
     int lineNr = atoi(p.first.c_str());
 
-    Station *newStation = new Station;
-    newStation->setName(name);
-    newStation->setLineNumber(lineNr);
-    stations.push_back(newStation);
+    Station *newStation = new Station(name, NULL, NULL, lineNr);
     stationMap[newStation] = std::pair<std::string, std::string> (next, prev);
 }
 

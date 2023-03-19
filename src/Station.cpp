@@ -4,12 +4,6 @@
 #include "Track.h"
 #include "DesignByContract.h"
 
-Station::Station() {
-    nextTrack = NULL;
-    prevTrack = NULL;
-    _initCheck = this;
-}
-
 Station::Station(const std::string &name, Track *nextTrack, Track *prevTrack, int lineNumber) : name(name),
                                                                                                 nextTrack(nextTrack),
                                                                                                 prevTrack(prevTrack),
