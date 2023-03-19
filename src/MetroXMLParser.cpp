@@ -217,9 +217,28 @@ bool MetroXMLParser::verify() {
     return isVerified;
 }
 
-const std::vector<Tram *> &MetroXMLParser::getTrams() const {return trams;}
-const std::vector<Station *> &MetroXMLParser::getStations() const {return stations;}
-bool MetroXMLParser::properlyInitialized() const {return _initCheck==this;}
-bool MetroXMLParser::isProperlyParsed() const {return properlyParsed;}
-const std::vector<Line *> &MetroXMLParser::getLines() const { return lines; }
+const std::vector<Tram *> &MetroXMLParser::getTrams() const {
+    REQUIRE(properlyInitialized(), "MetroXMLParser was not initialized when calling handleStations");
+    return trams;
+}
+
+const std::vector<Station *> &MetroXMLParser::getStations() const {
+    REQUIRE(properlyInitialized(), "MetroXMLParser was not initialized when calling handleStations");
+    return stations;
+}
+
+bool MetroXMLParser::properlyInitialized() const {
+    REQUIRE(properlyInitialized(), "MetroXMLParser was not initialized when calling handleStations");
+    return _initCheck==this;
+}
+
+bool MetroXMLParser::isProperlyParsed() const {
+    REQUIRE(properlyInitialized(), "MetroXMLParser was not initialized when calling handleStations");
+    return properlyParsed;
+}
+
+const std::vector<Line *> &MetroXMLParser::getLines() const {
+    REQUIRE(properlyInitialized(), "MetroXMLParser was not initialized when calling handleStations");
+    return lines;
+}
 

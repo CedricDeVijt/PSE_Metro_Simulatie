@@ -11,7 +11,8 @@ public:
     /**
      * Writes an error message to the given stream, with right formatting
      * @param stream is the stream the error message needs to be written to
-     * @param msg is the message that needs to be formatted \b !newline \b gets \b added \b by \b default!
+     * @param msg is the message that needs to be formatted
+     * @attention newline gets added by  default
      */
     static void writeError(std::ostream &stream, const std::string &msg) {
         stream << "ERROR: " << msg << std::endl;
