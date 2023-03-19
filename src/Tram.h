@@ -9,8 +9,6 @@ public:
     // Constructor
     Tram(int lineNumber, int tramNumber, int speed, Station *startStation);
 
-    Tram();
-
     // Destructor
     virtual ~Tram();
 

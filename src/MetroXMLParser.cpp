@@ -80,6 +80,7 @@ void MetroXMLParser::parseStation(TiXmlElement *stationElem) {
     int lineNr = atoi(p.first.c_str());
 
     Station *newStation = new Station(name, NULL, NULL, lineNr);
+    stations.push_back(newStation);
     stationMap[newStation] = std::pair<std::string, std::string> (next, prev);
 }
 
@@ -99,12 +100,8 @@ void MetroXMLParser::parseTram(TiXmlElement *tramElem) {
     if (!p.second) return;
     std::string begin = p.first;
 
-    Tram *newTram = new Tram;
-    newTram->setLineNumber(lijnNr);
-    newTram->setSpeed(snelheid);
-    newTram->setTramNumber(static_cast<int>(trams.size()));
+    Tram *newTram = new Tram(lijnNr, static_cast<int>(trams.size()),snelheid,NULL);
     trams.push_back(newTram);
-
     tramMap[newTram] = begin;
 }
 

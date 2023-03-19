@@ -14,7 +14,7 @@ int main() {
         return 1;
     }
 
-    MetroSimulation sim(INPUTPATH+filename+".xml", std::cout, 10);
+    MetroSimulation sim(INPUTPATH+filename+".xml", file, 10);
 
     sim.outputMetroSimulation(std::cout);
     std::cout << std::endl;

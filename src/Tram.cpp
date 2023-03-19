@@ -2,10 +2,6 @@
 #include <sstream>
 #include "DesignByContract.h"
 
-Tram::Tram() {
-    startStation = NULL;
-    _initCheck = this;
-}
 Tram::Tram(int lineNumber, int tramNumber, int speed, Station *startStation) : lineNumber(lineNumber),
                                                                                tramNumber(tramNumber), speed(speed),
                                                                                startStation(startStation) {
