@@ -11,21 +11,16 @@
 class MetroSystem {
 public:
     explicit MetroSystem(const std::string& filename, std::ostream &errorstream);
-
     void updateSystem(std::ostream &os);
     void outputSystem(std::ostream &stream);
+    void createDotFile(std::ostream &stream);
 private:
-    // Other
     bool properlyInitialized() const;
-
-    // Data
     std::vector<Line*> lines;
     std::vector<Station*> stations;
     std::vector<Tram*> trams;
-
     MetroSystem* _initCheck;
     std::ostream &errorstream;
-
 };
 
 

@@ -19,6 +19,8 @@ int main() {
     sim.getSystem()->outputSystem(std::cout);
     std::cout << std::endl;
     sim.run(std::cout);
+    std::cout << std::endl;
+    sim.getSystem()->createDotFile(std::cout);
 
     file.close();
 }

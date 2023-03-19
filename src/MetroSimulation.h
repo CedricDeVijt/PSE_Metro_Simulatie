@@ -4,7 +4,6 @@
 
 class MetroSimulation  {
 public:
-    // Constructor
     MetroSimulation(const std::string &inputFile, std::ostream &errorstream, unsigned int runtime);
     virtual ~MetroSimulation();
 
