@@ -24,7 +24,7 @@ void testFile(std::string filename) {
     EXPECT_TRUE(file);
 
     if (file) {
-        sim.start(file);
+        sim.startSystem(file);
         file.close();
 
         EXPECT_TRUE(FileCompare(COMPAREFOLDERPATH+filename, OUTPUTFOLDERPATH+filename));

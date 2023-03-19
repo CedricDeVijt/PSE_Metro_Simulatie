@@ -100,7 +100,7 @@ class UnitTestImpl;                    // Opaque implementation of UnitTest
 // How many times InitGoogleTest() has been called.
 GTEST_API_ extern int g_init_gtest_count;
 
-// The text used in failure messages to indicate the start of the
+// The text used in failure messages to indicate the startSystem of the
 // stack trace.
 GTEST_API_ extern const char kStackTraceMarker[];
 

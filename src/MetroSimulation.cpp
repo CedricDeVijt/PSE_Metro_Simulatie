@@ -31,15 +31,15 @@ const std::vector<Tram *> &MetroSimulation::getTrams() const {
     return trams;
 }
 
-void MetroSimulation::start(std::ostream &os) {
+void MetroSimulation::startSystem(std::ostream &os) {
     REQUIRE(properlyInitialized(), "Metrosimulation was not properly initialised.");
     while (time<runtime) {
-        update(os);
+        updateSystem(os);
         time++;
     }
 }
 
-void MetroSimulation::update(std::ostream &os) {
+void MetroSimulation::updateSystem(std::ostream &os) {
     REQUIRE(properlyInitialized(), "Metrosimulation is not properly initialised.");
     for (int j = 0; j < static_cast<int>(lines.size()); ++j) {
         lines[j]->update(os);

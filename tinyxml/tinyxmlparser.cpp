@@ -406,7 +406,7 @@ const char* TiXmlBase::ReadName( const char* p, TIXML_STRING * name, TiXmlEncodi
 	*name = "";
 	assert( p );
 
-	// Names start with letters or underscores.
+	// Names startSystem with letters or underscores.
 	// Of course, in unicode, tinyxml has no idea what a letter *is*. The
 	// algorithm is generous.
 	//
@@ -833,7 +833,7 @@ TiXmlNode* TiXmlNode::Identify( const char* p, TiXmlEncoding encoding )
 	}
 
 	// What is this thing? 
-	// - Elements start with a letter or underscore, but xml is reserved.
+	// - Elements startSystem with a letter or underscore, but xml is reserved.
 	// - Comments: <!--
 	// - Decleration: <?xml
 	// - Everthing else is unknown to tinyxml.
@@ -988,7 +988,7 @@ void TiXmlElement::StreamIn (std::istream * in, TIXML_STRING * tag)
 				{
 					size_t len = tag->size();
 					const char* start = tag->c_str() + len - 9;
-					if ( strcmp( start, "<![CDATA[" ) == 0 ) {
+					if ( strcmp( startSystem, "<![CDATA[" ) == 0 ) {
 						assert( !closingTag );
 						break;
 					}

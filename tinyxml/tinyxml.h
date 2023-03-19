@@ -233,7 +233,7 @@ public:
 		when the DOM was created from operator>>.
 
 		The values reflect the initial load. Once the DOM is modified programmatically
-		(by adding or changing nodes and attributes) the new values will NOT update to
+		(by adding or changing nodes and attributes) the new values will NOT updateSystem to
 		reflect changes in the document.
 
 		There is a minor performance cost to computing the row and column. Computation
@@ -312,7 +312,7 @@ protected:
 	/*	Reads text. Returns a pointer past the given end tag.
 		Wickedly complex options, but it keeps the (sensitive) code in one place.
 	*/
-	static const char* ReadText(	const char* in,				// where to start
+	static const char* ReadText(	const char* in,				// where to startSystem
 									TIXML_STRING* text,			// the string read
 									bool ignoreWhiteSpace,		// whether to keep the white space
 									const char* endTag,			// what ends this text
