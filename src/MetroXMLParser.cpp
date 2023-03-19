@@ -24,9 +24,9 @@ bool MetroXMLParser::parse(const std::string &filename) {
         Logger::writeError(errorstream,"Failed to load file: File not found");
         return false;
     }
-    TiXmlElement* root = doc.FirstChildElement("SIMDATA");
+    TiXmlElement* root = doc.FirstChildElement("METRODATA");
     if (root==NULL) {
-        Logger::writeError(errorstream, "Failed to load file: No SIMDATA element");
+        Logger::writeError(errorstream, "Failed to load file: No METRODATA element");
         return false;
     }
 
@@ -228,7 +228,6 @@ const std::vector<Station *> &MetroXMLParser::getStations() const {
 }
 
 bool MetroXMLParser::properlyInitialized() const {
-    REQUIRE(properlyInitialized(), "MetroXMLParser was not initialized when calling handleStations");
     return _initCheck==this;
 }
 
