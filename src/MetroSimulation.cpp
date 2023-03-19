@@ -22,12 +22,10 @@ MetroSimulation::MetroSimulation(const std::string& filename, std::ostream *logs
 }
 
 const std::vector<Station *> &MetroSimulation::getStations() const {
-    REQUIRE(properlyInitialized(), "Metrosimulation was not properly initialised.");
     return stations;
 }
 
 const std::vector<Tram *> &MetroSimulation::getTrams() const {
-    REQUIRE(properlyInitialized(), "Metrosimulation was not properly initialised.");
     return trams;
 }
 

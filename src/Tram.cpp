@@ -18,7 +18,6 @@ Tram::Tram(int lineNumber, int tramNumber, int speed, Station *startStation) : l
 Tram::~Tram() {}
 
 int Tram::getLineNumber() const {
-    REQUIRE(properlyInitialized(), "Tram was not properly initialised.");
     return lineNumber;
 }
 
@@ -28,7 +27,6 @@ void Tram::setLineNumber(int lineNumber_) {
 }
 
 int Tram::getSpeed() const {
-    REQUIRE(properlyInitialized(), "Tram was not properly initialised.");
     return speed;
 }
 
@@ -38,7 +36,6 @@ void Tram::setSpeed(int speed_) {
 }
 
 Station *Tram::getStartStation() const {
-    REQUIRE(properlyInitialized(), "Tram was not properly initialised.");
     return startStation;
 }
 
@@ -48,7 +45,6 @@ int Tram::getTramNumber() const {
 }
 
 Station *Tram::getCurrentStation() const {
-    REQUIRE(properlyInitialized(), "Tram was not properly initialised.");
     return currentStation;
 }
 

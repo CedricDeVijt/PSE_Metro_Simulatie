@@ -7,10 +7,8 @@ Track::Track(Station *begin, Station *anEnd) : begin(begin), end(anEnd) {
 Track::~Track() {}
 
 Station *Track::getBegin() const {
-    REQUIRE(properlyInitialized(), "Track was not properly initialised.");
     return begin; }
 Station *Track::getAnEnd() const {
-    REQUIRE(properlyInitialized(), "Station was not properly initialised.");
     return end; }
 
 bool Track::properlyInitialized() const {

@@ -41,15 +41,12 @@ const std::string &Station::getName() const {
     return name;
 }
 int Station::getLineNumber() const {
-    REQUIRE(properlyInitialized(), "Station was not properly initialised.");
     return lineNumber;
 }
 Track *Station::getNextTrack() const {
-    REQUIRE(properlyInitialized(), "Station was not properly initialised.");
     return nextTrack;
 }
 Track *Station::getPrevTrack() const {
-    REQUIRE(properlyInitialized(), "Station was not properly initialised.");
     return prevTrack;
 }
 
