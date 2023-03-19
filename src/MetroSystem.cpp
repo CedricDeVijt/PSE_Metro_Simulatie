@@ -27,7 +27,7 @@ void MetroSystem::updateSystem(std::ostream &os) {
     }
 }
 
-void MetroSystem::outputMetroSystem(std::ostream &stream) {
+void MetroSystem::outputSystem(std::ostream &stream) {
     REQUIRE(properlyInitialized(), "Metrosimulation was not properly initialised.");
     // Stations
     for (int i = 0; i < static_cast<int>(stations.size()); i++) {
