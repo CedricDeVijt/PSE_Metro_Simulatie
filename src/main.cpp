@@ -18,7 +18,7 @@ int main() {
 
     sim.outputMetroSimulation(std::cout);
     std::cout << std::endl;
-    sim.start(std::cout);
+    sim.startSystem(std::cout);
 
     file.close();
 }

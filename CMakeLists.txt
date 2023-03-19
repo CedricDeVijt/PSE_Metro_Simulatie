@@ -30,7 +30,7 @@ set(TINY_XML_SOURCE_FILES
         ./tinyxml/tinystr.cpp
         ./tinyxml/tinyxml.cpp
         ./tinyxml/tinyxmlparser.cpp
-        src/Logger.cpp src/Logger.h)
+        src/Logger.h)
 
 set(TEST_SOURCE_FILES
         tst/main.cpp
