@@ -16,8 +16,8 @@ public:
     // TODO destructor maken
 
     // System operations
-    void start(std::ostream &os);
-    void update(std::ostream &os);
+    void startSystem(std::ostream &os);
+    void updateSystem(std::ostream &os);
 
     // Getters
     const std::vector<Station *> &getStations() const;

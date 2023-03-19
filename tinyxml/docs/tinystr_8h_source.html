@@ -95,21 +95,21 @@
 <a name="l00071"></a>00071     TiXmlString ( <span class="keyword">const</span> TiXmlString &amp; copy) : rep_(0)
 <a name="l00072"></a>00072     {
 <a name="l00073"></a>00073         init(copy.length());
-<a name="l00074"></a>00074         memcpy(start(), copy.data(), length());
+<a name="l00074"></a>00074         memcpy(startSystem(), copy.data(), length());
 <a name="l00075"></a>00075     }
 <a name="l00076"></a>00076 
 <a name="l00077"></a>00077     <span class="comment">// TiXmlString constructor, based on a string</span>
 <a name="l00078"></a>00078     TIXML_EXPLICIT TiXmlString ( <span class="keyword">const</span> <span class="keywordtype">char</span> * copy) : rep_(0)
 <a name="l00079"></a>00079     {
 <a name="l00080"></a>00080         init( static_cast&lt;size_type&gt;( strlen(copy) ));
-<a name="l00081"></a>00081         memcpy(start(), copy, length());
+<a name="l00081"></a>00081         memcpy(startSystem(), copy, length());
 <a name="l00082"></a>00082     }
 <a name="l00083"></a>00083 
 <a name="l00084"></a>00084     <span class="comment">// TiXmlString constructor, based on a string</span>
 <a name="l00085"></a>00085     TIXML_EXPLICIT TiXmlString ( <span class="keyword">const</span> <span class="keywordtype">char</span> * str, size_type len) : rep_(0)
 <a name="l00086"></a>00086     {
 <a name="l00087"></a>00087         init(len);
-<a name="l00088"></a>00088         memcpy(start(), str, len);
+<a name="l00088"></a>00088         memcpy(startSystem(), str, len);
 <a name="l00089"></a>00089     }
 <a name="l00090"></a>00090 
 <a name="l00091"></a>00091     <span class="comment">// TiXmlString destructor</span>
@@ -125,7 +125,7 @@
 <a name="l00101"></a>00101 
 <a name="l00102"></a>00102     TiXmlString&amp; operator = (<span class="keyword">const</span> TiXmlString &amp; copy)
 <a name="l00103"></a>00103     {
-<a name="l00104"></a>00104         <span class="keywordflow">return</span> assign(copy.start(), copy.length());
+<a name="l00104"></a>00104         <span class="keywordflow">return</span> assign(copy.startSystem(), copy.length());
 <a name="l00105"></a>00105     }
 <a name="l00106"></a>00106 
 <a name="l00107"></a>00107 
@@ -229,7 +229,7 @@
 <a name="l00205"></a>00205 
 <a name="l00206"></a>00206     <span class="keywordtype">void</span> init(size_type sz) { init(sz, sz); }
 <a name="l00207"></a>00207     <span class="keywordtype">void</span> set_size(size_type sz) { rep_-&gt;str[ rep_-&gt;size = sz ] = <span class="charliteral">&#39;\0&#39;</span>; }
-<a name="l00208"></a>00208     <span class="keywordtype">char</span>* start()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> rep_-&gt;str; }
+<a name="l00208"></a>00208     <span class="keywordtype">char</span>* startSystem()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> rep_-&gt;str; }
 <a name="l00209"></a>00209     <span class="keywordtype">char</span>* finish()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> rep_-&gt;str + rep_-&gt;size; }
 <a name="l00210"></a>00210 
 <a name="l00211"></a>00211     <span class="keyword">struct </span>Rep

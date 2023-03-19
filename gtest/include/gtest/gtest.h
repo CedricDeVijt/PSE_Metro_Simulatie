@@ -1145,7 +1145,7 @@ class GTEST_API_ UnitTest {
   const TestInfo* current_test_info() const
       GTEST_LOCK_EXCLUDED_(mutex_);
 
-  // Returns the random seed used at the start of the current test run.
+  // Returns the random seed used at the startSystem of the current test run.
   int random_seed() const;
 
 #if GTEST_HAS_PARAM_TEST
@@ -1191,7 +1191,7 @@ class GTEST_API_ UnitTest {
   // Gets the number of tests that should run.
   int test_to_run_count() const;
 
-  // Gets the time of the test program start, in ms from the start of the
+  // Gets the time of the test program start, in ms from the startSystem of the
   // UNIX epoch.
   TimeInMillis start_timestamp() const;
 

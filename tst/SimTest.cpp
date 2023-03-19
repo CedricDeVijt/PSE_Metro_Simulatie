@@ -21,7 +21,7 @@ TEST(SimTest, automaticDriving) {
     MetroSimulation sim(INPUTFOLDERPATH+filename, file, 10);
 
     if (file) {
-        sim.start(file);
+        sim.startSystem(file);
         file.close();
 
         EXPECT_TRUE(FileCompare(COMPAREFOLDERPATH+filename, OUTPUTFOLDERPATH+filename));

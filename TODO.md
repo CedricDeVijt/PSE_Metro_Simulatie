@@ -22,8 +22,8 @@
 ## Test
 ### MetroSimulation
 - [x] Properly initialized (_initCheck)
-- [ ] start
-- [ ] update
+- [ ] startSystem
+- [ ] updateSystem
 - [ ] outputMetroSimulation
 ### MetroXMLParser
 - [x] Properly initialized (_initCheck)

@@ -19,24 +19,22 @@ MetroSimulation::MetroSimulation(const std::string& inputfile, std::ostream &err
 }
 
 const std::vector<Station *> &MetroSimulation::getStations() const {
-    REQUIRE(properlyInitialized(), "Metrosimulation was not properly initialised.");
     return stations;
 }
 
 const std::vector<Tram *> &MetroSimulation::getTrams() const {
-    REQUIRE(properlyInitialized(), "Metrosimulation was not properly initialised.");
     return trams;
 }
 
-void MetroSimulation::start(std::ostream &os) {
+void MetroSimulation::startSystem(std::ostream &os) {
     REQUIRE(properlyInitialized(), "Metrosimulation was not properly initialised.");
     while (time<runtime) {
-        update(os);
+        updateSystem(os);
         time++;
     }
 }
 
-void MetroSimulation::update(std::ostream &os) {
+void MetroSimulation::updateSystem(std::ostream &os) {
     REQUIRE(properlyInitialized(), "Metrosimulation is not properly initialised.");
     for (int j = 0; j < static_cast<int>(lines.size()); ++j) {
         lines[j]->update(os);

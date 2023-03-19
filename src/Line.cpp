@@ -37,15 +37,12 @@ void Line::addTram(Tram *newTram) {
     trams.push_back(newTram);
 }
 int Line::getLineNumber() const {
-    REQUIRE(properlyInitialised(), "The line was not properly initialised.");
     return lineNumber;
 }
 const std::vector<Track *> &Line::getTracks() const {
-    REQUIRE(properlyInitialised(), "The line was not properly initialised.");
     return tracks;
 }
 const std::vector<Tram *> &Line::getTrams() const {
-    REQUIRE(properlyInitialised(), "The line was not properly initialised.");
     return trams;
 }
 

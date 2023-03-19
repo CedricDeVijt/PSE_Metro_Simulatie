@@ -250,7 +250,7 @@
 <a name="l00312"></a>00312     <span class="comment">/*  Reads text. Returns a pointer past the given end tag.</span>
 <a name="l00313"></a>00313 <span class="comment">        Wickedly complex options, but it keeps the (sensitive) code in one place.</span>
 <a name="l00314"></a>00314 <span class="comment">    */</span>
-<a name="l00315"></a>00315     <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* ReadText(    <span class="keyword">const</span> <span class="keywordtype">char</span>* in,             <span class="comment">// where to start</span>
+<a name="l00315"></a>00315     <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* ReadText(    <span class="keyword">const</span> <span class="keywordtype">char</span>* in,             <span class="comment">// where to startSystem</span>
 <a name="l00316"></a>00316                                     TIXML_STRING* text,         <span class="comment">// the string read</span>
 <a name="l00317"></a>00317                                     <span class="keywordtype">bool</span> ignoreWhiteSpace,      <span class="comment">// whether to keep the white space</span>
 <a name="l00318"></a>00318                                     <span class="keyword">const</span> <span class="keywordtype">char</span>* endTag,         <span class="comment">// what ends this text</span>
@@ -545,7 +545,7 @@
 <a name="l00750"></a>00750 <span class="preprocessor">    #endif</span>
 <a name="l00751"></a>00751 <span class="preprocessor"></span>
 <a name="l00752"></a>00752     <span class="comment">// Figure out what is at *p, and parse it. Returns null if it is not an xml node.</span>
-<a name="l00753"></a>00753     <a class="code" href="classTiXmlNode.html" title="The parent class for everything in the Document Object Model.">TiXmlNode</a>* Identify( <span class="keyword">const</span> <span class="keywordtype">char</span>* start, TiXmlEncoding encoding );
+<a name="l00753"></a>00753     <a class="code" href="classTiXmlNode.html" title="The parent class for everything in the Document Object Model.">TiXmlNode</a>* Identify( <span class="keyword">const</span> <span class="keywordtype">char</span>* startSystem, TiXmlEncoding encoding );
 <a name="l00754"></a>00754 
 <a name="l00755"></a>00755     <a class="code" href="classTiXmlNode.html" title="The parent class for everything in the Document Object Model.">TiXmlNode</a>*      parent;
 <a name="l00756"></a>00756     <a class="code" href="classTiXmlNode.html#a836eded4920ab9e9ef28496f48cd95a2" title="The types of XML nodes supported by TinyXml.">NodeType</a>        type;
