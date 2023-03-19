@@ -30,14 +30,12 @@ public:
 
     void setTramNumber(int tramNumber);
 
-    bool drive(Track *track, std::ostream &os);
+    void drive(std::ostream &os);
 private:
     int lineNumber;
     int tramNumber;
     int speed;
     Station *startStation;
-
-private:
     Station *currentStation;
 
     // OS

@@ -21,13 +21,7 @@ Line::~Line() {
 void Line::update(std::ostream &os) {
     REQUIRE(properlyInitialised(), "The line was not properly initialised.");
     for (int i = 0; i < static_cast<int>(trams.size()); i++) {
-        Tram *currentTram = trams[i];
-        bool drove = false;
-        for (int j = 0; j < static_cast<int>(tracks.size()); j++) {
-            if (drove) { continue; }
-            Track *currentTrack = tracks[j];
-            drove = currentTram->drive(currentTrack, os);
-        }
+        trams[i]->drive(os);
     }
 }
 

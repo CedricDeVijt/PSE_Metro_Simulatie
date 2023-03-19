@@ -4,7 +4,7 @@
 
 Tram::Tram(int lineNumber, int tramNumber, int speed, Station *startStation) : lineNumber(lineNumber),
                                                                                tramNumber(tramNumber), speed(speed),
-                                                                               startStation(startStation) {
+                                                                               startStation(startStation), currentStation(startStation) {
     _initCheck = this;
 }
 
@@ -52,13 +52,12 @@ void Tram::setTramNumber(int tramNumber_) {
     Tram::tramNumber = tramNumber_;
 }
 
-bool Tram::drive(Track *track, std::ostream &os) {
+void Tram::drive(std::ostream &os) {
     REQUIRE(properlyInitialized(), "Tram was not properly initialised.");
-    if (currentStation != track->getBegin()) { return false; }
 
-    currentStation = track->getAnEnd();
-    os << *this << " reed van " << *track->getBegin() << " naar " << *track->getAnEnd() << "." << std::endl;
-    return true;
+    Station* prev = currentStation;
+    currentStation = currentStation->getNextTrack()->getAnEnd();
+    os << *this << " reed van " << *prev << " naar " << *currentStation << "." << std::endl;
 }
 
 std::ostream &operator<<(std::ostream &os, const Tram &tram) {
