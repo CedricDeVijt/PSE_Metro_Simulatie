@@ -29,16 +29,16 @@ void MetroSystem::updateSystem(std::ostream &os) {
     }
 }
 
-void MetroSystem::outputSystem(std::ostream &stream) {
+void MetroSystem::outputSystem(std::ostream &os) {
     REQUIRE(properlyInitialized(), "Metrosimulation was not properly initialised.");
     // Stations
     for (int i = 0; i < static_cast<int>(stations.size()); i++) {
-        stream << std::string(*stations[i]) << std::endl;
+        os << std::string(*stations[i]) << std::endl;
     }
 
     // Trams
     for (int i = 0; i < static_cast<int>(trams.size()); i++) {
-        stream << std::string(*trams[i]) << std::endl;
+        os << std::string(*trams[i]) << std::endl;
     }
 }
 
@@ -66,7 +66,8 @@ std::string url_encode(const std::string &value) {
     return escaped.str();
 }
 
-void MetroSystem::createDotFile(std::ostream &ostream) {
+void MetroSystem::createDotFile(std::ostream &os) {
+    REQUIRE(properlyInitialized(), "Metrosimulation is not properly initialised.");
     std::stringstream stream;
     stream << "digraph system {" << std::endl;
     for (int i = 0; i < static_cast<int>(lines.size()); i++) {
@@ -83,6 +84,6 @@ void MetroSystem::createDotFile(std::ostream &ostream) {
         }
     }
     stream << "}" << std::endl;
-    ostream << "https://dreampuf.github.io/GraphvizOnline/#" << url_encode(stream.str()) << std::endl;
-    ostream << stream.str();
+    os << "https://dreampuf.github.io/GraphvizOnline/#" << url_encode(stream.str()) << std::endl;
+    os << stream.str();
 }
