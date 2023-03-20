@@ -37,9 +37,9 @@ set(TINY_XML_SOURCE_FILES
 set(TEST_SOURCE_FILES
         tst/main.cpp
         #Tests
-        tst/ParserTest.cpp
-        tst/TestFuncs.h tst/SimTest.cpp
-        )
+        tst/TestParser.cpp
+        tst/TestFuncs.h tst/TestSim.cpp
+        tst/testf.cpp tst/TestOuput.cpp)
 
 # Create RELEASE target
 add_executable(main_executable ${METRO_SOURCE_FILES}  ${TINY_XML_SOURCE_FILES})
