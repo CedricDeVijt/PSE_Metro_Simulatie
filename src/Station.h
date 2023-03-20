@@ -5,6 +5,9 @@
 
 class Track;
 
+/**
+ * Object that represents a metro station that has a name, tracknumber and tracks
+ */
 class Station {
 public:
     // Constructor

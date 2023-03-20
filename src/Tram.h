@@ -4,6 +4,9 @@
 #include "Station.h"
 #include "Track.h"
 
+/**
+ * Object that represents a tram
+ */
 class Tram {
 public:
     // Constructor

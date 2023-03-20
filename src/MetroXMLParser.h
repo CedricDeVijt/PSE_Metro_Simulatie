@@ -48,12 +48,18 @@ public:
      */
     bool verify();
 
+    /**
+     *
+     * @return
+     */
     bool isProperlyParsed() const;
 
     bool properlyInitialized() const;
+
     const std::vector<Tram *> &getTrams() const;
 
     const std::vector<Station *> &getStations() const;
+
     const std::vector<Line *> &getLines() const;
 private:
     /**

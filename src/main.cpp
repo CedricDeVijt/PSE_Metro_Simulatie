@@ -2,8 +2,8 @@
 #include "iostream"
 #include "fstream"
 
-std::string INPUTPATH = "./xmlFiles/sims/input/";
-std::string OUTPUTPATH = "./xmlFiles/sims/output/";
+const std::string INPUTPATH = "./xmlFiles/sims/input/";
+const std::string OUTPUTPATH = "./xmlFiles/sims/output/";
 
 int main() {
     std::string filename = "simFile2";

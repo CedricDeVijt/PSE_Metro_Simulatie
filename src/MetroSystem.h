@@ -8,6 +8,9 @@
 #include "MetroXMLParser.h"
 #include "Logger.h"
 
+/**
+ * System that represents a real life metro system with trams, stations and tracks
+ */
 class MetroSystem {
 public:
     // Constructor

@@ -2,6 +2,9 @@
 #define PSE_METRO_SIMULATIE_METROSIMULATION_H
 #include "MetroSystem.h"
 
+/**
+ * Simulation system for metro-system
+ */
 class MetroSimulation  {
 public:
     // Constructor
