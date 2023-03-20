@@ -14,11 +14,6 @@ int Tram::getLineNumber() const {
     return lineNumber;
 }
 
-void Tram::setLineNumber(int lineNumber_) {
-    REQUIRE(properlyInitialized(), "Tram was not properly initialised.");
-    Tram::lineNumber = lineNumber_;
-}
-
 int Tram::getSpeed() const {
     return speed;
 }
