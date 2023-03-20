@@ -20,7 +20,7 @@ private:
     std::vector<Station*> stations;
     std::vector<Tram*> trams;
     MetroSystem* _initCheck;
-    std::ostream &errorstream;
+//    std::ostream &errorstream;
 };
 
 

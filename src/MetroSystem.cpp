@@ -2,7 +2,7 @@
 #include <iomanip>
 #include "MetroSystem.h"
 
-MetroSystem::MetroSystem(const std::string &inputFile, std::ostream &errorstream) : errorstream(errorstream) {
+MetroSystem::MetroSystem(const std::string &inputFile, std::ostream &errorstream){
         _initCheck = this;
         MetroXMLParser parser(inputFile, errorstream);
         if (parser.isProperlyParsed()) {
