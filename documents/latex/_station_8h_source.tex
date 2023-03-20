@@ -1,0 +1,59 @@
+\hypertarget{_station_8h_source}{}\doxysection{Station.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ PSE\_METRO\_SIMULATIE\_STATION\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ PSE\_METRO\_SIMULATIE\_STATION\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <ostream>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_track}{Track}};}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_station}{Station}}\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{comment}{//\ Constructor}}
+\DoxyCodeLine{00011\ \ \ \ \ \mbox{\hyperlink{class_station}{Station}}();}
+\DoxyCodeLine{00012\ \ \ \ \ \mbox{\hyperlink{class_station}{Station}}(\textcolor{keyword}{const}\ std::string\ \&name,\ \mbox{\hyperlink{class_track}{Track}}\ *nextTrack,\ \mbox{\hyperlink{class_track}{Track}}\ *prevTrack,\ \textcolor{keywordtype}{int}\ lineNumber);}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{comment}{//\ Destructor}}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{class_station}{\string~Station}}();}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{comment}{//\ Operators}}
+\DoxyCodeLine{00021\ \textcolor{comment}{}\ \ \ \ \textcolor{keyword}{operator}\ std::string();}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{comment}{//\ Getters}}
+\DoxyCodeLine{00028\ \textcolor{comment}{}\ \ \ \ \textcolor{keyword}{const}\ std::string\ \&\mbox{\hyperlink{class_station_a67a42e3b29edb826b50cdb4a0db2bef1}{getName}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{class_track}{Track}}\ *\mbox{\hyperlink{class_station_a7d3ca7491a5b7fc76eda516dcee235df}{getNextTrack}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{class_track}{Track}}\ *\mbox{\hyperlink{class_station_aab26fa92839c0c54e07718639a988b45}{getPrevTrack}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_station_a4851cd35d9fafc3d44a737c256fbcb3f}{getLineNumber}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{comment}{//\ Setters}}
+\DoxyCodeLine{00053\ \textcolor{comment}{}\ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_station_a15374400e22786d14d67f1a026f0bac7}{setName}}(\textcolor{keyword}{const}\ std::string\ \&name);}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_station_ac5d62d04f5531d092dfc36777b8fc11f}{setNextTrack}}(\mbox{\hyperlink{class_station}{Station}}\ *nextStation);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_station_a64c7e05676ae7dabb73b6b5d24aaf508}{setPrevTrack}}(\mbox{\hyperlink{class_station}{Station}}\ *prevStation);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_station_adc2a153c71925c9d6073f9c5dbc181b3}{setLineNumber}}(\textcolor{keywordtype}{int}\ lineNumber);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{comment}{//\ other}}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{bool}\ properlyInitialized()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{comment}{//\ Data}}
+\DoxyCodeLine{00078\ \ \ \ \ std::string\ name;}
+\DoxyCodeLine{00079\ \ \ \ \ \mbox{\hyperlink{class_track}{Track}}\ *nextTrack;}
+\DoxyCodeLine{00080\ \ \ \ \ \mbox{\hyperlink{class_track}{Track}}\ *prevTrack;}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{int}\ lineNumber;}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \mbox{\hyperlink{class_station}{Station}}*\ \_initCheck;}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{comment}{//\ OS}}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keyword}{friend}\ std::ostream\ \&operator<<(std::ostream\ \&os,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_station}{Station}}\ \&station);}
+\DoxyCodeLine{00087\ \};}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//PSE\_METRO\_SIMULATIE\_STATION\_H}}
+
+\end{DoxyCode}

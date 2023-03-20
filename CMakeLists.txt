@@ -13,7 +13,6 @@ link_directories(./gtest/lib)
 
 # Set source files for RELEASE target
 set(METRO_SOURCE_FILES
-        src/main.cpp
         # Metro Files
         src/MetroSimulation.cpp
         src/Station.cpp
@@ -35,17 +34,16 @@ set(TINY_XML_SOURCE_FILES
         )
 
 set(TEST_SOURCE_FILES
-        tst/main.cpp
         #Tests
         tst/TestParser.cpp
         tst/TestFuncs.h tst/TestSim.cpp
         tst/testf.cpp tst/TestOuput.cpp)
 
 # Create RELEASE target
-add_executable(main_executable ${METRO_SOURCE_FILES}  ${TINY_XML_SOURCE_FILES})
+add_executable(main_executable src/main.cpp ${METRO_SOURCE_FILES}   ${TINY_XML_SOURCE_FILES})
 
 # Create DEBUG target
-add_executable(testing_tool ${METRO_SOURCE_FILES}  ${TINY_XML_SOURCE_FILES} ${TEST_SOURCE_FILES})
+add_executable(testing_tool tst/main.cpp ${METRO_SOURCE_FILES}  ${TINY_XML_SOURCE_FILES} ${TEST_SOURCE_FILES})
 
 # Link library
 target_link_libraries(testing_tool gtest)

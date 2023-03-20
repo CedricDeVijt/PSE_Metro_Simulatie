@@ -1,6 +1,7 @@
 #include "TestFuncs.h"
 #include "gtest/gtest.h"
 #include "../src/MetroSystem.h"
+#include "TestFuncs.h"
 
 class TestOutput: public ::testing::Test{
     virtual void SetUp() {}
@@ -16,8 +17,8 @@ TEST(TestOutput, testTextOutput){
     MetroSystem system2 = MetroSystem(INPUTFOLDER + "simFile2.xml", std::cout);
 
     //output streams to files
-    std::ofstream system1Output = std::ofstream(OUTPUTFOLDER + "simFileOutput.txt");
-    std::ofstream system2Output = std::ofstream(OUTPUTFOLDER + "simFileOutput2.txt");
+    std::ofstream system1Output((OUTPUTFOLDER + "simFileOutput.txt").c_str());
+    std::ofstream system2Output((OUTPUTFOLDER + "simFileOutput2.txt").c_str());
 
     // output metro-systeem
     system1.outputSystem(system1Output);
@@ -25,8 +26,6 @@ TEST(TestOutput, testTextOutput){
     system2.outputSystem(system2Output);
     system1Output.close();
 
-//    // vergelijk output van metro-systeem met verwachte output
-//    EXPECT_TRUE(FileCompare(OUTPUTFOLDER+"simFileOutput.txt", COMPAREFOLDER+"simFileOutput.txt"));
-//    EXPECT_TRUE(FileCompare(OUTPUTFOLDER+"simFileOutput2.txt", COMPAREFOLDER+"simFileOutput2.txt"));
-
+    EXPECT_TRUE(FileCompare(OUTPUTFOLDER+"simFileOutput.txt", COMPAREFOLDER+"simFileOutput.txt"));
+    EXPECT_TRUE(FileCompare(OUTPUTFOLDER+"simFileOutput2.txt", COMPAREFOLDER+"simFileOutput2.txt"));
 }

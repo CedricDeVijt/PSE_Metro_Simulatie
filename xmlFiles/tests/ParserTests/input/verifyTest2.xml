@@ -1,4 +1,4 @@
-<SIMDATA>
+<METRODATA>
     <STATION>
         <naam>A</naam>
         <volgende>B</volgende>
@@ -22,4 +22,4 @@
         <snelheid>60</snelheid>
         <beginStation>G</beginStation>
     </TRAM>
-</SIMDATA>
+</METRODATA>

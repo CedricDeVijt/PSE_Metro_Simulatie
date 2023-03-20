@@ -1,4 +1,4 @@
-<SIMDATA>
+<METRODATA>
     <STATION>
         <naam>A</naam>
         <volgende>B</volgende>
@@ -17,4 +17,4 @@
         <vorige>B</vorige>
         <spoorNr>12</spoorNr>
     </STATION>
-</SIMDATA>
+</METRODATA>

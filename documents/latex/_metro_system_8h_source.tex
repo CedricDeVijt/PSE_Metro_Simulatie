@@ -1,0 +1,39 @@
+\hypertarget{_metro_system_8h_source}{}\doxysection{Metro\+System.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ PSE\_METRO\_SIMULATIE\_METROSYSTEM\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ PSE\_METRO\_SIMULATIE\_METROSYSTEM\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}vector"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Line.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Station.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}DesignByContract.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}MetroXMLParser.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}Logger.h"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_metro_system}{MetroSystem}}\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{comment}{//\ Constructor}}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_metro_system}{MetroSystem}}(\textcolor{keyword}{const}\ std::string\&\ filename,\ std::ostream\ \&errorstream);}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{comment}{//\ Other}}
+\DoxyCodeLine{00022\ \textcolor{comment}{}\ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_metro_system_a909b6a0c686edbd1bbd751c1c6708f6b}{updateSystem}}(std::ostream\ \&os);}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_metro_system_a1bf5efa64ba26a7b4144faf49b821792}{outputSystem}}(std::ostream\ \&os);}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_metro_system_aaae0a5f769bd369b6a3f12edbb7fbb06}{createDotFile}}(std::ostream\ \&os);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{bool}\ properlyInitialized()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00041\ \ \ \ \ std::vector<Line*>\ lines;}
+\DoxyCodeLine{00042\ \ \ \ \ std::vector<Station*>\ stations;}
+\DoxyCodeLine{00043\ \ \ \ \ std::vector<Tram*>\ trams;}
+\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{class_metro_system}{MetroSystem}}*\ \_initCheck;}
+\DoxyCodeLine{00045\ \textcolor{comment}{//\ \ \ \ std::ostream\ \&errorstream;}}
+\DoxyCodeLine{00046\ \};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//PSE\_METRO\_SIMULATIE\_METROSYSTEM\_H}}
+
+\end{DoxyCode}

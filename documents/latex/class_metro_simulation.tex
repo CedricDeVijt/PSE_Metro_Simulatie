@@ -1,0 +1,41 @@
+\hypertarget{class_metro_simulation}{}\doxysection{Metro\+Simulation Class Reference}
+\label{class_metro_simulation}\index{MetroSimulation@{MetroSimulation}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_metro_simulation_a2b53949420a68892bd72f9ba5736b132}\label{class_metro_simulation_a2b53949420a68892bd72f9ba5736b132}} 
+{\bfseries Metro\+Simulation} (const std\+::string \&input\+File, std\+::ostream \&errorstream, unsigned int runtime)
+\item 
+\mbox{\hyperlink{class_metro_system}{Metro\+System}} $\ast$ \mbox{\hyperlink{class_metro_simulation_aa26de2c80ddf9b93a1b04329feda3009}{get\+System}} () const
+\item 
+void \mbox{\hyperlink{class_metro_simulation_a89228b9522897d8b4187ba9d93a5ed7f}{run}} (std\+::ostream \&os)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_metro_simulation_aa26de2c80ddf9b93a1b04329feda3009}\label{class_metro_simulation_aa26de2c80ddf9b93a1b04329feda3009}} 
+\index{MetroSimulation@{MetroSimulation}!getSystem@{getSystem}}
+\index{getSystem@{getSystem}!MetroSimulation@{MetroSimulation}}
+\doxysubsubsection{\texorpdfstring{getSystem()}{getSystem()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_metro_system}{Metro\+System}} $\ast$ Metro\+Simulation\+::get\+System (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Gives the metro-\/system that is used for the simulation \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_metro_simulation_a89228b9522897d8b4187ba9d93a5ed7f}\label{class_metro_simulation_a89228b9522897d8b4187ba9d93a5ed7f}} 
+\index{MetroSimulation@{MetroSimulation}!run@{run}}
+\index{run@{run}!MetroSimulation@{MetroSimulation}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily void Metro\+Simulation\+::run (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})}
+
+Updates the metro-\/system so all the trams will move to their next location 
+\begin{DoxyParams}{Parameters}
+{\em os} & std\+::ostream\+: Output stream where the movement of the the trams gets written to \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Metro\+Simulation.\+h\item 
+Metro\+Simulation.\+cpp\end{DoxyCompactItemize}

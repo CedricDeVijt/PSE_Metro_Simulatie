@@ -1,0 +1,13 @@
+Station A
+<- Station C
+-> Station B
+
+Station B
+<- Station A
+-> Station C
+
+Station C
+<- Station B
+-> Station A
+
+Tram 0 in Station A

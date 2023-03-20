@@ -1,0 +1,125 @@
+\hypertarget{class_metro_x_m_l_parser}{}\doxysection{Metro\+XMLParser Class Reference}
+\label{class_metro_x_m_l_parser}\index{MetroXMLParser@{MetroXMLParser}}
+
+
+{\ttfamily \#include $<$Metro\+XMLParser.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_metro_x_m_l_parser_a451b0a89091171614a2dd282b818f868}\label{class_metro_x_m_l_parser_a451b0a89091171614a2dd282b818f868}} 
+{\bfseries Metro\+XMLParser} (const std\+::string \&filename, std\+::ostream \&error\+Stream)
+\item 
+bool \mbox{\hyperlink{class_metro_x_m_l_parser_ad0c6409f2e7ba9cbb94eb4918da2a9b5}{parse}} (const std\+::string \&filename)
+\item 
+void \mbox{\hyperlink{class_metro_x_m_l_parser_ae48badca4f63aebd3f99e0a0827097be}{parse\+Station}} (Ti\+Xml\+Element $\ast$station\+Elem)
+\item 
+void \mbox{\hyperlink{class_metro_x_m_l_parser_aed02ff7da2e56f2f434970cfd91d24d3}{parse\+Tram}} (Ti\+Xml\+Element $\ast$tram\+Elem)
+\item 
+void \mbox{\hyperlink{class_metro_x_m_l_parser_ad825cf3ace17f71a539bc724442e2465}{handle\+Stations}} ()
+\item 
+void \mbox{\hyperlink{class_metro_x_m_l_parser_a5f5f77374d98fc41e02de7c6d92f04c9}{handle\+Trams}} ()
+\item 
+bool \mbox{\hyperlink{class_metro_x_m_l_parser_a52361c1a9fb3c4439778c61c77a6f950}{verify}} ()
+\item 
+\mbox{\Hypertarget{class_metro_x_m_l_parser_ac27b8f60094f7639e6f899d59fa81dae}\label{class_metro_x_m_l_parser_ac27b8f60094f7639e6f899d59fa81dae}} 
+bool {\bfseries is\+Properly\+Parsed} () const
+\item 
+\mbox{\Hypertarget{class_metro_x_m_l_parser_a6a2b890e5b6fda87028c76ac52313464}\label{class_metro_x_m_l_parser_a6a2b890e5b6fda87028c76ac52313464}} 
+bool {\bfseries properly\+Initialized} () const
+\item 
+\mbox{\Hypertarget{class_metro_x_m_l_parser_a1accc9f06826252fe8578c760886603d}\label{class_metro_x_m_l_parser_a1accc9f06826252fe8578c760886603d}} 
+const std\+::vector$<$ \mbox{\hyperlink{class_tram}{Tram}} $\ast$ $>$ \& {\bfseries get\+Trams} () const
+\item 
+\mbox{\Hypertarget{class_metro_x_m_l_parser_a9ab4a3a046b4f9e403ad7b54ff047dd7}\label{class_metro_x_m_l_parser_a9ab4a3a046b4f9e403ad7b54ff047dd7}} 
+const std\+::vector$<$ \mbox{\hyperlink{class_station}{Station}} $\ast$ $>$ \& {\bfseries get\+Stations} () const
+\item 
+\mbox{\Hypertarget{class_metro_x_m_l_parser_aa71bccc50d1a1d36aefa0ca1cbc8453f}\label{class_metro_x_m_l_parser_aa71bccc50d1a1d36aefa0ca1cbc8453f}} 
+const std\+::vector$<$ \mbox{\hyperlink{class_line}{Line}} $\ast$ $>$ \& {\bfseries get\+Lines} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Parser for \mbox{\hyperlink{class_metro_simulation}{Metro\+Simulation}} 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_metro_x_m_l_parser_ad825cf3ace17f71a539bc724442e2465}\label{class_metro_x_m_l_parser_ad825cf3ace17f71a539bc724442e2465}} 
+\index{MetroXMLParser@{MetroXMLParser}!handleStations@{handleStations}}
+\index{handleStations@{handleStations}!MetroXMLParser@{MetroXMLParser}}
+\doxysubsubsection{\texorpdfstring{handleStations()}{handleStations()}}
+{\footnotesize\ttfamily void Metro\+XMLParser\+::handle\+Stations (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Initialises the stations completely
+
+@\+REQUIRE THERE ARE STATIONS @\+REQUIRE STATION MAP NOT EMPTY
+
+\begin{DoxyAttention}{Attention}
+\mbox{\hyperlink{class_metro_x_m_l_parser_ad0c6409f2e7ba9cbb94eb4918da2a9b5}{parse()}} needs to be called before this should be called 
+\end{DoxyAttention}
+\mbox{\Hypertarget{class_metro_x_m_l_parser_a5f5f77374d98fc41e02de7c6d92f04c9}\label{class_metro_x_m_l_parser_a5f5f77374d98fc41e02de7c6d92f04c9}} 
+\index{MetroXMLParser@{MetroXMLParser}!handleTrams@{handleTrams}}
+\index{handleTrams@{handleTrams}!MetroXMLParser@{MetroXMLParser}}
+\doxysubsubsection{\texorpdfstring{handleTrams()}{handleTrams()}}
+{\footnotesize\ttfamily void Metro\+XMLParser\+::handle\+Trams (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Initialises the trams completely
+
+@\+REQUIRE THERE ARE TRAMS @\+REQUIRE TRAM MAP NOT EMPTY
+
+\begin{DoxyAttention}{Attention}
+\mbox{\hyperlink{class_metro_x_m_l_parser_ad0c6409f2e7ba9cbb94eb4918da2a9b5}{parse()}} needs to be called before this should be called 
+\end{DoxyAttention}
+\mbox{\Hypertarget{class_metro_x_m_l_parser_ad0c6409f2e7ba9cbb94eb4918da2a9b5}\label{class_metro_x_m_l_parser_ad0c6409f2e7ba9cbb94eb4918da2a9b5}} 
+\index{MetroXMLParser@{MetroXMLParser}!parse@{parse}}
+\index{parse@{parse}!MetroXMLParser@{MetroXMLParser}}
+\doxysubsubsection{\texorpdfstring{parse()}{parse()}}
+{\footnotesize\ttfamily bool Metro\+XMLParser\+::parse (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename }\end{DoxyParamCaption})}
+
+Parses the filename ~\newline
+ Creates Objects who are not completely initialised ~\newline
+ Creates 2 maps with content to init these objects completely
+
+@\+REQUIRE properly\+Initialized(), \char`\"{}\+Metro\+XMLParser was not initialized when calling parse\char`\"{} 
+\begin{DoxyParams}{Parameters}
+{\em filename} & is Path to the file to be parsed, given as a string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\bfseries{bool\+:}} True if parsed properly, False if failed to parse 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_metro_x_m_l_parser_ae48badca4f63aebd3f99e0a0827097be}\label{class_metro_x_m_l_parser_ae48badca4f63aebd3f99e0a0827097be}} 
+\index{MetroXMLParser@{MetroXMLParser}!parseStation@{parseStation}}
+\index{parseStation@{parseStation}!MetroXMLParser@{MetroXMLParser}}
+\doxysubsubsection{\texorpdfstring{parseStation()}{parseStation()}}
+{\footnotesize\ttfamily void Metro\+XMLParser\+::parse\+Station (\begin{DoxyParamCaption}\item[{Ti\+Xml\+Element $\ast$}]{station\+Elem }\end{DoxyParamCaption})}
+
+Parses a single station form Ti\+Xml\+Element @\+REQUIRE properly\+Initialized(), \char`\"{}\+Metro\+XMLParser was not initialized when calling parse\char`\"{} 
+\begin{DoxyParams}{Parameters}
+{\em station\+Elem} & tiny\+XML element that contains information about a station \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_metro_x_m_l_parser_aed02ff7da2e56f2f434970cfd91d24d3}\label{class_metro_x_m_l_parser_aed02ff7da2e56f2f434970cfd91d24d3}} 
+\index{MetroXMLParser@{MetroXMLParser}!parseTram@{parseTram}}
+\index{parseTram@{parseTram}!MetroXMLParser@{MetroXMLParser}}
+\doxysubsubsection{\texorpdfstring{parseTram()}{parseTram()}}
+{\footnotesize\ttfamily void Metro\+XMLParser\+::parse\+Tram (\begin{DoxyParamCaption}\item[{Ti\+Xml\+Element $\ast$}]{tram\+Elem }\end{DoxyParamCaption})}
+
+Parses a single tram form Ti\+Xml\+Element @\+REQUIRE properly\+Initialized(), \char`\"{}\+Metro\+XMLParser was not initialized when calling parse\char`\"{} 
+\begin{DoxyParams}{Parameters}
+{\em tram\+Elem} & tiny\+XML element that contains information about a tram \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_metro_x_m_l_parser_a52361c1a9fb3c4439778c61c77a6f950}\label{class_metro_x_m_l_parser_a52361c1a9fb3c4439778c61c77a6f950}} 
+\index{MetroXMLParser@{MetroXMLParser}!verify@{verify}}
+\index{verify@{verify}!MetroXMLParser@{MetroXMLParser}}
+\doxysubsubsection{\texorpdfstring{verify()}{verify()}}
+{\footnotesize\ttfamily bool Metro\+XMLParser\+::verify (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Verifies the content after completely parsing.
+
+@\+ENSURE STATIONS CONNECTED PROPERLY @\+ENSURE VALID STARTSTATION OF TRAM @\+ENSURE CORRESPONDING LINENUMBER BETWEEN TRAM AND STARTSTATION @\+ENSURE EVERY LINE HAS A TRAM 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Metro\+XMLParser.\+h\item 
+Metro\+XMLParser.\+cpp\end{DoxyCompactItemize}
