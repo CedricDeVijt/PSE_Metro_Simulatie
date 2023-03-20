@@ -39,6 +39,24 @@ public:
     void parseStation(TiXmlElement* stationElem);
 
     /**
+     * Verifies the content after completely parsing.
+     *
+     * @ENSURE STATIONS CONNECTED PROPERLY
+     * @ENSURE VALID STARTSTATION OF TRAM
+     * @ENSURE CORRESPONDING LINENUMBER BETWEEN TRAM AND STARTSTATION
+     * @ENSURE EVERY LINE HAS A TRAM
+     */
+    bool verify();
+
+    bool isProperlyParsed() const;
+
+    bool properlyInitialized() const;
+    const std::vector<Tram *> &getTrams() const;
+
+    const std::vector<Station *> &getStations() const;
+    const std::vector<Line *> &getLines() const;
+private:
+    /**
      * Parses a single tram form TiXmlElement
      * @REQUIRE properlyInitialized(), "MetroXMLParser was not initialized when calling parse"
      * @param tramElem tinyXML element that contains information about a tram
@@ -65,23 +83,6 @@ public:
      */
     void handleTrams();
 
-    /**
-     * Verifies the content after completely parsing.
-     *
-     * @ENSURE STATIONS CONNECTED PROPERLY
-     * @ENSURE VALID STARTSTATION OF TRAM
-     * @ENSURE CORRESPONDING LINENUMBER BETWEEN TRAM AND STARTSTATION
-     * @ENSURE EVERY LINE HAS A TRAM
-     */
-    bool verify();
-
-    bool isProperlyParsed() const;
-    bool properlyInitialized() const;
-
-    const std::vector<Tram *> &getTrams() const;
-    const std::vector<Station *> &getStations() const;
-    const std::vector<Line *> &getLines() const;
-private:
     std::pair<std::string, bool> readKey(TiXmlElement* elem, const std::string &key);
 
     bool properlyParsed;
