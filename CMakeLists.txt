@@ -22,6 +22,7 @@ set(METRO_SOURCE_FILES
         src/Track.cpp
         src/Line.cpp
         src/MetroSystem.cpp
+        src/Logger.h
         )
 
 set(TINY_XML_SOURCE_FILES
@@ -31,13 +32,14 @@ set(TINY_XML_SOURCE_FILES
         ./tinyxml/tinystr.cpp
         ./tinyxml/tinyxml.cpp
         ./tinyxml/tinyxmlparser.cpp
-        src/Logger.h)
+        )
 
 set(TEST_SOURCE_FILES
         tst/main.cpp
         #Tests
         tst/ParserTest.cpp
-        tst/TestFuncs.h tst/SimTest.cpp)
+        tst/TestFuncs.h tst/SimTest.cpp
+        )
 
 # Create RELEASE target
 add_executable(main_executable ${METRO_SOURCE_FILES}  ${TINY_XML_SOURCE_FILES})
