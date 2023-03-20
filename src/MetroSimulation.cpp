@@ -25,10 +25,12 @@ bool MetroSimulation::properlyInitialized() const {
 }
 
 MetroSystem *MetroSimulation::getSystem() const {
+    REQUIRE(properlyInitialized(), "Metrosimulation was not properly initialised.");
     return system;
 }
 
 MetroSimulation::~MetroSimulation() {
+    REQUIRE(properlyInitialized(), "Metrosimulation was not properly initialised.");
     delete system;
 }
 
