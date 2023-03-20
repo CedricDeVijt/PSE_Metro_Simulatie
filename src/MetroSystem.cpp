@@ -3,24 +3,29 @@
 #include "MetroSystem.h"
 
 MetroSystem::MetroSystem(const std::string &inputFile, std::ostream &errorstream){
-        _initCheck = this;
-        MetroXMLParser parser(inputFile, errorstream);
-        if (parser.isProperlyParsed()) {
-            lines = parser.getLines();
-            stations = parser.getStations();
-            trams = parser.getTrams();
-        } else {
-            Logger::writeError(errorstream,"File was not parsed properly");
-        }
+    _initCheck = this;
+    MetroXMLParser parser(inputFile, errorstream);
+    if (parser.isProperlyParsed()) {
+        lines = parser.getLines();
+        stations = parser.getStations();
+        trams = parser.getTrams();
+    } else {
+        Logger::writeError(errorstream,"File was not parsed properly");
+    }
+    ENSURE(properlyInitialized(), "constructor must end in properlyInitialized state");
+    ENSURE(parser.isProperlyParsed(), "File was not parsed properly");
+}
 
-        ENSURE(properlyInitialized(), "constructor must end in properlyInitialized state");
-        ENSURE(parser.isProperlyParsed(), "File was not parsed properly");
+MetroSystem::~MetroSystem() {
+    REQUIRE(properlyInitialized(), "Metrosimulation is not properly initialised.");
+    for (int i = 0; i < static_cast<int>(lines.size()); ++i) {
+        delete lines[i];
+    }
 }
 
 bool MetroSystem::properlyInitialized() const {
     return _initCheck==this;
 }
-
 
 void MetroSystem::updateSystem(std::ostream &os) {
     REQUIRE(properlyInitialized(), "Metrosimulation is not properly initialised.");

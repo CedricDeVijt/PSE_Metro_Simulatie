@@ -15,14 +15,27 @@
  */
 class MetroXMLParser {
 public:
-    // Constructor
+    /**
+     * creates MetroXMLParser object
+     *
+     * @param filename is a .xml file that contains METRODATA
+     * @param errorStream is the stream the errors get outputted to
+     * @ENSURE properlyInitialized(), "constructor must end in properlyInitialized state"
+     */
     explicit MetroXMLParser(const std::string &filename, std::ostream &errorStream);
-    // Destructor
+
+    /**
+     * Destructs MetroXMLParser object
+     *
+     * @REQUIRE properlyInitialized(), "MetroXMLParser was not initialized when calling parse"
+     */
     virtual ~MetroXMLParser();
+
+    bool properlyInitialized() const;
 
     /**
      * Parses the filename
-     * \n Creates Objects who are not completely initialised
+     * \n Creates (Station + Tram) Objects who are not completely initialised
      * \n Creates 2 maps with content to init these objects completely
      *
      * @REQUIRE properlyInitialized(), "MetroXMLParser was not initialized when calling parse"
@@ -32,54 +45,56 @@ public:
     bool parse(const std::string& filename);
 
     /**
-     * Parses a single station form TiXmlElement
-     * @REQUIRE properlyInitialized(), "MetroXMLParser was not initialized when calling parse"
-     * @param stationElem tinyXML element that contains information about a station
-     */
-    void parseStation(TiXmlElement* stationElem);
-
-    /**
-     * Verifies the content after completely parsing.
+     * Returns properlyParser bool
      *
-     * @ENSURE STATIONS CONNECTED PROPERLY
-     * @ENSURE VALID STARTSTATION OF TRAM
-     * @ENSURE CORRESPONDING LINENUMBER BETWEEN TRAM AND STARTSTATION
-     * @ENSURE EVERY LINE HAS A TRAM
-     */
-    bool verify();
-
-    /**
-     * Checks if the parser is properly initialised
-     * @return
+     * @REQUIRE properlyInitialized(), "MetroXMLParser was not initialized when calling handleStations"
      */
     bool isProperlyParsed() const;
 
     /**
-     * Checks if the parser is properly initialised
-     * @return
-     */
-    bool properlyInitialized() const;
-
-    /**
      * Gets a vector with all the trams of the system
+     *
+     * @REQUIRE properlyInitialized(), "MetroXMLParser was not initialized when calling handleStations"
      * @return vector with all the trams
      */
     const std::vector<Tram *> &getTrams() const;
 
     /**
      * Gets a vector with all the stations of the system
+     *
+     * @REQUIRE properlyInitialized(), "MetroXMLParser was not initialized when calling handleStations"
      * @return vector with all the stations of the system
      */
     const std::vector<Station *> &getStations() const;
 
     /**
      * Gets a vector with all the lines of the system
+     *
+     * @REQUIRE properlyInitialized(), "MetroXMLParser was not initialized when calling handleStations"
      * @return a vector with all the stations of the system
      */
     const std::vector<Line *> &getLines() const;
 private:
     /**
-     * Parses a single tram form TiXmlElement
+    * Verifies the content after completely parsing.
+    *
+    * @REQUIRE properlyInitialized(), "MetroXMLParser was not initialized when calling handleStations"
+    * @return @b bool: returns True if its a valid MetroSystem, False if otherwise
+    */
+    bool verify();
+
+    /**
+     * Parses a single station from TiXmlElement \n
+     * If there is a mistake an error gets written to the errorstream
+     *
+     * @REQUIRE properlyInitialized(), "MetroXMLParser was not initialized when calling parse"
+     * @param stationElem tinyXML element that contains information about a station
+     */
+    void parseStation(TiXmlElement* stationElem);
+
+    /**
+     * Parses a single tram from TiXmlElement
+     *
      * @REQUIRE properlyInitialized(), "MetroXMLParser was not initialized when calling parse"
      * @param tramElem tinyXML element that contains information about a tram
      */
@@ -88,9 +103,7 @@ private:
     /**
      * Initialises the stations completely
      *
-     * @REQUIRE THERE ARE STATIONS
-     * @REQUIRE STATION MAP NOT EMPTY
-     *
+     * @REQUIRE properlyInitialized(), "MetroXMLParser was not initialized when calling parse"
      * @attention parse() needs to be called before this should be called
      */
     void handleStations();
@@ -98,13 +111,21 @@ private:
     /**
      * Initialises the trams completely
      *
-     * @REQUIRE THERE ARE TRAMS
-     * @REQUIRE TRAM MAP NOT EMPTY
-     *
+     * @REQUIRE properlyInitialized(), "MetroXMLParser was not initialized when calling parse"
      * @attention parse() needs to be called before this should be called
      */
     void handleTrams();
 
+    /**
+     * Reads the given key from the TiXmlElement \n
+     * If the demanded key is missing an error gets written to the errostream
+     *
+     * @param elem is the TiXmlElement containing the demanded key
+     * @param key is the demanded key
+     * @return @b pair(string,bool): \n
+     * @b string: containing the result of the key retrieve \n
+     * @b bool: True if key retrieve is done, else False
+     */
     std::pair<std::string, bool> readKey(TiXmlElement* elem, const std::string &key);
 
     bool properlyParsed;

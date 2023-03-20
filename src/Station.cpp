@@ -10,9 +10,12 @@ Station::Station(const std::string &name, Track *nextTrack, Track *prevTrack, in
                                                                                                 lineNumber(
                                                                                                         lineNumber) {
     _initCheck = this;
+    ENSURE(properlyInitialized(), "constructor must end in properlyInitialized state");
 }
 
-Station::~Station() {}
+Station::~Station() {
+    REQUIRE(properlyInitialized(), "Station was not properly initialised.");
+}
 
 std::ostream &operator<<(std::ostream &os, const Station &station) {
     return os << "Station " << station.getName();
@@ -30,22 +33,23 @@ Station::operator std::string() {
     return outputString;
 }
 
-//getters
 const std::string &Station::getName() const {
     REQUIRE(properlyInitialized(), "Station was not properly initialised.");
     return name;
 }
 int Station::getLineNumber() const {
+    REQUIRE(properlyInitialized(), "Station was not properly initialised.");
     return lineNumber;
 }
 Track *Station::getNextTrack() const {
+    REQUIRE(properlyInitialized(), "Station was not properly initialised.");
     return nextTrack;
 }
 Track *Station::getPrevTrack() const {
+    REQUIRE(properlyInitialized(), "Station was not properly initialised.");
     return prevTrack;
 }
 
-//setters
 void Station::setNextTrack(Station *nextStation) {
     REQUIRE(properlyInitialized(), "Station was not properly initialised.");
     Station::nextTrack = new Track(this, nextStation);
@@ -53,14 +57,6 @@ void Station::setNextTrack(Station *nextStation) {
 void Station::setPrevTrack(Station *prevStation) {
     REQUIRE(properlyInitialized(), "Station was not properly initialised.");
     Station::prevTrack = new Track(prevStation, this);
-}
-void Station::setLineNumber(int lineNumber_) {
-    REQUIRE(properlyInitialized(), "Station was not properly initialised.");
-    Station::lineNumber = lineNumber_;
-}
-void Station::setName(const std::string &name_) {
-    REQUIRE(properlyInitialized(), "Station was not properly initialised.");
-    Station::name = name_;
 }
 
 bool Station::properlyInitialized() const{ return _initCheck == this; }

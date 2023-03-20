@@ -8,33 +8,40 @@ class Station;
  */
 class Track {
 public:
-    // Constructor
+    /**
+     * Initializes Track Object
+     *
+     * @param begin is the beginstation of the Track
+     * @param anEnd is the endStation of the Track
+     */
     Track(Station *begin, Station *anEnd);
-    // Destructor
+
+    /**
+     * Destructs a Track object
+     *
+     * @REQUIRE properlyInitialized(), "Track was not properly initialised."
+     */
     virtual ~Track();
 
-    //Getters
+    bool properlyInitialized() const;
+
     /**
      * Gets the station at the beginning of the track
      * @return Station* to the station at the beginning of the track
+     * @REQUIRE properlyInitialized(), "Track was not properly initialised."
      */
     Station *getBegin() const;
 
     /**
      * Gets the station at the end of the track
      * @return Station* to the station at the end of the track
+     * @REQUIRE properlyInitialized(), "Track was not properly initialised."
      */
     Station *getAnEnd() const;
-
 private:
-    // Other
-    bool properlyInitialized() const;
-
     Station *begin;
     Station *end;
-
     Track* _initCheck;
 };
-
 
 #endif //PSE_METRO_SIMULATIE_TRACK_H

@@ -26,6 +26,8 @@ public:
      */
     virtual ~Line();
 
+    bool properlyInitialised() const;
+
     /**
      * Updates/Moves the trams of the line object.
      *
@@ -70,8 +72,6 @@ public:
      * @param newTram is the new Tram that will be added to the Line
      */
     void addTram(Tram* newTram);
-
-    bool properlyInitialised() const;
 private:
     int lineNumber;
     std::vector<Track*> tracks;

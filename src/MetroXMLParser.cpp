@@ -14,7 +14,9 @@ MetroXMLParser::MetroXMLParser(const std::string &filename, std::ostream &errorS
     ENSURE(properlyInitialized(), "constructor must end in properlyInitialized state");
 }
 
-MetroXMLParser::~MetroXMLParser() {}
+MetroXMLParser::~MetroXMLParser() {
+    REQUIRE(properlyInitialized(), "MetroXMLParser was not initialized when calling parse");
+}
 
 bool MetroXMLParser::parse(const std::string &filename) {
     REQUIRE(properlyInitialized(), "MetroXMLParser was not initialized when calling parse");
@@ -57,7 +59,6 @@ std::pair<std::string,bool> MetroXMLParser::readKey(TiXmlElement *elem, const st
     }
     return std::pair<std::string,bool> (elem->GetText(), true);
 }
-
 
 void MetroXMLParser::parseStation(TiXmlElement *stationElem) {
     REQUIRE(properlyInitialized(), "MetroXMLParser was not initialized when calling parseStation");

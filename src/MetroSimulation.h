@@ -23,6 +23,8 @@ public:
      */
     virtual ~MetroSimulation();
 
+    bool properlyInitialized() const;
+
     /**
      * Gives the metro-system that is used for the simulation
      *
@@ -39,7 +41,6 @@ public:
     void run(std::ostream &os);
 
 private:
-    bool properlyInitialized() const;
     MetroSystem *system;
     unsigned int runtime;
     unsigned int time;

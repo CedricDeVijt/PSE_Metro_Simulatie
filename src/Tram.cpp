@@ -6,15 +6,20 @@ Tram::Tram(int lineNumber, int tramNumber, int speed, Station *startStation) : l
                                                                                tramNumber(tramNumber), speed(speed),
                                                                                startStation(startStation), currentStation(startStation) {
     _initCheck = this;
+    ENSURE(properlyInitialized(), "constructor must end in properlyInitialized state");
 }
 
-Tram::~Tram() {}
+Tram::~Tram() {
+    REQUIRE(properlyInitialized(), "Tram was not properly initialised.");
+}
 
 int Tram::getLineNumber() const {
+    REQUIRE(properlyInitialized(), "Tram was not properly initialised.");
     return lineNumber;
 }
 
 int Tram::getSpeed() const {
+    REQUIRE(properlyInitialized(), "Tram was not properly initialised.");
     return speed;
 }
 
@@ -42,11 +47,6 @@ void Tram::setStartStation(Station *startStation_) {
     currentStation = startStation_;
 }
 
-void Tram::setTramNumber(int tramNumber_) {
-    REQUIRE(properlyInitialized(), "Tram was not properly initialised.");
-    Tram::tramNumber = tramNumber_;
-}
-
 void Tram::drive(std::ostream &os) {
     REQUIRE(properlyInitialized(), "Tram was not properly initialised.");
 
@@ -56,10 +56,12 @@ void Tram::drive(std::ostream &os) {
 }
 
 std::ostream &operator<<(std::ostream &os, const Tram &tram) {
+    REQUIRE(properlyInitialized(), "Tram was not properly initialised.");
     return os << "Tram " << tram.tramNumber;
 }
 
 Tram::operator std::string() {
+    REQUIRE(properlyInitialized(), "Tram was not properly initialised.");
     std::ostringstream output;
     output << "Tram " << this->tramNumber << " in Station " << this->getCurrentStation()->getName();
     std::string outputString  = output.str();
