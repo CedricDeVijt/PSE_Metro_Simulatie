@@ -49,17 +49,33 @@ public:
     bool verify();
 
     /**
-     *
+     * Checks if the parser is properly initialised
      * @return
      */
     bool isProperlyParsed() const;
 
+    /**
+     * Checks if the parser is properly initialised
+     * @return
+     */
     bool properlyInitialized() const;
 
+    /**
+     * Gets a vector with all the trams of the system
+     * @return vector with all the trams
+     */
     const std::vector<Tram *> &getTrams() const;
 
+    /**
+     * Gets a vector with all the stations of the system
+     * @return vector with all the stations of the system
+     */
     const std::vector<Station *> &getStations() const;
 
+    /**
+     * Gets a vector with all the lines of the system
+     * @return a vector with all the stations of the system
+     */
     const std::vector<Line *> &getLines() const;
 private:
     /**
