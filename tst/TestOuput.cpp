@@ -7,7 +7,7 @@ class TestOutput: public ::testing::Test{
     virtual void SetUp() {}
     virtual void TearDown() {}
 };
-
+//
 TEST(TestOutput, testTextOutput){
     const std::string INPUTFOLDER = "xmlFiles/tests/OutputTests/Input/";
     const std::string OUTPUTFOLDER = "xmlFiles/tests/OutputTests/Output/";
