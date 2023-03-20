@@ -16,8 +16,8 @@ TEST(TestOutput, testTextOutput){
     MetroSystem system2 = MetroSystem(INPUTFOLDER + "simFile2.xml", std::cout);
 
     // output streams to files
-    std::ofstream system1Output = std::ofstream("simFileOutput.txt");
-    std::ofstream system2Output = std::ofstream("simFileOutput2.txt");
+    std::ofstream system1Output = std::ofstream(OUTPUTFOLDER + "simFileOutput.txt");
+    std::ofstream system2Output = std::ofstream(OUTPUTFOLDER + "simFileOutput2.txt");
 
     // output metro-systeem
     system1.outputSystem(system1Output);
