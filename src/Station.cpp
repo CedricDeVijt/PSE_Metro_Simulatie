@@ -19,6 +19,7 @@ std::ostream &operator<<(std::ostream &os, const Station &station) {
 }
 
 Station::operator std::string() {
+    REQUIRE(properlyInitialized(), "Station was not properly initialised.");
     std::ostringstream output;
     output <<  "Station " << this->getName() << "\n";
     output << "<- Station " << this->prevTrack->getBegin()->getName() << "\n";
