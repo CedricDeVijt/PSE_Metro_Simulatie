@@ -56,7 +56,6 @@ void Tram::drive(std::ostream &os) {
 }
 
 std::ostream &operator<<(std::ostream &os, const Tram &tram) {
-    REQUIRE(properlyInitialized(), "Tram was not properly initialised.");
     return os << "Tram " << tram.tramNumber;
 }
 
