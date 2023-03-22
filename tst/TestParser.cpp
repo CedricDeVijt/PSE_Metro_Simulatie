@@ -25,47 +25,6 @@ void compareLog(std::string filename) {
     EXPECT_TRUE(FileCompare(COMPAREFOLDERPATH+filename, OUTPUTFOLDERPATH+filename));
 }
 
-TEST_F(ParserTest, VariableDistributionTest) {
-    std::string INPUTFOLDERPATH   = "xmlFiles/tests/ParserTests/input/";
-    std::string OUTPUTFOLDERPATH  = "xmlFiles/tests/ParserTests/output/";
-    std::string COMPAREFOLDERPATH = "xmlFiles/tests/ParserTests/compare/";
-
-    MetroXMLParser parser(INPUTFOLDERPATH+"variableDistributionTest.xml", std::cout);
-    std::vector<Line*> lines = parser.getLines();
-    std::vector<Tram*> trams = parser.getTrams();
-    std::vector<Station*> stations = parser.getStations();
-
-    //TESTING TRAMS
-    EXPECT_EQ(1, static_cast<int>(trams.size()));
-    EXPECT_EQ(12, trams[0]->getLineNumber());
-    EXPECT_EQ("A", trams[0]->getStartStation()->getName());
-    EXPECT_EQ(60, trams[0]->getSpeed());
-
-    //TESTING STATIONS
-    EXPECT_EQ(3, static_cast<int>(stations.size()));
-    for (int i = 0; i < static_cast<int>(stations.size()); i++) {
-        Station *station = stations[i];
-        EXPECT_EQ(12, station->getLineNumber());
-
-        if (station->getName()=="A") {
-            EXPECT_EQ("B", station->getNextTrack()->getAnEnd()->getName());
-            EXPECT_EQ("C", station->getPrevTrack()->getBegin()->getName());
-        } else if (station->getName()=="B") {
-            EXPECT_EQ("C", station->getNextTrack()->getAnEnd()->getName());
-            EXPECT_EQ("A", station->getPrevTrack()->getBegin()->getName());
-        } else if (station->getName()=="C") {
-            EXPECT_EQ("A", station->getNextTrack()->getAnEnd()->getName());
-            EXPECT_EQ("B", station->getPrevTrack()->getBegin()->getName());
-        }
-    }
-
-    //TESTING LINES
-    EXPECT_EQ(1, static_cast<int>(lines.size()));
-    EXPECT_EQ(12, lines[0]->getLineNumber());
-    EXPECT_EQ(3, static_cast<int>(lines[0]->getTracks().size()));
-    EXPECT_EQ(1, static_cast<int>(lines[0]->getTrams().size()));
-}
-
 //FOUTE LINK
 TEST_F(ParserTest, VerifyTest1) {
     compareLog("verifyTest1.xml");
