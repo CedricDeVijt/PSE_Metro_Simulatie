@@ -97,6 +97,12 @@ bool Line::verify(std::ostream &errorstream) {
             }
             else if (std::find(stations.begin(), stations.end(), startStation)==stations.end()) {
                 Logger::writeError(errorstream, "VerificationError: niet elke tram heeft een lijn die overeenkomt met een spoor in zijn beginstation.");
+                Logger::writeError(errorstream, "StartStation");
+                Logger::writeError(errorstream, startStation->getName());
+                Logger::writeError(errorstream, "Stations:");
+                for (int i = 0; i < static_cast<int>(stations.size()); i++) {
+                    Logger::writeError(errorstream, stations[i]->getName());
+                }
                 verified=false;
             }
             it1++;

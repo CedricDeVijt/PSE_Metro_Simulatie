@@ -6,7 +6,7 @@ const std::string INPUTPATH = "./xmlFiles/sims/input/";
 const std::string OUTPUTPATH = "./xmlFiles/sims/output/";
 
 int main() {
-    std::string filename = "simFile";
+    std::string filename = "simFile2";
 
     std::ofstream file((OUTPUTPATH+filename+"log.txt").c_str());
     if (!file.is_open()) {

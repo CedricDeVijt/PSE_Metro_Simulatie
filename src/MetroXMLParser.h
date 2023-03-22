@@ -1,5 +1,6 @@
 #ifndef PSE_METRO_SIMULATIE_XMLPARSER_H
 #define PSE_METRO_SIMULATIE_XMLPARSER_H
+
 #include "string"
 #include "vector"
 #include "map"
@@ -9,7 +10,8 @@
 #include "Station.h"
 #include "Line.h"
 #include "fstream"
-
+#include "DesignByContract.h"
+#include "Logger.h"
 
 typedef std::pair<std::string, std::string> trackConnectionsStringPair ;
 typedef std::pair<trackConnectionsStringPair,int> trackStringPair;
@@ -66,13 +68,6 @@ public:
     const std::vector<Line *> &getLines() const;
 private:
     /**
-    * Verifies the content after completely parsing.
-    *
-    * @REQUIRE properlyInitialized(), "MetroXMLParser was not initialized when calling handleStations"
-    */
-    void verify();
-
-    /**
      * Parses a single station from TiXmlElement \n
      * If there is a mistake an error gets written to the errorstream
      *
@@ -105,7 +100,7 @@ private:
      */
     void handleTrams();
 
-    void convertObjectMaps();
+    void convertLineMap();
 
     /**
      * Reads the given key from the TiXmlElement \n
@@ -122,8 +117,7 @@ private:
     bool properlyParsed;
     MetroXMLParser *_initCheck;
     std::ostream &errorstream;
-    std::vector<Tram*> trams;
-    std::vector<Station*> stations;
+
     std::vector<Line*> lines;
 
     stationMap stationMap;

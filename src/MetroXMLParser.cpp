@@ -1,12 +1,4 @@
-#include "iostream"
 #include "MetroXMLParser.h"
-#include "../tinyxml/tinyxml.h"
-#include "Tram.h"
-#include "Station.h"
-#include "DesignByContract.h"
-#include "Track.h"
-#include "Line.h"
-#include "Logger.h"
 
 MetroXMLParser::MetroXMLParser(const std::string &filename, std::ostream &errorStream) : errorstream(errorStream) {
     _initCheck = this;
@@ -43,15 +35,13 @@ void MetroXMLParser::parse(const std::string &filename) {
             parseTram(elem);
         } else {
             Logger::writeError(errorstream, "Unknown Element");
-            properlyParsed = false;
         }
         elem = elem->NextSiblingElement();
     }
     doc.Clear();
     handleStations();
     handleTrams();
-    convertObjectMaps();
-    verify();
+    convertLineMap();
 }
 
 std::pair<std::string,bool> MetroXMLParser::readKey(TiXmlElement *elem, const std::string &key) {
@@ -59,7 +49,6 @@ std::pair<std::string,bool> MetroXMLParser::readKey(TiXmlElement *elem, const st
     elem = elem->FirstChildElement(key.c_str());
     if (elem == NULL) {
         Logger::writeError(errorstream, "Invalid Information: \"" + key + "\" element not found");
-        properlyParsed = false;
         return std::pair<std::string,bool> ("", false);
     }
     return std::pair<std::string,bool> (elem->GetText(), true);
@@ -118,7 +107,6 @@ void MetroXMLParser::parseTram(TiXmlElement *tramElem) {
 
     if (tramMap.count(lijnNr)) {
         Logger::writeError(errorstream, "VerificationError: er mogen geen twee trams zijn met hetzelfde voertuignummer");
-        properlyParsed = false;
     } else {
         tramMap[tramNr] = std::pair<std::string, int> (begin, lijnNr);
     }
@@ -153,12 +141,11 @@ void MetroXMLParser::handleStations() {
         std::pair<std::string, trackStringPairs> p = *it;
         std::string name = p.first;
         trackStringPairs pairs = p.second;
-        int lijnNr;
         for (int i = 0; i < static_cast<int>(pairs.size()); i++) {
             trackStringPair pair = pairs[i];
             std::string next = pair.first.first;
             std::string prev = pair.first.second;
-            lijnNr = pair.second;
+            int lijnNr = pair.second;
 
             if (!lineObjectMap.count(lijnNr)) {
                 lineObjectMap[lijnNr] = new Line(lijnNr);
@@ -166,18 +153,11 @@ void MetroXMLParser::handleStations() {
 
             Track *nextTrack = new Track(stationObjectMap[name], stationObjectMap[next],0);
             Track *prevTrack = new Track(stationObjectMap[prev], stationObjectMap[name],0);
+
             lineObjectMap[lijnNr]->addTrack(nextTrack);
             lineObjectMap[lijnNr]->addTrack(prevTrack);
+            lineObjectMap[lijnNr]->addStation(stationObjectMap[name]);
         }
-        lineObjectMap[lijnNr]->addStation(stationObjectMap[name]);
-        it++;
-    }
-}
-
-void MetroXMLParser::verify() {
-    std::vector<Line*>::iterator it = lines.begin();
-    while (it!=lines.end()) {
-        properlyParsed = properlyParsed && (*it)->verify(errorstream);
         it++;
     }
 }
@@ -196,23 +176,14 @@ const std::vector<Line *> &MetroXMLParser::getLines() const {
     return lines;
 }
 
-void MetroXMLParser::convertObjectMaps() {
-    std::map<std::string, Station*>::iterator it = stationObjectMap.begin();
-    while (it!=stationObjectMap.end()) {
-        stations.push_back((*it).second);
+void MetroXMLParser::convertLineMap() {
+    std::map<int, Line*>::iterator it = lineObjectMap.begin();
+    while (it!=lineObjectMap.end()) {
+        Line *line = (*it).second;
+        if (line->verify(errorstream)) {
+            lines.push_back(line);
+        }
         it++;
-    }
-
-    std::map<int, Tram*>::iterator it1 = tramObjectMap.begin();
-    while (it1!=tramObjectMap.end()) {
-        trams.push_back((*it1).second);
-        it1++;
-    }
-
-    std::map<int, Line*>::iterator it2 = lineObjectMap.begin();
-    while (it2!=lineObjectMap.end()) {
-        lines.push_back((*it2).second);
-        it2++;
     }
 }
 
