@@ -20,9 +20,8 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="wp.jpg"/></td>
   <td id="projectalign">
-   <div id="projectname">Metro Simulation
+   <div id="projectname">Metro Simulation<span id="projectnumber">&#160;version 1.0</span>
    </div>
   </td>
  </tr>
@@ -77,12 +76,18 @@ $(function() {
   <div class="headertitle"><div class="title">Tram Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_tram_8h_source.html">Tram.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a9445983d63cd86ff4d66defa749af194"><td class="memItemLeft" align="right" valign="top"><a id="a9445983d63cd86ff4d66defa749af194" name="a9445983d63cd86ff4d66defa749af194"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Tram</b> (int lineNumber, int tramNumber, int speed, <a class="el" href="class_station.html">Station</a> *startStation)</td></tr>
+<tr class="memitem:a9445983d63cd86ff4d66defa749af194"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tram.html#a9445983d63cd86ff4d66defa749af194">Tram</a> (int lineNumber, int tramNumber, int speed, <a class="el" href="class_station.html">Station</a> *startStation)</td></tr>
 <tr class="separator:a9445983d63cd86ff4d66defa749af194"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd6056d2289f2dccd371bc226cd2cb17"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tram.html#acd6056d2289f2dccd371bc226cd2cb17">~Tram</a> ()</td></tr>
+<tr class="separator:acd6056d2289f2dccd371bc226cd2cb17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54135dd1028b6362213abdd10150266a"><td class="memItemLeft" align="right" valign="top"><a id="a54135dd1028b6362213abdd10150266a" name="a54135dd1028b6362213abdd10150266a"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>properlyInitialized</b> () const</td></tr>
+<tr class="separator:a54135dd1028b6362213abdd10150266a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a69f52091a1bcfd5325c85373e8664c6c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tram.html#a69f52091a1bcfd5325c85373e8664c6c">operator std::string</a> ()</td></tr>
 <tr class="separator:a69f52091a1bcfd5325c85373e8664c6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a61bf02dbd773c3e1a5391842085ceffe"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tram.html#a61bf02dbd773c3e1a5391842085ceffe">getLineNumber</a> () const</td></tr>
@@ -99,8 +104,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ae35a608ef4581fd1806b198cafbada32"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c01470cd8c589b3b7b1d1f39752eec9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tram.html#a0c01470cd8c589b3b7b1d1f39752eec9">setStartStation</a> (<a class="el" href="class_station.html">Station</a> *startStation)</td></tr>
 <tr class="separator:a0c01470cd8c589b3b7b1d1f39752eec9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4953d8b81eaa097dd0479eb5ab109cf8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tram.html#a4953d8b81eaa097dd0479eb5ab109cf8">setTramNumber</a> (int tramNumber)</td></tr>
-<tr class="separator:a4953d8b81eaa097dd0479eb5ab109cf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a10ce7ea49a25f163f78c99aca146569d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tram.html#a10ce7ea49a25f163f78c99aca146569d">drive</a> (std::ostream &amp;os)</td></tr>
 <tr class="separator:a10ce7ea49a25f163f78c99aca146569d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -110,6 +113,87 @@ Friends</h2></td></tr>
 std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (std::ostream &amp;os, const <a class="el" href="class_tram.html">Tram</a> &amp;tram)</td></tr>
 <tr class="separator:a4912edabc1e9ec8ef46111deda72de0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Object that represents a tram </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a9445983d63cd86ff4d66defa749af194" name="a9445983d63cd86ff4d66defa749af194"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9445983d63cd86ff4d66defa749af194">&#9670;&#160;</a></span>Tram()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Tram::Tram </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>lineNumber</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>tramNumber</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>speed</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_station.html">Station</a> *&#160;</td>
+          <td class="paramname"><em>startStation</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Creates a <a class="el" href="class_tram.html">Tram</a> object</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lineNumber</td><td>is the LineNumber of the <a class="el" href="class_tram.html">Tram</a> </td></tr>
+    <tr><td class="paramname">tramNumber</td><td>is the Number of the <a class="el" href="class_tram.html">Tram</a> </td></tr>
+    <tr><td class="paramname">speed</td><td>is the Speed of the tram </td></tr>
+    <tr><td class="paramname">startStation</td><td>is the startstation of the tram</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>@ENSURE properlyInitialized(), "constructor must end in properlyInitialized state" </p>
+
+</div>
+</div>
+<a id="acd6056d2289f2dccd371bc226cd2cb17" name="acd6056d2289f2dccd371bc226cd2cb17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd6056d2289f2dccd371bc226cd2cb17">&#9670;&#160;</a></span>~Tram()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Tram::~Tram </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Destructs a tram object</p>
+<p>@REQUIRE properlyInitialized(), "Tram was not properly initialised." </p>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a10ce7ea49a25f163f78c99aca146569d" name="a10ce7ea49a25f163f78c99aca146569d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a10ce7ea49a25f163f78c99aca146569d">&#9670;&#160;</a></span>drive()</h2>
@@ -126,9 +210,10 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Moves the tram to the next station </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Moves the tram to the next station</p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">os</td><td>std::ostream: where the output of moving the train is written to </td></tr>
+    <tr><td class="paramname">os</td><td>std::ostream: where the output of moving the train is written to @REQUIRE properlyInitialized(), "Station was not properly initialised." </td></tr>
   </table>
   </dd>
 </dl>
@@ -149,7 +234,8 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Gives the station where the tram currently is </p><dl class="section return"><dt>Returns</dt><dd>Station* to the station where the tram currently is </dd></dl>
+<p>Gives the station where the tram currently is</p>
+<dl class="section return"><dt>Returns</dt><dd>Station* to the station where the tram currently is @REQUIRE properlyInitialized(), "Station was not properly initialised." </dd></dl>
 
 </div>
 </div>
@@ -167,7 +253,8 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Gives the line number of the track on which the tram is driving </p><dl class="section return"><dt>Returns</dt><dd>int: line number of the track on which the tram is driving </dd></dl>
+<p>Gives the line number of the track on which the tram is driving</p>
+<dl class="section return"><dt>Returns</dt><dd><b>int:</b> line number of the line on which the tram is driving @REQUIRE properlyInitialized(), "Station was not properly initialised." </dd></dl>
 
 </div>
 </div>
@@ -185,7 +272,8 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Gives the speed of which the tram is capable </p><dl class="section return"><dt>Returns</dt><dd>int: the speed of which the tram is capable </dd></dl>
+<p>Gives the speed of which the tram is capable</p>
+<dl class="section return"><dt>Returns</dt><dd>int: the speed of which the tram is capable @REQUIRE properlyInitialized(), "Station was not properly initialised." </dd></dl>
 
 </div>
 </div>
@@ -203,7 +291,8 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Gives the station where the track starts </p><dl class="section return"><dt>Returns</dt><dd>Station* to the station where the track starts </dd></dl>
+<p>Gives the station where the track starts</p>
+<dl class="section return"><dt>Returns</dt><dd>Station* to the station where the track starts @REQUIRE properlyInitialized(), "Station was not properly initialised." </dd></dl>
 
 </div>
 </div>
@@ -221,7 +310,8 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Gives the tram number of the tram </p><dl class="section return"><dt>Returns</dt><dd>int: the tram number of the tram </dd></dl>
+<p>Gives the number of the tram</p>
+<dl class="section return"><dt>Returns</dt><dd>int: the tram number of the tram @REQUIRE properlyInitialized(), "Station was not properly initialised." </dd></dl>
 
 </div>
 </div>
@@ -239,7 +329,8 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Converts <a class="el" href="class_tram.html">Tram</a> into a string @REQUIRE(properlyInitialized(), "Station was not properly initialised."); </p>
+<p>Converts <a class="el" href="class_tram.html">Tram</a> into a string</p>
+<p>@REQUIRE properlyInitialized(), "Station was not properly initialised." </p>
 
 </div>
 </div>
@@ -258,9 +349,10 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Sets the speed of the tram </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Sets the speed of the tram</p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">speed</td><td>int: speed of the tram </td></tr>
+    <tr><td class="paramname">speed</td><td>int: speed of the tram @REQUIRE properlyInitialized(), "Station was not properly initialised." </td></tr>
   </table>
   </dd>
 </dl>
@@ -282,33 +374,10 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Sets the station where the train starts at the start of the system </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Sets the station where the train starts at the start of the system</p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">startStation</td><td><a class="el" href="class_station.html">Station</a> *: station where the tram starts form </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a4953d8b81eaa097dd0479eb5ab109cf8" name="a4953d8b81eaa097dd0479eb5ab109cf8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4953d8b81eaa097dd0479eb5ab109cf8">&#9670;&#160;</a></span>setTramNumber()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Tram::setTramNumber </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>tramNumber</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Sets the tram number of the tram </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">tramNumber</td><td>int: the tram number given to the tram </td></tr>
+    <tr><td class="paramname">startStation</td><td><a class="el" href="class_station.html">Station</a> *: station where the tram starts form @REQUIRE properlyInitialized(), "Station was not properly initialised." </td></tr>
   </table>
   </dd>
 </dl>

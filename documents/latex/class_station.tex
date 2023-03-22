@@ -1,10 +1,18 @@
 \hypertarget{class_station}{}\doxysection{Station Class Reference}
 \label{class_station}\index{Station@{Station}}
+
+
+{\ttfamily \#include $<$Station.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_station_a56d9262e165ef487d7a93d5d7994dc57}\label{class_station_a56d9262e165ef487d7a93d5d7994dc57}} 
-{\bfseries Station} (const std\+::string \&name, \mbox{\hyperlink{class_track}{Track}} $\ast$next\+Track, \mbox{\hyperlink{class_track}{Track}} $\ast$prev\+Track, int line\+Number)
+\mbox{\hyperlink{class_station_a56d9262e165ef487d7a93d5d7994dc57}{Station}} (const std\+::string \&name, \mbox{\hyperlink{class_track}{Track}} $\ast$next\+Track, \mbox{\hyperlink{class_track}{Track}} $\ast$prev\+Track, int line\+Number)
+\item 
+\mbox{\hyperlink{class_station_a00434e79e8ee7f4ebd6d3b631dde5ac0}{$\sim$\+Station}} ()
+\item 
+\mbox{\Hypertarget{class_station_a18e2c82e7b318cd7d0fb49a579a24618}\label{class_station_a18e2c82e7b318cd7d0fb49a579a24618}} 
+bool {\bfseries properly\+Initialized} () const
 \item 
 \mbox{\hyperlink{class_station_af0f1ca37e88347d21e069940399e107c}{operator std\+::string}} ()
 \item 
@@ -16,13 +24,9 @@ const std\+::string \& \mbox{\hyperlink{class_station_a67a42e3b29edb826b50cdb4a0
 \item 
 int \mbox{\hyperlink{class_station_a4851cd35d9fafc3d44a737c256fbcb3f}{get\+Line\+Number}} () const
 \item 
-void \mbox{\hyperlink{class_station_a15374400e22786d14d67f1a026f0bac7}{set\+Name}} (const std\+::string \&name)
-\item 
 void \mbox{\hyperlink{class_station_ac5d62d04f5531d092dfc36777b8fc11f}{set\+Next\+Track}} (\mbox{\hyperlink{class_station}{Station}} $\ast$next\+Station)
 \item 
 void \mbox{\hyperlink{class_station_a64c7e05676ae7dabb73b6b5d24aaf508}{set\+Prev\+Track}} (\mbox{\hyperlink{class_station}{Station}} $\ast$prev\+Station)
-\item 
-void \mbox{\hyperlink{class_station_adc2a153c71925c9d6073f9c5dbc181b3}{set\+Line\+Number}} (int line\+Number)
 \end{DoxyCompactItemize}
 \doxysubsection*{Friends}
 \begin{DoxyCompactItemize}
@@ -32,6 +36,39 @@ std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, const \mbox{\
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+Object that represents a metro station that has a name, tracknumber and tracks 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_station_a56d9262e165ef487d7a93d5d7994dc57}\label{class_station_a56d9262e165ef487d7a93d5d7994dc57}} 
+\index{Station@{Station}!Station@{Station}}
+\index{Station@{Station}!Station@{Station}}
+\doxysubsubsection{\texorpdfstring{Station()}{Station()}}
+{\footnotesize\ttfamily Station\+::\+Station (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{\mbox{\hyperlink{class_track}{Track}} $\ast$}]{next\+Track,  }\item[{\mbox{\hyperlink{class_track}{Track}} $\ast$}]{prev\+Track,  }\item[{int}]{line\+Number }\end{DoxyParamCaption})}
+
+Initializes \mbox{\hyperlink{class_station}{Station}} object
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & is the name of the station \\
+\hline
+{\em next\+Track} & is a pointer to the next \mbox{\hyperlink{class_track}{Track}} of the station \\
+\hline
+{\em prev\+Track} & is a pointer to the previous \mbox{\hyperlink{class_track}{Track}} of the station \\
+\hline
+{\em line\+Number} & is the Number of The line of the \mbox{\hyperlink{class_station}{Station}} @\+ENSURE properly\+Initialized(), \char`\"{}constructor must end in properly\+Initialized state\char`\"{} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_station_a00434e79e8ee7f4ebd6d3b631dde5ac0}\label{class_station_a00434e79e8ee7f4ebd6d3b631dde5ac0}} 
+\index{Station@{Station}!````~Station@{$\sim$Station}}
+\index{````~Station@{$\sim$Station}!Station@{Station}}
+\doxysubsubsection{\texorpdfstring{$\sim$Station()}{~Station()}}
+{\footnotesize\ttfamily Station\+::$\sim$\+Station (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destructs a \mbox{\hyperlink{class_station}{Station}} object
+
+@\+REQUIRE properly\+Initialized(), \char`\"{}\+Station was not properly initialised.\char`\"{} 
+
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{class_station_a4851cd35d9fafc3d44a737c256fbcb3f}\label{class_station_a4851cd35d9fafc3d44a737c256fbcb3f}} 
 \index{Station@{Station}!getLineNumber@{getLineNumber}}
@@ -39,8 +76,10 @@ std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, const \mbox{\
 \doxysubsubsection{\texorpdfstring{getLineNumber()}{getLineNumber()}}
 {\footnotesize\ttfamily int Station\+::get\+Line\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-Gives the line number of the station \begin{DoxyReturn}{Returns}
+Gives the line number of the station
 
+\begin{DoxyReturn}{Returns}
+{\bfseries{int\+:}} the line number @\+REQUIRE properly\+Initialized(), \char`\"{}\+Station was not properly initialised.\char`\"{} 
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_station_a67a42e3b29edb826b50cdb4a0db2bef1}\label{class_station_a67a42e3b29edb826b50cdb4a0db2bef1}} 
 \index{Station@{Station}!getName@{getName}}
@@ -48,8 +87,10 @@ Gives the line number of the station \begin{DoxyReturn}{Returns}
 \doxysubsubsection{\texorpdfstring{getName()}{getName()}}
 {\footnotesize\ttfamily const std\+::string \& Station\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-Gives the name of the station \begin{DoxyReturn}{Returns}
-string\+: name of the station 
+Gives the name of the station
+
+\begin{DoxyReturn}{Returns}
+{\bfseries{string\+:}} name of the station @\+REQUIRE properly\+Initialized(), \char`\"{}\+Station was not properly initialised.\char`\"{} 
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_station_a7d3ca7491a5b7fc76eda516dcee235df}\label{class_station_a7d3ca7491a5b7fc76eda516dcee235df}} 
 \index{Station@{Station}!getNextTrack@{getNextTrack}}
@@ -57,8 +98,10 @@ string\+: name of the station
 \doxysubsubsection{\texorpdfstring{getNextTrack()}{getNextTrack()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{class_track}{Track}} $\ast$ Station\+::get\+Next\+Track (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-Gives a pointer to the next track of the station \begin{DoxyReturn}{Returns}
-Track$\ast$ to the next track 
+Gives a pointer to the next track of the station
+
+\begin{DoxyReturn}{Returns}
+{\bfseries{Track$\ast$}}\+: pointer to the next track @\+REQUIRE properly\+Initialized(), \char`\"{}\+Station was not properly initialised.\char`\"{} 
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_station_aab26fa92839c0c54e07718639a988b45}\label{class_station_aab26fa92839c0c54e07718639a988b45}} 
 \index{Station@{Station}!getPrevTrack@{getPrevTrack}}
@@ -66,8 +109,10 @@ Track$\ast$ to the next track
 \doxysubsubsection{\texorpdfstring{getPrevTrack()}{getPrevTrack()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{class_track}{Track}} $\ast$ Station\+::get\+Prev\+Track (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-Gives a pointer to the previous track of the station \begin{DoxyReturn}{Returns}
-Track$\ast$ to the previous track 
+Gives a pointer to the previous track of the station
+
+\begin{DoxyReturn}{Returns}
+{\bfseries{Track$\ast$}}\+: pointer to the previous track @\+REQUIRE properly\+Initialized(), \char`\"{}\+Station was not properly initialised.\char`\"{} 
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_station_af0f1ca37e88347d21e069940399e107c}\label{class_station_af0f1ca37e88347d21e069940399e107c}} 
 \index{Station@{Station}!operator std::string@{operator std::string}}
@@ -75,37 +120,20 @@ Track$\ast$ to the previous track
 \doxysubsubsection{\texorpdfstring{operator std::string()}{operator std::string()}}
 {\footnotesize\ttfamily Station\+::operator std\+::string (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Converts \mbox{\hyperlink{class_track}{Track}} into a string @\+REQUIRE(properly\+Initialized(), \char`\"{}\+Station was not properly initialised.\char`\"{}); \mbox{\Hypertarget{class_station_adc2a153c71925c9d6073f9c5dbc181b3}\label{class_station_adc2a153c71925c9d6073f9c5dbc181b3}} 
-\index{Station@{Station}!setLineNumber@{setLineNumber}}
-\index{setLineNumber@{setLineNumber}!Station@{Station}}
-\doxysubsubsection{\texorpdfstring{setLineNumber()}{setLineNumber()}}
-{\footnotesize\ttfamily void Station\+::set\+Line\+Number (\begin{DoxyParamCaption}\item[{int}]{line\+Number }\end{DoxyParamCaption})}
+Converts \mbox{\hyperlink{class_track}{Track}} into a string
 
-Sets the line number of the station 
-\begin{DoxyParams}{Parameters}
-{\em line\+Number} & the line number given to the station \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{class_station_a15374400e22786d14d67f1a026f0bac7}\label{class_station_a15374400e22786d14d67f1a026f0bac7}} 
-\index{Station@{Station}!setName@{setName}}
-\index{setName@{setName}!Station@{Station}}
-\doxysubsubsection{\texorpdfstring{setName()}{setName()}}
-{\footnotesize\ttfamily void Station\+::set\+Name (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})}
-
-Sets the name of the station 
-\begin{DoxyParams}{Parameters}
-{\em name} & name to be given to the station \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{class_station_ac5d62d04f5531d092dfc36777b8fc11f}\label{class_station_ac5d62d04f5531d092dfc36777b8fc11f}} 
+@\+REQUIRE properly\+Initialized(), \char`\"{}\+Station was not properly initialised.\char`\"{} \mbox{\Hypertarget{class_station_ac5d62d04f5531d092dfc36777b8fc11f}\label{class_station_ac5d62d04f5531d092dfc36777b8fc11f}} 
 \index{Station@{Station}!setNextTrack@{setNextTrack}}
 \index{setNextTrack@{setNextTrack}!Station@{Station}}
 \doxysubsubsection{\texorpdfstring{setNextTrack()}{setNextTrack()}}
 {\footnotesize\ttfamily void Station\+::set\+Next\+Track (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_station}{Station}} $\ast$}]{next\+Station }\end{DoxyParamCaption})}
 
-Sets next station of the station 
+Sets the next \mbox{\hyperlink{class_track}{Track}} given by a next\+Station ~\newline
+The end of the \mbox{\hyperlink{class_track}{Track}} is the next\+Station, Begin is the \mbox{\hyperlink{class_station}{Station}} itself
+
+
 \begin{DoxyParams}{Parameters}
-{\em next\+Station} & the next station given to the station \\
+{\em next\+Station} & is the next station given to the station @\+REQUIRE properly\+Initialized(), \char`\"{}\+Station was not properly initialised.\char`\"{} \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{class_station_a64c7e05676ae7dabb73b6b5d24aaf508}\label{class_station_a64c7e05676ae7dabb73b6b5d24aaf508}} 
@@ -114,9 +142,12 @@ Sets next station of the station
 \doxysubsubsection{\texorpdfstring{setPrevTrack()}{setPrevTrack()}}
 {\footnotesize\ttfamily void Station\+::set\+Prev\+Track (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_station}{Station}} $\ast$}]{prev\+Station }\end{DoxyParamCaption})}
 
-Sets the previous station 
+Sets the previous \mbox{\hyperlink{class_track}{Track}} given by a prev\+Station ~\newline
+The end of the \mbox{\hyperlink{class_track}{Track}} is the \mbox{\hyperlink{class_station}{Station}} itself, Begin is the Prevstation
+
+
 \begin{DoxyParams}{Parameters}
-{\em prev\+Station} & the previous station given to the station \\
+{\em prev\+Station} & is the previous station given to the station @\+REQUIRE properly\+Initialized(), \char`\"{}\+Station was not properly initialised.\char`\"{} \\
 \hline
 \end{DoxyParams}
 

@@ -58,8 +58,6 @@ public:
 
 private:
     std::vector<Line*> lines;
-    std::vector<Station*> stations;
-    std::vector<Tram*> trams;
     MetroSystem* _initCheck;
 };
 

@@ -20,9 +20,8 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="wp.jpg"/></td>
   <td id="projectalign">
-   <div id="projectname">Metro Simulation
+   <div id="projectname">Metro Simulation<span id="projectnumber">&#160;version 1.0</span>
    </div>
   </td>
  </tr>
@@ -76,17 +75,89 @@ $(function() {
   <div class="headertitle"><div class="title">Track Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_track_8h_source.html">Track.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab84b7a60b09d044fb8f0a47e4c13b5bd"><td class="memItemLeft" align="right" valign="top"><a id="ab84b7a60b09d044fb8f0a47e4c13b5bd" name="ab84b7a60b09d044fb8f0a47e4c13b5bd"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Track</b> (<a class="el" href="class_station.html">Station</a> *begin, <a class="el" href="class_station.html">Station</a> *anEnd)</td></tr>
+<tr class="memitem:ab84b7a60b09d044fb8f0a47e4c13b5bd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_track.html#ab84b7a60b09d044fb8f0a47e4c13b5bd">Track</a> (<a class="el" href="class_station.html">Station</a> *begin, <a class="el" href="class_station.html">Station</a> *anEnd)</td></tr>
 <tr class="separator:ab84b7a60b09d044fb8f0a47e4c13b5bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a416e75e66accc8eb9e3fafc3e8555216"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_track.html#a416e75e66accc8eb9e3fafc3e8555216">~Track</a> ()</td></tr>
+<tr class="separator:a416e75e66accc8eb9e3fafc3e8555216"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefaaef487bf0e11e4934f6ccfa30aa4b"><td class="memItemLeft" align="right" valign="top"><a id="aefaaef487bf0e11e4934f6ccfa30aa4b" name="aefaaef487bf0e11e4934f6ccfa30aa4b"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>properlyInitialized</b> () const</td></tr>
+<tr class="separator:aefaaef487bf0e11e4934f6ccfa30aa4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac03653c5c600535756c3c011385ad2e3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_station.html">Station</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_track.html#ac03653c5c600535756c3c011385ad2e3">getBegin</a> () const</td></tr>
 <tr class="separator:ac03653c5c600535756c3c011385ad2e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc220fecb947b476dbb5b58a4f0d786d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_station.html">Station</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_track.html#abc220fecb947b476dbb5b58a4f0d786d">getAnEnd</a> () const</td></tr>
 <tr class="separator:abc220fecb947b476dbb5b58a4f0d786d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Object that represents a track for a metro </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ab84b7a60b09d044fb8f0a47e4c13b5bd" name="ab84b7a60b09d044fb8f0a47e4c13b5bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab84b7a60b09d044fb8f0a47e4c13b5bd">&#9670;&#160;</a></span>Track()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Track::Track </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_station.html">Station</a> *&#160;</td>
+          <td class="paramname"><em>begin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_station.html">Station</a> *&#160;</td>
+          <td class="paramname"><em>anEnd</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Initializes <a class="el" href="class_track.html">Track</a> Object</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">begin</td><td>is the beginstation of the <a class="el" href="class_track.html">Track</a> </td></tr>
+    <tr><td class="paramname">anEnd</td><td>is the endStation of the <a class="el" href="class_track.html">Track</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a416e75e66accc8eb9e3fafc3e8555216" name="a416e75e66accc8eb9e3fafc3e8555216"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a416e75e66accc8eb9e3fafc3e8555216">&#9670;&#160;</a></span>~Track()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Track::~Track </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Destructs a <a class="el" href="class_track.html">Track</a> object</p>
+<p>@REQUIRE properlyInitialized(), "Track was not properly initialised." </p>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="abc220fecb947b476dbb5b58a4f0d786d" name="abc220fecb947b476dbb5b58a4f0d786d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abc220fecb947b476dbb5b58a4f0d786d">&#9670;&#160;</a></span>getAnEnd()</h2>
@@ -102,7 +173,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Gets the station at the end of the track </p><dl class="section return"><dt>Returns</dt><dd>Station* to the station at the end of the track </dd></dl>
+<p>Gets the station at the end of the track </p><dl class="section return"><dt>Returns</dt><dd>Station* to the station at the end of the track @REQUIRE properlyInitialized(), "Track was not properly initialised." </dd></dl>
 
 </div>
 </div>
@@ -120,7 +191,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Gets the station at the beginning of the track </p><dl class="section return"><dt>Returns</dt><dd>Station* to the station at the beginning of the track </dd></dl>
+<p>Gets the station at the beginning of the track </p><dl class="section return"><dt>Returns</dt><dd>Station* to the station at the beginning of the track @REQUIRE properlyInitialized(), "Track was not properly initialised." </dd></dl>
 
 </div>
 </div>

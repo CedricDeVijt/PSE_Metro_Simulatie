@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_7eline_0',['~Line',['../class_line.html#aabe85f48d22d92b62257091f48174fac',1,'Line']]]
+  ['writeerror_0',['writeError',['../class_logger.html#a980f719dcade1ffe5dae57e60851f839',1,'Logger']]]
 ];

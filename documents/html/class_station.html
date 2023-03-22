@@ -20,9 +20,8 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="wp.jpg"/></td>
   <td id="projectalign">
-   <div id="projectname">Metro Simulation
+   <div id="projectname">Metro Simulation<span id="projectnumber">&#160;version 1.0</span>
    </div>
   </td>
  </tr>
@@ -77,12 +76,18 @@ $(function() {
   <div class="headertitle"><div class="title">Station Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_station_8h_source.html">Station.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a56d9262e165ef487d7a93d5d7994dc57"><td class="memItemLeft" align="right" valign="top"><a id="a56d9262e165ef487d7a93d5d7994dc57" name="a56d9262e165ef487d7a93d5d7994dc57"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Station</b> (const std::string &amp;name, <a class="el" href="class_track.html">Track</a> *nextTrack, <a class="el" href="class_track.html">Track</a> *prevTrack, int lineNumber)</td></tr>
+<tr class="memitem:a56d9262e165ef487d7a93d5d7994dc57"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_station.html#a56d9262e165ef487d7a93d5d7994dc57">Station</a> (const std::string &amp;name, <a class="el" href="class_track.html">Track</a> *nextTrack, <a class="el" href="class_track.html">Track</a> *prevTrack, int lineNumber)</td></tr>
 <tr class="separator:a56d9262e165ef487d7a93d5d7994dc57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00434e79e8ee7f4ebd6d3b631dde5ac0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_station.html#a00434e79e8ee7f4ebd6d3b631dde5ac0">~Station</a> ()</td></tr>
+<tr class="separator:a00434e79e8ee7f4ebd6d3b631dde5ac0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18e2c82e7b318cd7d0fb49a579a24618"><td class="memItemLeft" align="right" valign="top"><a id="a18e2c82e7b318cd7d0fb49a579a24618" name="a18e2c82e7b318cd7d0fb49a579a24618"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>properlyInitialized</b> () const</td></tr>
+<tr class="separator:a18e2c82e7b318cd7d0fb49a579a24618"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af0f1ca37e88347d21e069940399e107c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_station.html#af0f1ca37e88347d21e069940399e107c">operator std::string</a> ()</td></tr>
 <tr class="separator:af0f1ca37e88347d21e069940399e107c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a67a42e3b29edb826b50cdb4a0db2bef1"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_station.html#a67a42e3b29edb826b50cdb4a0db2bef1">getName</a> () const</td></tr>
@@ -93,14 +98,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aab26fa92839c0c54e07718639a988b45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4851cd35d9fafc3d44a737c256fbcb3f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_station.html#a4851cd35d9fafc3d44a737c256fbcb3f">getLineNumber</a> () const</td></tr>
 <tr class="separator:a4851cd35d9fafc3d44a737c256fbcb3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a15374400e22786d14d67f1a026f0bac7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_station.html#a15374400e22786d14d67f1a026f0bac7">setName</a> (const std::string &amp;name)</td></tr>
-<tr class="separator:a15374400e22786d14d67f1a026f0bac7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac5d62d04f5531d092dfc36777b8fc11f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_station.html#ac5d62d04f5531d092dfc36777b8fc11f">setNextTrack</a> (<a class="el" href="class_station.html">Station</a> *nextStation)</td></tr>
 <tr class="separator:ac5d62d04f5531d092dfc36777b8fc11f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a64c7e05676ae7dabb73b6b5d24aaf508"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_station.html#a64c7e05676ae7dabb73b6b5d24aaf508">setPrevTrack</a> (<a class="el" href="class_station.html">Station</a> *prevStation)</td></tr>
 <tr class="separator:a64c7e05676ae7dabb73b6b5d24aaf508"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc2a153c71925c9d6073f9c5dbc181b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_station.html#adc2a153c71925c9d6073f9c5dbc181b3">setLineNumber</a> (int lineNumber)</td></tr>
-<tr class="separator:adc2a153c71925c9d6073f9c5dbc181b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
 Friends</h2></td></tr>
@@ -108,6 +109,78 @@ Friends</h2></td></tr>
 std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (std::ostream &amp;os, const <a class="el" href="class_station.html">Station</a> &amp;station)</td></tr>
 <tr class="separator:a21074478888243d4fbfb72ab79cb290c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Object that represents a metro station that has a name, tracknumber and tracks </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a56d9262e165ef487d7a93d5d7994dc57" name="a56d9262e165ef487d7a93d5d7994dc57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56d9262e165ef487d7a93d5d7994dc57">&#9670;&#160;</a></span>Station()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Station::Station </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_track.html">Track</a> *&#160;</td>
+          <td class="paramname"><em>nextTrack</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_track.html">Track</a> *&#160;</td>
+          <td class="paramname"><em>prevTrack</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>lineNumber</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Initializes <a class="el" href="class_station.html">Station</a> object</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>is the name of the station </td></tr>
+    <tr><td class="paramname">nextTrack</td><td>is a pointer to the next <a class="el" href="class_track.html">Track</a> of the station </td></tr>
+    <tr><td class="paramname">prevTrack</td><td>is a pointer to the previous <a class="el" href="class_track.html">Track</a> of the station </td></tr>
+    <tr><td class="paramname">lineNumber</td><td>is the Number of The line of the <a class="el" href="class_station.html">Station</a> @ENSURE properlyInitialized(), "constructor must end in properlyInitialized state" </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a00434e79e8ee7f4ebd6d3b631dde5ac0" name="a00434e79e8ee7f4ebd6d3b631dde5ac0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00434e79e8ee7f4ebd6d3b631dde5ac0">&#9670;&#160;</a></span>~Station()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Station::~Station </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Destructs a <a class="el" href="class_station.html">Station</a> object</p>
+<p>@REQUIRE properlyInitialized(), "Station was not properly initialised." </p>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a4851cd35d9fafc3d44a737c256fbcb3f" name="a4851cd35d9fafc3d44a737c256fbcb3f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4851cd35d9fafc3d44a737c256fbcb3f">&#9670;&#160;</a></span>getLineNumber()</h2>
@@ -123,7 +196,8 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Gives the line number of the station </p><dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<p>Gives the line number of the station</p>
+<dl class="section return"><dt>Returns</dt><dd><b>int:</b> the line number @REQUIRE properlyInitialized(), "Station was not properly initialised." </dd></dl>
 
 </div>
 </div>
@@ -141,7 +215,8 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Gives the name of the station </p><dl class="section return"><dt>Returns</dt><dd>string: name of the station </dd></dl>
+<p>Gives the name of the station</p>
+<dl class="section return"><dt>Returns</dt><dd><b>string:</b> name of the station @REQUIRE properlyInitialized(), "Station was not properly initialised." </dd></dl>
 
 </div>
 </div>
@@ -159,7 +234,8 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Gives a pointer to the next track of the station </p><dl class="section return"><dt>Returns</dt><dd>Track* to the next track </dd></dl>
+<p>Gives a pointer to the next track of the station</p>
+<dl class="section return"><dt>Returns</dt><dd><b>Track*</b>: pointer to the next track @REQUIRE properlyInitialized(), "Station was not properly initialised." </dd></dl>
 
 </div>
 </div>
@@ -177,7 +253,8 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Gives a pointer to the previous track of the station </p><dl class="section return"><dt>Returns</dt><dd>Track* to the previous track </dd></dl>
+<p>Gives a pointer to the previous track of the station</p>
+<dl class="section return"><dt>Returns</dt><dd><b>Track*</b>: pointer to the previous track @REQUIRE properlyInitialized(), "Station was not properly initialised." </dd></dl>
 
 </div>
 </div>
@@ -195,55 +272,8 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Converts <a class="el" href="class_track.html">Track</a> into a string @REQUIRE(properlyInitialized(), "Station was not properly initialised."); </p>
-
-</div>
-</div>
-<a id="adc2a153c71925c9d6073f9c5dbc181b3" name="adc2a153c71925c9d6073f9c5dbc181b3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adc2a153c71925c9d6073f9c5dbc181b3">&#9670;&#160;</a></span>setLineNumber()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Station::setLineNumber </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>lineNumber</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Sets the line number of the station </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">lineNumber</td><td>the line number given to the station </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a15374400e22786d14d67f1a026f0bac7" name="a15374400e22786d14d67f1a026f0bac7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a15374400e22786d14d67f1a026f0bac7">&#9670;&#160;</a></span>setName()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Station::setName </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>name</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Sets the name of the station </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">name</td><td>name to be given to the station </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Converts <a class="el" href="class_track.html">Track</a> into a string</p>
+<p>@REQUIRE properlyInitialized(), "Station was not properly initialised." </p>
 
 </div>
 </div>
@@ -262,9 +292,11 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Sets next station of the station </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Sets the next <a class="el" href="class_track.html">Track</a> given by a nextStation <br  />
+The end of the <a class="el" href="class_track.html">Track</a> is the nextStation, Begin is the <a class="el" href="class_station.html">Station</a> itself</p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">nextStation</td><td>the next station given to the station </td></tr>
+    <tr><td class="paramname">nextStation</td><td>is the next station given to the station @REQUIRE properlyInitialized(), "Station was not properly initialised." </td></tr>
   </table>
   </dd>
 </dl>
@@ -286,9 +318,11 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Sets the previous station </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Sets the previous <a class="el" href="class_track.html">Track</a> given by a prevStation <br  />
+The end of the <a class="el" href="class_track.html">Track</a> is the <a class="el" href="class_station.html">Station</a> itself, Begin is the Prevstation</p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">prevStation</td><td>the previous station given to the station </td></tr>
+    <tr><td class="paramname">prevStation</td><td>is the previous station given to the station @REQUIRE properlyInitialized(), "Station was not properly initialised." </td></tr>
   </table>
   </dd>
 </dl>

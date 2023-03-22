@@ -1,10 +1,14 @@
 #ifndef PSE_METRO_SIMULATIE_LINE_H
 #define PSE_METRO_SIMULATIE_LINE_H
+
 #include "vector"
 #include "iostream"
-
-class Track;
-class Tram;
+#include "Track.h"
+#include "Tram.h"
+#include "Station.h"
+#include "Logger.h"
+#include "algorithm"
+#include "sstream"
 
 /**
  * Line object that contains Tracks and Trams
@@ -63,7 +67,7 @@ public:
      * @REQUIRE properlyInitialised(), "The line was not properly initialised."
      * @param newTrack is the new Track that will be added to the Line
      */
-    void addTrack(Track* newTrack);
+    void addTrack(Track *newTrack);
 
     /**
      * Adds a tram tot the line object.
@@ -71,9 +75,16 @@ public:
      * @REQUIRE properlyInitialised(), "The line was not properly initialised."
      * @param newTram is the new Tram that will be added to the Line
      */
-    void addTram(Tram* newTram);
+    void addTram(Tram *newTram);
+    void addStation(Station *station);
+    bool verify(std::ostream &errorstream);
+    Station* getNext(Station *station);
+    Station* getPrev(Station *station);
+    int getTrackLength(Station *curr, Station *next);
+    operator std::string();
 private:
     int lineNumber;
+    std::vector<Station*> stations;
     std::vector<Track*> tracks;
     std::vector<Tram*> trams;
     Line* _initCheck;

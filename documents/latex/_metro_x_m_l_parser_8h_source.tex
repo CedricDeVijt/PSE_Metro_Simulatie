@@ -15,42 +15,44 @@
 \DoxyCodeLine{00012\ }
 \DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_metro_x_m_l_parser}{MetroXMLParser}}\ \{}
 \DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00018\ \ \ \ \ \textcolor{comment}{//\ Constructor}}
-\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_metro_x_m_l_parser}{MetroXMLParser}}(\textcolor{keyword}{const}\ std::string\ \&filename,\ std::ostream\ \&errorStream);}
-\DoxyCodeLine{00020\ \ \ \ \ \textcolor{comment}{//\ Destructor}}
-\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_metro_x_m_l_parser}{\string~MetroXMLParser}}();}
-\DoxyCodeLine{00022\ }
-\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_metro_x_m_l_parser_ad0c6409f2e7ba9cbb94eb4918da2a9b5}{parse}}(\textcolor{keyword}{const}\ std::string\&\ filename);}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_metro_x_m_l_parser}{MetroXMLParser}}(\textcolor{keyword}{const}\ std::string\ \&filename,\ std::ostream\ \&errorStream);}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_metro_x_m_l_parser_a22d85d43b29ac3f5feaf3437a7ef8c31}{\string~MetroXMLParser}}();}
 \DoxyCodeLine{00033\ }
-\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_metro_x_m_l_parser_ae48badca4f63aebd3f99e0a0827097be}{parseStation}}(TiXmlElement*\ stationElem);}
-\DoxyCodeLine{00040\ }
-\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_metro_x_m_l_parser_aed02ff7da2e56f2f434970cfd91d24d3}{parseTram}}(TiXmlElement*\ tramElem);}
-\DoxyCodeLine{00047\ }
-\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_metro_x_m_l_parser_ad825cf3ace17f71a539bc724442e2465}{handleStations}}();}
-\DoxyCodeLine{00057\ }
-\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_metro_x_m_l_parser_a5f5f77374d98fc41e02de7c6d92f04c9}{handleTrams}}();}
-\DoxyCodeLine{00067\ }
-\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_metro_x_m_l_parser_a52361c1a9fb3c4439778c61c77a6f950}{verify}}();}
-\DoxyCodeLine{00077\ }
-\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{bool}\ isProperlyParsed()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{bool}\ properlyInitialized()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00080\ }
-\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<Tram\ *>\ \&getTrams()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<Station\ *>\ \&getStations()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<Line\ *>\ \&getLines()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00084\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00085\ \ \ \ \ std::pair<std::string,\ bool>\ readKey(TiXmlElement*\ elem,\ \textcolor{keyword}{const}\ std::string\ \&key);}
-\DoxyCodeLine{00086\ }
-\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{bool}\ properlyParsed;}
-\DoxyCodeLine{00088\ \ \ \ \ \mbox{\hyperlink{class_metro_x_m_l_parser}{MetroXMLParser}}\ *\_initCheck;}
-\DoxyCodeLine{00089\ \ \ \ \ std::ostream\ \&errorstream;}
-\DoxyCodeLine{00090\ \ \ \ \ std::vector<Tram*>\ trams;}
-\DoxyCodeLine{00091\ \ \ \ \ std::vector<Station*>\ stations;}
-\DoxyCodeLine{00092\ \ \ \ \ std::vector<Line*>\ lines;}
-\DoxyCodeLine{00093\ \ \ \ \ std::map<Station*,\ std::pair<std::string,\ std::string>\ >\ stationMap;}
-\DoxyCodeLine{00094\ \ \ \ \ std::map<Tram*,\ std::string>\ tramMap;}
-\DoxyCodeLine{00095\ \};}
-\DoxyCodeLine{00096\ }
-\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//PSE\_METRO\_SIMULATIE\_XMLPARSER\_H}}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{bool}\ properlyInitialized()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_metro_x_m_l_parser_ad0c6409f2e7ba9cbb94eb4918da2a9b5}{parse}}(\textcolor{keyword}{const}\ std::string\&\ filename);}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_metro_x_m_l_parser_ac27b8f60094f7639e6f899d59fa81dae}{isProperlyParsed}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<Tram\ *>\ \&\mbox{\hyperlink{class_metro_x_m_l_parser_a1accc9f06826252fe8578c760886603d}{getTrams}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<Station\ *>\ \&\mbox{\hyperlink{class_metro_x_m_l_parser_a9ab4a3a046b4f9e403ad7b54ff047dd7}{getStations}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<Line\ *>\ \&\mbox{\hyperlink{class_metro_x_m_l_parser_aa71bccc50d1a1d36aefa0ca1cbc8453f}{getLines}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00077\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{bool}\ verify();}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordtype}{void}\ parseStation(TiXmlElement*\ stationElem);}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordtype}{void}\ parseTram(TiXmlElement*\ tramElem);}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{void}\ handleStations();}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{void}\ handleTrams();}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00129\ \ \ \ \ std::pair<std::string,\ bool>\ readKey(TiXmlElement*\ elem,\ \textcolor{keyword}{const}\ std::string\ \&key);}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keywordtype}{bool}\ properlyParsed;}
+\DoxyCodeLine{00132\ \ \ \ \ \mbox{\hyperlink{class_metro_x_m_l_parser}{MetroXMLParser}}\ *\_initCheck;}
+\DoxyCodeLine{00133\ \ \ \ \ std::ostream\ \&errorstream;}
+\DoxyCodeLine{00134\ \ \ \ \ std::vector<Tram*>\ trams;}
+\DoxyCodeLine{00135\ \ \ \ \ std::vector<Station*>\ stations;}
+\DoxyCodeLine{00136\ \ \ \ \ std::vector<Line*>\ lines;}
+\DoxyCodeLine{00137\ \ \ \ \ std::map<Station*,\ std::pair<std::string,\ std::string>\ >\ stationMap;}
+\DoxyCodeLine{00138\ \ \ \ \ std::map<Tram*,\ std::string>\ tramMap;}
+\DoxyCodeLine{00139\ \};}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//PSE\_METRO\_SIMULATIE\_XMLPARSER\_H}}
 
 \end{DoxyCode}

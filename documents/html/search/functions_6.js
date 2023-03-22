@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['outputsystem_0',['outputSystem',['../class_metro_system.html#a1bf5efa64ba26a7b4144faf49b821792',1,'MetroSystem']]],
-  ['string_1',['string',['../class_station.html#af0f1ca37e88347d21e069940399e107c',1,'Station::string()'],['../class_tram.html#a69f52091a1bcfd5325c85373e8664c6c',1,'Tram::string()']]]
+  ['metrosimulation_0',['MetroSimulation',['../class_metro_simulation.html#a2b53949420a68892bd72f9ba5736b132',1,'MetroSimulation']]],
+  ['metrosystem_1',['MetroSystem',['../class_metro_system.html#a39f7f4a8602b1595c0429e195867ba4d',1,'MetroSystem']]],
+  ['metroxmlparser_2',['MetroXMLParser',['../class_metro_x_m_l_parser.html#a451b0a89091171614a2dd282b818f868',1,'MetroXMLParser']]]
 ];

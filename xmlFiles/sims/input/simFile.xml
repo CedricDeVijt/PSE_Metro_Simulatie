@@ -18,6 +18,7 @@
         <spoorNr>12</spoorNr>
     </STATION>
     <TRAM>
+        <tramNr>0</tramNr>
         <lijnNr>12</lijnNr>
         <snelheid>60</snelheid>
         <beginStation>A</beginStation>

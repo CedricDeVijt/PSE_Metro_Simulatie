@@ -1,0 +1,5 @@
+ERROR: Invalid Information: "tramNr" element not found
+ERROR: Invalid Information: "tramNr" element not found
+ERROR: Invalid Information: "tramNr" element not found
+ERROR: Invalid Information: "tramNr" element not found
+ERROR: File was not parsed properly

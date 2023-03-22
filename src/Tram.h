@@ -12,14 +12,13 @@ public:
     /**
      * Creates a Tram object
      *
-     * @param lineNumber is the LineNumber of the Tram
      * @param tramNumber is the Number of the Tram
      * @param speed is the Speed of the tram
      * @param startStation is the startstation of the tram
      *
      * @ENSURE properlyInitialized(), "constructor must end in properlyInitialized state"
      */
-    Tram(int lineNumber, int tramNumber, int speed, Station *startStation);
+    Tram(int tramNumber, int speed, Station *startStation);
 
     /**
      * Destructs a tram object
@@ -36,14 +35,6 @@ public:
      * @REQUIRE properlyInitialized(), "Station was not properly initialised."
      */
     operator std::string();
-
-    /**
-     * Gives the line number of the track on which the tram is driving
-     *
-     * @return @b int: line number of the line on which the tram is driving
-     * @REQUIRE properlyInitialized(), "Station was not properly initialised."
-     */
-    int getLineNumber() const;
 
     /**
      * Gives the speed of which the tram is capable
@@ -99,10 +90,9 @@ public:
      * @param os std::ostream: where the output of moving the train is written to
      * @REQUIRE properlyInitialized(), "Station was not properly initialised."
      */
-    void drive(std::ostream &os);
+    void drive(Station* destination, int length, std::ostream &os);
 private:
     friend std::ostream &operator<<(std::ostream &os, const Tram &tram);
-    int lineNumber;
     int tramNumber;
     int speed;
     Station *startStation;

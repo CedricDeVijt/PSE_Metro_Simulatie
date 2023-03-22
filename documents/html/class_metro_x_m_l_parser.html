@@ -20,9 +20,8 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="wp.jpg"/></td>
   <td id="projectalign">
-   <div id="projectname">Metro Simulation
+   <div id="projectname">Metro Simulation<span id="projectnumber">&#160;version 1.0</span>
    </div>
   </td>
  </tr>
@@ -81,77 +80,172 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a451b0a89091171614a2dd282b818f868"><td class="memItemLeft" align="right" valign="top"><a id="a451b0a89091171614a2dd282b818f868" name="a451b0a89091171614a2dd282b818f868"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>MetroXMLParser</b> (const std::string &amp;filename, std::ostream &amp;errorStream)</td></tr>
+<tr class="memitem:a451b0a89091171614a2dd282b818f868"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_metro_x_m_l_parser.html#a451b0a89091171614a2dd282b818f868">MetroXMLParser</a> (const std::string &amp;filename, std::ostream &amp;errorStream)</td></tr>
 <tr class="separator:a451b0a89091171614a2dd282b818f868"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad0c6409f2e7ba9cbb94eb4918da2a9b5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_metro_x_m_l_parser.html#ad0c6409f2e7ba9cbb94eb4918da2a9b5">parse</a> (const std::string &amp;filename)</td></tr>
-<tr class="separator:ad0c6409f2e7ba9cbb94eb4918da2a9b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae48badca4f63aebd3f99e0a0827097be"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_metro_x_m_l_parser.html#ae48badca4f63aebd3f99e0a0827097be">parseStation</a> (TiXmlElement *stationElem)</td></tr>
-<tr class="separator:ae48badca4f63aebd3f99e0a0827097be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed02ff7da2e56f2f434970cfd91d24d3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_metro_x_m_l_parser.html#aed02ff7da2e56f2f434970cfd91d24d3">parseTram</a> (TiXmlElement *tramElem)</td></tr>
-<tr class="separator:aed02ff7da2e56f2f434970cfd91d24d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad825cf3ace17f71a539bc724442e2465"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_metro_x_m_l_parser.html#ad825cf3ace17f71a539bc724442e2465">handleStations</a> ()</td></tr>
-<tr class="separator:ad825cf3ace17f71a539bc724442e2465"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f5f77374d98fc41e02de7c6d92f04c9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_metro_x_m_l_parser.html#a5f5f77374d98fc41e02de7c6d92f04c9">handleTrams</a> ()</td></tr>
-<tr class="separator:a5f5f77374d98fc41e02de7c6d92f04c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52361c1a9fb3c4439778c61c77a6f950"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_metro_x_m_l_parser.html#a52361c1a9fb3c4439778c61c77a6f950">verify</a> ()</td></tr>
-<tr class="separator:a52361c1a9fb3c4439778c61c77a6f950"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac27b8f60094f7639e6f899d59fa81dae"><td class="memItemLeft" align="right" valign="top"><a id="ac27b8f60094f7639e6f899d59fa81dae" name="ac27b8f60094f7639e6f899d59fa81dae"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isProperlyParsed</b> () const</td></tr>
-<tr class="separator:ac27b8f60094f7639e6f899d59fa81dae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22d85d43b29ac3f5feaf3437a7ef8c31"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_metro_x_m_l_parser.html#a22d85d43b29ac3f5feaf3437a7ef8c31">~MetroXMLParser</a> ()</td></tr>
+<tr class="separator:a22d85d43b29ac3f5feaf3437a7ef8c31"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a2b890e5b6fda87028c76ac52313464"><td class="memItemLeft" align="right" valign="top"><a id="a6a2b890e5b6fda87028c76ac52313464" name="a6a2b890e5b6fda87028c76ac52313464"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>properlyInitialized</b> () const</td></tr>
 <tr class="separator:a6a2b890e5b6fda87028c76ac52313464"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1accc9f06826252fe8578c760886603d"><td class="memItemLeft" align="right" valign="top"><a id="a1accc9f06826252fe8578c760886603d" name="a1accc9f06826252fe8578c760886603d"></a>
-const std::vector&lt; <a class="el" href="class_tram.html">Tram</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getTrams</b> () const</td></tr>
+<tr class="memitem:ad0c6409f2e7ba9cbb94eb4918da2a9b5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_metro_x_m_l_parser.html#ad0c6409f2e7ba9cbb94eb4918da2a9b5">parse</a> (const std::string &amp;filename)</td></tr>
+<tr class="separator:ad0c6409f2e7ba9cbb94eb4918da2a9b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac27b8f60094f7639e6f899d59fa81dae"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_metro_x_m_l_parser.html#ac27b8f60094f7639e6f899d59fa81dae">isProperlyParsed</a> () const</td></tr>
+<tr class="separator:ac27b8f60094f7639e6f899d59fa81dae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1accc9f06826252fe8578c760886603d"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="class_tram.html">Tram</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_metro_x_m_l_parser.html#a1accc9f06826252fe8578c760886603d">getTrams</a> () const</td></tr>
 <tr class="separator:a1accc9f06826252fe8578c760886603d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ab4a3a046b4f9e403ad7b54ff047dd7"><td class="memItemLeft" align="right" valign="top"><a id="a9ab4a3a046b4f9e403ad7b54ff047dd7" name="a9ab4a3a046b4f9e403ad7b54ff047dd7"></a>
-const std::vector&lt; <a class="el" href="class_station.html">Station</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getStations</b> () const</td></tr>
+<tr class="memitem:a9ab4a3a046b4f9e403ad7b54ff047dd7"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="class_station.html">Station</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_metro_x_m_l_parser.html#a9ab4a3a046b4f9e403ad7b54ff047dd7">getStations</a> () const</td></tr>
 <tr class="separator:a9ab4a3a046b4f9e403ad7b54ff047dd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa71bccc50d1a1d36aefa0ca1cbc8453f"><td class="memItemLeft" align="right" valign="top"><a id="aa71bccc50d1a1d36aefa0ca1cbc8453f" name="aa71bccc50d1a1d36aefa0ca1cbc8453f"></a>
-const std::vector&lt; <a class="el" href="class_line.html">Line</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getLines</b> () const</td></tr>
+<tr class="memitem:aa71bccc50d1a1d36aefa0ca1cbc8453f"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="class_line.html">Line</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_metro_x_m_l_parser.html#aa71bccc50d1a1d36aefa0ca1cbc8453f">getLines</a> () const</td></tr>
 <tr class="separator:aa71bccc50d1a1d36aefa0ca1cbc8453f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Parser for <a class="el" href="class_metro_simulation.html">MetroSimulation</a> </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="ad825cf3ace17f71a539bc724442e2465" name="ad825cf3ace17f71a539bc724442e2465"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad825cf3ace17f71a539bc724442e2465">&#9670;&#160;</a></span>handleStations()</h2>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a451b0a89091171614a2dd282b818f868" name="a451b0a89091171614a2dd282b818f868"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a451b0a89091171614a2dd282b818f868">&#9670;&#160;</a></span>MetroXMLParser()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void MetroXMLParser::handleStations </td>
+          <td class="memname">MetroXMLParser::MetroXMLParser </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>errorStream</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>creates <a class="el" href="class_metro_x_m_l_parser.html">MetroXMLParser</a> object</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>is a .xml file that contains METRODATA </td></tr>
+    <tr><td class="paramname">errorStream</td><td>is the stream the errors get outputted to @ENSURE properlyInitialized(), "constructor must end in properlyInitialized state" </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a22d85d43b29ac3f5feaf3437a7ef8c31" name="a22d85d43b29ac3f5feaf3437a7ef8c31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22d85d43b29ac3f5feaf3437a7ef8c31">&#9670;&#160;</a></span>~MetroXMLParser()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">MetroXMLParser::~MetroXMLParser </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
-<p>Initialises the stations completely</p>
-<p>@REQUIRE THERE ARE STATIONS @REQUIRE STATION MAP NOT EMPTY</p>
-<dl class="section attention"><dt>Attention</dt><dd><a class="el" href="class_metro_x_m_l_parser.html#ad0c6409f2e7ba9cbb94eb4918da2a9b5">parse()</a> needs to be called before this should be called </dd></dl>
+<p>Destructs <a class="el" href="class_metro_x_m_l_parser.html">MetroXMLParser</a> object</p>
+<p>@REQUIRE properlyInitialized(), "MetroXMLParser was not initialized when calling parse" </p>
 
 </div>
 </div>
-<a id="a5f5f77374d98fc41e02de7c6d92f04c9" name="a5f5f77374d98fc41e02de7c6d92f04c9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5f5f77374d98fc41e02de7c6d92f04c9">&#9670;&#160;</a></span>handleTrams()</h2>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="aa71bccc50d1a1d36aefa0ca1cbc8453f" name="aa71bccc50d1a1d36aefa0ca1cbc8453f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa71bccc50d1a1d36aefa0ca1cbc8453f">&#9670;&#160;</a></span>getLines()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void MetroXMLParser::handleTrams </td>
+          <td class="memname">const std::vector&lt; <a class="el" href="class_line.html">Line</a> * &gt; &amp; MetroXMLParser::getLines </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Initialises the trams completely</p>
-<p>@REQUIRE THERE ARE TRAMS @REQUIRE TRAM MAP NOT EMPTY</p>
-<dl class="section attention"><dt>Attention</dt><dd><a class="el" href="class_metro_x_m_l_parser.html#ad0c6409f2e7ba9cbb94eb4918da2a9b5">parse()</a> needs to be called before this should be called </dd></dl>
+<p>Gets a vector with all the lines of the system</p>
+<p>@REQUIRE properlyInitialized(), "MetroXMLParser was not initialized when calling handleStations" </p><dl class="section return"><dt>Returns</dt><dd>a vector with all the stations of the system </dd></dl>
+
+</div>
+</div>
+<a id="a9ab4a3a046b4f9e403ad7b54ff047dd7" name="a9ab4a3a046b4f9e403ad7b54ff047dd7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ab4a3a046b4f9e403ad7b54ff047dd7">&#9670;&#160;</a></span>getStations()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt; <a class="el" href="class_station.html">Station</a> * &gt; &amp; MetroXMLParser::getStations </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Gets a vector with all the stations of the system</p>
+<p>@REQUIRE properlyInitialized(), "MetroXMLParser was not initialized when calling handleStations" </p><dl class="section return"><dt>Returns</dt><dd>vector with all the stations of the system </dd></dl>
+
+</div>
+</div>
+<a id="a1accc9f06826252fe8578c760886603d" name="a1accc9f06826252fe8578c760886603d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1accc9f06826252fe8578c760886603d">&#9670;&#160;</a></span>getTrams()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt; <a class="el" href="class_tram.html">Tram</a> * &gt; &amp; MetroXMLParser::getTrams </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Gets a vector with all the trams of the system</p>
+<p>@REQUIRE properlyInitialized(), "MetroXMLParser was not initialized when calling handleStations" </p><dl class="section return"><dt>Returns</dt><dd>vector with all the trams </dd></dl>
+
+</div>
+</div>
+<a id="ac27b8f60094f7639e6f899d59fa81dae" name="ac27b8f60094f7639e6f899d59fa81dae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac27b8f60094f7639e6f899d59fa81dae">&#9670;&#160;</a></span>isProperlyParsed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MetroXMLParser::isProperlyParsed </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Returns properlyParser bool</p>
+<p>@REQUIRE properlyInitialized(), "MetroXMLParser was not initialized when calling handleStations" </p>
 
 </div>
 </div>
@@ -171,7 +265,7 @@ const std::vector&lt; <a class="el" href="class_line.html">Line</a> * &gt; &amp;
       </table>
 </div><div class="memdoc">
 <p>Parses the filename <br  />
- Creates Objects who are not completely initialised <br  />
+ Creates (<a class="el" href="class_station.html">Station</a> + <a class="el" href="class_tram.html">Tram</a>) Objects who are not completely initialised <br  />
  Creates 2 maps with content to init these objects completely</p>
 <p>@REQUIRE properlyInitialized(), "MetroXMLParser was not initialized when calling parse" </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -180,73 +274,6 @@ const std::vector&lt; <a class="el" href="class_line.html">Line</a> * &gt; &amp;
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><b>bool:</b> True if parsed properly, False if failed to parse </dd></dl>
-
-</div>
-</div>
-<a id="ae48badca4f63aebd3f99e0a0827097be" name="ae48badca4f63aebd3f99e0a0827097be"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae48badca4f63aebd3f99e0a0827097be">&#9670;&#160;</a></span>parseStation()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void MetroXMLParser::parseStation </td>
-          <td>(</td>
-          <td class="paramtype">TiXmlElement *&#160;</td>
-          <td class="paramname"><em>stationElem</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Parses a single station form TiXmlElement @REQUIRE properlyInitialized(), "MetroXMLParser was not initialized when calling parse" </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">stationElem</td><td>tinyXML element that contains information about a station </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="aed02ff7da2e56f2f434970cfd91d24d3" name="aed02ff7da2e56f2f434970cfd91d24d3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aed02ff7da2e56f2f434970cfd91d24d3">&#9670;&#160;</a></span>parseTram()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void MetroXMLParser::parseTram </td>
-          <td>(</td>
-          <td class="paramtype">TiXmlElement *&#160;</td>
-          <td class="paramname"><em>tramElem</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Parses a single tram form TiXmlElement @REQUIRE properlyInitialized(), "MetroXMLParser was not initialized when calling parse" </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">tramElem</td><td>tinyXML element that contains information about a tram </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a52361c1a9fb3c4439778c61c77a6f950" name="a52361c1a9fb3c4439778c61c77a6f950"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a52361c1a9fb3c4439778c61c77a6f950">&#9670;&#160;</a></span>verify()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool MetroXMLParser::verify </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Verifies the content after completely parsing.</p>
-<p>@ENSURE STATIONS CONNECTED PROPERLY @ENSURE VALID STARTSTATION OF TRAM @ENSURE CORRESPONDING LINENUMBER BETWEEN TRAM AND STARTSTATION @ENSURE EVERY LINE HAS A TRAM </p>
 
 </div>
 </div>

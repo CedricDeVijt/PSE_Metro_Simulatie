@@ -20,9 +20,8 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="wp.jpg"/></td>
   <td id="projectalign">
-   <div id="projectname">Metro Simulation
+   <div id="projectname">Metro Simulation<span id="projectnumber">&#160;version 1.0</span>
    </div>
   </td>
  </tr>
@@ -76,17 +75,96 @@ $(function() {
   <div class="headertitle"><div class="title">MetroSimulation Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_metro_simulation_8h_source.html">MetroSimulation.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a2b53949420a68892bd72f9ba5736b132"><td class="memItemLeft" align="right" valign="top"><a id="a2b53949420a68892bd72f9ba5736b132" name="a2b53949420a68892bd72f9ba5736b132"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>MetroSimulation</b> (const std::string &amp;inputFile, std::ostream &amp;errorstream, unsigned int runtime)</td></tr>
+<tr class="memitem:a2b53949420a68892bd72f9ba5736b132"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_metro_simulation.html#a2b53949420a68892bd72f9ba5736b132">MetroSimulation</a> (const std::string &amp;inputFile, std::ostream &amp;errorstream, unsigned int runtime)</td></tr>
 <tr class="separator:a2b53949420a68892bd72f9ba5736b132"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa06b3a7667d3c20559a5c78dc92fea34"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_metro_simulation.html#aa06b3a7667d3c20559a5c78dc92fea34">~MetroSimulation</a> ()</td></tr>
+<tr class="separator:aa06b3a7667d3c20559a5c78dc92fea34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4fc782977c74a204d4acec2bf604adc"><td class="memItemLeft" align="right" valign="top"><a id="af4fc782977c74a204d4acec2bf604adc" name="af4fc782977c74a204d4acec2bf604adc"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>properlyInitialized</b> () const</td></tr>
+<tr class="separator:af4fc782977c74a204d4acec2bf604adc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa26de2c80ddf9b93a1b04329feda3009"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_metro_system.html">MetroSystem</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_metro_simulation.html#aa26de2c80ddf9b93a1b04329feda3009">getSystem</a> () const</td></tr>
 <tr class="separator:aa26de2c80ddf9b93a1b04329feda3009"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a89228b9522897d8b4187ba9d93a5ed7f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_metro_simulation.html#a89228b9522897d8b4187ba9d93a5ed7f">run</a> (std::ostream &amp;os)</td></tr>
 <tr class="separator:a89228b9522897d8b4187ba9d93a5ed7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Simulation system for metro-system </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a2b53949420a68892bd72f9ba5736b132" name="a2b53949420a68892bd72f9ba5736b132"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b53949420a68892bd72f9ba5736b132">&#9670;&#160;</a></span>MetroSimulation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MetroSimulation::MetroSimulation </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>inputFile</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>errorstream</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>runtime</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Initializes a Metrosimulation</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inputFile</td><td>is a .xml file that contains METRODATA </td></tr>
+    <tr><td class="paramname">errorstream</td><td>is the stream the errors get outputted to </td></tr>
+    <tr><td class="paramname">runtime</td><td>is the time the simulation needs to run @ENSURE properlyInitialized(), "constructor must end in properlyInitialized state" </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa06b3a7667d3c20559a5c78dc92fea34" name="aa06b3a7667d3c20559a5c78dc92fea34"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa06b3a7667d3c20559a5c78dc92fea34">&#9670;&#160;</a></span>~MetroSimulation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">MetroSimulation::~MetroSimulation </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Destructs a Metrosimulation</p>
+<p>@REQUIRE properlyInitialized(), "Metrosimulation was not properly initialised." </p>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="aa26de2c80ddf9b93a1b04329feda3009" name="aa26de2c80ddf9b93a1b04329feda3009"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa26de2c80ddf9b93a1b04329feda3009">&#9670;&#160;</a></span>getSystem()</h2>
@@ -102,7 +180,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Gives the metro-system that is used for the simulation </p><dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<p>Gives the metro-system that is used for the simulation</p>
+<dl class="section return"><dt>Returns</dt><dd>a <a class="el" href="class_metro_system.html">MetroSystem</a> object @REQUIRE properlyInitialized(), "Metrosimulation was not properly initialised." </dd></dl>
 
 </div>
 </div>
@@ -121,9 +200,10 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Updates the metro-system so all the trams will move to their next location </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Updates the metro-system so all the trams will move to their next location</p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">os</td><td>std::ostream: Output stream where the movement of the the trams gets written to </td></tr>
+    <tr><td class="paramname">os</td><td>is a <b>std::ostream:</b> where the movement of the the trams gets written to </td></tr>
   </table>
   </dd>
 </dl>

@@ -20,9 +20,8 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="wp.jpg"/></td>
   <td id="projectalign">
-   <div id="projectname">Metro Simulation
+   <div id="projectname">Metro Simulation<span id="projectnumber">&#160;version 1.0</span>
    </div>
   </td>
  </tr>
@@ -87,50 +86,52 @@ $(function() {
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="class_metro_x_m_l_parser.html">   16</a></span><span class="keyword">class </span><a class="code hl_class" href="class_metro_x_m_l_parser.html">MetroXMLParser</a> {</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="comment">// Constructor</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keyword">explicit</span> <a class="code hl_class" href="class_metro_x_m_l_parser.html">MetroXMLParser</a>(<span class="keyword">const</span> std::string &amp;filename, std::ostream &amp;errorStream);</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="comment">// Destructor</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keyword">virtual</span> <a class="code hl_class" href="class_metro_x_m_l_parser.html">~MetroXMLParser</a>();</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_metro_x_m_l_parser.html#ad0c6409f2e7ba9cbb94eb4918da2a9b5">parse</a>(<span class="keyword">const</span> std::string&amp; filename);</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keyword">explicit</span> <a class="code hl_class" href="class_metro_x_m_l_parser.html">MetroXMLParser</a>(<span class="keyword">const</span> std::string &amp;filename, std::ostream &amp;errorStream);</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keyword">virtual</span> <a class="code hl_function" href="class_metro_x_m_l_parser.html#a22d85d43b29ac3f5feaf3437a7ef8c31">~MetroXMLParser</a>();</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_metro_x_m_l_parser.html#ae48badca4f63aebd3f99e0a0827097be">parseStation</a>(TiXmlElement* stationElem);</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_metro_x_m_l_parser.html#aed02ff7da2e56f2f434970cfd91d24d3">parseTram</a>(TiXmlElement* tramElem);</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_metro_x_m_l_parser.html#ad825cf3ace17f71a539bc724442e2465">handleStations</a>();</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_metro_x_m_l_parser.html#a5f5f77374d98fc41e02de7c6d92f04c9">handleTrams</a>();</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_metro_x_m_l_parser.html#a52361c1a9fb3c4439778c61c77a6f950">verify</a>();</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keywordtype">bool</span> isProperlyParsed() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keywordtype">bool</span> properlyInitialized() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keyword">const</span> std::vector&lt;Tram *&gt; &amp;getTrams() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keyword">const</span> std::vector&lt;Station *&gt; &amp;getStations() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keyword">const</span> std::vector&lt;Line *&gt; &amp;getLines() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    std::pair&lt;std::string, bool&gt; readKey(TiXmlElement* elem, <span class="keyword">const</span> std::string &amp;key);</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <span class="keywordtype">bool</span> properlyParsed;</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <a class="code hl_class" href="class_metro_x_m_l_parser.html">MetroXMLParser</a> *_initCheck;</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    std::ostream &amp;errorstream;</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    std::vector&lt;Tram*&gt; trams;</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    std::vector&lt;Station*&gt; stations;</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    std::vector&lt;Line*&gt; lines;</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    std::map&lt;Station*, std::pair&lt;std::string, std::string&gt; &gt; stationMap;</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    std::map&lt;Tram*, std::string&gt; tramMap;</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>};</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="preprocessor">#endif </span><span class="comment">//PSE_METRO_SIMULATIE_XMLPARSER_H</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordtype">bool</span> properlyInitialized() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_metro_x_m_l_parser.html#ad0c6409f2e7ba9cbb94eb4918da2a9b5">parse</a>(<span class="keyword">const</span> std::string&amp; filename);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_metro_x_m_l_parser.html#ac27b8f60094f7639e6f899d59fa81dae">isProperlyParsed</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keyword">const</span> std::vector&lt;Tram *&gt; &amp;<a class="code hl_function" href="class_metro_x_m_l_parser.html#a1accc9f06826252fe8578c760886603d">getTrams</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keyword">const</span> std::vector&lt;Station *&gt; &amp;<a class="code hl_function" href="class_metro_x_m_l_parser.html#a9ab4a3a046b4f9e403ad7b54ff047dd7">getStations</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keyword">const</span> std::vector&lt;Line *&gt; &amp;<a class="code hl_function" href="class_metro_x_m_l_parser.html#aa71bccc50d1a1d36aefa0ca1cbc8453f">getLines</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keywordtype">bool</span> verify();</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="keywordtype">void</span> parseStation(TiXmlElement* stationElem);</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <span class="keywordtype">void</span> parseTram(TiXmlElement* tramElem);</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keywordtype">void</span> handleStations();</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="keywordtype">void</span> handleTrams();</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    std::pair&lt;std::string, bool&gt; readKey(TiXmlElement* elem, <span class="keyword">const</span> std::string &amp;key);</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    <span class="keywordtype">bool</span> properlyParsed;</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    <a class="code hl_class" href="class_metro_x_m_l_parser.html">MetroXMLParser</a> *_initCheck;</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    std::ostream &amp;errorstream;</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    std::vector&lt;Tram*&gt; trams;</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    std::vector&lt;Station*&gt; stations;</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    std::vector&lt;Line*&gt; lines;</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    std::map&lt;Station*, std::pair&lt;std::string, std::string&gt; &gt; stationMap;</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    std::map&lt;Tram*, std::string&gt; tramMap;</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>};</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span><span class="preprocessor">#endif </span><span class="comment">//PSE_METRO_SIMULATIE_XMLPARSER_H</span></div>
 <div class="ttc" id="aclass_metro_x_m_l_parser_html"><div class="ttname"><a href="class_metro_x_m_l_parser.html">MetroXMLParser</a></div><div class="ttdef"><b>Definition:</b> MetroXMLParser.h:16</div></div>
-<div class="ttc" id="aclass_metro_x_m_l_parser_html_a52361c1a9fb3c4439778c61c77a6f950"><div class="ttname"><a href="class_metro_x_m_l_parser.html#a52361c1a9fb3c4439778c61c77a6f950">MetroXMLParser::verify</a></div><div class="ttdeci">bool verify()</div><div class="ttdef"><b>Definition:</b> MetroXMLParser.cpp:181</div></div>
-<div class="ttc" id="aclass_metro_x_m_l_parser_html_a5f5f77374d98fc41e02de7c6d92f04c9"><div class="ttname"><a href="class_metro_x_m_l_parser.html#a5f5f77374d98fc41e02de7c6d92f04c9">MetroXMLParser::handleTrams</a></div><div class="ttdeci">void handleTrams()</div><div class="ttdef"><b>Definition:</b> MetroXMLParser.cpp:108</div></div>
-<div class="ttc" id="aclass_metro_x_m_l_parser_html_ad0c6409f2e7ba9cbb94eb4918da2a9b5"><div class="ttname"><a href="class_metro_x_m_l_parser.html#ad0c6409f2e7ba9cbb94eb4918da2a9b5">MetroXMLParser::parse</a></div><div class="ttdeci">bool parse(const std::string &amp;filename)</div><div class="ttdef"><b>Definition:</b> MetroXMLParser.cpp:19</div></div>
-<div class="ttc" id="aclass_metro_x_m_l_parser_html_ad825cf3ace17f71a539bc724442e2465"><div class="ttname"><a href="class_metro_x_m_l_parser.html#ad825cf3ace17f71a539bc724442e2465">MetroXMLParser::handleStations</a></div><div class="ttdeci">void handleStations()</div><div class="ttdef"><b>Definition:</b> MetroXMLParser.cpp:141</div></div>
-<div class="ttc" id="aclass_metro_x_m_l_parser_html_ae48badca4f63aebd3f99e0a0827097be"><div class="ttname"><a href="class_metro_x_m_l_parser.html#ae48badca4f63aebd3f99e0a0827097be">MetroXMLParser::parseStation</a></div><div class="ttdeci">void parseStation(TiXmlElement *stationElem)</div><div class="ttdef"><b>Definition:</b> MetroXMLParser.cpp:62</div></div>
-<div class="ttc" id="aclass_metro_x_m_l_parser_html_aed02ff7da2e56f2f434970cfd91d24d3"><div class="ttname"><a href="class_metro_x_m_l_parser.html#aed02ff7da2e56f2f434970cfd91d24d3">MetroXMLParser::parseTram</a></div><div class="ttdeci">void parseTram(TiXmlElement *tramElem)</div><div class="ttdef"><b>Definition:</b> MetroXMLParser.cpp:87</div></div>
+<div class="ttc" id="aclass_metro_x_m_l_parser_html_a1accc9f06826252fe8578c760886603d"><div class="ttname"><a href="class_metro_x_m_l_parser.html#a1accc9f06826252fe8578c760886603d">MetroXMLParser::getTrams</a></div><div class="ttdeci">const std::vector&lt; Tram * &gt; &amp; getTrams() const</div><div class="ttdef"><b>Definition:</b> MetroXMLParser.cpp:221</div></div>
+<div class="ttc" id="aclass_metro_x_m_l_parser_html_a22d85d43b29ac3f5feaf3437a7ef8c31"><div class="ttname"><a href="class_metro_x_m_l_parser.html#a22d85d43b29ac3f5feaf3437a7ef8c31">MetroXMLParser::~MetroXMLParser</a></div><div class="ttdeci">virtual ~MetroXMLParser()</div><div class="ttdef"><b>Definition:</b> MetroXMLParser.cpp:17</div></div>
+<div class="ttc" id="aclass_metro_x_m_l_parser_html_a9ab4a3a046b4f9e403ad7b54ff047dd7"><div class="ttname"><a href="class_metro_x_m_l_parser.html#a9ab4a3a046b4f9e403ad7b54ff047dd7">MetroXMLParser::getStations</a></div><div class="ttdeci">const std::vector&lt; Station * &gt; &amp; getStations() const</div><div class="ttdef"><b>Definition:</b> MetroXMLParser.cpp:226</div></div>
+<div class="ttc" id="aclass_metro_x_m_l_parser_html_aa71bccc50d1a1d36aefa0ca1cbc8453f"><div class="ttname"><a href="class_metro_x_m_l_parser.html#aa71bccc50d1a1d36aefa0ca1cbc8453f">MetroXMLParser::getLines</a></div><div class="ttdeci">const std::vector&lt; Line * &gt; &amp; getLines() const</div><div class="ttdef"><b>Definition:</b> MetroXMLParser.cpp:240</div></div>
+<div class="ttc" id="aclass_metro_x_m_l_parser_html_ac27b8f60094f7639e6f899d59fa81dae"><div class="ttname"><a href="class_metro_x_m_l_parser.html#ac27b8f60094f7639e6f899d59fa81dae">MetroXMLParser::isProperlyParsed</a></div><div class="ttdeci">bool isProperlyParsed() const</div><div class="ttdef"><b>Definition:</b> MetroXMLParser.cpp:235</div></div>
+<div class="ttc" id="aclass_metro_x_m_l_parser_html_ad0c6409f2e7ba9cbb94eb4918da2a9b5"><div class="ttname"><a href="class_metro_x_m_l_parser.html#ad0c6409f2e7ba9cbb94eb4918da2a9b5">MetroXMLParser::parse</a></div><div class="ttdeci">bool parse(const std::string &amp;filename)</div><div class="ttdef"><b>Definition:</b> MetroXMLParser.cpp:21</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
