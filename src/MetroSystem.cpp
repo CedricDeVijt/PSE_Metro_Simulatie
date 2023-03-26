@@ -95,6 +95,16 @@ void MetroSystem::addLine(const int &lineNumber) {
 
 void MetroSystem::addStation(Station *newStation, const int &lineNumber) {
     REQUIRE(properlyInitialized(), "MetroSystem is not properly initialised.");
+    std::vector<Station*>::iterator it1 = stations.begin();
+    while (it1 != stations.end()) {
+        Station *station = *it1;
+        if (station->getName()==newStation->getName()) {
+            newStation = station;
+            break;
+        }
+        it1++;
+    }
+
     std::vector<Line*>::iterator it = lines.begin();
     while (it != lines.end()) {
         Line* line = *it;
