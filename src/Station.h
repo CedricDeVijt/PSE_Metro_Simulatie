@@ -35,6 +35,9 @@ public:
      * @REQUIRE properlyInitialized(), "Station was not properly initialised."
      */
     const std::string &getName() const;
+
+    bool operator<(const Station &rhs) const;
+
 private:
     friend std::ostream &operator<<(std::ostream &os, const Station &station);
     std::string name;

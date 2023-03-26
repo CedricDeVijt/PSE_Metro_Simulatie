@@ -22,3 +22,7 @@ const std::string &Station::getName() const {
     return name;
 }
 bool Station::properlyInitialized() const{ return _initCheck == this; }
+
+bool Station::operator<(const Station &rhs) const {
+    return name < rhs.name;
+}

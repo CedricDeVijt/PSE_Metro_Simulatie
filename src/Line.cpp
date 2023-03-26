@@ -29,23 +29,6 @@ void Line::update(std::ostream &os) {
     }
 }
 
-void Line::addTrack(Track *newTrack) {
-    REQUIRE(properlyInitialised(), "The line was not properly initialised.");
-    std::vector<Track*>::iterator it = tracks.begin();
-    while (it!=tracks.end()) {
-        Track *track = *it;
-        if (track->getBegin()==newTrack->getBegin() && track->getAnEnd() == newTrack->getAnEnd()) {
-            return;
-        }
-        it++;
-    }
-
-    tracks.push_back(newTrack);
-}
-void Line::addTram(Tram *newTram) {
-    REQUIRE(properlyInitialised(), "The line was not properly initialised.");
-    trams.push_back(newTram);
-}
 int Line::getLineNumber() const {
     REQUIRE(properlyInitialised(), "The line was not properly initialised.");
     return lineNumber;
@@ -63,15 +46,8 @@ bool Line::properlyInitialised() const{
     return _initCheck == this;
 }
 
-void Line::addStation(Station* station) {
-    REQUIRE(properlyInitialised(), "The line was not properly initialised.");
-    stations.push_back(station);
-}
-
-
 bool Line::verify(std::ostream &errorstream) {
     bool verified = true;
-
     std::vector<Station*>::iterator it = stations.begin();
     while (it!=stations.end()) {
         Station* station = *it;
@@ -81,32 +57,9 @@ bool Line::verify(std::ostream &errorstream) {
         }
         it++;
     }
-
     if (trams.empty()) {
         Logger::writeError(errorstream, "VerificationError: er zijn sporen waarvoor geen tram bestaat.");
         verified=false;
-    } else {
-        std::vector<Tram*>::iterator it1 = trams.begin();
-        while (it1!=trams.end()) {
-            Tram* tram = *it1;
-            Station* startStation = tram->getStartStation();
-
-            if (startStation==NULL) {
-                Logger::writeError(errorstream, "VerificationError: het startstation van een tram is geen geldig station in het metronet.");
-                verified=false;
-            }
-            else if (std::find(stations.begin(), stations.end(), startStation)==stations.end()) {
-                Logger::writeError(errorstream, "VerificationError: niet elke tram heeft een lijn die overeenkomt met een spoor in zijn beginstation.");
-                Logger::writeError(errorstream, "StartStation");
-                Logger::writeError(errorstream, startStation->getName());
-                Logger::writeError(errorstream, "Stations:");
-                for (int i = 0; i < static_cast<int>(stations.size()); i++) {
-                    Logger::writeError(errorstream, stations[i]->getName());
-                }
-                verified=false;
-            }
-            it1++;
-        }
     }
     return verified;
 }
@@ -178,3 +131,53 @@ Line::operator std::string() {
     }
     return output;
 }
+
+
+void Line::addStation(Station* station) {
+    REQUIRE(properlyInitialised(), "The line was not properly initialised.");
+    stations.push_back(station);
+}
+
+
+void Line::deployTram(Tram *newTram, const std::string &stationName, std::ostream &errorStream) {
+    REQUIRE(properlyInitialised(), "The line was not properly initialised.");
+    std::vector<Station*>::iterator it = stations.begin();
+    while (it!=stations.end()) {
+        Station *station = *it;
+        if (station->getName()==stationName) {
+            trams.push_back(newTram);
+            newTram->setStartStation(station);
+            return;
+        }
+        it++;
+    }
+    Logger::writeError(errorStream, "StartStation Of Tram Not Found");
+    delete newTram;
+}
+
+Station *Line::getStation(const std::string &name) {
+    REQUIRE(properlyInitialised(), "The line was not properly initialised.");
+    std::vector<Station*>::iterator it = stations.begin();
+    while (it!=stations.end()) {
+        Station *station = *it;
+        if (station->getName()==name) {
+            return station;
+        }
+        it++;
+    }
+    return NULL;
+}
+
+void Line::connect(const std::string &start, const std::string &end, std::ostream &errorStream) {
+    REQUIRE(properlyInitialised(), "The line was not properly initialised.");
+    Station *startStation = getStation(start);
+    Station *endStation = getStation(end);
+    if (startStation==NULL) {
+        Logger::writeError(errorStream, "Failed to connect: StartStation not found in Line");
+    } else if (endStation==NULL) {
+        Logger::writeError(errorStream, "Failed to connect: EndStation not found in Line");
+    } else {
+        tracks.push_back(new Track(startStation, endStation, 0));
+    }
+}
+

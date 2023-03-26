@@ -2,16 +2,9 @@
 #include <iomanip>
 #include "MetroSystem.h"
 
-MetroSystem::MetroSystem(const std::string &inputFile, std::ostream &errorstream){
+MetroSystem::MetroSystem(){
     _initCheck = this;
-    MetroXMLParser parser(inputFile, errorstream);
-    if (parser.isProperlyParsed()) {
-        lines = parser.getLines();
-    } else {
-        Logger::writeError(errorstream,"File was not parsed properly");
-    }
     ENSURE(properlyInitialized(), "constructor must end in properlyInitialized state");
-    ENSURE(parser.isProperlyParsed(), "File was not parsed properly, check errorstream");
 }
 
 MetroSystem::~MetroSystem() {
@@ -85,4 +78,68 @@ void MetroSystem::createDotFile(std::ostream &os) {
     stream << "}" << std::endl;
     os << "https://dreampuf.github.io/GraphvizOnline/#" << url_encode(stream.str()) << std::endl;
     os << stream.str();
+}
+
+void MetroSystem::addLine(const int &lineNumber) {
+    REQUIRE(properlyInitialized(), "MetroSystem is not properly initialised.");
+    std::vector<Line*>::iterator it = lines.begin();
+    while (it != lines.end()) {
+        Line* line = *it;
+        if (line->getLineNumber()==lineNumber) {
+            return;
+        }
+        it++;
+    }
+    lines.push_back(new Line(lineNumber));
+}
+
+void MetroSystem::addStation(Station *newStation, const int &lineNumber) {
+    REQUIRE(properlyInitialized(), "MetroSystem is not properly initialised.");
+    std::vector<Line*>::iterator it = lines.begin();
+    while (it != lines.end()) {
+        Line* line = *it;
+        if (line->getLineNumber()==lineNumber) {
+            line->addStation(newStation);
+            return;
+        }
+        it++;
+    }
+}
+
+void MetroSystem::deployTram(Tram *newTram, const std::string &startStation, const int &lineNumber,std::ostream &errorStream) {
+    REQUIRE(properlyInitialized(), "MetroSystem is not properly initialised.");
+    std::vector<Line*>::iterator it = lines.begin();
+    while (it != lines.end()) {
+        Line* line = *it;
+        if (line->getLineNumber()==lineNumber) {
+            line->deployTram(newTram, startStation, errorStream);
+            return;
+        }
+        it++;
+    }
+}
+
+void MetroSystem::addConnection(const std::string &start, const std::string &end, const int &lineNumber,std::ostream &errorStream) {
+    REQUIRE(properlyInitialized(), "MetroSystem is not properly initialised.");
+    std::vector<Line*>::iterator it = lines.begin();
+    while (it != lines.end()) {
+        Line* line = *it;
+        if (line->getLineNumber()==lineNumber) {
+            line->connect(start, end, errorStream);
+            return;
+        }
+        it++;
+    }
+}
+
+void MetroSystem::verify(std::ostream &errorStream) {
+    REQUIRE(properlyInitialized(), "MetroSystem is not properly initialised.");
+    std::vector<Line*>::iterator it = lines.begin();
+    while (it != lines.end()) {
+        Line* line = *it;
+        if (!line->verify(errorStream)) {
+            lines.erase(it);
+        }
+        it++;
+    }
 }

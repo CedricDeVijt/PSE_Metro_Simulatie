@@ -5,12 +5,10 @@
 
 MetroSimulation::MetroSimulation(const std::string& inputfile, std::ostream &errorstream, unsigned int runtime) : runtime(runtime), time(0) {
     _initCheck = this;
-    system = new MetroSystem(inputfile, errorstream);
-
+    system = new MetroSystem();
+    MetroXMLParser::loadMetroSystem(*system, inputfile, errorstream);
     ENSURE(properlyInitialized(), "constructor must end in properlyInitialized state");
 }
-
-
 
 void MetroSimulation::run(std::ostream &os) {
     REQUIRE(properlyInitialized(), "Metrosimulation was not properly initialised.");

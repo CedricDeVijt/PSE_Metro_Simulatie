@@ -60,27 +60,14 @@ public:
      * @REQUIRE properlyInitialised(), "The line was not properly initialised."
      */
     int getLineNumber() const;
-
-    /**
-     * Adds a track tot the line object.
-     *
-     * @REQUIRE properlyInitialised(), "The line was not properly initialised."
-     * @param newTrack is the new Track that will be added to the Line
-     */
-    void addTrack(Track *newTrack);
-
-    /**
-     * Adds a tram tot the line object.
-     *
-     * @REQUIRE properlyInitialised(), "The line was not properly initialised."
-     * @param newTram is the new Tram that will be added to the Line
-     */
-    void addTram(Tram *newTram);
     void addStation(Station *station);
     bool verify(std::ostream &errorstream);
     Station* getNext(Station *station);
     Station* getPrev(Station *station);
     int getTrackLength(Station *curr, Station *next);
+    Station* getStation(const std::string &name);
+    void connect(const std::string &start, const std::string &end, std::ostream &errorStream);
+    void deployTram(Tram* newTram, const std::string &stationName, std::ostream &errorStream);
     operator std::string();
 private:
     int lineNumber;
@@ -88,6 +75,7 @@ private:
     std::vector<Track*> tracks;
     std::vector<Tram*> trams;
     Line* _initCheck;
+
 };
 
 

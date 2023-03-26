@@ -12,60 +12,14 @@
 #include "fstream"
 #include "DesignByContract.h"
 #include "Logger.h"
-
-typedef std::pair<std::string, std::string> trackConnectionsStringPair ;
-typedef std::pair<trackConnectionsStringPair,int> trackStringPair;
-typedef std::vector<trackStringPair> trackStringPairs;
-typedef std::map<std::string, trackStringPairs> stationMap;
-typedef std::map<int,std::pair<std::string,int> > tramMap;
+#include "MetroSystem.h"
 
 /**
  * Parser for MetroSimulation
  */
 class MetroXMLParser {
 public:
-    /**
-     * creates MetroXMLParser object
-     *
-     * @param filename is a .xml file that contains METRODATA
-     * @param errorStream is the stream the errors get outputted to
-     * @ENSURE properlyInitialized(), "constructor must end in properlyInitialized state"
-     */
-    explicit MetroXMLParser(const std::string &filename, std::ostream &errorStream);
-
-    /**
-     * Destructs MetroXMLParser object
-     *
-     * @REQUIRE properlyInitialized(), "MetroXMLParser was not initialized when calling parse"
-     */
-    virtual ~MetroXMLParser();
-
-    bool properlyInitialized() const;
-
-    /**
-     * Parses the filename
-     * \n Creates (Station + Tram) Objects who are not completely initialised
-     * \n Creates 2 maps with content to init these objects completely
-     *
-     * @REQUIRE properlyInitialized(), "MetroXMLParser was not initialized when calling parse"
-     * @param filename is Path to the file to be parsed, given as a string
-     */
-    void parse(const std::string& filename);
-
-    /**
-     * Returns properlyParser bool
-     *
-     * @REQUIRE properlyInitialized(), "MetroXMLParser was not initialized when calling handleStations"
-     */
-    bool isProperlyParsed() const;
-
-    /**
-     * Gets a vector with all the lines of the system
-     *
-     * @REQUIRE properlyInitialized(), "MetroXMLParser was not initialized when calling handleStations"
-     * @return a vector with all the stations of the system
-     */
-    const std::vector<Line *> &getLines() const;
+    static void loadMetroSystem(MetroSystem &system, const std::string &filename, std::ostream &errorStream);
 private:
     /**
      * Parses a single station from TiXmlElement \n
@@ -74,7 +28,7 @@ private:
      * @REQUIRE properlyInitialized(), "MetroXMLParser was not initialized when calling parse"
      * @param stationElem tinyXML element that contains information about a station
      */
-    void parseStation(TiXmlElement* stationElem);
+    static void parseStation(MetroSystem &system, TiXmlElement* stationElem, std::ostream &errorStream);
 
     /**
      * Parses a single tram from TiXmlElement
@@ -82,25 +36,9 @@ private:
      * @REQUIRE properlyInitialized(), "MetroXMLParser was not initialized when calling parse"
      * @param tramElem tinyXML element that contains information about a tram
      */
-    void parseTram(TiXmlElement* tramElem);
+    static void parseTram(MetroSystem &system, TiXmlElement* tramElem, std::ostream &errorStream);
 
-    /**
-     * Initialises the stations completely
-     *
-     * @REQUIRE properlyInitialized(), "MetroXMLParser was not initialized when calling parse"
-     * @attention parse() needs to be called before this should be called
-     */
-    void handleStations();
-
-    /**
-     * Initialises the trams completely
-     *
-     * @REQUIRE properlyInitialized(), "MetroXMLParser was not initialized when calling parse"
-     * @attention parse() needs to be called before this should be called
-     */
-    void handleTrams();
-
-    void convertLineMap();
+    static void parseConnection(MetroSystem &system, TiXmlElement* stationElem, std::ostream &errorStream);
 
     /**
      * Reads the given key from the TiXmlElement \n
@@ -112,20 +50,7 @@ private:
      * @b string: containing the result of the key retrieve \n
      * @b bool: True if key retrieve is done, else False
      */
-    std::pair<std::string, bool> readKey(TiXmlElement* elem, const std::string &key);
-
-    bool properlyParsed;
-    MetroXMLParser *_initCheck;
-    std::ostream &errorstream;
-
-    std::vector<Line*> lines;
-
-    stationMap stationMap;
-    tramMap tramMap;
-
-    std::map<std::string, Station*> stationObjectMap;
-    std::map<int, Tram*> tramObjectMap;
-    std::map<int, Line*> lineObjectMap;
+    static std::pair<std::string, bool> readKey(TiXmlElement* elem, const std::string &key, std::ostream &errorStream);
 };
 
 #endif //PSE_METRO_SIMULATIE_XMLPARSER_H

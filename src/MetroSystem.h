@@ -5,7 +5,6 @@
 #include "Line.h"
 #include "Station.h"
 #include "DesignByContract.h"
-#include "MetroXMLParser.h"
 #include "Logger.h"
 
 /**
@@ -19,7 +18,7 @@ public:
      * @param filename is a .xml file that contains METRODATA
      * @param errorstream is the stream the errors get outputted to
      */
-    explicit MetroSystem(const std::string& filename, std::ostream &errorstream);
+    explicit MetroSystem();
 
     /**
      * Destructs a Metrosystem
@@ -56,6 +55,15 @@ public:
      */
     void createDotFile(std::ostream &os);
 
+    void addLine(const int &lineNumber);
+
+    void addStation(Station* newStation, const int &lineNumber);
+
+    void deployTram(Tram* newTram, const std::string &startStation, const int &lineNumber, std::ostream &errorStream);
+
+    void addConnection(const std::string &start, const std::string &end, const int &lineNumber, std::ostream &errorStream);
+
+    void verify(std::ostream &errorStream);
 private:
     std::vector<Line*> lines;
     MetroSystem* _initCheck;
