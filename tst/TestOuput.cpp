@@ -1,20 +1,22 @@
 #include "TestFuncs.h"
 #include "gtest/gtest.h"
 #include "../src/MetroSystem.h"
-#include "TestFuncs.h"
+#include "../src/MetroXMLParser.h"
 
 class TestOutput: public ::testing::Test{
     virtual void SetUp() {}
     virtual void TearDown() {}
 };
-//
+
 TEST(TestOutput, testTextOutput){
     const std::string INPUTFOLDER = "xmlFiles/tests/OutputTests/Input/";
     const std::string OUTPUTFOLDER = "xmlFiles/tests/OutputTests/Output/";
     const std::string COMPAREFOLDER = "xmlFiles/tests/OutputTests/Compare/";
     // create metro-system
-    MetroSystem system1 = MetroSystem(INPUTFOLDER + "simFile.xml", std::cout);
-    MetroSystem system2 = MetroSystem(INPUTFOLDER + "simFile2.xml", std::cout);
+    MetroSystem system1;
+    MetroXMLParser::loadMetroSystem(system1, INPUTFOLDER + "simFile.xml", std::cout);
+    MetroSystem system2;
+    MetroXMLParser::loadMetroSystem(system2, INPUTFOLDER + "simFile2.xml", std::cout);
 
     //output streams to files
     std::ofstream system1Output((OUTPUTFOLDER + "simFileOutput.txt").c_str());

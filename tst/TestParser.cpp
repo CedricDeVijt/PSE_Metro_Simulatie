@@ -7,19 +7,16 @@ class ParserTest : public ::testing::Test {
     virtual void TearDown() {}
 };
 
-void compareLog(std::string filename) {
+void compareLog(const std::string &filename) {
     std::string INPUTFOLDERPATH   = "xmlFiles/tests/ParserTests/input/";
     std::string OUTPUTFOLDERPATH  = "xmlFiles/tests/ParserTests/output/";
     std::string COMPAREFOLDERPATH = "xmlFiles/tests/ParserTests/compare/";
 
-    //WERKT NOG NIET
-    //ASSERT_TRUE(DirectoryExists(OUTPUTFOLDERPATH));
-    //ASSERT_TRUE(DirectoryExists(INPUTFOLDERPATH));
-
     std::ofstream file((OUTPUTFOLDERPATH+filename).c_str());
     EXPECT_TRUE(file.is_open());
 
-    MetroXMLParser m(INPUTFOLDERPATH+filename, file);
+    MetroSystem sys;
+    MetroXMLParser::loadMetroSystem(sys, INPUTFOLDERPATH+filename, file);
     file.close();
 
     EXPECT_TRUE(FileCompare(COMPAREFOLDERPATH+filename, OUTPUTFOLDERPATH+filename));
