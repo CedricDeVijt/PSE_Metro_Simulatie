@@ -99,6 +99,7 @@ void MetroSystem::addStation(Station *newStation, const int &lineNumber) {
     while (it1 != stations.end()) {
         Station *station = *it1;
         if (station->getName()==newStation->getName()) {
+            delete newStation;
             newStation = station;
             break;
         }
