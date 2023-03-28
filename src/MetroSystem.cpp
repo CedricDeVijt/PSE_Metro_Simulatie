@@ -93,8 +93,9 @@ void MetroSystem::addLine(const int &lineNumber) {
     lines.push_back(new Line(lineNumber));
 }
 
-void MetroSystem::addStation(Station *newStation, const int &lineNumber) {
+void MetroSystem::addStation(Station *newStation, const int &lineNumber, std::ostream &errorStream) {
     REQUIRE(properlyInitialized(), "MetroSystem is not properly initialised.");
+    //Dont make a new Pointer if a Statoin with this name exists
     std::vector<Station*>::iterator it1 = stations.begin();
     while (it1 != stations.end()) {
         Station *station = *it1;
@@ -115,6 +116,7 @@ void MetroSystem::addStation(Station *newStation, const int &lineNumber) {
         }
         it++;
     }
+    Logger::writeError(errorStream, "addStation: Line not found, station not added");
 }
 
 void MetroSystem::deployTram(Tram *newTram, const std::string &startStation, const int &lineNumber,std::ostream &errorStream) {
@@ -141,8 +143,8 @@ void MetroSystem::deployTram(Tram *newTram, const std::string &startStation, con
         }
         it++;
     }
-    Logger::writeError(errorStream, "Deploy Error: Line Not found");
-    Logger::writeError(errorStream, "Deploy Error: Niet elke tram heeft een lijn die overeenkomt met een spoor in zijn beginstation");
+    Logger::writeError(errorStream, "deployTram: Line Not found");
+    Logger::writeError(errorStream, "deployTram: Niet elke tram heeft een lijn die overeenkomt met een spoor in zijn beginstation");
 }
 
 void MetroSystem::addConnection(const std::string &start, const std::string &end, const int &lineNumber,std::ostream &errorStream) {

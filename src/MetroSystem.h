@@ -55,14 +55,54 @@ public:
      */
     void createDotFile(std::ostream &os);
 
+    /**
+     * Creates a new Line in the MetroSystem \n
+     * If a line with this number already exists, ignore \n
+     *
+     * @REQUIRE properlyInitialized(), "Metrosimulation is not properly initialised."
+     * @param lineNumber is the Number for the new Line
+     */
     void addLine(const int &lineNumber);
 
-    void addStation(Station* newStation, const int &lineNumber);
+    /**
+     * Adds a new Station to the proper Line and to the System \n
+     * If the Line is not in the MetroSystem, an error gets written out to errorStream \n
+     *
+     * @REQUIRE properlyInitialized(), "MetroSystem is not properly initialised."
+     * @param newStation is a Station* pointing to the new Station that needs to get added to the system
+     * @param lineNumber is the LineNumber where the station should get added to
+     * @param errorStream is the stream the errors get sent to
+     */
+    void addStation(Station* newStation, const int &lineNumber, std::ostream &errorStream);
 
+    /**
+     * Deploys a tram to the corresponding Station name and on the right Line \n
+     *
+     * @REQUIRE properlyInitialized(), "MetroSystem is not properly initialised."
+     * @param newTram is a Tram* pointing to the tram that needs to get Deployed
+     * @param startStation is the name of the station it needs to get Deployed on
+     * @param lineNumber is the LineNumber of the line it needs to get Deployed on
+     * @param errorStream is the stream the errors get sent to
+     */
     void deployTram(Tram* newTram, const std::string &startStation, const int &lineNumber, std::ostream &errorStream);
 
+    /**
+     * Adds a connection between two Stations on the corresponding LineNumber
+     *
+     * @REQUIRE properlyInitialized(), "MetroSystem is not properly initialised."
+     * @param start is the name of the station at the begin of the connection
+     * @param end is the name of the station at the end of the connection
+     * @param lineNumber is the LineNumber of the line the connection needs to get added onto
+     * @param errorStream is the stream the errors get sent to
+     */
     void addConnection(const std::string &start, const std::string &end, const int &lineNumber, std::ostream &errorStream);
 
+    /**
+     * Verifies all the Lines on the MetroSystem, if a line is not consisten it outputs an error to errorStream \n
+     *
+     * @REQUIRE properlyInitialized(), "MetroSystem is not properly initialised."
+     * @param errorStream is the stream the errors get sent to
+     */
     void verify(std::ostream &errorStream);
 private:
     std::vector<Line*> lines;
