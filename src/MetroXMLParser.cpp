@@ -6,9 +6,9 @@ void MetroXMLParser::loadMetroSystem(MetroSystem &system, const std::string &fil
         Logger::writeError(errorStream,"Failed to load file: File not found");
         return;
     }
-    TiXmlElement* root = doc.FirstChildElement("METRODATA");
+    TiXmlElement* root = doc.FirstChildElement("METRONET");
     if (root==NULL) {
-        Logger::writeError(errorStream, "Failed to load file: No METRODATA element");
+        Logger::writeError(errorStream, "Failed to load file: No METRONET element");
         return;
     }
 
@@ -66,7 +66,7 @@ void MetroXMLParser::parseStation(MetroSystem &system, TiXmlElement* stationElem
 void MetroXMLParser::parseTram(MetroSystem &system, TiXmlElement* tramElem, std::ostream &errorStream) {
     std::pair<std::string,bool> p;
 
-    p = readKey(tramElem, "tramNr", errorStream);
+    p = readKey(tramElem, "voertuigNr", errorStream);
     if (!p.second) return;
     int tramNr = atoi(p.first.c_str());
 

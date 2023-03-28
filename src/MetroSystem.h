@@ -66,6 +66,7 @@ public:
     void verify(std::ostream &errorStream);
 private:
     std::vector<Line*> lines;
+    std::vector<int> takenTramNumbers;
     std::vector<Station*> stations;
     MetroSystem* _initCheck;
 };

@@ -1,8 +1,6 @@
 #include "MetroSimulation.h"
-#include "MetroXMLParser.h"
 #include "iostream"
 #include "fstream"
-#include "set"
 #include "Station.h"
 
 const std::string INPUTPATH = "./xmlFiles/sims/input/";

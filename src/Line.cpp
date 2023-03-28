@@ -48,17 +48,8 @@ bool Line::properlyInitialised() const{
 
 bool Line::verify(std::ostream &errorstream) {
     bool verified = true;
-    std::vector<Station*>::iterator it = stations.begin();
-    while (it!=stations.end()) {
-        Station* station = *it;
-        if (getNext(station)==NULL || getPrev(station)==NULL) {
-            Logger::writeError(errorstream, "VerificationError: niet elk station is verbonden met een voorgaand en een volgend station voor elk spoor.");
-            verified=false;
-        }
-        it++;
-    }
     if (trams.empty()) {
-        Logger::writeError(errorstream, "VerificationError: er zijn sporen waarvoor geen tram bestaat.");
+        Logger::writeError(errorstream, "VerificationError: er zijn sporen waarvoor geen tram bestaat");
         verified=false;
     }
     return verified;
@@ -152,6 +143,7 @@ void Line::deployTram(Tram *newTram, const std::string &stationName, std::ostrea
         it++;
     }
     Logger::writeError(errorStream, "StartStation Of Tram Not Found");
+    Logger::writeError(errorStream, "Deploy Error: Niet elke tram heeft een lijn die overeenkomt met een spoor in zijn beginstation");
     delete newTram;
 }
 
@@ -174,8 +166,10 @@ void Line::connect(const std::string &start, const std::string &end, std::ostrea
     Station *endStation = getStation(end);
     if (startStation==NULL) {
         Logger::writeError(errorStream, "Failed to connect: StartStation not found in Line");
+        Logger::writeError(errorStream, "Failed to connect: niet elk station is verbonden met een voorgaand en een volgend station voor elk spoor");
     } else if (endStation==NULL) {
         Logger::writeError(errorStream, "Failed to connect: EndStation not found in Line");
+        Logger::writeError(errorStream, "Failed to connect: niet elk station is verbonden met een voorgaand en een volgend station voor elk spoor");
     } else {
         Track *newTrack = new Track(startStation, endStation, 0);
         std::vector<Track*>::iterator it = tracks.begin();

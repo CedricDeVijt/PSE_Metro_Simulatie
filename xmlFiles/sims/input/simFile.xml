@@ -1,4 +1,4 @@
-<METRODATA>
+<METRONET>
     <STATION>
         <naam>A</naam>
         <volgende>B</volgende>
@@ -18,9 +18,9 @@
         <spoorNr>12</spoorNr>
     </STATION>
     <TRAM>
-        <tramNr>0</tramNr>
+        <voertuigNr>0</voertuigNr>
         <lijnNr>12</lijnNr>
         <snelheid>60</snelheid>
         <beginStation>A</beginStation>
     </TRAM>
-</METRODATA>
+</METRONET>
