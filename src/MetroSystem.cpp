@@ -2,7 +2,7 @@
 #include <iomanip>
 #include "MetroSystem.h"
 
-MetroSystem::MetroSystem(){
+MetroSystem::MetroSystem() : consistent(true) {
     _initCheck = this;
     ENSURE(properlyInitialized(), "constructor must end in properlyInitialized state");
 }
@@ -126,7 +126,8 @@ void MetroSystem::deployTram(Tram *newTram, const std::string &startStation, con
     std::vector<int>::iterator it1 = takenTramNumbers.begin();
     while (it1!=takenTramNumbers.end()) {
         if (*it1==newNumber) {
-            Logger::writeError(errorStream, "Deploy Error: er zijn geen twee trams met hetzelfde voertuignummer");
+            Logger::writeError(errorStream, "Deploy Error: er zijn twee trams met hetzelfde voertuignummer");
+            consistent = false;
             return;
         }
         it1++;
@@ -165,9 +166,10 @@ void MetroSystem::verify(std::ostream &errorStream) {
     std::vector<Line*>::iterator it = lines.begin();
     while (it != lines.end()) {
         Line* line = *it;
-        if (!line->verify(errorStream)) {
-            Logger::writeError(errorStream, "Inconsistent Metronet");
-        }
+        consistent = consistent && line->verify(errorStream);
         it++;
+    }
+    if (!consistent) {
+        Logger::writeError(errorStream, "Inconsistent Metronet");
     }
 }

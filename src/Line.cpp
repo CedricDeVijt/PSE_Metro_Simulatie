@@ -3,7 +3,7 @@
 #include "Tram.h"
 #include "DesignByContract.h"
 
-Line::Line(int lineNumber) : lineNumber(lineNumber) {
+Line::Line(int lineNumber) : lineNumber(lineNumber), verified(true) {
     _initCheck = this;
     ENSURE(properlyInitialised(), "constructor must end in properlyInitialized state");
 }
@@ -47,7 +47,7 @@ bool Line::properlyInitialised() const{
 }
 
 bool Line::verify(std::ostream &errorstream) {
-    bool verified = true;
+    REQUIRE(properlyInitialised(), "The line was not properly initialised.");
     if (trams.empty()) {
         Logger::writeError(errorstream, "VerificationError: er zijn sporen waarvoor geen tram bestaat");
         verified=false;
@@ -56,6 +56,7 @@ bool Line::verify(std::ostream &errorstream) {
 }
 
 Station *Line::getNext(Station *station) {
+    REQUIRE(properlyInitialised(), "The line was not properly initialised.");
     std::vector<Track*>::iterator it = tracks.begin();
     while (it!=tracks.end()) {
         Track* track = *it;
@@ -68,6 +69,7 @@ Station *Line::getNext(Station *station) {
 }
 
 Station *Line::getPrev(Station *station) {
+    REQUIRE(properlyInitialised(), "The line was not properly initialised.");
     std::vector<Track*>::iterator it = tracks.begin();
     while (it!=tracks.end()) {
         Track* track = *it;
@@ -80,6 +82,7 @@ Station *Line::getPrev(Station *station) {
 }
 
 int Line::getTrackLength(Station *curr, Station *next) {
+    REQUIRE(properlyInitialised(), "The line was not properly initialised.");
     std::vector<Track*>::iterator it = tracks.begin();
     while (it!=tracks.end()) {
         Track* track = *it;
@@ -93,6 +96,7 @@ int Line::getTrackLength(Station *curr, Station *next) {
 }
 
 Line::operator std::string() {
+    REQUIRE(properlyInitialised(), "The line was not properly initialised.");
     std::string output;
 
     std::stringstream ss;
@@ -123,12 +127,17 @@ Line::operator std::string() {
     return output;
 }
 
-
 void Line::addStation(Station* station) {
     REQUIRE(properlyInitialised(), "The line was not properly initialised.");
+    std::vector<Station*>::iterator it = stations.begin();
+    while (it != stations.end()) {
+        Station* station1 = *it;
+        if (station1==station) {
+            return;
+        }
+    }
     stations.push_back(station);
 }
-
 
 void Line::deployTram(Tram *newTram, const std::string &stationName, std::ostream &errorStream) {
     REQUIRE(properlyInitialised(), "The line was not properly initialised.");
@@ -144,6 +153,7 @@ void Line::deployTram(Tram *newTram, const std::string &stationName, std::ostrea
     }
     Logger::writeError(errorStream, "StartStation Of Tram Not Found");
     Logger::writeError(errorStream, "Deploy Error: Niet elke tram heeft een lijn die overeenkomt met een spoor in zijn beginstation");
+    verified = false;
     delete newTram;
 }
 
@@ -167,9 +177,11 @@ void Line::connect(const std::string &start, const std::string &end, std::ostrea
     if (startStation==NULL) {
         Logger::writeError(errorStream, "Failed to connect: StartStation not found in Line");
         Logger::writeError(errorStream, "Failed to connect: niet elk station is verbonden met een voorgaand en een volgend station voor elk spoor");
+        verified = false;
     } else if (endStation==NULL) {
         Logger::writeError(errorStream, "Failed to connect: EndStation not found in Line");
         Logger::writeError(errorStream, "Failed to connect: niet elk station is verbonden met een voorgaand en een volgend station voor elk spoor");
+        verified = false;
     } else {
         Track *newTrack = new Track(startStation, endStation, 0);
         std::vector<Track*>::iterator it = tracks.begin();

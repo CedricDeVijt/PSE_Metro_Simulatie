@@ -109,6 +109,7 @@ private:
     std::vector<int> takenTramNumbers;
     std::vector<Station*> stations;
     MetroSystem* _initCheck;
+    bool consistent;
 };
 
 
