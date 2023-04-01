@@ -1208,7 +1208,7 @@ class Notification {
     pthread_mutex_destroy(&mutex_);
   }
 
-  // Notifies all threads created with this notification to startSystem. Must
+  // Notifies all threads created with this notification to start. Must
   // be called from the controller thread.
   void Notify() {
     pthread_mutex_lock(&mutex_);

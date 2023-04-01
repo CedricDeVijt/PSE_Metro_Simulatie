@@ -1,10 +1,1 @@
-Tram 0 reed van TramStop A naar TramStop B.
-Tram 0 reed van TramStop B naar TramStop C.
-Tram 0 reed van TramStop C naar TramStop A.
-Tram 0 reed van TramStop A naar TramStop B.
-Tram 0 reed van TramStop B naar TramStop C.
-Tram 0 reed van TramStop C naar TramStop A.
-Tram 0 reed van TramStop A naar TramStop B.
-Tram 0 reed van TramStop B naar TramStop C.
-Tram 0 reed van TramStop C naar TramStop A.
-Tram 0 reed van TramStop A naar TramStop B.
+ERROR: Failed to load file: No METRONET element

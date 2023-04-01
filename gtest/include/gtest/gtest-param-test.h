@@ -218,24 +218,24 @@ namespace testing {
 // Range() returns generators providing sequences of values in a range.
 //
 // Synopsis:
-// Range(startSystem, end)
-//   - returns a generator producing a sequence of values {start, startSystem+1,
-//     startSystem+2, ..., }.
-// Range(startSystem, end, step)
-//   - returns a generator producing a sequence of values {start, startSystem+step,
-//     startSystem+step+step, ..., }.
+// Range(start, end)
+//   - returns a generator producing a sequence of values {start, start+1,
+//     start+2, ..., }.
+// Range(start, end, step)
+//   - returns a generator producing a sequence of values {start, start+step,
+//     start+step+step, ..., }.
 // Notes:
 //   * The generated sequences never include end. For example, Range(1, 5)
 //     returns a generator producing a sequence {1, 2, 3, 4}. Range(1, 9, 2)
 //     returns a generator producing {1, 3, 5, 7}.
-//   * startSystem and end must have the same type. That type may be any integral or
+//   * start and end must have the same type. That type may be any integral or
 //     floating-point type or a user defined type satisfying these conditions:
 //     * It must be assignable (have operator=() defined).
 //     * It must have operator+() (operator+(int-compatible type) for
 //       two-operand version).
 //     * It must have operator<() defined.
 //     Elements in the resulting sequences will also have that type.
-//   * Condition startSystem < end must be satisfied in order for resulting sequences
+//   * Condition start < end must be satisfied in order for resulting sequences
 //     to contain any elements.
 //
 template <typename T, typename IncrementT>

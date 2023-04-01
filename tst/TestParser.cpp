@@ -18,18 +18,38 @@ TEST_F(ParserTest, ParserTest_LoadTram_Test) {
     EXPECT_TRUE(errorStream.is_open());
 
     TiXmlElement *goodTram = new TiXmlElement("newTram");
-    goodTram->Attribute("lijnNr");
-    goodTram->Attribute("type");
-    goodTram->Attribute("beginStation");
+    TiXmlElement* lijnNrElement = new TiXmlElement("lijnNr");
+    lijnNrElement->LinkEndChild(new TiXmlText("5"));
+    goodTram->LinkEndChild(lijnNrElement);
+
+    TiXmlElement* typeElement = new TiXmlElement("type");
+    lijnNrElement->LinkEndChild(new TiXmlText("Stadslijner"));
+    goodTram->LinkEndChild(typeElement);
+
+    TiXmlElement* beginStationElement = new TiXmlElement("beginStation");
+    lijnNrElement->LinkEndChild(new TiXmlText("A"));
+    goodTram->LinkEndChild(beginStationElement);
+
+    TiXmlElement* voertuigNrElement = new TiXmlElement("voertuigNr");
+    lijnNrElement->LinkEndChild(new TiXmlText("0"));
+    goodTram->LinkEndChild(voertuigNrElement);
 
     MetroXMLParser::parseTram(sys, goodTram, errorStream);
 
     TiXmlElement *badTram = new TiXmlElement("newTram");
-    badTram->Attribute("lijnNr");
-    badTram->Attribute("type");
-    badTram->Attribute("beginStation");
+    lijnNrElement = new TiXmlElement("lijnNr");
+    lijnNrElement->LinkEndChild(new TiXmlText("5"));
+    badTram->LinkEndChild(lijnNrElement);
 
-    MetroXMLParser::parseTram(sys, goodTram, errorStream);
+    typeElement = new TiXmlElement("type");
+    lijnNrElement->LinkEndChild(new TiXmlText("Stadslijner"));
+    badTram->LinkEndChild(typeElement);
+
+    beginStationElement = new TiXmlElement("beginStation");
+    lijnNrElement->LinkEndChild(new TiXmlText("A"));
+    badTram->LinkEndChild(beginStationElement);
+
+    MetroXMLParser::parseTram(sys, badTram, errorStream);
 
     EXPECT_TRUE(FileCompare(COMPAREFOLDERPATH+filename, OUTPUTFOLDERPATH+filename));
 }

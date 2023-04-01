@@ -68,6 +68,7 @@ void MetroXMLParser::parseStation(MetroSystem &system, TiXmlElement* stationElem
     } else if (type=="Halte") {
         newStop = new Halte(name);
     } else {
+        Logger::writeError(errorStream, "Invalid Station type");
         return;
     }
 
@@ -102,6 +103,7 @@ void MetroXMLParser::parseTram(MetroSystem &system, TiXmlElement* tramElem, std:
     } else if (type=="Albatros") {
         newTram = new Albatros(tramNr, NULL);
     } else {
+        Logger::writeError(errorStream, "Invalid Tram type");
         return;
     }
     system.deployTram(newTram, begin, lijnNr,errorStream);

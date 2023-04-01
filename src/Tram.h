@@ -108,27 +108,18 @@ class PCC : public Tram {
 public:
     // Constructor
     PCC(int tramNumber, TramStop *startStation);
-
-    // Destructor
-    ~PCC();
 };
 
 class Albatros : public Tram {
 public:
     // Constructor
     Albatros(int tramNumber, Metrostation *startStation);
-
-    // Destructor
-    ~Albatros();
 };
 
 class Stadslijner : public Tram {
 public:
     // Constructor
     Stadslijner(int tramNumber, Metrostation *startStation);
-
-    // Destructor
-    ~Stadslijner();
 };
 
 
