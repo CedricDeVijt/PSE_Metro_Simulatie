@@ -199,4 +199,3 @@ void Line::connect(const std::string &start, const std::string &end, std::ostrea
         }
     }
 }
-

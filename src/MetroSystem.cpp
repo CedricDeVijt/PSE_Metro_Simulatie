@@ -27,11 +27,17 @@ void MetroSystem::updateSystem(std::ostream &os) {
 
 void MetroSystem::outputSystem(std::ostream &os) {
     REQUIRE(properlyInitialized(), "Metrosimulation was not properly initialised.");
-    std::vector<Line*>::iterator it = lines.begin();
-    while (it!=lines.end()) {
+
+    for (std::vector<Line*>::iterator it = lines.begin(); it != lines.end(); it++){
         os << std::string(*(*it));
-        it++;
     }
+
+//    std::vector<Line*>::iterator it = lines.begin();
+//    while (it!=lines.end()) {
+//        os << std::string(*(*it));
+//        it++;
+//    }
+
 }
 
 //source: https://stackoverflow.com/questions/154536/encode-decode-urls-in-c
@@ -172,4 +178,12 @@ void MetroSystem::verify(std::ostream &errorStream) {
     if (!consistent) {
         Logger::writeError(errorStream, "Inconsistent Metronet");
     }
+}
+
+const std::vector<Line *> &MetroSystem::getLines() const {
+    return lines;
+}
+
+const std::vector<TramStop *> &MetroSystem::getStations() const {
+    return stations;
 }
