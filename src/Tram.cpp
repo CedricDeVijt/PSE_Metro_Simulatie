@@ -72,12 +72,6 @@ PCC::PCC(int tramNumber, TramStop *startStation) : Tram(tramNumber, 40, startSta
     ENSURE(properlyInitialized(), "constructor must end in properlyInitialized state");
 }
 
-Albatros::Albatros(int tramNumber, Metrostation *startStation) : Tram(tramNumber, 70, startStation)  {
-    _initCheck = this;
-    ENSURE(properlyInitialized(), "constructor must end in properlyInitialized state");
-}
+Albatros::Albatros(int tramNumber, Metrostation *startStation) : Tram(tramNumber, 70, startStation)  {}
 
-Stadslijner::Stadslijner(int tramNumber, Metrostation *startStation) : Tram(tramNumber, 70, startStation)  {
-    _initCheck = this;
-    ENSURE(properlyInitialized(), "constructor must end in properlyInitialized state");
-}
+Stadslijner::Stadslijner(int tramNumber, Metrostation *startStation) : Tram(tramNumber, 70, startStation)  {}

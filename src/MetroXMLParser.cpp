@@ -59,8 +59,20 @@ void MetroXMLParser::parseStation(MetroSystem &system, TiXmlElement* stationElem
     if (!p.second) return;
     int lineNr = atoi(p.first.c_str());
 
+    p = readKey(stationElem, "type", errorStream);
+    if (!p.second) return;
+    std::string type = p.first;
+    TramStop* newStop;
+    if (type=="Metrostation") {
+        newStop = new Metrostation(name);
+    } else if (type=="Halte") {
+        newStop = new Halte(name);
+    } else {
+        return;
+    }
+
     system.addLine(lineNr);
-    system.addStation(new TramStop(name), lineNr, errorStream);
+    system.addStation(newStop, lineNr, errorStream);
 }
 
 void MetroXMLParser::parseTram(MetroSystem &system, TiXmlElement* tramElem, std::ostream &errorStream) {
@@ -90,10 +102,7 @@ void MetroXMLParser::parseTram(MetroSystem &system, TiXmlElement* tramElem, std:
     } else if (type=="Albatros") {
         newTram = new Albatros(tramNr, NULL);
     } else {
-        p = readKey(tramElem, "snelheid",errorStream);
-        if (!p.second) return;
-        int snelheid = atoi(tramElem->FirstChildElement("snelheid")->GetText());
-        newTram = new Tram(tramNr, snelheid, NULL);
+        return;
     }
     system.deployTram(newTram, begin, lijnNr,errorStream);
 }

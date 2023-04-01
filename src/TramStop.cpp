@@ -26,3 +26,7 @@ bool TramStop::properlyInitialized() const{ return _initCheck == this; }
 bool TramStop::operator<(const TramStop &rhs) const {
     return name < rhs.name;
 }
+
+Metrostation::Metrostation(const std::string &name) : TramStop(name) {}
+
+Halte::Halte(const std::string &name) : TramStop(name) {}
