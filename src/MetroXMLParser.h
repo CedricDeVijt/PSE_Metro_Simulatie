@@ -27,6 +27,7 @@ public:
      * @param errorStream is the stream errors get output to
      */
     static void loadMetroSystem(MetroSystem &system, const std::string &filename, std::ostream &errorStream);
+private:
     /**
      * Parses a single TramStop from TiXmlElement \n
      * If data is consistent it gets added to the MetroSystem otherwise errors get written to errorStream

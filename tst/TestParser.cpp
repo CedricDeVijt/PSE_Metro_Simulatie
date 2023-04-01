@@ -1,6 +1,5 @@
 #include "gtest/gtest.h"
 #include "../src/MetroXMLParser.h"
-#include "../src/MetroSystem.h"
 #include "TestFuncs.h"
 
 class ParserTest : public ::testing::Test {
@@ -8,48 +7,57 @@ class ParserTest : public ::testing::Test {
     virtual void TearDown() {}
 };
 
-TEST_F(ParserTest, ParserTest_LoadTram_Test) {
-    std::string filename = "ParserTest_LoadTram_Test.txt";
+void compareLog(const std::string &filename) {
+    std::string INPUTFOLDERPATH   = "xmlFiles/tests/ParserTests/input/";
     std::string OUTPUTFOLDERPATH  = "xmlFiles/tests/ParserTests/output/";
     std::string COMPAREFOLDERPATH = "xmlFiles/tests/ParserTests/compare/";
 
+    std::ofstream file((OUTPUTFOLDERPATH+filename+".txt").c_str());
+    EXPECT_TRUE(file.is_open());
+
     MetroSystem sys;
-    std::ofstream errorStream((OUTPUTFOLDERPATH+filename).c_str());
-    EXPECT_TRUE(errorStream.is_open());
+    MetroXMLParser::loadMetroSystem(sys, INPUTFOLDERPATH+filename+".xml", file);
+    file.close();
 
-    TiXmlElement *goodTram = new TiXmlElement("newTram");
-    TiXmlElement* lijnNrElement = new TiXmlElement("lijnNr");
-    lijnNrElement->LinkEndChild(new TiXmlText("5"));
-    goodTram->LinkEndChild(lijnNrElement);
+    EXPECT_TRUE(FileCompare(COMPAREFOLDERPATH+filename+".txt", OUTPUTFOLDERPATH+filename+".txt"));
+}
 
-    TiXmlElement* typeElement = new TiXmlElement("type");
-    lijnNrElement->LinkEndChild(new TiXmlText("Stadslijner"));
-    goodTram->LinkEndChild(typeElement);
+//FOUTE LINK
+TEST_F(ParserTest, VerifyTest1) {
+    compareLog("verifyTest1");
+}
 
-    TiXmlElement* beginStationElement = new TiXmlElement("beginStation");
-    lijnNrElement->LinkEndChild(new TiXmlText("A"));
-    goodTram->LinkEndChild(beginStationElement);
+//FOUT STARTSTATION
+TEST_F(ParserTest, VerifyTest2) {
+    compareLog("verifyTest2");
+}
 
-    TiXmlElement* voertuigNrElement = new TiXmlElement("voertuigNr");
-    lijnNrElement->LinkEndChild(new TiXmlText("0"));
-    goodTram->LinkEndChild(voertuigNrElement);
+//FOUT TRAMLINE_NR
+TEST_F(ParserTest, VerifyTest3) {
+    compareLog("verifyTest3");
+}
 
-    MetroXMLParser::parseTram(sys, goodTram, errorStream);
+//Not every line has a tram
+TEST_F(ParserTest, VerifyTest4) {
+    compareLog("verifyTest4");
+}
 
-    TiXmlElement *badTram = new TiXmlElement("newTram");
-    lijnNrElement = new TiXmlElement("lijnNr");
-    lijnNrElement->LinkEndChild(new TiXmlText("5"));
-    badTram->LinkEndChild(lijnNrElement);
+//No stations
+TEST_F(ParserTest, VerifyTest5) {
+    compareLog("verifyTest5");
+}
 
-    typeElement = new TiXmlElement("type");
-    lijnNrElement->LinkEndChild(new TiXmlText("Stadslijner"));
-    badTram->LinkEndChild(typeElement);
+//No trams
+TEST_F(ParserTest, VerifyTest6) {
+    compareLog("verifyTest6");
+}
 
-    beginStationElement = new TiXmlElement("beginStation");
-    lijnNrElement->LinkEndChild(new TiXmlText("A"));
-    badTram->LinkEndChild(beginStationElement);
+//No file in dir
+TEST_F(ParserTest, LoadFileTest1) {
+    compareLog("baba");
+}
 
-    MetroXMLParser::parseTram(sys, badTram, errorStream);
-
-    EXPECT_TRUE(FileCompare(COMPAREFOLDERPATH+filename, OUTPUTFOLDERPATH+filename));
+//No simdata
+TEST_F(ParserTest, LoadFileTest2) {
+    compareLog("nosimdata");
 }
