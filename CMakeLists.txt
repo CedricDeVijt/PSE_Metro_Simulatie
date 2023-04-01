@@ -15,7 +15,7 @@ link_directories(./gtest/lib)
 set(METRO_SOURCE_FILES
         # Metro Files
         src/MetroSimulation.cpp
-        src/Station.cpp
+        src/TramStop.cpp
         src/Tram.cpp
         src/MetroXMLParser.cpp
         src/Track.cpp

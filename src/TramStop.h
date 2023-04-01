@@ -44,5 +44,8 @@ private:
     TramStop* _initCheck;
 };
 
+class Metrostation : public TramStop{};
+
+class Halte : public TramStop{};
 
 #endif //PSE_METRO_SIMULATIE_TRAMSTOP_H
