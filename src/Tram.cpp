@@ -67,29 +67,17 @@ void Tram::drive(TramStop *destination, int length, std::ostream &os) {
     os << *currentStation << "." << std::endl;
 }
 
-PCC::PCC(int tramNumber, TramStop *startStation) {
-    speed = 40;
-    Tram::tramNumber = tramNumber;
-    Tram::startStation = startStation;
-
+PCC::PCC(int tramNumber, TramStop *startStation) : Tram(tramNumber, 40, startStation) {
     _initCheck = this;
     ENSURE(properlyInitialized(), "constructor must end in properlyInitialized state");
 }
 
-Albatros::Albatros(int tramNumber, Metrostation *startStation) {
-    speed = 70;
-    Tram::tramNumber = tramNumber;
-    Tram::startStation = startStation;
-
+Albatros::Albatros(int tramNumber, Metrostation *startStation) : Tram(tramNumber, 70, startStation)  {
     _initCheck = this;
     ENSURE(properlyInitialized(), "constructor must end in properlyInitialized state");
 }
 
-Stadslijner::Stadslijner(int tramNumber, Metrostation *startStation) {
-    speed = 70;
-    Tram::tramNumber = tramNumber;
-    Tram::startStation = startStation;
-
+Stadslijner::Stadslijner(int tramNumber, Metrostation *startStation) : Tram(tramNumber, 70, startStation)  {
     _initCheck = this;
     ENSURE(properlyInitialized(), "constructor must end in properlyInitialized state");
 }
