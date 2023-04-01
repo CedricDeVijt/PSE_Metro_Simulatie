@@ -57,7 +57,7 @@ TEST_F(ParserTest, LoadFileTest1) {
     compareLog("baba");
 }
 
-//No simdata
+//No metronet
 TEST_F(ParserTest, LoadFileTest2) {
-    compareLog("nosimdata");
+    compareLog("noMetroNet");
 }

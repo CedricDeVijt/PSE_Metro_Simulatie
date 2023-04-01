@@ -1,0 +1,3 @@
+ERROR: Invalid Information: "type" element not found
+ERROR: Invalid Information: "type" element not found
+ERROR: Invalid Information: "type" element not found
