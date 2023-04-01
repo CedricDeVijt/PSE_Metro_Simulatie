@@ -104,6 +104,12 @@ public:
      * @param errorStream is the stream the errors get sent to
      */
     void verify(std::ostream &errorStream);
+
+    //TODO comments
+    const std::vector<Line *> &getLines() const;
+
+    const std::vector<TramStop *> &getStations() const;
+
 private:
     std::vector<Line*> lines;
     std::vector<int> takenTramNumbers;
