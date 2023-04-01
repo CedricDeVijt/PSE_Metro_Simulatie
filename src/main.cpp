@@ -1,7 +1,7 @@
 #include "MetroSimulation.h"
 #include "iostream"
 #include "fstream"
-#include "Station.h"
+#include "TramStop.h"
 
 const std::string INPUTPATH = "./xmlFiles/sims/input/";
 const std::string OUTPUTPATH = "./xmlFiles/sims/output/";

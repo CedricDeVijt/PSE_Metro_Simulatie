@@ -22,8 +22,8 @@ void Line::update(std::ostream &os) {
     REQUIRE(properlyInitialised(), "The line was not properly initialised.");
     for (int i = 0; i < static_cast<int>(trams.size()); i++) {
         Tram* tram = trams[i];
-        Station *currentStation = tram->getCurrentStation();
-        Station *next = getNext(currentStation);
+        TramStop *currentStation = tram->getCurrentStation();
+        TramStop *next = getNext(currentStation);
         int length = getTrackLength(currentStation, next);
         trams[i]->drive(next, length, os);
     }
@@ -55,7 +55,7 @@ bool Line::verify(std::ostream &errorstream) {
     return verified;
 }
 
-Station *Line::getNext(Station *station) {
+TramStop *Line::getNext(TramStop *station) {
     REQUIRE(properlyInitialised(), "The line was not properly initialised.");
     std::vector<Track*>::iterator it = tracks.begin();
     while (it!=tracks.end()) {
@@ -68,7 +68,7 @@ Station *Line::getNext(Station *station) {
     return NULL;
 }
 
-Station *Line::getPrev(Station *station) {
+TramStop *Line::getPrev(TramStop *station) {
     REQUIRE(properlyInitialised(), "The line was not properly initialised.");
     std::vector<Track*>::iterator it = tracks.begin();
     while (it!=tracks.end()) {
@@ -81,7 +81,7 @@ Station *Line::getPrev(Station *station) {
     return NULL;
 }
 
-int Line::getTrackLength(Station *curr, Station *next) {
+int Line::getTrackLength(TramStop *curr, TramStop *next) {
     REQUIRE(properlyInitialised(), "The line was not properly initialised.");
     std::vector<Track*>::iterator it = tracks.begin();
     while (it!=tracks.end()) {
@@ -104,12 +104,12 @@ Line::operator std::string() {
     std::string lineNrStr = ss.str();
     output += "Lijn " + lineNrStr + "\n\n";
 
-    std::vector<Station*>::iterator it = stations.begin();
+    std::vector<TramStop*>::iterator it = stations.begin();
     while (it!=stations.end()) {
-        Station *station = *it;
-        output += "Station " + station->getName() + "\n";
-        output += "<- Station " + getPrev(station)->getName() + "\n";
-        output += "-> Station " + getNext(station)->getName() + "\n\n";
+        TramStop *station = *it;
+        output += "TramStop " + station->getName() + "\n";
+        output += "<- TramStop " + getPrev(station)->getName() + "\n";
+        output += "-> TramStop " + getNext(station)->getName() + "\n\n";
         it++;
     }
 
@@ -121,17 +121,17 @@ Line::operator std::string() {
         ss1 << tram->getTramNumber();
         std::string tramNumStr = ss1.str();
 
-        output += "Tram " + tramNumStr + " in Station " + tram->getCurrentStation()->getName() + "\n\n";
+        output += "Tram " + tramNumStr + " in TramStop " + tram->getCurrentStation()->getName() + "\n\n";
         it1++;
     }
     return output;
 }
 
-void Line::addStation(Station* station) {
+void Line::addStation(TramStop* station) {
     REQUIRE(properlyInitialised(), "The line was not properly initialised.");
-    std::vector<Station*>::iterator it = stations.begin();
+    std::vector<TramStop*>::iterator it = stations.begin();
     while (it != stations.end()) {
-        Station* station1 = *it;
+        TramStop* station1 = *it;
         if (station1==station) {
             return;
         }
@@ -141,9 +141,9 @@ void Line::addStation(Station* station) {
 
 void Line::deployTram(Tram *newTram, const std::string &stationName, std::ostream &errorStream) {
     REQUIRE(properlyInitialised(), "The line was not properly initialised.");
-    std::vector<Station*>::iterator it = stations.begin();
+    std::vector<TramStop*>::iterator it = stations.begin();
     while (it!=stations.end()) {
-        Station *station = *it;
+        TramStop *station = *it;
         if (station->getName()==stationName) {
             trams.push_back(newTram);
             newTram->setStartStation(station);
@@ -157,11 +157,11 @@ void Line::deployTram(Tram *newTram, const std::string &stationName, std::ostrea
     delete newTram;
 }
 
-Station *Line::getStation(const std::string &name) {
+TramStop *Line::getStation(const std::string &name) {
     REQUIRE(properlyInitialised(), "The line was not properly initialised.");
-    std::vector<Station*>::iterator it = stations.begin();
+    std::vector<TramStop*>::iterator it = stations.begin();
     while (it!=stations.end()) {
-        Station *station = *it;
+        TramStop *station = *it;
         if (station->getName()==name) {
             return station;
         }
@@ -172,8 +172,8 @@ Station *Line::getStation(const std::string &name) {
 
 void Line::connect(const std::string &start, const std::string &end, std::ostream &errorStream) {
     REQUIRE(properlyInitialised(), "The line was not properly initialised.");
-    Station *startStation = getStation(start);
-    Station *endStation = getStation(end);
+    TramStop *startStation = getStation(start);
+    TramStop *endStation = getStation(end);
     if (startStation==NULL) {
         Logger::writeError(errorStream, "Failed to connect: StartStation not found in Line");
         Logger::writeError(errorStream, "Failed to connect: niet elk station is verbonden met een voorgaand en een volgend station voor elk spoor");

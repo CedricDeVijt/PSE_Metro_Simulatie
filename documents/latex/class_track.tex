@@ -7,16 +7,16 @@
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_track_ab84b7a60b09d044fb8f0a47e4c13b5bd}{Track}} (\mbox{\hyperlink{class_station}{Station}} $\ast$begin, \mbox{\hyperlink{class_station}{Station}} $\ast$an\+End)
+\mbox{\hyperlink{class_track_ab84b7a60b09d044fb8f0a47e4c13b5bd}{Track}} (\mbox{\hyperlink{class_station}{TramStop}} $\ast$begin, \mbox{\hyperlink{class_station}{TramStop}} $\ast$an\+End)
 \item 
 virtual \mbox{\hyperlink{class_track_a416e75e66accc8eb9e3fafc3e8555216}{$\sim$\+Track}} ()
 \item 
 \mbox{\Hypertarget{class_track_aefaaef487bf0e11e4934f6ccfa30aa4b}\label{class_track_aefaaef487bf0e11e4934f6ccfa30aa4b}} 
 bool {\bfseries properly\+Initialized} () const
 \item 
-\mbox{\hyperlink{class_station}{Station}} $\ast$ \mbox{\hyperlink{class_track_ac03653c5c600535756c3c011385ad2e3}{get\+Begin}} () const
+\mbox{\hyperlink{class_station}{TramStop}} $\ast$ \mbox{\hyperlink{class_track_ac03653c5c600535756c3c011385ad2e3}{get\+Begin}} () const
 \item 
-\mbox{\hyperlink{class_station}{Station}} $\ast$ \mbox{\hyperlink{class_track_abc220fecb947b476dbb5b58a4f0d786d}{get\+An\+End}} () const
+\mbox{\hyperlink{class_station}{TramStop}} $\ast$ \mbox{\hyperlink{class_track_abc220fecb947b476dbb5b58a4f0d786d}{get\+An\+End}} () const
 \end{DoxyCompactItemize}
 
 
@@ -28,7 +28,7 @@ Object that represents a track for a metro
 \index{Track@{Track}!Track@{Track}}
 \index{Track@{Track}!Track@{Track}}
 \doxysubsubsection{\texorpdfstring{Track()}{Track()}}
-{\footnotesize\ttfamily Track\+::\+Track (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_station}{Station}} $\ast$}]{begin,  }\item[{\mbox{\hyperlink{class_station}{Station}} $\ast$}]{an\+End }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Track\+::\+Track (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_station}{TramStop}} $\ast$}]{begin,  }\item[{\mbox{\hyperlink{class_station}{TramStop}} $\ast$}]{an\+End }\end{DoxyParamCaption})}
 
 Initializes \mbox{\hyperlink{class_track}{Track}} Object
 
@@ -36,7 +36,7 @@ Initializes \mbox{\hyperlink{class_track}{Track}} Object
 \begin{DoxyParams}{Parameters}
 {\em begin} & is the beginstation of the \mbox{\hyperlink{class_track}{Track}} \\
 \hline
-{\em an\+End} & is the end\+Station of the \mbox{\hyperlink{class_track}{Track}} \\
+{\em an\+End} & is the end\+TramStop of the \mbox{\hyperlink{class_track}{Track}} \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{class_track_a416e75e66accc8eb9e3fafc3e8555216}\label{class_track_a416e75e66accc8eb9e3fafc3e8555216}} 
@@ -54,19 +54,19 @@ Destructs a \mbox{\hyperlink{class_track}{Track}} object
 \index{Track@{Track}!getAnEnd@{getAnEnd}}
 \index{getAnEnd@{getAnEnd}!Track@{Track}}
 \doxysubsubsection{\texorpdfstring{getAnEnd()}{getAnEnd()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_station}{Station}} $\ast$ Track\+::get\+An\+End (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_station}{TramStop}} $\ast$ Track\+::get\+An\+End (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 Gets the station at the end of the track \begin{DoxyReturn}{Returns}
-Station$\ast$ to the station at the end of the track @\+REQUIRE properly\+Initialized(), \char`\"{}\+Track was not properly initialised.\char`\"{} 
+TramStop$\ast$ to the station at the end of the track @\+REQUIRE properly\+Initialized(), \char`\"{}\+Track was not properly initialised.\char`\"{}
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_track_ac03653c5c600535756c3c011385ad2e3}\label{class_track_ac03653c5c600535756c3c011385ad2e3}} 
 \index{Track@{Track}!getBegin@{getBegin}}
 \index{getBegin@{getBegin}!Track@{Track}}
 \doxysubsubsection{\texorpdfstring{getBegin()}{getBegin()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_station}{Station}} $\ast$ Track\+::get\+Begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_station}{TramStop}} $\ast$ Track\+::get\+Begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 Gets the station at the beginning of the track \begin{DoxyReturn}{Returns}
-Station$\ast$ to the station at the beginning of the track @\+REQUIRE properly\+Initialized(), \char`\"{}\+Track was not properly initialised.\char`\"{} 
+TramStop$\ast$ to the station at the beginning of the track @\+REQUIRE properly\+Initialized(), \char`\"{}\+Track was not properly initialised.\char`\"{}
 \end{DoxyReturn}
 
 

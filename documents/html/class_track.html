@@ -80,16 +80,16 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab84b7a60b09d044fb8f0a47e4c13b5bd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_track.html#ab84b7a60b09d044fb8f0a47e4c13b5bd">Track</a> (<a class="el" href="class_station.html">Station</a> *begin, <a class="el" href="class_station.html">Station</a> *anEnd)</td></tr>
+<tr class="memitem:ab84b7a60b09d044fb8f0a47e4c13b5bd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_track.html#ab84b7a60b09d044fb8f0a47e4c13b5bd">Track</a> (<a class="el" href="class_station.html">TramStop</a> *begin, <a class="el" href="class_station.html">TramStop</a> *anEnd)</td></tr>
 <tr class="separator:ab84b7a60b09d044fb8f0a47e4c13b5bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a416e75e66accc8eb9e3fafc3e8555216"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_track.html#a416e75e66accc8eb9e3fafc3e8555216">~Track</a> ()</td></tr>
 <tr class="separator:a416e75e66accc8eb9e3fafc3e8555216"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aefaaef487bf0e11e4934f6ccfa30aa4b"><td class="memItemLeft" align="right" valign="top"><a id="aefaaef487bf0e11e4934f6ccfa30aa4b" name="aefaaef487bf0e11e4934f6ccfa30aa4b"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>properlyInitialized</b> () const</td></tr>
 <tr class="separator:aefaaef487bf0e11e4934f6ccfa30aa4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac03653c5c600535756c3c011385ad2e3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_station.html">Station</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_track.html#ac03653c5c600535756c3c011385ad2e3">getBegin</a> () const</td></tr>
+<tr class="memitem:ac03653c5c600535756c3c011385ad2e3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_station.html">TramStop</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_track.html#ac03653c5c600535756c3c011385ad2e3">getBegin</a> () const</td></tr>
 <tr class="separator:ac03653c5c600535756c3c011385ad2e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc220fecb947b476dbb5b58a4f0d786d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_station.html">Station</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_track.html#abc220fecb947b476dbb5b58a4f0d786d">getAnEnd</a> () const</td></tr>
+<tr class="memitem:abc220fecb947b476dbb5b58a4f0d786d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_station.html">TramStop</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_track.html#abc220fecb947b476dbb5b58a4f0d786d">getAnEnd</a> () const</td></tr>
 <tr class="separator:abc220fecb947b476dbb5b58a4f0d786d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -104,13 +104,13 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>properlyInitialized</
         <tr>
           <td class="memname">Track::Track </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_station.html">Station</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="class_station.html">TramStop</a> *&#160;</td>
           <td class="paramname"><em>begin</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_station.html">Station</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="class_station.html">TramStop</a> *&#160;</td>
           <td class="paramname"><em>anEnd</em>&#160;</td>
         </tr>
         <tr>
@@ -166,14 +166,14 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>properlyInitialized</
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_station.html">Station</a> * Track::getAnEnd </td>
+          <td class="memname"><a class="el" href="class_station.html">TramStop</a> * Track::getAnEnd </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Gets the station at the end of the track </p><dl class="section return"><dt>Returns</dt><dd>Station* to the station at the end of the track @REQUIRE properlyInitialized(), "Track was not properly initialised." </dd></dl>
+<p>Gets the station at the end of the track </p><dl class="section return"><dt>Returns</dt><dd>TramStop* to the station at the end of the track @REQUIRE properlyInitialized(), "Track was not properly initialised." </dd></dl>
 
 </div>
 </div>
@@ -184,14 +184,14 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>properlyInitialized</
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_station.html">Station</a> * Track::getBegin </td>
+          <td class="memname"><a class="el" href="class_station.html">TramStop</a> * Track::getBegin </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Gets the station at the beginning of the track </p><dl class="section return"><dt>Returns</dt><dd>Station* to the station at the beginning of the track @REQUIRE properlyInitialized(), "Track was not properly initialised." </dd></dl>
+<p>Gets the station at the beginning of the track </p><dl class="section return"><dt>Returns</dt><dd>TramStop* to the station at the beginning of the track @REQUIRE properlyInitialized(), "Track was not properly initialised." </dd></dl>
 
 </div>
 </div>

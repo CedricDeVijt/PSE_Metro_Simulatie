@@ -9,7 +9,7 @@
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}ostream"{}}}
 \DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}../tinyxml/tinyxml.h"{}}}
 \DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}Tram.h"{}}}
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}Station.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}TramStop.h"{}}}
 \DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}Line.h"{}}}
 \DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}fstream"{}}}
 \DoxyCodeLine{00012\ }
@@ -27,7 +27,7 @@
 \DoxyCodeLine{00053\ }
 \DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<Tram\ *>\ \&\mbox{\hyperlink{class_metro_x_m_l_parser_a1accc9f06826252fe8578c760886603d}{getTrams}}()\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00061\ }
-\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<Station\ *>\ \&\mbox{\hyperlink{class_metro_x_m_l_parser_a9ab4a3a046b4f9e403ad7b54ff047dd7}{getStations}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<TramStop\ *>\ \&\mbox{\hyperlink{class_metro_x_m_l_parser_a9ab4a3a046b4f9e403ad7b54ff047dd7}{getStations}}()\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00069\ }
 \DoxyCodeLine{00076\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<Line\ *>\ \&\mbox{\hyperlink{class_metro_x_m_l_parser_aa71bccc50d1a1d36aefa0ca1cbc8453f}{getLines}}()\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00077\ \textcolor{keyword}{private}:}
@@ -47,9 +47,9 @@
 \DoxyCodeLine{00132\ \ \ \ \ \mbox{\hyperlink{class_metro_x_m_l_parser}{MetroXMLParser}}\ *\_initCheck;}
 \DoxyCodeLine{00133\ \ \ \ \ std::ostream\ \&errorstream;}
 \DoxyCodeLine{00134\ \ \ \ \ std::vector<Tram*>\ trams;}
-\DoxyCodeLine{00135\ \ \ \ \ std::vector<Station*>\ stations;}
+\DoxyCodeLine{00135\ \ \ \ \ std::vector<TramStop*>\ stations;}
 \DoxyCodeLine{00136\ \ \ \ \ std::vector<Line*>\ lines;}
-\DoxyCodeLine{00137\ \ \ \ \ std::map<Station*,\ std::pair<std::string,\ std::string>\ >\ stationMap;}
+\DoxyCodeLine{00137\ \ \ \ \ std::map<TramStop*,\ std::pair<std::string,\ std::string>\ >\ stationMap;}
 \DoxyCodeLine{00138\ \ \ \ \ std::map<Tram*,\ std::string>\ tramMap;}
 \DoxyCodeLine{00139\ \};}
 \DoxyCodeLine{00140\ }

@@ -60,7 +60,7 @@ void MetroXMLParser::parseStation(MetroSystem &system, TiXmlElement* stationElem
     int lineNr = atoi(p.first.c_str());
 
     system.addLine(lineNr);
-    system.addStation(new Station(name), lineNr);
+    system.addStation(new TramStop(name), lineNr);
 }
 
 void MetroXMLParser::parseTram(MetroSystem &system, TiXmlElement* tramElem, std::ostream &errorStream) {

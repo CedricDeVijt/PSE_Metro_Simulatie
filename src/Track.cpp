@@ -1,7 +1,7 @@
 #include "Track.h"
 #include "DesignByContract.h"
 
-Track::Track(Station *begin, Station *anEnd, const int &length) : begin(begin), end(anEnd), length(length) {
+Track::Track(TramStop *begin, TramStop *anEnd, const int &length) : begin(begin), end(anEnd), length(length) {
     _initCheck = this;
     ENSURE(properlyInitialized(), "constructor must end in properlyInitialized state");
 }
@@ -10,11 +10,11 @@ Track::~Track() {
     REQUIRE(properlyInitialized(), "Track was not properly initialised.");
 }
 
-Station *Track::getBegin() const {
+TramStop *Track::getBegin() const {
     REQUIRE(properlyInitialized(), "Track was not properly initialised.");
     return begin;
 }
-Station *Track::getAnEnd() const {
+TramStop *Track::getAnEnd() const {
     REQUIRE(properlyInitialized(), "Track was not properly initialised.");
     return end;
 }

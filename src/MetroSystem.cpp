@@ -93,12 +93,12 @@ void MetroSystem::addLine(const int &lineNumber) {
     lines.push_back(new Line(lineNumber));
 }
 
-void MetroSystem::addStation(Station *newStation, const int &lineNumber, std::ostream &errorStream) {
+void MetroSystem::addStation(TramStop *newStation, const int &lineNumber, std::ostream &errorStream) {
     REQUIRE(properlyInitialized(), "MetroSystem is not properly initialised.");
     //Dont make a new Pointer if a Statoin with this name exists
-    std::vector<Station*>::iterator it1 = stations.begin();
+    std::vector<TramStop*>::iterator it1 = stations.begin();
     while (it1 != stations.end()) {
-        Station *station = *it1;
+        TramStop *station = *it1;
         if (station->getName()==newStation->getName()) {
             delete newStation;
             newStation = station;
@@ -134,7 +134,7 @@ void MetroSystem::deployTram(Tram *newTram, const std::string &startStation, con
     }
     takenTramNumbers.push_back(newNumber);
 
-    //Try to deploy tram at right Station*
+    //Try to deploy tram at right TramStop*
     std::vector<Line*>::iterator it = lines.begin();
     while (it != lines.end()) {
         Line* line = *it;

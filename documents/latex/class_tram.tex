@@ -7,7 +7,7 @@
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_tram_a9445983d63cd86ff4d66defa749af194}{Tram}} (int line\+Number, int tram\+Number, int speed, \mbox{\hyperlink{class_station}{Station}} $\ast$start\+Station)
+\mbox{\hyperlink{class_tram_a9445983d63cd86ff4d66defa749af194}{Tram}} (int line\+Number, int tram\+Number, int speed, \mbox{\hyperlink{class_station}{TramStop}} $\ast$start\+TramStop)
 \item 
 virtual \mbox{\hyperlink{class_tram_acd6056d2289f2dccd371bc226cd2cb17}{$\sim$\+Tram}} ()
 \item 
@@ -20,15 +20,15 @@ int \mbox{\hyperlink{class_tram_a61bf02dbd773c3e1a5391842085ceffe}{get\+Line\+Nu
 \item 
 int \mbox{\hyperlink{class_tram_a50cb3002960956a32511073310bb6169}{get\+Speed}} () const
 \item 
-\mbox{\hyperlink{class_station}{Station}} $\ast$ \mbox{\hyperlink{class_tram_a2680cf97004aa4d9be4e8bb128810fd0}{get\+Start\+Station}} () const
+\mbox{\hyperlink{class_station}{TramStop}} $\ast$ \mbox{\hyperlink{class_tram_a2680cf97004aa4d9be4e8bb128810fd0}{get\+Start\+TramStop}} () const
 \item 
 int \mbox{\hyperlink{class_tram_a1b0ae56c0014371f192b0e678112001d}{get\+Tram\+Number}} () const
 \item 
-\mbox{\hyperlink{class_station}{Station}} $\ast$ \mbox{\hyperlink{class_tram_a517a8cdf10c1910f859f0417201ca15d}{get\+Current\+Station}} () const
+\mbox{\hyperlink{class_station}{TramStop}} $\ast$ \mbox{\hyperlink{class_tram_a517a8cdf10c1910f859f0417201ca15d}{get\+Current\+TramStop}} () const
 \item 
 void \mbox{\hyperlink{class_tram_ae35a608ef4581fd1806b198cafbada32}{set\+Speed}} (int speed)
 \item 
-void \mbox{\hyperlink{class_tram_a0c01470cd8c589b3b7b1d1f39752eec9}{set\+Start\+Station}} (\mbox{\hyperlink{class_station}{Station}} $\ast$start\+Station)
+void \mbox{\hyperlink{class_tram_a0c01470cd8c589b3b7b1d1f39752eec9}{set\+Start\+TramStop}} (\mbox{\hyperlink{class_station}{TramStop}} $\ast$start\+TramStop)
 \item 
 void \mbox{\hyperlink{class_tram_a10ce7ea49a25f163f78c99aca146569d}{drive}} (std\+::ostream \&os)
 \end{DoxyCompactItemize}
@@ -48,7 +48,7 @@ Object that represents a tram
 \index{Tram@{Tram}!Tram@{Tram}}
 \index{Tram@{Tram}!Tram@{Tram}}
 \doxysubsubsection{\texorpdfstring{Tram()}{Tram()}}
-{\footnotesize\ttfamily Tram\+::\+Tram (\begin{DoxyParamCaption}\item[{int}]{line\+Number,  }\item[{int}]{tram\+Number,  }\item[{int}]{speed,  }\item[{\mbox{\hyperlink{class_station}{Station}} $\ast$}]{start\+Station }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Tram\+::\+Tram (\begin{DoxyParamCaption}\item[{int}]{line\+Number,  }\item[{int}]{tram\+Number,  }\item[{int}]{speed,  }\item[{\mbox{\hyperlink{class_station}{TramStop}} $\ast$}]{start\+TramStop }\end{DoxyParamCaption})}
 
 Creates a \mbox{\hyperlink{class_tram}{Tram}} object
 
@@ -60,7 +60,7 @@ Creates a \mbox{\hyperlink{class_tram}{Tram}} object
 \hline
 {\em speed} & is the Speed of the tram \\
 \hline
-{\em start\+Station} & is the startstation of the tram\\
+{\em start\+TramStop} & is the startstation of the tram\\
 \hline
 \end{DoxyParams}
 @\+ENSURE properly\+Initialized(), \char`\"{}constructor must end in properly\+Initialized state\char`\"{} \mbox{\Hypertarget{class_tram_acd6056d2289f2dccd371bc226cd2cb17}\label{class_tram_acd6056d2289f2dccd371bc226cd2cb17}} 
@@ -84,19 +84,19 @@ Moves the tram to the next station
 
 
 \begin{DoxyParams}{Parameters}
-{\em os} & std\+::ostream\+: where the output of moving the train is written to @\+REQUIRE properly\+Initialized(), \char`\"{}\+Station was not properly initialised.\char`\"{} \\
+{\em os} & std\+::ostream\+: where the output of moving the train is written to @\+REQUIRE properly\+Initialized(), \char`\"{}\+TramStop was not properly initialised.\char`\"{} \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{class_tram_a517a8cdf10c1910f859f0417201ca15d}\label{class_tram_a517a8cdf10c1910f859f0417201ca15d}} 
 \index{Tram@{Tram}!getCurrentStation@{getCurrentStation}}
 \index{getCurrentStation@{getCurrentStation}!Tram@{Tram}}
 \doxysubsubsection{\texorpdfstring{getCurrentStation()}{getCurrentStation()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_station}{Station}} $\ast$ Tram\+::get\+Current\+Station (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_station}{TramStop}} $\ast$ Tram\+::get\+Current\+TramStop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 Gives the station where the tram currently is
 
 \begin{DoxyReturn}{Returns}
-Station$\ast$ to the station where the tram currently is @\+REQUIRE properly\+Initialized(), \char`\"{}\+Station was not properly initialised.\char`\"{} 
+TramStop$\ast$ to the station where the tram currently is @\+REQUIRE properly\+Initialized(), \char`\"{}\+TramStop was not properly initialised.\char`\"{}
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_tram_a61bf02dbd773c3e1a5391842085ceffe}\label{class_tram_a61bf02dbd773c3e1a5391842085ceffe}} 
 \index{Tram@{Tram}!getLineNumber@{getLineNumber}}
@@ -107,7 +107,7 @@ Station$\ast$ to the station where the tram currently is @\+REQUIRE properly\+In
 Gives the line number of the track on which the tram is driving
 
 \begin{DoxyReturn}{Returns}
-{\bfseries{int\+:}} line number of the line on which the tram is driving @\+REQUIRE properly\+Initialized(), \char`\"{}\+Station was not properly initialised.\char`\"{} 
+{\bfseries{int\+:}} line number of the line on which the tram is driving @\+REQUIRE properly\+Initialized(), \char`\"{}\+TramStop was not properly initialised.\char`\"{}
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_tram_a50cb3002960956a32511073310bb6169}\label{class_tram_a50cb3002960956a32511073310bb6169}} 
 \index{Tram@{Tram}!getSpeed@{getSpeed}}
@@ -118,18 +118,18 @@ Gives the line number of the track on which the tram is driving
 Gives the speed of which the tram is capable
 
 \begin{DoxyReturn}{Returns}
-int\+: the speed of which the tram is capable @\+REQUIRE properly\+Initialized(), \char`\"{}\+Station was not properly initialised.\char`\"{} 
+int\+: the speed of which the tram is capable @\+REQUIRE properly\+Initialized(), \char`\"{}\+TramStop was not properly initialised.\char`\"{}
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_tram_a2680cf97004aa4d9be4e8bb128810fd0}\label{class_tram_a2680cf97004aa4d9be4e8bb128810fd0}} 
 \index{Tram@{Tram}!getStartStation@{getStartStation}}
 \index{getStartStation@{getStartStation}!Tram@{Tram}}
 \doxysubsubsection{\texorpdfstring{getStartStation()}{getStartStation()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_station}{Station}} $\ast$ Tram\+::get\+Start\+Station (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_station}{TramStop}} $\ast$ Tram\+::get\+Start\+TramStop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 Gives the station where the track starts
 
 \begin{DoxyReturn}{Returns}
-Station$\ast$ to the station where the track starts @\+REQUIRE properly\+Initialized(), \char`\"{}\+Station was not properly initialised.\char`\"{} 
+TramStop$\ast$ to the station where the track starts @\+REQUIRE properly\+Initialized(), \char`\"{}\+TramStop was not properly initialised.\char`\"{}
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_tram_a1b0ae56c0014371f192b0e678112001d}\label{class_tram_a1b0ae56c0014371f192b0e678112001d}} 
 \index{Tram@{Tram}!getTramNumber@{getTramNumber}}
@@ -140,7 +140,7 @@ Station$\ast$ to the station where the track starts @\+REQUIRE properly\+Initial
 Gives the number of the tram
 
 \begin{DoxyReturn}{Returns}
-int\+: the tram number of the tram @\+REQUIRE properly\+Initialized(), \char`\"{}\+Station was not properly initialised.\char`\"{} 
+int\+: the tram number of the tram @\+REQUIRE properly\+Initialized(), \char`\"{}\+TramStop was not properly initialised.\char`\"{}
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_tram_a69f52091a1bcfd5325c85373e8664c6c}\label{class_tram_a69f52091a1bcfd5325c85373e8664c6c}} 
 \index{Tram@{Tram}!operator std::string@{operator std::string}}
@@ -150,7 +150,7 @@ int\+: the tram number of the tram @\+REQUIRE properly\+Initialized(), \char`\"{
 
 Converts \mbox{\hyperlink{class_tram}{Tram}} into a string
 
-@\+REQUIRE properly\+Initialized(), \char`\"{}\+Station was not properly initialised.\char`\"{} \mbox{\Hypertarget{class_tram_ae35a608ef4581fd1806b198cafbada32}\label{class_tram_ae35a608ef4581fd1806b198cafbada32}} 
+@\+REQUIRE properly\+Initialized(), \char`\"{}\+TramStop was not properly initialised.\char`\"{} \mbox{\Hypertarget{class_tram_ae35a608ef4581fd1806b198cafbada32}\label{class_tram_ae35a608ef4581fd1806b198cafbada32}}
 \index{Tram@{Tram}!setSpeed@{setSpeed}}
 \index{setSpeed@{setSpeed}!Tram@{Tram}}
 \doxysubsubsection{\texorpdfstring{setSpeed()}{setSpeed()}}
@@ -160,20 +160,20 @@ Sets the speed of the tram
 
 
 \begin{DoxyParams}{Parameters}
-{\em speed} & int\+: speed of the tram @\+REQUIRE properly\+Initialized(), \char`\"{}\+Station was not properly initialised.\char`\"{} \\
+{\em speed} & int\+: speed of the tram @\+REQUIRE properly\+Initialized(), \char`\"{}\+TramStop was not properly initialised.\char`\"{} \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{class_tram_a0c01470cd8c589b3b7b1d1f39752eec9}\label{class_tram_a0c01470cd8c589b3b7b1d1f39752eec9}} 
 \index{Tram@{Tram}!setStartStation@{setStartStation}}
 \index{setStartStation@{setStartStation}!Tram@{Tram}}
 \doxysubsubsection{\texorpdfstring{setStartStation()}{setStartStation()}}
-{\footnotesize\ttfamily void Tram\+::set\+Start\+Station (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_station}{Station}} $\ast$}]{start\+Station }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Tram\+::set\+Start\+TramStop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_station}{TramStop}} $\ast$}]{start\+TramStop }\end{DoxyParamCaption})}
 
 Sets the station where the train starts at the start of the system
 
 
 \begin{DoxyParams}{Parameters}
-{\em start\+Station} & \mbox{\hyperlink{class_station}{Station}} $\ast$\+: station where the tram starts form @\+REQUIRE properly\+Initialized(), \char`\"{}\+Station was not properly initialised.\char`\"{} \\
+{\em start\+TramStop} & \mbox{\hyperlink{class_station}{TramStop}} $\ast$\+: station where the tram starts form @\+REQUIRE properly\+Initialized(), \char`\"{}\+TramStop was not properly initialised.\char`\"{} \\
 \hline
 \end{DoxyParams}
 

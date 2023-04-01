@@ -1,4 +1,4 @@
-\hypertarget{_station_8h_source}{}\doxysection{Station.\+h}
+\hypertarget{_station_8h_source}{}\doxysection{TramStop.\+h}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ PSE\_METRO\_SIMULATIE\_STATION\_H}}
@@ -9,11 +9,11 @@
 \DoxyCodeLine{00006\ }
 \DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_track}{Track}};}
 \DoxyCodeLine{00008\ }
-\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_station}{Station}}\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_station}{TramStop}}\ \{}
 \DoxyCodeLine{00013\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{class_station}{Station}}(\textcolor{keyword}{const}\ std::string\ \&name,\ \mbox{\hyperlink{class_track}{Track}}\ *nextTrack,\ \mbox{\hyperlink{class_track}{Track}}\ *prevTrack,\ \textcolor{keywordtype}{int}\ lineNumber);}
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{class_station}{TramStop}}(\textcolor{keyword}{const}\ std::string\ \&name,\ \mbox{\hyperlink{class_track}{Track}}\ *nextTrack,\ \mbox{\hyperlink{class_track}{Track}}\ *prevTrack,\ \textcolor{keywordtype}{int}\ lineNumber);}
 \DoxyCodeLine{00024\ }
-\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{class_station_a00434e79e8ee7f4ebd6d3b631dde5ac0}{\string~Station}}();}
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{class_station_a00434e79e8ee7f4ebd6d3b631dde5ac0}{\stringTramStopp}}();}
 \DoxyCodeLine{00031\ }
 \DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{bool}\ properlyInitialized()\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00033\ }
@@ -27,16 +27,16 @@
 \DoxyCodeLine{00064\ }
 \DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_station_a4851cd35d9fafc3d44a737c256fbcb3f}{getLineNumber}}()\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00072\ }
-\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_station_ac5d62d04f5531d092dfc36777b8fc11f}{setNextTrack}}(\mbox{\hyperlink{class_station}{Station}}\ *nextStation);}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_station_ac5d62d04f5531d092dfc36777b8fc11f}{setNextTrack}}(\mbox{\hyperlink{class_station}{TramStop}}\ *nextStation);}
 \DoxyCodeLine{00081\ }
-\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_station_a64c7e05676ae7dabb73b6b5d24aaf508}{setPrevTrack}}(\mbox{\hyperlink{class_station}{Station}}\ *prevStation);}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_station_a64c7e05676ae7dabb73b6b5d24aaf508}{setPrevTrack}}(\mbox{\hyperlink{class_station}{TramStop}}\ *prevStation);}
 \DoxyCodeLine{00090\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keyword}{friend}\ std::ostream\ \&operator<<(std::ostream\ \&os,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_station}{Station}}\ \&station);}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keyword}{friend}\ std::ostream\ \&operator<<(std::ostream\ \&os,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_station}{TramStop}}\ \&station);}
 \DoxyCodeLine{00092\ \ \ \ \ std::string\ name;}
 \DoxyCodeLine{00093\ \ \ \ \ \mbox{\hyperlink{class_track}{Track}}\ *nextTrack;}
 \DoxyCodeLine{00094\ \ \ \ \ \mbox{\hyperlink{class_track}{Track}}\ *prevTrack;}
 \DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{int}\ lineNumber;}
-\DoxyCodeLine{00096\ \ \ \ \ \mbox{\hyperlink{class_station}{Station}}*\ \_initCheck;}
+\DoxyCodeLine{00096\ \ \ \ \ \mbox{\hyperlink{class_station}{TramStop}}*\ \_initCheck;}
 \DoxyCodeLine{00097\ \};}
 \DoxyCodeLine{00098\ }
 \DoxyCodeLine{00099\ }

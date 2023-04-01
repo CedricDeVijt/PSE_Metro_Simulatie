@@ -3,7 +3,7 @@
 
 #include "vector"
 #include "Line.h"
-#include "Station.h"
+#include "TramStop.h"
 #include "DesignByContract.h"
 #include "Logger.h"
 
@@ -65,18 +65,18 @@ public:
     void addLine(const int &lineNumber);
 
     /**
-     * Adds a new Station to the proper Line and to the System \n
+     * Adds a new TramStop to the proper Line and to the System \n
      * If the Line is not in the MetroSystem, an error gets written out to errorStream \n
      *
      * @REQUIRE properlyInitialized(), "MetroSystem is not properly initialised."
-     * @param newStation is a Station* pointing to the new Station that needs to get added to the system
+     * @param newStation is a TramStop* pointing to the new TramStop that needs to get added to the system
      * @param lineNumber is the LineNumber where the station should get added to
      * @param errorStream is the stream the errors get sent to
      */
-    void addStation(Station* newStation, const int &lineNumber, std::ostream &errorStream);
+    void addStation(TramStop* newStation, const int &lineNumber, std::ostream &errorStream);
 
     /**
-     * Deploys a tram to the corresponding Station name and on the right Line \n
+     * Deploys a tram to the corresponding TramStop name and on the right Line \n
      *
      * @REQUIRE properlyInitialized(), "MetroSystem is not properly initialised."
      * @param newTram is a Tram* pointing to the tram that needs to get Deployed
@@ -107,7 +107,7 @@ public:
 private:
     std::vector<Line*> lines;
     std::vector<int> takenTramNumbers;
-    std::vector<Station*> stations;
+    std::vector<TramStop*> stations;
     MetroSystem* _initCheck;
     bool consistent;
 };

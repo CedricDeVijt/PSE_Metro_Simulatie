@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.6"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Metro Simulation: Station.h Source File</title>
+<title>Metro Simulation: TramStop.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -69,22 +69,22 @@ $(function() {
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Station.h</div></div>
+  <div class="headertitle"><div class="title">TramStop.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef PSE_METRO_SIMULATIE_STATION_H</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define PSE_METRO_SIMULATIE_STATION_H</span></div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef PSE_METRO_SIMULATIE_TRAMSTOP_H</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define PSE_METRO_SIMULATIE_TRAMSTOP_H</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;ostream&gt;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">class </span><a class="code hl_class" href="class_track.html">Track</a>;</div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="class_station.html">   12</a></span><span class="keyword">class </span><a class="code hl_class" href="class_station.html">Station</a> {</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="class_station.html">   12</a></span><span class="keyword">class </span><a class="code hl_class" href="class_station.html">TramStop</a> {</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <a class="code hl_class" href="class_station.html">Station</a>(<span class="keyword">const</span> std::string &amp;name, <a class="code hl_class" href="class_track.html">Track</a> *nextTrack, <a class="code hl_class" href="class_track.html">Track</a> *prevTrack, <span class="keywordtype">int</span> lineNumber);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <a class="code hl_class" href="class_station.html">TramStop</a>(<span class="keyword">const</span> std::string &amp;name, <a class="code hl_class" href="class_track.html">Track</a> *nextTrack, <a class="code hl_class" href="class_track.html">Track</a> *prevTrack, <span class="keywordtype">int</span> lineNumber);</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <a class="code hl_function" href="class_station.html#a00434e79e8ee7f4ebd6d3b631dde5ac0">~Station</a>();</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <a class="code hl_function" href="class_station.html#a00434e79e8ee7f4ebd6d3b631dde5ac0">TramStopp</a>();</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordtype">bool</span> properlyInitialized() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
@@ -98,28 +98,28 @@ $(function() {
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_station.html#a4851cd35d9fafc3d44a737c256fbcb3f">getLineNumber</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_station.html#ac5d62d04f5531d092dfc36777b8fc11f">setNextTrack</a>(<a class="code hl_class" href="class_station.html">Station</a> *nextStation);</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_station.html#ac5d62d04f5531d092dfc36777b8fc11f">setNextTrack</a>(<a class="code hl_class" href="class_station.html">TramStop</a> *nextStation);</div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_station.html#a64c7e05676ae7dabb73b6b5d24aaf508">setPrevTrack</a>(<a class="code hl_class" href="class_station.html">Station</a> *prevStation);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_station.html#a64c7e05676ae7dabb73b6b5d24aaf508">setPrevTrack</a>(<a class="code hl_class" href="class_station.html">TramStop</a> *prevStation);</div>
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keyword">friend</span> std::ostream &amp;operator&lt;&lt;(std::ostream &amp;os, <span class="keyword">const</span> <a class="code hl_class" href="class_station.html">Station</a> &amp;station);</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keyword">friend</span> std::ostream &amp;operator&lt;&lt;(std::ostream &amp;os, <span class="keyword">const</span> <a class="code hl_class" href="class_station.html">TramStop</a> &amp;station);</div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    std::string name;</div>
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <a class="code hl_class" href="class_track.html">Track</a> *nextTrack;</div>
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <a class="code hl_class" href="class_track.html">Track</a> *prevTrack;</div>
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="keywordtype">int</span> lineNumber;</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <a class="code hl_class" href="class_station.html">Station</a>* _initCheck;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <a class="code hl_class" href="class_station.html">TramStop</a>* _initCheck;</div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>};</div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="preprocessor">#endif </span><span class="comment">//PSE_METRO_SIMULATIE_STATION_H</span></div>
-<div class="ttc" id="aclass_station_html"><div class="ttname"><a href="class_station.html">Station</a></div><div class="ttdef"><b>Definition:</b> Station.h:12</div></div>
-<div class="ttc" id="aclass_station_html_a00434e79e8ee7f4ebd6d3b631dde5ac0"><div class="ttname"><a href="class_station.html#a00434e79e8ee7f4ebd6d3b631dde5ac0">Station::~Station</a></div><div class="ttdeci">~Station()</div><div class="ttdef"><b>Definition:</b> Station.cpp:16</div></div>
-<div class="ttc" id="aclass_station_html_a4851cd35d9fafc3d44a737c256fbcb3f"><div class="ttname"><a href="class_station.html#a4851cd35d9fafc3d44a737c256fbcb3f">Station::getLineNumber</a></div><div class="ttdeci">int getLineNumber() const</div><div class="ttdef"><b>Definition:</b> Station.cpp:40</div></div>
-<div class="ttc" id="aclass_station_html_a64c7e05676ae7dabb73b6b5d24aaf508"><div class="ttname"><a href="class_station.html#a64c7e05676ae7dabb73b6b5d24aaf508">Station::setPrevTrack</a></div><div class="ttdeci">void setPrevTrack(Station *prevStation)</div><div class="ttdef"><b>Definition:</b> Station.cpp:57</div></div>
-<div class="ttc" id="aclass_station_html_a67a42e3b29edb826b50cdb4a0db2bef1"><div class="ttname"><a href="class_station.html#a67a42e3b29edb826b50cdb4a0db2bef1">Station::getName</a></div><div class="ttdeci">const std::string &amp; getName() const</div><div class="ttdef"><b>Definition:</b> Station.cpp:36</div></div>
-<div class="ttc" id="aclass_station_html_a7d3ca7491a5b7fc76eda516dcee235df"><div class="ttname"><a href="class_station.html#a7d3ca7491a5b7fc76eda516dcee235df">Station::getNextTrack</a></div><div class="ttdeci">Track * getNextTrack() const</div><div class="ttdef"><b>Definition:</b> Station.cpp:44</div></div>
-<div class="ttc" id="aclass_station_html_aab26fa92839c0c54e07718639a988b45"><div class="ttname"><a href="class_station.html#aab26fa92839c0c54e07718639a988b45">Station::getPrevTrack</a></div><div class="ttdeci">Track * getPrevTrack() const</div><div class="ttdef"><b>Definition:</b> Station.cpp:48</div></div>
-<div class="ttc" id="aclass_station_html_ac5d62d04f5531d092dfc36777b8fc11f"><div class="ttname"><a href="class_station.html#ac5d62d04f5531d092dfc36777b8fc11f">Station::setNextTrack</a></div><div class="ttdeci">void setNextTrack(Station *nextStation)</div><div class="ttdef"><b>Definition:</b> Station.cpp:53</div></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="preprocessor">#endif </span><span class="comment">//PSE_METRO_SIMULATIE_TRAMSTOP_H</span></div>
+<div class="ttc" id="aclass_station_html"><div class="ttname"><a href="class_station.html">TramStop</a></div><div class="ttdef"><b>Definition:</b> TramStop.h:12</div></div>
+<div class="ttc" id="aclass_station_html_a00434e79e8ee7f4ebd6d3b631dde5ac0"><div class="ttname"><a href="class_station.html#a00434e79e8ee7f4ebd6d3b631dde5ac0">TramStop::TramStopp</a></div><div class="ttdeci">TramStopp()</div><div class="ttdef"><b>Definition:</b> TramStop.cpp:16</div></div>
+<div class="ttc" id="aclass_station_html_a4851cd35d9fafc3d44a737c256fbcb3f"><div class="ttname"><a href="class_station.html#a4851cd35d9fafc3d44a737c256fbcb3f">TramStop::getLineNumber</a></div><div class="ttdeci">int getLineNumber() const</div><div class="ttdef"><b>Definition:</b> TramStop.cpp:40</div></div>
+<div class="ttc" id="aclass_station_html_a64c7e05676ae7dabb73b6b5d24aaf508"><div class="ttname"><a href="class_station.html#a64c7e05676ae7dabb73b6b5d24aaf508">TramStop::setPrevTrack</a></div><div class="ttdeci">void setPrevTrack(TramStop *prevStation)</div><div class="ttdef"><b>Definition:</b> TramStop.cpp:57</div></div>
+<div class="ttc" id="aclass_station_html_a67a42e3b29edb826b50cdb4a0db2bef1"><div class="ttname"><a href="class_station.html#a67a42e3b29edb826b50cdb4a0db2bef1">TramStop::getName</a></div><div class="ttdeci">const std::string &amp; getName() const</div><div class="ttdef"><b>Definition:</b> TramStop.cpp:36</div></div>
+<div class="ttc" id="aclass_station_html_a7d3ca7491a5b7fc76eda516dcee235df"><div class="ttname"><a href="class_station.html#a7d3ca7491a5b7fc76eda516dcee235df">TramStop::getNextTrack</a></div><div class="ttdeci">Track * getNextTrack() const</div><div class="ttdef"><b>Definition:</b> TramStop.cpp:44</div></div>
+<div class="ttc" id="aclass_station_html_aab26fa92839c0c54e07718639a988b45"><div class="ttname"><a href="class_station.html#aab26fa92839c0c54e07718639a988b45">TramStop::getPrevTrack</a></div><div class="ttdeci">Track * getPrevTrack() const</div><div class="ttdef"><b>Definition:</b> TramStop.cpp:48</div></div>
+<div class="ttc" id="aclass_station_html_ac5d62d04f5531d092dfc36777b8fc11f"><div class="ttname"><a href="class_station.html#ac5d62d04f5531d092dfc36777b8fc11f">TramStop::setNextTrack</a></div><div class="ttdeci">void setNextTrack(TramStop *nextStation)</div><div class="ttdef"><b>Definition:</b> TramStop.cpp:53</div></div>
 <div class="ttc" id="aclass_track_html"><div class="ttname"><a href="class_track.html">Track</a></div><div class="ttdef"><b>Definition:</b> Track.h:9</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

@@ -7,7 +7,7 @@
 #include "ostream"
 #include "../tinyxml/tinyxml.h"
 #include "Tram.h"
-#include "Station.h"
+#include "TramStop.h"
 #include "Line.h"
 #include "fstream"
 #include "DesignByContract.h"
@@ -29,7 +29,7 @@ public:
     static void loadMetroSystem(MetroSystem &system, const std::string &filename, std::ostream &errorStream);
 private:
     /**
-     * Parses a single Station from TiXmlElement \n
+     * Parses a single TramStop from TiXmlElement \n
      * If data is consistent it gets added to the MetroSystem otherwise errors get written to errorStream
      *
      * @param system is the MetroSystem the data needs to get added to
@@ -49,7 +49,7 @@ private:
     static void parseTram(MetroSystem &system, TiXmlElement* tramElem, std::ostream &errorStream);
 
     /**
-     * Parses a connection from a Station TiXmlElement \n
+     * Parses a connection from a TramStop TiXmlElement \n
      * If data is consistent it gets added to the MetroSystem otherwise errors get written to errorStream
      *
      * @param system is the MetroSystem the data needs to get added to

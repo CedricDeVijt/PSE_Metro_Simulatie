@@ -1,44 +1,44 @@
-Station A
-<- Station C
--> Station B
+TramStop A
+<- TramStop C
+-> TramStop B
 
-Station B
-<- Station A
--> Station C
+TramStop B
+<- TramStop A
+-> TramStop C
 
-Station C
-<- Station B
--> Station A
+TramStop C
+<- TramStop B
+-> TramStop A
 
-Station Centraal1
-<- Station Centraal7
--> Station Centraal2
+TramStop Centraal1
+<- TramStop Centraal7
+-> TramStop Centraal2
 
-Station Centraal2
-<- Station Centraal1
--> Station Centraal3
+TramStop Centraal2
+<- TramStop Centraal1
+-> TramStop Centraal3
 
-Station Centraal3
-<- Station Centraal2
--> Station Centraal4
+TramStop Centraal3
+<- TramStop Centraal2
+-> TramStop Centraal4
 
-Station Centraal4
-<- Station Centraal3
--> Station Centraal5
+TramStop Centraal4
+<- TramStop Centraal3
+-> TramStop Centraal5
 
-Station Centraal5
-<- Station Centraal4
--> Station Centraal6
+TramStop Centraal5
+<- TramStop Centraal4
+-> TramStop Centraal6
 
-Station Centraal6
-<- Station Centraal5
--> Station Centraal7
+TramStop Centraal6
+<- TramStop Centraal5
+-> TramStop Centraal7
 
-Station Centraal7
-<- Station Centraal6
--> Station Centraal1
+TramStop Centraal7
+<- TramStop Centraal6
+-> TramStop Centraal1
 
-Tram 0 in Station A
-Tram 1 in Station Centraal1
-Tram 2 in Station Centraal1
-Tram 3 in Station Centraal3
+Tram 0 in TramStop A
+Tram 1 in TramStop Centraal1
+Tram 2 in TramStop Centraal1
+Tram 3 in TramStop Centraal3

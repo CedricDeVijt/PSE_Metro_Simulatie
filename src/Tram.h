@@ -1,7 +1,7 @@
 #ifndef PSE_METRO_SIMULATIE_TRAM_H
 #define PSE_METRO_SIMULATIE_TRAM_H
 #include <ostream>
-#include "Station.h"
+#include "TramStop.h"
 #include "Track.h"
 
 /**
@@ -18,7 +18,7 @@ public:
      *
      * @ENSURE properlyInitialized(), "constructor must end in properlyInitialized state"
      */
-    Tram(int tramNumber, int speed, Station *startStation);
+    Tram(int tramNumber, int speed, TramStop *startStation);
 
     /**
      * Destructs a tram object
@@ -32,7 +32,7 @@ public:
     /**
      * Converts Tram into a string
      *
-     * @REQUIRE properlyInitialized(), "Station was not properly initialised."
+     * @REQUIRE properlyInitialized(), "TramStop was not properly initialised."
      */
     operator std::string();
 
@@ -40,64 +40,92 @@ public:
      * Gives the speed of which the tram is capable
      *
      * @return int: the speed of which the tram is capable
-     * @REQUIRE properlyInitialized(), "Station was not properly initialised."
+     * @REQUIRE properlyInitialized(), "TramStop was not properly initialised."
      */
     int getSpeed() const;
 
     /**
      * Gives the station where the track starts
      *
-     * @return Station* to the station where the track starts
-     * @REQUIRE properlyInitialized(), "Station was not properly initialised."
+     * @return TramStop* to the station where the track starts
+     * @REQUIRE properlyInitialized(), "TramStop was not properly initialised."
      */
-    Station *getStartStation() const;
+    TramStop *getStartStation() const;
 
     /**
      * Gives the number of the tram
      *
      * @return int: the tram number of the tram
-     * @REQUIRE properlyInitialized(), "Station was not properly initialised."
+     * @REQUIRE properlyInitialized(), "TramStop was not properly initialised."
      */
     int getTramNumber() const;
 
     /**
      * Gives the station where the tram currently is
      *
-     * @return Station* to the station where the tram currently is
-     * @REQUIRE properlyInitialized(), "Station was not properly initialised."
+     * @return TramStop* to the station where the tram currently is
+     * @REQUIRE properlyInitialized(), "TramStop was not properly initialised."
      */
-    Station *getCurrentStation() const;
+    TramStop *getCurrentStation() const;
 
     /**
      * Sets the speed of the tram
      *
      * @param speed int: speed of the tram
-     * @REQUIRE properlyInitialized(), "Station was not properly initialised."
+     * @REQUIRE properlyInitialized(), "TramStop was not properly initialised."
      */
     void setSpeed(int speed);
 
     /**
      * Sets the station where the train starts at the start of the system
      *
-     * @param startStation Station *: station where the tram starts form
-     * @REQUIRE properlyInitialized(), "Station was not properly initialised."
+     * @param startStation TramStop *: station where the tram starts form
+     * @REQUIRE properlyInitialized(), "TramStop was not properly initialised."
      */
-    void setStartStation(Station *startStation);
+    void setStartStation(TramStop *startStation);
 
     /**
      * Moves the tram to the next station
      *
      * @param os std::ostream: where the output of moving the train is written to
-     * @REQUIRE properlyInitialized(), "Station was not properly initialised."
+     * @REQUIRE properlyInitialized(), "TramStop was not properly initialised."
      */
-    void drive(Station* destination, int length, std::ostream &os);
-private:
+    void drive(TramStop* destination, int length, std::ostream &os);
+
+protected:
+    // Constructor
+    Tram();
+
     friend std::ostream &operator<<(std::ostream &os, const Tram &tram);
     int tramNumber;
     int speed;
-    Station *startStation;
-    Station *currentStation;
+    TramStop *startStation;
+    TramStop *currentStation;
     Tram* _initCheck;
+};
+
+class PCC : public Tram {
+    // Constructor
+    PCC(int tramNumber, TramStop *startStation);
+
+    // Destructor
+    ~PCC();
+};
+
+class Albatros : public Tram {
+    // Constructor
+    Albatros(int tramNumber, TramStop *startStation);
+
+    // Destructor
+    ~Albatros();
+};
+
+class Stadslijner : public Tram {
+    // Constructor
+    Stadslijner(int tramNumber, TramStop *startStation);
+
+    // Destructor
+    ~Stadslijner();
 };
 
 

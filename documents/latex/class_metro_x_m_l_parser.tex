@@ -20,7 +20,7 @@ bool \mbox{\hyperlink{class_metro_x_m_l_parser_ac27b8f60094f7639e6f899d59fa81dae
 \item 
 const std\+::vector$<$ \mbox{\hyperlink{class_tram}{Tram}} $\ast$ $>$ \& \mbox{\hyperlink{class_metro_x_m_l_parser_a1accc9f06826252fe8578c760886603d}{get\+Trams}} () const
 \item 
-const std\+::vector$<$ \mbox{\hyperlink{class_station}{Station}} $\ast$ $>$ \& \mbox{\hyperlink{class_metro_x_m_l_parser_a9ab4a3a046b4f9e403ad7b54ff047dd7}{get\+Stations}} () const
+const std\+::vector$<$ \mbox{\hyperlink{class_station}{TramStop}} $\ast$ $>$ \& \mbox{\hyperlink{class_metro_x_m_l_parser_a9ab4a3a046b4f9e403ad7b54ff047dd7}{get\+Stations}} () const
 \item 
 const std\+::vector$<$ \mbox{\hyperlink{class_line}{Line}} $\ast$ $>$ \& \mbox{\hyperlink{class_metro_x_m_l_parser_aa71bccc50d1a1d36aefa0ca1cbc8453f}{get\+Lines}} () const
 \end{DoxyCompactItemize}
@@ -71,7 +71,7 @@ a vector with all the stations of the system
 \index{MetroXMLParser@{MetroXMLParser}!getStations@{getStations}}
 \index{getStations@{getStations}!MetroXMLParser@{MetroXMLParser}}
 \doxysubsubsection{\texorpdfstring{getStations()}{getStations()}}
-{\footnotesize\ttfamily const std\+::vector$<$ \mbox{\hyperlink{class_station}{Station}} $\ast$ $>$ \& Metro\+XMLParser\+::get\+Stations (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily const std\+::vector$<$ \mbox{\hyperlink{class_station}{TramStop}} $\ast$ $>$ \& Metro\+XMLParser\+::get\+Stations (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 Gets a vector with all the stations of the system
 
@@ -104,7 +104,7 @@ Returns properly\+Parser bool
 {\footnotesize\ttfamily bool Metro\+XMLParser\+::parse (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename }\end{DoxyParamCaption})}
 
 Parses the filename ~\newline
- Creates (\mbox{\hyperlink{class_station}{Station}} + \mbox{\hyperlink{class_tram}{Tram}}) Objects who are not completely initialised ~\newline
+ Creates (\mbox{\hyperlink{class_station}{TramStop}} + \mbox{\hyperlink{class_tram}{Tram}}) Objects who are not completely initialised ~\newline
  Creates 2 maps with content to init these objects completely
 
 @\+REQUIRE properly\+Initialized(), \char`\"{}\+Metro\+XMLParser was not initialized when calling parse\char`\"{} 

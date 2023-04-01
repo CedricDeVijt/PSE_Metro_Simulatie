@@ -5,7 +5,7 @@
 #include "iostream"
 #include "Track.h"
 #include "Tram.h"
-#include "Station.h"
+#include "TramStop.h"
 #include "Logger.h"
 #include "algorithm"
 #include "sstream"
@@ -62,13 +62,13 @@ public:
     int getLineNumber() const;
 
     /**
-     * Adds a Station to the Line \n
+     * Adds a TramStop to the Line \n
      * If the station is already in the Line, it does not get added again
      *
      * @REQUIRE properlyInitialised(), "The line was not properly initialised."
-     * @param station is the Station that needs to get added
+     * @param station is the TramStop that needs to get added
      */
-    void addStation(Station *station);
+    void addStation(TramStop *station);
 
     /**
      * Verifies a Line
@@ -81,41 +81,41 @@ public:
     bool verify(std::ostream &errorStream);
 
     /**
-     * Returns the next Station* according to the connections
+     * Returns the next TramStop* according to the connections
      *
      * @REQUIRE properlyInitialised(), "The line was not properly initialised."
-     * @param station is the Station you want information from
-     * @return @b Station*: to the next Station
+     * @param station is the TramStop you want information from
+     * @return @b TramStop*: to the next TramStop
      */
-    Station* getNext(Station *station);
+    TramStop* getNext(TramStop *station);
 
     /**
-     * Returns the previous Station* according to the connections
+     * Returns the previous TramStop* according to the connections
      *
      * @REQUIRE properlyInitialised(), "The line was not properly initialised."
-     * @param station is the Station you want information from
-     * @return @b Station*: to the previous Station
+     * @param station is the TramStop you want information from
+     * @return @b TramStop*: to the previous TramStop
      */
-    Station* getPrev(Station *station);
+    TramStop* getPrev(TramStop *station);
 
     /**
      * Returns the length of a track between two Stations
      *
      * @REQUIRE properlyInitialised(), "The line was not properly initialised."
-     * @param start is a Station* to the start of the track
-     * @param end is a Station* to the end of the track
+     * @param start is a TramStop* to the start of the track
+     * @param end is a TramStop* to the end of the track
      * @return @b int: length of the track
      */
-    int getTrackLength(Station *start, Station *end);
+    int getTrackLength(TramStop *start, TramStop *end);
 
     /**
-     * Returns a Station* to a Station which has the given name
+     * Returns a TramStop* to a TramStop which has the given name
      *
      * @REQUIRE properlyInitialised(), "The line was not properly initialised."
-     * @param name is the name of the demanded Station
-     * @return @b Station*: to the demanded Station, if the Station does not exist on this line return NULL
+     * @param name is the name of the demanded TramStop
+     * @return @b TramStop*: to the demanded TramStop, if the TramStop does not exist on this line return NULL
      */
-    Station* getStation(const std::string &name);
+    TramStop* getStation(const std::string &name);
 
     /**
      * Creates a connection between two Stations
@@ -128,11 +128,11 @@ public:
     void connect(const std::string &start, const std::string &end, std::ostream &errorStream);
 
     /**
-     * Deploys a tram to the given Station with the StationName
+     * Deploys a tram to the given TramStop with the StationName
      *
      * @REQUIRE properlyInitialised(), "The line was not properly initialised."
      * @param newTram is the Tram that gets deployed
-     * @param stationName is the name of a Station Corresponding to where the tram gets deployed to
+     * @param stationName is the name of a TramStop Corresponding to where the tram gets deployed to
      * @param errorStream is the stream errors get output to
      */
     void deployTram(Tram* newTram, const std::string &stationName, std::ostream &errorStream);
@@ -146,7 +146,7 @@ public:
     operator std::string();
 private:
     int lineNumber;
-    std::vector<Station*> stations;
+    std::vector<TramStop*> stations;
     std::vector<Track*> tracks;
     std::vector<Tram*> trams;
     Line* _initCheck;

@@ -1,28 +1,28 @@
 #include <cstdlib>
 #include <sstream>
-#include "Station.h"
+#include "TramStop.h"
 #include "Track.h"
 #include "DesignByContract.h"
 
-Station::Station(const std::string &name) : name(name) {
+TramStop::TramStop(const std::string &name) : name(name) {
     _initCheck = this;
     ENSURE(properlyInitialized(), "constructor must end in properlyInitialized state");
 }
 
-Station::~Station() {
-    REQUIRE(properlyInitialized(), "Station was not properly initialised.");
+TramStop::~TramStop() {
+    REQUIRE(properlyInitialized(), "TramStop was not properly initialised.");
 }
 
-std::ostream &operator<<(std::ostream &os, const Station &station) {
-    return os << "Station: " << station.getName();
+std::ostream &operator<<(std::ostream &os, const TramStop &station) {
+    return os << "TramStop: " << station.getName();
 }
 
-const std::string &Station::getName() const {
-    REQUIRE(properlyInitialized(), "Station was not properly initialised.");
+const std::string &TramStop::getName() const {
+    REQUIRE(properlyInitialized(), "TramStop was not properly initialised.");
     return name;
 }
-bool Station::properlyInitialized() const{ return _initCheck == this; }
+bool TramStop::properlyInitialized() const{ return _initCheck == this; }
 
-bool Station::operator<(const Station &rhs) const {
+bool TramStop::operator<(const TramStop &rhs) const {
     return name < rhs.name;
 }

@@ -93,7 +93,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>properlyInitialized</
 <tr class="separator:ac27b8f60094f7639e6f899d59fa81dae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1accc9f06826252fe8578c760886603d"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="class_tram.html">Tram</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_metro_x_m_l_parser.html#a1accc9f06826252fe8578c760886603d">getTrams</a> () const</td></tr>
 <tr class="separator:a1accc9f06826252fe8578c760886603d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ab4a3a046b4f9e403ad7b54ff047dd7"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="class_station.html">Station</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_metro_x_m_l_parser.html#a9ab4a3a046b4f9e403ad7b54ff047dd7">getStations</a> () const</td></tr>
+<tr class="memitem:a9ab4a3a046b4f9e403ad7b54ff047dd7"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="class_station.html">TramStop</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_metro_x_m_l_parser.html#a9ab4a3a046b4f9e403ad7b54ff047dd7">getStations</a> () const</td></tr>
 <tr class="separator:a9ab4a3a046b4f9e403ad7b54ff047dd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa71bccc50d1a1d36aefa0ca1cbc8453f"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="class_line.html">Line</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_metro_x_m_l_parser.html#aa71bccc50d1a1d36aefa0ca1cbc8453f">getLines</a> () const</td></tr>
 <tr class="separator:aa71bccc50d1a1d36aefa0ca1cbc8453f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -199,7 +199,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>properlyInitialized</
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const std::vector&lt; <a class="el" href="class_station.html">Station</a> * &gt; &amp; MetroXMLParser::getStations </td>
+          <td class="memname">const std::vector&lt; <a class="el" href="class_station.html">TramStop</a> * &gt; &amp; MetroXMLParser::getStations </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -265,7 +265,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>properlyInitialized</
       </table>
 </div><div class="memdoc">
 <p>Parses the filename <br  />
- Creates (<a class="el" href="class_station.html">Station</a> + <a class="el" href="class_tram.html">Tram</a>) Objects who are not completely initialised <br  />
+ Creates (<a class="el" href="class_station.html">TramStop</a> + <a class="el" href="class_tram.html">Tram</a>) Objects who are not completely initialised <br  />
  Creates 2 maps with content to init these objects completely</p>
 <p>@REQUIRE properlyInitialized(), "MetroXMLParser was not initialized when calling parse" </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">

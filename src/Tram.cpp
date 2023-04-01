@@ -2,8 +2,10 @@
 #include <sstream>
 #include "DesignByContract.h"
 
-Tram::Tram(int tramNumber, int speed, Station *startStation) : tramNumber(tramNumber), speed(speed),
-                                                           startStation(startStation), currentStation(startStation) {
+Tram::Tram() : tramNumber(), speed(), startStation(), currentStation(), _initCheck() {}
+
+Tram::Tram(int tramNumber, int speed, TramStop *startStation) : tramNumber(tramNumber), speed(speed),
+                                                                startStation(startStation), currentStation(startStation) {
     _initCheck = this;
     ENSURE(properlyInitialized(), "constructor must end in properlyInitialized state");
 }
@@ -22,7 +24,7 @@ void Tram::setSpeed(int speed_) {
     Tram::speed = speed_;
 }
 
-Station *Tram::getStartStation() const {
+TramStop *Tram::getStartStation() const {
     return startStation;
 }
 
@@ -31,11 +33,11 @@ int Tram::getTramNumber() const {
     return tramNumber;
 }
 
-Station *Tram::getCurrentStation() const {
+TramStop *Tram::getCurrentStation() const {
     return currentStation;
 }
 
-void Tram::setStartStation(Station *startStation_) {
+void Tram::setStartStation(TramStop *startStation_) {
     REQUIRE(properlyInitialized(), "Tram was not properly initialised.");
     Tram::startStation = startStation_;
     currentStation = startStation_;
@@ -48,7 +50,7 @@ std::ostream &operator<<(std::ostream &os, const Tram &tram) {
 Tram::operator std::string() {
     REQUIRE(properlyInitialized(), "Tram was not properly initialised.");
     std::ostringstream output;
-    output << "Tram " << this->tramNumber << " in Station " << this->getCurrentStation()->getName();
+    output << "Tram " << this->tramNumber << " in TramStop " << this->getCurrentStation()->getName();
     std::string outputString  = output.str();
     return outputString;
 }
@@ -57,10 +59,37 @@ bool Tram::properlyInitialized() const {
     return _initCheck == this;
 }
 
-void Tram::drive(Station *destination, int length, std::ostream &os) {
+void Tram::drive(TramStop *destination, int length, std::ostream &os) {
     os << *this << " reed van " << *currentStation << " naar ";
 
     currentStation = destination;
 
     os << *currentStation << "." << std::endl;
+}
+
+PCC::PCC(int tramNumber, TramStop *startStation) {
+    speed = 40;
+    Tram::tramNumber = tramNumber;
+    Tram::startStation = startStation;
+
+    _initCheck = this;
+    ENSURE(properlyInitialized(), "constructor must end in properlyInitialized state");
+}
+
+Albatros::Albatros(int tramNumber, TramStop *startStation) {
+    speed = 70;
+    Tram::tramNumber = tramNumber;
+    Tram::startStation = startStation;
+
+    _initCheck = this;
+    ENSURE(properlyInitialized(), "constructor must end in properlyInitialized state");
+}
+
+Stadslijner::Stadslijner(int tramNumber, TramStop *startStation) {
+    speed = 70;
+    Tram::tramNumber = tramNumber;
+    Tram::startStation = startStation;
+
+    _initCheck = this;
+    ENSURE(properlyInitialized(), "constructor must end in properlyInitialized state");
 }

@@ -1,7 +1,7 @@
 #ifndef PSE_METRO_SIMULATIE_TRACK_H
 #define PSE_METRO_SIMULATIE_TRACK_H
 
-class Station;
+class TramStop;
 
 /**
  * Object that represents a track for a metro
@@ -14,7 +14,7 @@ public:
      * @param begin is the beginstation of the Track
      * @param anEnd is the endStation of the Track
      */
-    Track(Station *begin, Station *anEnd, const int &length);
+    Track(TramStop *begin, TramStop *anEnd, const int &length);
 
     /**
      * Destructs a Track object
@@ -27,22 +27,22 @@ public:
 
     /**
      * Gets the station at the beginning of the track
-     * @return Station* to the station at the beginning of the track
+     * @return TramStop* to the station at the beginning of the track
      * @REQUIRE properlyInitialized(), "Track was not properly initialised."
      */
-    Station *getBegin() const;
+    TramStop *getBegin() const;
 
     /**
      * Gets the station at the end of the track
-     * @return Station* to the station at the end of the track
+     * @return TramStop* to the station at the end of the track
      * @REQUIRE properlyInitialized(), "Track was not properly initialised."
      */
-    Station *getAnEnd() const;
+    TramStop *getAnEnd() const;
 
     int getLength() const;
 private:
-    Station *begin;
-    Station *end;
+    TramStop *begin;
+    TramStop *end;
     int length;
     Track* _initCheck;
 };

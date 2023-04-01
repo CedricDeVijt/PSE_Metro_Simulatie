@@ -28,7 +28,7 @@
 ### MetroXMLParser
 - [x] Properly initialized (_initCheck)
 - [ ] test x
-### Station
+### TramStop
 - [x] Properly initialized (_initCheck)
 - [ ] test x
 ### Track

@@ -1,15 +1,15 @@
-\hypertarget{class_station}{}\doxysection{Station Class Reference}
-\label{class_station}\index{Station@{Station}}
+\hypertarget{class_station}{}\doxysection{TramStop Class Reference}
+\label{class_station}\index{TramStop@{TramStop}}
 
 
-{\ttfamily \#include $<$Station.\+h$>$}
+{\ttfamily \#include $<$TramStop.\+h$>$}
 
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_station_a56d9262e165ef487d7a93d5d7994dc57}{Station}} (const std\+::string \&name, \mbox{\hyperlink{class_track}{Track}} $\ast$next\+Track, \mbox{\hyperlink{class_track}{Track}} $\ast$prev\+Track, int line\+Number)
+\mbox{\hyperlink{class_station_a56d9262e165ef487d7a93d5d7994dc57}{TramStop}} (const std\+::string \&name, \mbox{\hyperlink{class_track}{Track}} $\ast$next\+Track, \mbox{\hyperlink{class_track}{Track}} $\ast$prev\+Track, int line\+Number)
 \item 
-\mbox{\hyperlink{class_station_a00434e79e8ee7f4ebd6d3b631dde5ac0}{$\sim$\+Station}} ()
+\mbox{\hyperlink{class_station_a00434e79e8ee7f4ebd6d3b631dde5ac0}{$\sim$\+TramStop}} ()
 \item 
 \mbox{\Hypertarget{class_station_a18e2c82e7b318cd7d0fb49a579a24618}\label{class_station_a18e2c82e7b318cd7d0fb49a579a24618}} 
 bool {\bfseries properly\+Initialized} () const
@@ -24,15 +24,15 @@ const std\+::string \& \mbox{\hyperlink{class_station_a67a42e3b29edb826b50cdb4a0
 \item 
 int \mbox{\hyperlink{class_station_a4851cd35d9fafc3d44a737c256fbcb3f}{get\+Line\+Number}} () const
 \item 
-void \mbox{\hyperlink{class_station_ac5d62d04f5531d092dfc36777b8fc11f}{set\+Next\+Track}} (\mbox{\hyperlink{class_station}{Station}} $\ast$next\+Station)
+void \mbox{\hyperlink{class_station_ac5d62d04f5531d092dfc36777b8fc11f}{set\+Next\+Track}} (\mbox{\hyperlink{class_station}{TramStop}} $\ast$next\+TramStop)
 \item 
-void \mbox{\hyperlink{class_station_a64c7e05676ae7dabb73b6b5d24aaf508}{set\+Prev\+Track}} (\mbox{\hyperlink{class_station}{Station}} $\ast$prev\+Station)
+void \mbox{\hyperlink{class_station_a64c7e05676ae7dabb73b6b5d24aaf508}{set\+Prev\+Track}} (\mbox{\hyperlink{class_station}{TramStop}} $\ast$prev\+TramStop)
 \end{DoxyCompactItemize}
 \doxysubsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{class_station_a21074478888243d4fbfb72ab79cb290c}\label{class_station_a21074478888243d4fbfb72ab79cb290c}} 
-std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, const \mbox{\hyperlink{class_station}{Station}} \&station)
+std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, const \mbox{\hyperlink{class_station}{TramStop}} \&station)
 \end{DoxyCompactItemize}
 
 
@@ -41,12 +41,12 @@ Object that represents a metro station that has a name, tracknumber and tracks
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{class_station_a56d9262e165ef487d7a93d5d7994dc57}\label{class_station_a56d9262e165ef487d7a93d5d7994dc57}} 
-\index{Station@{Station}!Station@{Station}}
-\index{Station@{Station}!Station@{Station}}
-\doxysubsubsection{\texorpdfstring{Station()}{Station()}}
-{\footnotesize\ttfamily Station\+::\+Station (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{\mbox{\hyperlink{class_track}{Track}} $\ast$}]{next\+Track,  }\item[{\mbox{\hyperlink{class_track}{Track}} $\ast$}]{prev\+Track,  }\item[{int}]{line\+Number }\end{DoxyParamCaption})}
+\index{TramStop@{TramStop}!TramStop@{TramStop}}
+\index{TramStop@{TramStop}!TramStop@{TramStop}}
+\doxysubsubsection{\texorpdfstring{TramStop()}{TramStop()}}
+{\footnotesize\ttfamily TramStop\+::\+TramStop (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{\mbox{\hyperlink{class_track}{Track}} $\ast$}]{next\+Track,  }\item[{\mbox{\hyperlink{class_track}{Track}} $\ast$}]{prev\+Track,  }\item[{int}]{line\+Number }\end{DoxyParamCaption})}
 
-Initializes \mbox{\hyperlink{class_station}{Station}} object
+Initializes \mbox{\hyperlink{class_station}{TramStop}} object
 
 
 \begin{DoxyParams}{Parameters}
@@ -56,103 +56,103 @@ Initializes \mbox{\hyperlink{class_station}{Station}} object
 \hline
 {\em prev\+Track} & is a pointer to the previous \mbox{\hyperlink{class_track}{Track}} of the station \\
 \hline
-{\em line\+Number} & is the Number of The line of the \mbox{\hyperlink{class_station}{Station}} @\+ENSURE properly\+Initialized(), \char`\"{}constructor must end in properly\+Initialized state\char`\"{} \\
+{\em line\+Number} & is the Number of The line of the \mbox{\hyperlink{class_station}{TramStop}} @\+ENSURE properly\+Initialized(), \char`\"{}constructor must end in properly\+Initialized state\char`\"{} \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{class_station_a00434e79e8ee7f4ebd6d3b631dde5ac0}\label{class_station_a00434e79e8ee7f4ebd6d3b631dde5ac0}} 
-\index{Station@{Station}!````~Station@{$\sim$Station}}
-\index{````~Station@{$\sim$Station}!Station@{Station}}
-\doxysubsubsection{\texorpdfstring{$\sim$Station()}{~Station()}}
-{\footnotesize\ttfamily Station\+::$\sim$\+Station (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+\index{TramStop@{TramStop}!````TramStopp@{$\sim$TramStop}}
+\index{````TramStopp@{$\sim$TramStop}!TramStop@{TramStop}}
+\doxysubsubsection{\texorpdfstring{$\sim$TramStop()}{TramStopp()}}
+{\footnotesize\ttfamily TramStop\+::$\sim$\+TramStop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Destructs a \mbox{\hyperlink{class_station}{Station}} object
+Destructs a \mbox{\hyperlink{class_station}{TramStop}} object
 
-@\+REQUIRE properly\+Initialized(), \char`\"{}\+Station was not properly initialised.\char`\"{} 
+@\+REQUIRE properly\+Initialized(), \char`\"{}\+TramStop was not properly initialised.\char`\"{}
 
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{class_station_a4851cd35d9fafc3d44a737c256fbcb3f}\label{class_station_a4851cd35d9fafc3d44a737c256fbcb3f}} 
-\index{Station@{Station}!getLineNumber@{getLineNumber}}
-\index{getLineNumber@{getLineNumber}!Station@{Station}}
+\index{TramStop@{TramStop}!getLineNumber@{getLineNumber}}
+\index{getLineNumber@{getLineNumber}!TramStop@{TramStop}}
 \doxysubsubsection{\texorpdfstring{getLineNumber()}{getLineNumber()}}
-{\footnotesize\ttfamily int Station\+::get\+Line\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily int TramStop\+::get\+Line\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 Gives the line number of the station
 
 \begin{DoxyReturn}{Returns}
-{\bfseries{int\+:}} the line number @\+REQUIRE properly\+Initialized(), \char`\"{}\+Station was not properly initialised.\char`\"{} 
+{\bfseries{int\+:}} the line number @\+REQUIRE properly\+Initialized(), \char`\"{}\+TramStop was not properly initialised.\char`\"{}
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_station_a67a42e3b29edb826b50cdb4a0db2bef1}\label{class_station_a67a42e3b29edb826b50cdb4a0db2bef1}} 
-\index{Station@{Station}!getName@{getName}}
-\index{getName@{getName}!Station@{Station}}
+\index{TramStop@{TramStop}!getName@{getName}}
+\index{getName@{getName}!TramStop@{TramStop}}
 \doxysubsubsection{\texorpdfstring{getName()}{getName()}}
-{\footnotesize\ttfamily const std\+::string \& Station\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily const std\+::string \& TramStop\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 Gives the name of the station
 
 \begin{DoxyReturn}{Returns}
-{\bfseries{string\+:}} name of the station @\+REQUIRE properly\+Initialized(), \char`\"{}\+Station was not properly initialised.\char`\"{} 
+{\bfseries{string\+:}} name of the station @\+REQUIRE properly\+Initialized(), \char`\"{}\+TramStop was not properly initialised.\char`\"{}
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_station_a7d3ca7491a5b7fc76eda516dcee235df}\label{class_station_a7d3ca7491a5b7fc76eda516dcee235df}} 
-\index{Station@{Station}!getNextTrack@{getNextTrack}}
-\index{getNextTrack@{getNextTrack}!Station@{Station}}
+\index{TramStop@{TramStop}!getNextTrack@{getNextTrack}}
+\index{getNextTrack@{getNextTrack}!TramStop@{TramStop}}
 \doxysubsubsection{\texorpdfstring{getNextTrack()}{getNextTrack()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_track}{Track}} $\ast$ Station\+::get\+Next\+Track (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_track}{Track}} $\ast$ TramStop\+::get\+Next\+Track (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 Gives a pointer to the next track of the station
 
 \begin{DoxyReturn}{Returns}
-{\bfseries{Track$\ast$}}\+: pointer to the next track @\+REQUIRE properly\+Initialized(), \char`\"{}\+Station was not properly initialised.\char`\"{} 
+{\bfseries{Track$\ast$}}\+: pointer to the next track @\+REQUIRE properly\+Initialized(), \char`\"{}\+TramStop was not properly initialised.\char`\"{}
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_station_aab26fa92839c0c54e07718639a988b45}\label{class_station_aab26fa92839c0c54e07718639a988b45}} 
-\index{Station@{Station}!getPrevTrack@{getPrevTrack}}
-\index{getPrevTrack@{getPrevTrack}!Station@{Station}}
+\index{TramStop@{TramStop}!getPrevTrack@{getPrevTrack}}
+\index{getPrevTrack@{getPrevTrack}!TramStop@{TramStop}}
 \doxysubsubsection{\texorpdfstring{getPrevTrack()}{getPrevTrack()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_track}{Track}} $\ast$ Station\+::get\+Prev\+Track (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_track}{Track}} $\ast$ TramStop\+::get\+Prev\+Track (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 Gives a pointer to the previous track of the station
 
 \begin{DoxyReturn}{Returns}
-{\bfseries{Track$\ast$}}\+: pointer to the previous track @\+REQUIRE properly\+Initialized(), \char`\"{}\+Station was not properly initialised.\char`\"{} 
+{\bfseries{Track$\ast$}}\+: pointer to the previous track @\+REQUIRE properly\+Initialized(), \char`\"{}\+TramStop was not properly initialised.\char`\"{}
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_station_af0f1ca37e88347d21e069940399e107c}\label{class_station_af0f1ca37e88347d21e069940399e107c}} 
-\index{Station@{Station}!operator std::string@{operator std::string}}
-\index{operator std::string@{operator std::string}!Station@{Station}}
+\index{TramStop@{TramStop}!operator std::string@{operator std::string}}
+\index{operator std::string@{operator std::string}!TramStop@{TramStop}}
 \doxysubsubsection{\texorpdfstring{operator std::string()}{operator std::string()}}
-{\footnotesize\ttfamily Station\+::operator std\+::string (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily TramStop\+::operator std\+::string (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 Converts \mbox{\hyperlink{class_track}{Track}} into a string
 
-@\+REQUIRE properly\+Initialized(), \char`\"{}\+Station was not properly initialised.\char`\"{} \mbox{\Hypertarget{class_station_ac5d62d04f5531d092dfc36777b8fc11f}\label{class_station_ac5d62d04f5531d092dfc36777b8fc11f}} 
-\index{Station@{Station}!setNextTrack@{setNextTrack}}
-\index{setNextTrack@{setNextTrack}!Station@{Station}}
+@\+REQUIRE properly\+Initialized(), \char`\"{}\+TramStop was not properly initialised.\char`\"{} \mbox{\Hypertarget{class_station_ac5d62d04f5531d092dfc36777b8fc11f}\label{class_station_ac5d62d04f5531d092dfc36777b8fc11f}}
+\index{TramStop@{TramStop}!setNextTrack@{setNextTrack}}
+\index{setNextTrack@{setNextTrack}!TramStop@{TramStop}}
 \doxysubsubsection{\texorpdfstring{setNextTrack()}{setNextTrack()}}
-{\footnotesize\ttfamily void Station\+::set\+Next\+Track (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_station}{Station}} $\ast$}]{next\+Station }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void TramStop\+::set\+Next\+Track (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_station}{TramStop}} $\ast$}]{next\+TramStop }\end{DoxyParamCaption})}
 
-Sets the next \mbox{\hyperlink{class_track}{Track}} given by a next\+Station ~\newline
-The end of the \mbox{\hyperlink{class_track}{Track}} is the next\+Station, Begin is the \mbox{\hyperlink{class_station}{Station}} itself
+Sets the next \mbox{\hyperlink{class_track}{Track}} given by a next\+TramStop ~\newline
+The end of the \mbox{\hyperlink{class_track}{Track}} is the next\+TramStop, Begin is the \mbox{\hyperlink{class_station}{TramStop}} itself
 
 
 \begin{DoxyParams}{Parameters}
-{\em next\+Station} & is the next station given to the station @\+REQUIRE properly\+Initialized(), \char`\"{}\+Station was not properly initialised.\char`\"{} \\
+{\em next\+TramStop} & is the next station given to the station @\+REQUIRE properly\+Initialized(), \char`\"{}\+TramStop was not properly initialised.\char`\"{} \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{class_station_a64c7e05676ae7dabb73b6b5d24aaf508}\label{class_station_a64c7e05676ae7dabb73b6b5d24aaf508}} 
-\index{Station@{Station}!setPrevTrack@{setPrevTrack}}
-\index{setPrevTrack@{setPrevTrack}!Station@{Station}}
+\index{TramStop@{TramStop}!setPrevTrack@{setPrevTrack}}
+\index{setPrevTrack@{setPrevTrack}!TramStop@{TramStop}}
 \doxysubsubsection{\texorpdfstring{setPrevTrack()}{setPrevTrack()}}
-{\footnotesize\ttfamily void Station\+::set\+Prev\+Track (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_station}{Station}} $\ast$}]{prev\+Station }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void TramStop\+::set\+Prev\+Track (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_station}{TramStop}} $\ast$}]{prev\+TramStop }\end{DoxyParamCaption})}
 
-Sets the previous \mbox{\hyperlink{class_track}{Track}} given by a prev\+Station ~\newline
-The end of the \mbox{\hyperlink{class_track}{Track}} is the \mbox{\hyperlink{class_station}{Station}} itself, Begin is the Prevstation
+Sets the previous \mbox{\hyperlink{class_track}{Track}} given by a prev\+TramStop ~\newline
+The end of the \mbox{\hyperlink{class_track}{Track}} is the \mbox{\hyperlink{class_station}{TramStop}} itself, Begin is the Prevstation
 
 
 \begin{DoxyParams}{Parameters}
-{\em prev\+Station} & is the previous station given to the station @\+REQUIRE properly\+Initialized(), \char`\"{}\+Station was not properly initialised.\char`\"{} \\
+{\em prev\+TramStop} & is the previous station given to the station @\+REQUIRE properly\+Initialized(), \char`\"{}\+TramStop was not properly initialised.\char`\"{} \\
 \hline
 \end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Station.\+h\item 
-Station.\+cpp\end{DoxyCompactItemize}
+TramStop.\+h\item
+TramStop.\+cpp\end{DoxyCompactItemize}
