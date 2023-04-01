@@ -4,19 +4,32 @@
 - [ ] Destructors voor elke klasse
 
 ## Use cases
-### Use case 1.1: Trams en stations inlezen
-- [x] Inlezen van het schema van het metro net
-- [ ] 2.1. [Onherkenbaar element] Foutboodschap + positioneer op volgende element in het be- stand ⇒ verdergaan vanaf stap 2
-- [ ] 2.2.[Ongeldige informatie] Foutboodschap + positioneer op volgende element in het be- stand ⇒ verdergaan vanaf stap 2
-- [ ] 3.[Inconsistent metronet] Foutboodschap ⇒ verdergaan vanaf stap 4
 
-### Use case 2.1: Simpele uitvoer (DONE)
-- [x] Gegevens naar document 
-### Use case 3.1: Rijden van trams
-- [x] Simuleren van rondrijdende trams op het metronet.
-### Use case 3.2: Automatische simulatie
-- [x] Simulatie automatisch laten lopen voor een gegeven tijd.
+### Case 1; Invoer
+-[ ] Use case 1.1: Trams en stations inlezen
+-[ ] Use case 1.2: Trams en stations met type inlezen
+-[ ] Use case 1.3: Trams met voertuignummers
+-[ ] Use case 1.4: Stations met meerdere sporen inlezen
 
+### Case 2: Uitvoer
+-[ ] Use case 2.2: Simpele uitvoer (herzien) 
+-[ ] Use case 2.3: Geavanceerde uitvoer 
+-[ ] Use case 2.4: Grafische 3D rendering
+
+### Case 3: Simulatie
+-[ ] Use case 3.1: Rijden van trams
+-[ ] Use case 3.2: Automatische simulatie (oude versie)
+-[ ] Use case 3.3: Automatische simulatie (herzien) Use case 3.4: Rijden van trams met type
+-[ ] Use case 3.5: Rijden van meerdere trams
+-[ ] Use case 3.6: Botspreventie
+-[ ] Use case 3.7: Defecten en reparaties
+-[ ] Use case 3.8: Reparatiekosten
+-[ ] Use case 3.9: Statistische verwerking simulatie
+
+### Case 4: Gebruikersinterface
+-[ ] Use case 4.1: GUI voor de simulatie
+-[ ] Use case 4.2: GUI voor routeplanner
+-[ ] Use case 4.3: GUI voor statistische gegevens
 
 
 ## Test
