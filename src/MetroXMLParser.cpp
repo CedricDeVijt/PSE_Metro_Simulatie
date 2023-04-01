@@ -60,7 +60,7 @@ void MetroXMLParser::parseStation(MetroSystem &system, TiXmlElement* stationElem
     int lineNr = atoi(p.first.c_str());
 
     system.addLine(lineNr);
-    system.addStation(new TramStop(name), lineNr);
+    system.addStation(new TramStop(name), lineNr, errorStream);
 }
 
 void MetroXMLParser::parseTram(MetroSystem &system, TiXmlElement* tramElem, std::ostream &errorStream) {
@@ -74,15 +74,28 @@ void MetroXMLParser::parseTram(MetroSystem &system, TiXmlElement* tramElem, std:
     if (!p.second) return;
     int lijnNr = atoi(p.first.c_str());
 
-    p = readKey(tramElem, "snelheid",errorStream);
-    if (!p.second) return;
-    int snelheid = atoi(tramElem->FirstChildElement("snelheid")->GetText());
-
     p = readKey(tramElem, "beginStation",errorStream);
     if (!p.second) return;
     std::string begin = p.first;
 
-    system.deployTram(new Tram(tramNr, snelheid, NULL), begin, lijnNr,errorStream);
+
+    p = readKey(tramElem, "type", errorStream);
+    if (!p.second) return;
+    std::string type = p.first;
+    Tram *newTram;
+    if (type=="PCC") {
+        newTram = new PCC(tramNr, NULL);
+    } else if (type=="Stadslijner") {
+        newTram = new Stadslijner(tramNr, NULL);
+    } else if (type=="Albatros") {
+        newTram = new Albatros(tramNr, NULL);
+    } else {
+        p = readKey(tramElem, "snelheid",errorStream);
+        if (!p.second) return;
+        int snelheid = atoi(tramElem->FirstChildElement("snelheid")->GetText());
+        newTram = new Tram(tramNr, snelheid, NULL);
+    }
+    system.deployTram(newTram, begin, lijnNr,errorStream);
 }
 
 void MetroXMLParser::parseConnection(MetroSystem &system, TiXmlElement *stationElem, std::ostream &errorStream) {
