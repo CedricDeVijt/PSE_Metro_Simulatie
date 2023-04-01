@@ -44,8 +44,14 @@ private:
     TramStop* _initCheck;
 };
 
-class Metrostation : public TramStop{};
+class Metrostation : public TramStop{
+public:
+    explicit Metrostation(const std::string &name);
+};
 
-class Halte : public TramStop{};
+class Halte : public TramStop{
+public:
+    explicit Halte(const std::string &name);
+};
 
 #endif //PSE_METRO_SIMULATIE_TRAMSTOP_H
