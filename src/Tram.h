@@ -114,7 +114,7 @@ class PCC : public Tram {
 
 class Albatros : public Tram {
     // Constructor
-    Albatros(int tramNumber, TramStop *startStation);
+    Albatros(int tramNumber, Metrostation *startStation);
 
     // Destructor
     ~Albatros();
@@ -122,7 +122,7 @@ class Albatros : public Tram {
 
 class Stadslijner : public Tram {
     // Constructor
-    Stadslijner(int tramNumber, TramStop *startStation);
+    Stadslijner(int tramNumber, Metrostation *startStation);
 
     // Destructor
     ~Stadslijner();

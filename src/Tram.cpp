@@ -76,7 +76,7 @@ PCC::PCC(int tramNumber, TramStop *startStation) {
     ENSURE(properlyInitialized(), "constructor must end in properlyInitialized state");
 }
 
-Albatros::Albatros(int tramNumber, TramStop *startStation) {
+Albatros::Albatros(int tramNumber, Metrostation *startStation) {
     speed = 70;
     Tram::tramNumber = tramNumber;
     Tram::startStation = startStation;
@@ -85,7 +85,7 @@ Albatros::Albatros(int tramNumber, TramStop *startStation) {
     ENSURE(properlyInitialized(), "constructor must end in properlyInitialized state");
 }
 
-Stadslijner::Stadslijner(int tramNumber, TramStop *startStation) {
+Stadslijner::Stadslijner(int tramNumber, Metrostation *startStation) {
     speed = 70;
     Tram::tramNumber = tramNumber;
     Tram::startStation = startStation;
