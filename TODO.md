@@ -7,7 +7,7 @@
 
 ### Case 1; Invoer
 -[X] Use case 1.1: Trams en stations inlezen
--[] Use case 1.2: Trams en stations met type inlezen
+-[ ] Use case 1.2: Trams en stations met type inlezen
 -[X] Use case 1.3: Trams met voertuignummers
 -[ ] Use case 1.4: Stations met meerdere sporen inlezen
 
