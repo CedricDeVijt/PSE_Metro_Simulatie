@@ -55,10 +55,6 @@ void MetroXMLParser::parseStation(MetroSystem &system, TiXmlElement* stationElem
     if (!p.second) return;
     std::string name = p.first;
 
-    p = readKey(stationElem, "spoorNr", errorStream);
-    if (!p.second) return;
-    int lineNr = atoi(p.first.c_str());
-
     p = readKey(stationElem, "type", errorStream);
     if (!p.second) return;
     std::string type = p.first;
@@ -72,8 +68,20 @@ void MetroXMLParser::parseStation(MetroSystem &system, TiXmlElement* stationElem
         return;
     }
 
-    system.addLine(lineNr);
-    system.addStation(newStop, lineNr, errorStream);
+    TiXmlElement *elements = stationElem->FirstChildElement();
+    while (elements) {
+        std::string elemName = elements->Value();
+        if (elemName=="SPOOR") {
+            p = readKey(elements, "spoorNr", errorStream);
+            if (!p.second) return;
+            int lineNr = atoi(p.first.c_str());
+
+            system.addLine(lineNr);
+            system.addStation(newStop, lineNr, errorStream);
+        }
+        elements = elements->NextSiblingElement();
+    }
+
 }
 
 void MetroXMLParser::parseTram(MetroSystem &system, TiXmlElement* tramElem, std::ostream &errorStream) {
@@ -90,7 +98,6 @@ void MetroXMLParser::parseTram(MetroSystem &system, TiXmlElement* tramElem, std:
     p = readKey(tramElem, "beginStation",errorStream);
     if (!p.second) return;
     std::string begin = p.first;
-
 
     p = readKey(tramElem, "type", errorStream);
     if (!p.second) return;
@@ -115,18 +122,25 @@ void MetroXMLParser::parseConnection(MetroSystem &system, TiXmlElement *stationE
     if (!p.second) return;
     std::string name = p.first;
 
-    p = readKey(stationElem, "volgende", errorStream);
-    if (!p.second) return;
-    std::string next = p.first;
+    TiXmlElement *elements = stationElem->FirstChildElement();
+    while (elements) {
+        std::string elemName = elements->Value();
+        if (elemName=="SPOOR") {
+            p = readKey(elements, "spoorNr", errorStream);
+            if (!p.second) return;
+            int lineNr = atoi(p.first.c_str());
 
-    p = readKey(stationElem, "vorige", errorStream);
-    if (!p.second) return;
-    std::string prev = p.first;
+            p = readKey(elements, "volgende", errorStream);
+            if (!p.second) return;
+            std::string next = p.first;
 
-    p = readKey(stationElem, "spoorNr", errorStream);
-    if (!p.second) return;
-    int lineNr = atoi(p.first.c_str());
+            p = readKey(elements, "vorige", errorStream);
+            if (!p.second) return;
+            std::string prev = p.first;
 
-    system.addConnection(name, next, lineNr, errorStream);
-    system.addConnection(prev, name, lineNr, errorStream);
+            system.addConnection(name, next, lineNr, errorStream);
+            system.addConnection(prev, name, lineNr, errorStream);
+        }
+        elements = elements->NextSiblingElement();
+    }
 }

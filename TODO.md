@@ -9,7 +9,7 @@
 -[X] Use case 1.1: Trams en stations inlezen
 -[X] Use case 1.2: Trams en stations met type inlezen
 -[X] Use case 1.3: Trams met voertuignummers
--[ ] Use case 1.4: Stations met meerdere sporen inlezen
+-[X] Use case 1.4: Stations met meerdere sporen inlezen
 
 ### Case 2: Uitvoer
 -[ ] Use case 2.2: Simpele uitvoer (herzien) 

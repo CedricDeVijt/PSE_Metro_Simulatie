@@ -17,11 +17,10 @@ void MetroSystemOutput::outputMetroSystem(MetroSystem *system, std::ostream &os)
 
     os << "--== TRAMS ==--\n";
 
-    for (int i = 0; i < lines.size(); i++) {
+    for (int i = 0; i < static_cast<int>(lines.size()); i++) {
         std::vector<Tram*> trams = lines[i]->getTrams();
-        for (int j = 0; j < trams.size(); j++) {
+        for (int j = 0; j < static_cast<int>(trams.size()); j++) {
             os << trams[j];
         }
     }
 }
-
