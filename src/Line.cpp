@@ -24,8 +24,16 @@ void Line::update(std::ostream &os) {
         Tram* tram = trams[i];
         TramStop *currentStation = tram->getCurrentStation();
         TramStop *next = getNext(currentStation);
+        while (!next->acceptsTramType(tram)) {
+            next = getNext(next);
+        }
         int length = getTrackLength(currentStation, next);
-        trams[i]->drive(next, length, os);
+        if (!next->isOccupied()) {
+            trams[i]->drive(next, length, os);
+        } else {
+            std::cout << "cant move\n";
+            std::cout << next->getName() << " is occupied!\n";
+        }
     }
 }
 
@@ -95,38 +103,6 @@ int Line::getTrackLength(TramStop *curr, TramStop *next) {
     return 0;
 }
 
-Line::operator std::string() {
-    REQUIRE(properlyInitialised(), "The line was not properly initialised.");
-    std::string output;
-
-    std::stringstream ss;
-    ss << lineNumber;
-    std::string lineNrStr = ss.str();
-    output += "Lijn " + lineNrStr + "\n\n";
-
-    std::vector<TramStop*>::iterator it = stations.begin();
-    while (it!=stations.end()) {
-        TramStop *station = *it;
-        output += "TramStop " + station->getName() + "\n";
-        output += "<- TramStop " + getPrev(station)->getName() + "\n";
-        output += "-> TramStop " + getNext(station)->getName() + "\n\n";
-        it++;
-    }
-
-    std::vector<Tram*>::iterator it1 = trams.begin();
-    while (it1!=trams.end()) {
-        Tram *tram = *it1;
-
-        std::stringstream ss1;
-        ss1 << tram->getTramNumber();
-        std::string tramNumStr = ss1.str();
-
-        output += "Tram " + tramNumStr + " in TramStop " + tram->getCurrentStation()->getName() + "\n\n";
-        it1++;
-    }
-    return output;
-}
-
 void Line::addStation(TramStop* station) {
     REQUIRE(properlyInitialised(), "The line was not properly initialised.");
     std::vector<TramStop*>::iterator it = stations.begin();
@@ -148,6 +124,7 @@ void Line::deployTram(Tram *newTram, const std::string &stationName, std::ostrea
         if (station->getName()==stationName) {
             trams.push_back(newTram);
             newTram->setStartStation(station);
+            station->setOccupied(true);
             return;
         }
         it++;

@@ -17,10 +17,10 @@
 -[ ] Use case 2.4: Grafische 3D rendering
 
 ### Case 3: Simulatie
--[ ] Use case 3.1: Rijden van trams 
+-[X] Use case 3.1: Rijden van trams 
 -[ ] Use case 3.3: Automatische simulatie (herzien)
 -[ ] Use case 3.4: Rijden van trams met type
--[ ] Use case 3.5: Rijden van meerdere trams
+-[X] Use case 3.5: Rijden van meerdere trams
 -[ ] Use case 3.6: Botspreventie
 -[ ] Use case 3.7: Defecten en reparaties
 -[ ] Use case 3.8: Reparatiekosten

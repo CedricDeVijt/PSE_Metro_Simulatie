@@ -7,11 +7,6 @@
             <volgende>B</volgende>
             <vorige>C</vorige>
         </SPOOR>
-        <SPOOR>
-            <spoorNr>21</spoorNr>
-            <volgende>C</volgende>
-            <vorige>B</vorige>
-        </SPOOR>
     </STATION>
     <STATION>
         <naam>B</naam>
@@ -20,11 +15,6 @@
             <spoorNr>12</spoorNr>
             <volgende>C</volgende>
             <vorige>A</vorige>
-        </SPOOR>
-        <SPOOR>
-            <spoorNr>21</spoorNr>
-            <volgende>A</volgende>
-            <vorige>C</vorige>
         </SPOOR>
     </STATION>
     <STATION>
@@ -35,11 +25,6 @@
             <volgende>A</volgende>
             <vorige>B</vorige>
         </SPOOR>
-        <SPOOR>
-            <spoorNr>21</spoorNr>
-            <volgende>B</volgende>
-            <vorige>A</vorige>
-        </SPOOR>
     </STATION>
     <TRAM>
         <lijnNr>12</lijnNr>
@@ -48,8 +33,8 @@
         <beginStation>A</beginStation>
     </TRAM>
     <TRAM>
-        <lijnNr>21</lijnNr>
-        <type>Albatros</type>
+        <lijnNr>12</lijnNr>
+        <type>PCC</type>
         <voertuigNr>2</voertuigNr>
         <beginStation>B</beginStation>
     </TRAM>
