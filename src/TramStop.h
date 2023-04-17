@@ -7,7 +7,7 @@
 class Track;
 
 /**
- * Object that represents a metro station that has a name, tracknumber and tracks
+ * Object that represents a metro station that has a name, track-number and tracks.
  */
 class TramStop {
 public:

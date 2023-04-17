@@ -1,26 +1,38 @@
 #include "MetroSystemOutput.h"
 
-MetroSystemOutput::MetroSystemOutput() {}
-
-void MetroSystemOutput::outputMetroSystem(MetroSystem *system, std::ostream &os) {
+void MetroSystemOutput::simpleSystemOutput(MetroSystem *system, std::ostream &os) {
     // Get stations
     std::vector<TramStop *> stations = system->getStations();
+    std::vector<Line *> lines = system->getLines();
 
     os << "--== STATIONS ==--\n";
+    // Loop over all stops
+    for (std::vector<TramStop*>::iterator it = stations.begin(); it != stations.end(); ++it) {
+        TramStop* stop = *it;
+        os << "= "+ stop->getName() + " =\n";
 
-    for (std::vector<TramStop *>::iterator it = stations.begin(); it != stations.end(); it++){
-        os << *it;
+        // Get all tracks
+        for (std::vector<Line *>::iterator lineIt = lines.begin(); lineIt != lines.end(); ++lineIt){
+            Line* line = *lineIt;
+            if (line->getNext(stop) != NULL){
+                os << "* Spoor " << line->getLineNumber() << ":\n";
+                os << "    -> " + line->getNext(stop)->getName() + "\n";
+                os << "    <- " + line->getPrev(stop)->getName() + "\n\n";
+            }
+        }
     }
 
     // Get Trams
-    std::vector<Line*> lines = system->getLines();
-
     os << "--== TRAMS ==--\n";
+    for (std::vector<Line *>::iterator lineIt = lines.begin(); lineIt != lines.end(); ++lineIt){
+        Line* line = *lineIt;
+        std::vector<Tram*> trams = line->getTrams();
+        for (std::vector<Tram *>::iterator tramIt = trams.begin(); tramIt != trams.end(); ++tramIt){
+            Tram* tram = *tramIt;
+            os << "Tram " << line->getLineNumber() << " nr " << tram->getTramNumber() << "\n";
 
-    for (int i = 0; i < static_cast<int>(lines.size()); i++) {
-        std::vector<Tram*> trams = lines[i]->getTrams();
-        for (int j = 0; j < static_cast<int>(trams.size()); j++) {
-            os << trams[j];
+
         }
     }
 }
+
