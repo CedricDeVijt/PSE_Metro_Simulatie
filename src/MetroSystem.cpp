@@ -67,18 +67,24 @@ std::string url_encode(const std::string &value) {
 void MetroSystem::createDotFile(std::ostream &os) {
     REQUIRE(properlyInitialized(), "Metrosimulation is not properly initialised.");
     std::stringstream stream;
+
+    std::vector<std::string> colors;
+    colors.push_back("red");
+    colors.push_back("green");
+    colors.push_back("blue");
+    colors.push_back("yellow");
     stream << "digraph system {" << std::endl;
     for (int i = 0; i < static_cast<int>(lines.size()); i++) {
         Line *l = lines[i];
         for (int j = 0; j < static_cast<int>(l->getTracks().size()); ++j) {
             Track *t = l->getTracks()[j];
-            stream << t->getAnEnd()->getName() << "->" << t->getBegin()->getName() << ";" << std::endl;
-            stream << t->getBegin()->getName()<< "->" <<  t->getAnEnd()->getName()<< ";" << std::endl;
+            stream << t->getAnEnd()->getName() << "->" << t->getBegin()->getName() << " [color=" << colors[i] << "];\n";
+            stream << t->getBegin()->getName()<< "->" <<  t->getAnEnd()->getName() << " [color=" << colors[i] << "];\n";
         }
         for (int j = 0; j < static_cast<int>(l->getTrams().size()); ++j) {
             Tram *tram = l->getTrams()[j];
-            stream << "tram" << tram->getTramNumber() << "->" << tram->getCurrentStation()->getName() << ";" << std::endl;
-            stream << "tram" << tram->getTramNumber() << "[label=\"Tram " << tram->getTramNumber() << "\", color=blue, shape=box];" << std::endl;
+            stream << "tram" << tram->getTramNumber() << "->" << tram->getCurrentStation()->getName() << ";\n";
+            stream << "tram" << tram->getTramNumber() << "[label=\"Tram " << tram->getTramNumber() << "\", color=" << colors[i] << ", shape=box];\n";
         }
     }
     stream << "}" << std::endl;
@@ -112,7 +118,6 @@ void MetroSystem::addStation(TramStop *newStation, const int &lineNumber, std::o
         }
         it1++;
     }
-
     std::vector<Line*>::iterator it = lines.begin();
     while (it != lines.end()) {
         Line* line = *it;

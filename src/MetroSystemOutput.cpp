@@ -24,4 +24,3 @@ void MetroSystemOutput::outputMetroSystem(MetroSystem *system, std::ostream &os)
         }
     }
 }
-

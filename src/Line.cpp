@@ -186,17 +186,13 @@ void Line::connect(const std::string &start, const std::string &end, std::ostrea
     } else {
         Track *newTrack = new Track(startStation, endStation, 0);
         std::vector<Track*>::iterator it = tracks.begin();
-        bool add = true;
         while (it != tracks.end()) {
             Track *track = *it;
             if (track->getBegin()==newTrack->getBegin() && track->getAnEnd()==newTrack->getAnEnd()){
-                add = false;
-                break;
+                return;
             }
             it++;
         }
-        if (add) {
-            tracks.push_back(newTrack);
-        }
+        tracks.push_back(newTrack);
     }
 }

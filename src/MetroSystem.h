@@ -6,7 +6,6 @@
 #include "TramStop.h"
 #include "DesignByContract.h"
 #include "Logger.h"
-
 /**
  * System that represents a real life metro system with trams, stations and tracks
  */
