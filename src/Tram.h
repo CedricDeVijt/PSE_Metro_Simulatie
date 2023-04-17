@@ -99,6 +99,7 @@ protected:
     friend std::ostream &operator<<(std::ostream &os, const Tram &tram);
     int tramNumber;
     int speed;
+    int repairCost;
     TramStop *startStation;
     TramStop *currentStation;
     Tram* _initCheck;

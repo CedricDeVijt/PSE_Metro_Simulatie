@@ -7,6 +7,7 @@ Tram::Tram() : tramNumber(), speed(), startStation(), currentStation(), _initChe
 Tram::Tram(int tramNumber, int speed, TramStop *startStation) : tramNumber(tramNumber), speed(speed),
                                                                 startStation(startStation), currentStation(startStation) {
     _initCheck = this;
+    repairCost = 0;
     ENSURE(properlyInitialized(), "constructor must end in properlyInitialized state");
 }
 
