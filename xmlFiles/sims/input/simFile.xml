@@ -1,26 +1,56 @@
 <METRONET>
     <STATION>
         <naam>A</naam>
-        <volgende>B</volgende>
-        <vorige>C</vorige>
-        <spoorNr>12</spoorNr>
+        <type>Metrostation</type>
+        <SPOOR>
+            <spoorNr>12</spoorNr>
+            <volgende>B</volgende>
+            <vorige>C</vorige>
+        </SPOOR>
+        <SPOOR>
+            <spoorNr>21</spoorNr>
+            <volgende>C</volgende>
+            <vorige>B</vorige>
+        </SPOOR>
     </STATION>
     <STATION>
         <naam>B</naam>
-        <volgende>C</volgende>
-        <vorige>A</vorige>
-        <spoorNr>12</spoorNr>
+        <type>Metrostation</type>
+        <SPOOR>
+            <spoorNr>12</spoorNr>
+            <volgende>C</volgende>
+            <vorige>A</vorige>
+        </SPOOR>
+        <SPOOR>
+            <spoorNr>21</spoorNr>
+            <volgende>A</volgende>
+            <vorige>C</vorige>
+        </SPOOR>
     </STATION>
     <STATION>
         <naam>C</naam>
-        <volgende>A</volgende>
-        <vorige>B</vorige>
-        <spoorNr>12</spoorNr>
+        <type>Metrostation</type>
+        <SPOOR>
+            <spoorNr>12</spoorNr>
+            <volgende>A</volgende>
+            <vorige>B</vorige>
+        </SPOOR>
+        <SPOOR>
+            <spoorNr>21</spoorNr>
+            <volgende>B</volgende>
+            <vorige>A</vorige>
+        </SPOOR>
     </STATION>
     <TRAM>
-        <voertuigNr>0</voertuigNr>
         <lijnNr>12</lijnNr>
-        <snelheid>60</snelheid>
+        <type>PCC</type>
+        <voertuigNr>1</voertuigNr>
         <beginStation>A</beginStation>
+    </TRAM>
+    <TRAM>
+        <lijnNr>21</lijnNr>
+        <type>Albatros</type>
+        <voertuigNr>2</voertuigNr>
+        <beginStation>B</beginStation>
     </TRAM>
 </METRONET>

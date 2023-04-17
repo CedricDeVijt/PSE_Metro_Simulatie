@@ -65,7 +65,7 @@ private:
      * @b string: containing the result of the key retrieve \n
      * @b bool: True if key retrieve is done, else False
      */
-    static std::pair<std::string, bool> readKey(TiXmlElement* elem, const std::string &key, std::ostream &errorStream);
+    static std::pair<std::string, bool> readKey(const TiXmlElement* elem, const std::string &key, std::ostream &errorStream);
 };
 
 #endif //PSE_METRO_SIMULATIE_XMLPARSER_H

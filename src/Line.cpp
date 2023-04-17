@@ -135,6 +135,7 @@ void Line::addStation(TramStop* station) {
         if (station1==station) {
             return;
         }
+        it++;
     }
     stations.push_back(station);
 }
