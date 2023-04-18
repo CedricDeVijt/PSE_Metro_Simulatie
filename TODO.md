@@ -12,8 +12,8 @@
 -[X] Use case 1.4: Stations met meerdere sporen inlezen
 
 ### Case 2: Uitvoer
--[ ] Use case 2.2: Simpele uitvoer (herzien) 
--[ ] Use case 2.3: Geavanceerde uitvoer 
+-[x] Use case 2.2: Simpele uitvoer (herzien) 
+-[x] Use case 2.3: Geavanceerde uitvoer 
 -[ ] Use case 2.4: Grafische 3D rendering
 
 ### Case 3: Simulatie
