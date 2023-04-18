@@ -118,6 +118,15 @@ public:
     TramStop* getStation(const std::string &name);
 
     /**
+     * Returns all stations of a line
+     *
+     * @REQUIRE properlyInitialised(), "The line was not properly initialised."
+     * @param name is the name of the demanded TramStop
+     * @return @b TramStop*: to the demanded TramStop, if the TramStop does not exist on this line return NULL
+     */
+    const std::vector<TramStop *> &getStations() const;
+
+    /**
      * Creates a connection between two Stations
      *
      * @REQUIRE properlyInitialised(), "The line was not properly initialised."

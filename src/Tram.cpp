@@ -68,6 +68,10 @@ void Tram::drive(TramStop *destination, int length, std::ostream &os) {
     os << *currentStation << "." << std::endl;
 }
 
+int Tram::getRepairCost() const {
+    return repairCost;
+}
+
 PCC::PCC(int tramNumber, TramStop *startStation) : Tram(tramNumber, 40, startStation) {}
 
 Albatros::Albatros(int tramNumber, Metrostation *startStation) : Tram(tramNumber, 70, startStation)  {}

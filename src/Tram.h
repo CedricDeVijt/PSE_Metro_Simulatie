@@ -69,6 +69,14 @@ public:
     TramStop *getCurrentStation() const;
 
     /**
+     * Gives the cost of the repairs of the tram.
+     *
+     * @return The cost in euro's of the repairs.
+     * @REQUIRE properlyInitialized(), "TramStop was not properly initialised."
+     */
+    int getRepairCost() const;
+
+    /**
      * Sets the speed of the tram
      *
      * @param speed int: speed of the tram

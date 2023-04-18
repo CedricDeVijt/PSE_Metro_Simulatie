@@ -196,3 +196,7 @@ void Line::connect(const std::string &start, const std::string &end, std::ostrea
         tracks.push_back(newTrack);
     }
 }
+
+const std::vector<TramStop *> &Line::getStations() const {
+    return stations;
+}
