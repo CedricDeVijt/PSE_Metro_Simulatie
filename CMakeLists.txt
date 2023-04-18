@@ -22,6 +22,7 @@ set(METRO_SOURCE_FILES
         src/Line.cpp
         src/MetroSystem.cpp
         src/Logger.h
+        src/MetroSystemOutput.cpp
         )
 
 set(TINY_XML_SOURCE_FILES
@@ -40,7 +41,7 @@ set(TEST_SOURCE_FILES
         tst/testf.cpp tst/TestOuput.cpp)
 
 # Create RELEASE target
-add_executable(main_executable src/main.cpp ${METRO_SOURCE_FILES}   ${TINY_XML_SOURCE_FILES} src/MetroSystemOutput.cpp src/MetroSystemOutput.h)
+add_executable(main_executable src/main.cpp ${METRO_SOURCE_FILES}   ${TINY_XML_SOURCE_FILES})
 
 # Create DEBUG target
 add_executable(testing_tool tst/main.cpp ${METRO_SOURCE_FILES}  ${TINY_XML_SOURCE_FILES} ${TEST_SOURCE_FILES})

@@ -108,6 +108,8 @@ protected:
     int tramNumber;
     int speed;
     int repairCost;
+    int repairTime;
+    int repairAmount; 
     TramStop *startStation;
     TramStop *currentStation;
     Tram* _initCheck;
