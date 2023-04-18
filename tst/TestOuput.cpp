@@ -29,6 +29,7 @@ TEST(TestOutput, simpleSystemOutput){
     MetroSystemOutput::simpleSystemOutput(&system2,system2Output);
     system1Output.close();
 
+    // TODO change to EXPECT_TRUE
     EXPECT_FALSE(FileCompare(OUTPUTFOLDER+"simFileOutput.txt", COMPAREFOLDER+"simFileOutput.txt"));
     EXPECT_FALSE(FileCompare(OUTPUTFOLDER+"simFileOutput2.txt", COMPAREFOLDER+"simFileOutput2.txt"));
 }
@@ -53,6 +54,7 @@ TEST(TestOutput, advancedSystemOutput){
     MetroSystemOutput::advancedSystemOutput(&system2,system2Output);
     system1Output.close();
 
+    // TODO change to EXPECT_TRUE
     EXPECT_FALSE(FileCompare(OUTPUTFOLDER+"simFileOutput.txt", COMPAREFOLDER+"simFileOutput.txt"));
     EXPECT_FALSE(FileCompare(OUTPUTFOLDER+"simFileOutput2.txt", COMPAREFOLDER+"simFileOutput2.txt"));
 }
