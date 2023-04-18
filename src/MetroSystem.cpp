@@ -8,7 +8,7 @@ MetroSystem::MetroSystem() : consistent(true) {
 }
 
 MetroSystem::~MetroSystem() {
-    REQUIRE(properlyInitialized(), "Metrosimulation is not properly initialised.");
+    REQUIRE(properlyInitialized(), "MetroSystem is not properly initialised.");
     for (int i = 0; i < static_cast<int>(lines.size()); ++i) {
         delete lines[i];
     }
@@ -19,77 +19,10 @@ bool MetroSystem::properlyInitialized() const {
 }
 
 void MetroSystem::updateSystem(std::ostream &os) {
-    REQUIRE(properlyInitialized(), "Metrosimulation is not properly initialised.");
+    REQUIRE(properlyInitialized(), "MetroSystem is not properly initialised.");
     for (int j = 0; j < static_cast<int>(lines.size()); ++j) {
         lines[j]->update(os);
     }
-}
-
-void MetroSystem::outputSystem(std::ostream &os) {
-    REQUIRE(properlyInitialized(), "Metrosimulation was not properly initialised.");
-
-    for (std::vector<Line*>::iterator it = lines.begin(); it != lines.end(); it++){
-        os << std::string(*(*it));
-    }
-
-//    std::vector<Line*>::iterator it = lines.begin();
-//    while (it!=lines.end()) {
-//        os << std::string(*(*it));
-//        it++;
-//    }
-
-}
-
-//source: https://stackoverflow.com/questions/154536/encode-decode-urls-in-c
-std::string url_encode(const std::string &value) {
-    std::ostringstream escaped;
-    escaped.fill('0');
-    escaped << std::hex;
-
-    for (std::string::const_iterator i = value.begin(), n = value.end(); i != n; ++i) {
-        std::string::value_type c = (*i);
-
-        // Keep alphanumeric and other accepted characters intact
-        if (isalnum(c) || c == '-' || c == '_' || c == '.' || c == '~') {
-            escaped << c;
-            continue;
-        }
-
-        // Any other characters are percent-encoded
-        escaped << std::uppercase;
-        escaped << '%' << std::setw(2) << int((unsigned char) c);
-        escaped << std::nouppercase;
-    }
-
-    return escaped.str();
-}
-
-void MetroSystem::createDotFile(std::ostream &os) {
-    REQUIRE(properlyInitialized(), "Metrosimulation is not properly initialised.");
-    std::stringstream stream;
-
-    std::vector<std::string> colors;
-    colors.push_back("red");
-    colors.push_back("green");
-    colors.push_back("blue");
-    colors.push_back("yellow");
-    stream << "digraph system {" << std::endl;
-    for (int i = 0; i < static_cast<int>(lines.size()); i++) {
-        Line *l = lines[i];
-        for (int j = 0; j < static_cast<int>(l->getTracks().size()); ++j) {
-            Track *t = l->getTracks()[j];
-            stream << t->getAnEnd()->getName() << "->" << t->getBegin()->getName() << " [color=" << colors[i] << "];\n";
-            stream << t->getBegin()->getName()<< "->" <<  t->getAnEnd()->getName() << " [color=" << colors[i] << "];\n";
-        }
-        for (int j = 0; j < static_cast<int>(l->getTrams().size()); ++j) {
-            Tram *tram = l->getTrams()[j];
-            stream << "tram" << tram->getTramNumber() << "->" << tram->getCurrentStation()->getName() << ";\n";
-            stream << "tram" << tram->getTramNumber() << "[label=\"Tram " << tram->getTramNumber() << "\", color=" << colors[i] << ", shape=box];\n";
-        }
-    }
-    stream << "}" << std::endl;
-    os << "https://dreampuf.github.io/GraphvizOnline/#" << url_encode(stream.str()) << std::endl;
-    os << stream.str();
 }
 
 void MetroSystem::addLine(const int &lineNumber) {
@@ -109,15 +42,18 @@ void MetroSystem::addStation(TramStop *newStation, const int &lineNumber, std::o
     REQUIRE(properlyInitialized(), "MetroSystem is not properly initialised.");
     //Dont make a new Pointer if a Statoin with this name exists
     std::vector<TramStop*>::iterator it1 = stations.begin();
+    bool isNewStation = true;
     while (it1 != stations.end()) {
         TramStop *station = *it1;
         if (station->getName()==newStation->getName()) {
-            delete newStation;
             newStation = station;
+            isNewStation = false;
             break;
         }
         it1++;
     }
+    if (isNewStation) stations.push_back(newStation);
+
     std::vector<Line*>::iterator it = lines.begin();
     while (it != lines.end()) {
         Line* line = *it;

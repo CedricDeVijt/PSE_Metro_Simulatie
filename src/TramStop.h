@@ -5,6 +5,7 @@
 #include <ostream>
 
 class Track;
+class Tram;
 
 /**
  * Object that represents a metro station that has a name, track-number and tracks.
@@ -24,7 +25,7 @@ public:
      *
      * @REQUIRE properlyInitialized(), "TramStop was not properly initialised."
      */
-    ~TramStop();
+    virtual ~TramStop();
 
     bool properlyInitialized() const;
 
@@ -38,20 +39,39 @@ public:
 
     bool operator<(const TramStop &rhs) const;
 
+    /**
+     * Returns bool that contains info about occupation
+     *
+     * @return @b bool: occupation of station
+     * @REQUIRE properlyInitialized(), "TramStop was not properly initialised."
+     */
+    bool isOccupied() const;
+
+    void setOccupied(bool occupied);
+
+    virtual bool acceptsTramType(Tram *tram)=0;
 private:
     friend std::ostream &operator<<(std::ostream &os, const TramStop &station);
     std::string name;
     TramStop* _initCheck;
+    bool occupied;
 };
 
 class Metrostation : public TramStop{
 public:
     explicit Metrostation(const std::string &name);
+    virtual ~Metrostation();
+
+    bool acceptsTramType(Tram *tram);
 };
 
 class Halte : public TramStop{
 public:
     explicit Halte(const std::string &name);
+
+    virtual ~Halte();
+
+    bool acceptsTramType(Tram *tram);
 };
 
 #endif //PSE_METRO_SIMULATIE_TRAMSTOP_H

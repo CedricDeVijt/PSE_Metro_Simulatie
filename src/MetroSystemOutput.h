@@ -24,6 +24,16 @@ public:
      * @param os output stream the text is written to.
      */
     static void advancedSystemOutput(MetroSystem *system, std::ostream &os);
+
+    /**
+     * Creates DOT file of the current metro-system
+     *
+     * @param system metro-system that is used for the output.
+     * @param os is the outputstream where the current metroSystem gets written to
+     * @outputs - URL to the visualizer with the DOT file loaded in \n
+     *          - DOT file format
+     */
+    static void createDotFile(MetroSystem *system, std::ostream &os);
 };
 
 

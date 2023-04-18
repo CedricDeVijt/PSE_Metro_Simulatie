@@ -40,7 +40,7 @@ void MetroXMLParser::loadMetroSystem(MetroSystem &system, const std::string &fil
     system.verify(errorStream);
 }
 
-std::pair<std::string,bool> MetroXMLParser::readKey(TiXmlElement *elem, const std::string &key, std::ostream &errorStream) {
+std::pair<std::string,bool> MetroXMLParser::readKey(const TiXmlElement *elem, const std::string &key, std::ostream &errorStream) {
     elem = elem->FirstChildElement(key.c_str());
     if (elem == NULL) {
         Logger::writeError(errorStream, "Invalid Information: \"" + key + "\" element not found");
@@ -68,20 +68,19 @@ void MetroXMLParser::parseStation(MetroSystem &system, TiXmlElement* stationElem
         return;
     }
 
-    TiXmlElement *elements = stationElem->FirstChildElement();
-    while (elements) {
-        std::string elemName = elements->Value();
-        if (elemName=="SPOOR") {
-            p = readKey(elements, "spoorNr", errorStream);
+    TiXmlElement *elem = stationElem->FirstChildElement();
+    while (elem) {
+        std::string elemName = elem->Value();
+        if (elemName == "SPOOR") {
+            p = readKey(elem, "spoorNr", errorStream);
             if (!p.second) return;
             int lineNr = atoi(p.first.c_str());
 
             system.addLine(lineNr);
             system.addStation(newStop, lineNr, errorStream);
         }
-        elements = elements->NextSiblingElement();
+        elem = elem->NextSiblingElement();
     }
-
 }
 
 void MetroXMLParser::parseTram(MetroSystem &system, TiXmlElement* tramElem, std::ostream &errorStream) {
@@ -98,6 +97,7 @@ void MetroXMLParser::parseTram(MetroSystem &system, TiXmlElement* tramElem, std:
     p = readKey(tramElem, "beginStation",errorStream);
     if (!p.second) return;
     std::string begin = p.first;
+
 
     p = readKey(tramElem, "type", errorStream);
     if (!p.second) return;
@@ -122,25 +122,25 @@ void MetroXMLParser::parseConnection(MetroSystem &system, TiXmlElement *stationE
     if (!p.second) return;
     std::string name = p.first;
 
-    TiXmlElement *elements = stationElem->FirstChildElement();
-    while (elements) {
-        std::string elemName = elements->Value();
-        if (elemName=="SPOOR") {
-            p = readKey(elements, "spoorNr", errorStream);
-            if (!p.second) return;
-            int lineNr = atoi(p.first.c_str());
-
-            p = readKey(elements, "volgende", errorStream);
+    TiXmlElement *elem = stationElem->FirstChildElement();
+    while (elem) {
+        std::string elemName = elem->Value();
+        if (elemName == "SPOOR") {
+            p = readKey(elem, "volgende", errorStream);
             if (!p.second) return;
             std::string next = p.first;
 
-            p = readKey(elements, "vorige", errorStream);
+            p = readKey(elem, "vorige", errorStream);
             if (!p.second) return;
             std::string prev = p.first;
+
+            p = readKey(elem, "spoorNr", errorStream);
+            if (!p.second) return;
+            int lineNr = atoi(p.first.c_str());
 
             system.addConnection(name, next, lineNr, errorStream);
             system.addConnection(prev, name, lineNr, errorStream);
         }
-        elements = elements->NextSiblingElement();
+        elem = elem->NextSiblingElement();
     }
 }

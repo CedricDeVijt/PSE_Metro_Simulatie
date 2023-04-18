@@ -145,14 +145,6 @@ public:
      * @param errorStream is the stream errors get output to
      */
     void deployTram(Tram* newTram, const std::string &stationName, std::ostream &errorStream);
-
-    /**
-     * Stringifies a Line
-     *
-     * @REQUIRE properlyInitialised(), "The line was not properly initialised."
-     * @return stringified version of a Line
-     */
-    operator std::string();
 private:
     int lineNumber;
     std::vector<TramStop*> stations;

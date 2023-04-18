@@ -37,24 +37,6 @@ public:
     void updateSystem(std::ostream &os);
 
     /**
-     * Outputs the system to the given output stream
-     *
-     * @REQUIRE properlyInitialized(), "Metrosimulation is not properly initialised."
-     * @param os is the outputstream where the current metroSystem gets written to
-     */
-    void outputSystem(std::ostream &os);
-
-    /**
-     * Creates DOT file of the current metro-system
-     *
-     * @REQUIRE properlyInitialized(), "Metrosimulation is not properly initialised."
-     * @param os is the outputstream where the current metroSystem gets written to
-     * @outputs - URL to the visualizer with the DOT file loaded in \n
-     *          - DOT file format
-     */
-    void createDotFile(std::ostream &os);
-
-    /**
      * Creates a new Line in the MetroSystem \n
      * If a line with this number already exists, ignore \n
      *
