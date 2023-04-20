@@ -14,7 +14,7 @@ public:
      * @param begin is the beginstation of the Track
      * @param anEnd is the endStation of the Track
      */
-    Track(TramStop *begin, TramStop *anEnd, const int &length);
+    Track(TramStop *begin, TramStop *anEnd);
 
     /**
      * Destructs a Track object
@@ -38,12 +38,9 @@ public:
      * @REQUIRE properlyInitialized(), "Track was not properly initialised."
      */
     TramStop *getAnEnd() const;
-
-    int getLength() const;
 private:
     TramStop *begin;
     TramStop *end;
-    int length;
     Track* _initCheck;
 };
 

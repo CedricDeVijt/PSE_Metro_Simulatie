@@ -98,7 +98,7 @@ public:
      * @param os std::ostream: where the output of moving the train is written to
      * @REQUIRE properlyInitialized(), "TramStop was not properly initialised."
      */
-    void drive(TramStop* destination, int length, std::ostream &os);
+    void drive(TramStop* destination, std::ostream &os);
 
 protected:
     // Constructor

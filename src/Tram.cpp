@@ -60,7 +60,7 @@ bool Tram::properlyInitialized() const {
     return _initCheck == this;
 }
 
-void Tram::drive(TramStop *destination, int length, std::ostream &os) {
+void Tram::drive(TramStop *destination, std::ostream &os) {
     REQUIRE(currentStation->isOccupied(), "Tram is leaving a station but is was not occupied in the first place.");
     REQUIRE(!destination->isOccupied(), "Tram is entering an occupied station.");
 

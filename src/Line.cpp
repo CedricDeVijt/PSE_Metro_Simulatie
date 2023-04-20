@@ -20,6 +20,7 @@ Line::~Line() {
 
 void Line::update(std::ostream &os) {
     REQUIRE(properlyInitialised(), "The line was not properly initialised.");
+    std::vector<std::pair<Tram*,TramStop*> > drivers;
     for (int i = 0; i < static_cast<int>(trams.size()); i++) {
         Tram* tram = trams[i];
         TramStop *currentStation = tram->getCurrentStation();
@@ -27,13 +28,13 @@ void Line::update(std::ostream &os) {
         while (!next->acceptsTramType(tram)) {
             next = getNext(next);
         }
-        int length = getTrackLength(currentStation, next);
         if (!next->isOccupied()) {
-            trams[i]->drive(next, length, os);
-        } else {
-            std::cout << "cant move\n";
-            std::cout << next->getName() << " is occupied!\n";
+            drivers.push_back(std::pair<Tram*,TramStop*>(tram,next));
         }
+    }
+    for (int i = 0; i < static_cast<int>(drivers.size()); i++) {
+        std::pair<Tram*,TramStop*> drive = drivers[i];
+        drive.first->drive(drive.second,os);
     }
 }
 
@@ -87,20 +88,6 @@ TramStop *Line::getPrev(TramStop *station) {
         it++;
     }
     return NULL;
-}
-
-int Line::getTrackLength(TramStop *curr, TramStop *next) {
-    REQUIRE(properlyInitialised(), "The line was not properly initialised.");
-    std::vector<Track*>::iterator it = tracks.begin();
-    while (it!=tracks.end()) {
-        Track* track = *it;
-        if ( (track->getAnEnd()==curr && track->getBegin()==next) ||
-                (track->getAnEnd()==next && track->getBegin()==curr)) {
-            return track->getLength();
-        }
-        it++;
-    }
-    return 0;
 }
 
 void Line::addStation(TramStop* station) {
@@ -161,7 +148,7 @@ void Line::connect(const std::string &start, const std::string &end, std::ostrea
         Logger::writeError(errorStream, "Failed to connect: niet elk station is verbonden met een voorgaand en een volgend station voor elk spoor");
         verified = false;
     } else {
-        Track *newTrack = new Track(startStation, endStation, 0);
+        Track *newTrack = new Track(startStation, endStation);
         std::vector<Track*>::iterator it = tracks.begin();
         while (it != tracks.end()) {
             Track *track = *it;

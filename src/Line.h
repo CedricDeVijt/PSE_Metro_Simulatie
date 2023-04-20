@@ -99,16 +99,6 @@ public:
     TramStop* getPrev(TramStop *station);
 
     /**
-     * Returns the length of a track between two Stations
-     *
-     * @REQUIRE properlyInitialised(), "The line was not properly initialised."
-     * @param start is a TramStop* to the start of the track
-     * @param end is a TramStop* to the end of the track
-     * @return @b int: length of the track
-     */
-    int getTrackLength(TramStop *start, TramStop *end);
-
-    /**
      * Returns a TramStop* to a TramStop which has the given name
      *
      * @REQUIRE properlyInitialised(), "The line was not properly initialised."

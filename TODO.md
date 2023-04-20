@@ -21,7 +21,7 @@
 -[ ] Use case 3.3: Automatische simulatie (herzien)
 -[ ] Use case 3.4: Rijden van trams met type
 -[X] Use case 3.5: Rijden van meerdere trams
--[ ] Use case 3.6: Botspreventie
+-[X] Use case 3.6: Botspreventie
 -[ ] Use case 3.7: Defecten en reparaties
 -[ ] Use case 3.8: Reparatiekosten
 -[ ] Use case 3.9: Statistische verwerking simulatie

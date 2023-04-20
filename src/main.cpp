@@ -19,5 +19,7 @@ int main() {
     MetroSimulation sim(INPUTPATH+filename+".xml", file, 10);
 
     MetroSystemOutput::createDotFile(sim.getSystem(), std::cout);
+
+    sim.run(std::cout);
     file.close();
 }
