@@ -2,12 +2,10 @@
 #include <sstream>
 #include "DesignByContract.h"
 
-Tram::Tram() : tramNumber(), speed(), startStation(), currentStation(), _initCheck() {}
 
-Tram::Tram(int tramNumber, int speed, TramStop *startStation) : tramNumber(tramNumber), speed(speed),
-                                                                startStation(startStation), currentStation(startStation) {
-    _initCheck = this;
-    repairCost = 0;
+Tram::Tram(int tramNumber, int speed, TramStop *startStation, int repairTime, int defectAmount, int repairCost) :
+tramNumber(tramNumber), speed(speed), _initCheck(this), startStation(startStation), currentStation(startStation),
+repairCost(repairCost), repairTime(repairTime), defectAmount(defectAmount), totalCost(0) {
     ENSURE(properlyInitialized(), "constructor must end in properlyInitialized state");
 }
 
@@ -76,8 +74,13 @@ int Tram::getRepairCost() const {
     return repairCost;
 }
 
-PCC::PCC(int tramNumber, TramStop *startStation) : Tram(tramNumber, 40, startStation) {}
 
-Albatros::Albatros(int tramNumber, Metrostation *startStation) : Tram(tramNumber, 70, startStation)  {}
 
-Stadslijner::Stadslijner(int tramNumber, Metrostation *startStation) : Tram(tramNumber, 70, startStation)  {}
+PCC::PCC(int tramNumber, TramStop *startStation, int repairTime, int defectAmount, int repairCost) :
+Tram(tramNumber, 40, startStation, repairTime, defectAmount, repairCost) {}
+
+Albatros::Albatros(int tramNumber, Metrostation *startStation, int repairTime, int defectAmount, int repairCost) :
+Tram(tramNumber, 70, startStation, repairTime, defectAmount, repairCost)  {}
+
+Stadslijner::Stadslijner(int tramNumber, Metrostation *startStation, int repairTime, int defectAmount, int repairCost) :
+Tram(tramNumber, 70, startStation, repairTime, defectAmount, repairCost)  {}

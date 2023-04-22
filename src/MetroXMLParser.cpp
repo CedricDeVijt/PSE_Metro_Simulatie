@@ -98,17 +98,28 @@ void MetroXMLParser::parseTram(MetroSystem &system, TiXmlElement* tramElem, std:
     if (!p.second) return;
     std::string begin = p.first;
 
+    p = readKey(tramElem, "aantalDefecten", errorStream);
+    if (!p.second) return;
+    int aantalDefecten = atoi(p.first.c_str());
+
+    p = readKey(tramElem, "reparatieTijd", errorStream);
+    if (!p.second) return;
+    int reparatieTijd = atoi(p.first.c_str());
+
+    p = readKey(tramElem, "reparatieKost", errorStream);
+    if (!p.second) return;
+    int reparatieKost = atoi(p.first.c_str());
 
     p = readKey(tramElem, "type", errorStream);
     if (!p.second) return;
     std::string type = p.first;
     Tram *newTram;
     if (type=="PCC") {
-        newTram = new PCC(tramNr, NULL);
+        newTram = new PCC(tramNr, NULL,reparatieTijd,aantalDefecten, reparatieKost);
     } else if (type=="Stadslijner") {
-        newTram = new Stadslijner(tramNr, NULL);
+        newTram = new Stadslijner(tramNr, NULL,reparatieTijd,aantalDefecten, reparatieKost);
     } else if (type=="Albatros") {
-        newTram = new Albatros(tramNr, NULL);
+        newTram = new Albatros(tramNr, NULL,reparatieTijd,aantalDefecten, reparatieKost);
     } else {
         Logger::writeError(errorStream, "Invalid Tram type");
         return;

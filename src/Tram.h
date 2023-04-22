@@ -18,7 +18,7 @@ public:
      *
      * @ENSURE properlyInitialized(), "constructor must end in properlyInitialized state"
      */
-    Tram(int tramNumber, int speed, TramStop *startStation);
+    Tram(int tramNumber, int speed, TramStop *startStation, int repairTime, int defectAmount, int repairCost);
 
     /**
      * Destructs a tram object
@@ -101,36 +101,34 @@ public:
     void drive(TramStop* destination, std::ostream &os);
 
 protected:
-    // Constructor
-    Tram();
-
     friend std::ostream &operator<<(std::ostream &os, const Tram &tram);
     int tramNumber;
     int speed;
-    int repairCost;
-    int repairTime;
-    int repairAmount; 
+    Tram* _initCheck;
     TramStop *startStation;
     TramStop *currentStation;
-    Tram* _initCheck;
+    int repairCost;
+    int repairTime;
+    int defectAmount;
+    int totalCost;
 };
 
 class PCC : public Tram {
 public:
     // Constructor
-    PCC(int tramNumber, TramStop *startStation);
+    PCC(int tramNumber, TramStop *startStation, int repairTime, int defectAmount, int repairCost);
 };
 
 class Albatros : public Tram {
 public:
     // Constructor
-    Albatros(int tramNumber, Metrostation *startStation);
+    Albatros(int tramNumber, Metrostation *startStation, int repairTime, int defectAmount, int repairCost);
 };
 
 class Stadslijner : public Tram {
 public:
     // Constructor
-    Stadslijner(int tramNumber, Metrostation *startStation);
+    Stadslijner(int tramNumber, Metrostation *startStation, int repairTime, int defectAmount, int repairCost);
 };
 
 

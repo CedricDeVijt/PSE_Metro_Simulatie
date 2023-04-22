@@ -3,6 +3,8 @@
 #include "fstream"
 #include "TramStop.h"
 #include "MetroSystemOutput.h"
+#include "MetroRenderer.h"
+#include "MetroXMLParser.h"
 
 const std::string INPUTPATH = "./xmlFiles/sims/input/";
 const std::string OUTPUTPATH = "./xmlFiles/sims/output/";
@@ -10,16 +12,7 @@ const std::string OUTPUTPATH = "./xmlFiles/sims/output/";
 int main() {
     std::string filename = "simFile";
 
-    std::ofstream file((OUTPUTPATH+filename+"log.txt").c_str());
-    if (!file.is_open()) {
-        std::cerr << "File did not open";
-        return 1;
-    }
-
-    MetroSimulation sim(INPUTPATH+filename+".xml", file, 10);
-
-    MetroSystemOutput::createDotFile(sim.getSystem(), std::cout);
-
-    sim.run(std::cout);
-    file.close();
+    MetroSystem sys;
+    MetroSimulation sim(INPUTPATH+filename+".xml", std::cerr,10);
+    MetroSystemOutput::simpleSystemOutput(sim.getSystem(),std::cout);
 }

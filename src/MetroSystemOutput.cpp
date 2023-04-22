@@ -35,7 +35,7 @@ void MetroSystemOutput::simpleSystemOutput(MetroSystem *system, std::ostream &os
             os << "    type: " << typeid(tram).name() << "\n";
             os << "    snelheid: " << tram->getSpeed() << "\n";
             os << "    huidig station: " << tram->getCurrentStation()->getName() << "\n";
-            os << "    reparatiekosten: " << tram->getRepairCost() << "euro\n\n";
+            os << "    reparatiekosten: " << tram->getRepairCost() << " euro\n\n";
         }
     }
 }

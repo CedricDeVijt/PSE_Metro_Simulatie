@@ -25,7 +25,7 @@ void Line::update(std::ostream &os) {
         Tram* tram = trams[i];
         TramStop *currentStation = tram->getCurrentStation();
         TramStop *next = getNext(currentStation);
-        while (!next->acceptsTramType(tram)) {
+        while (!next->acceptsTramType(tram) && !next->acceptsTramType(tram)) {
             next = getNext(next);
         }
         if (!next->isOccupied()) {
