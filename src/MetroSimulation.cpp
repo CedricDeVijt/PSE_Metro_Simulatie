@@ -2,6 +2,7 @@
 #include "MetroXMLParser.h"
 #include "DesignByContract.h"
 #include "Logger.h"
+#include "MetroSystemOutput.h"
 
 MetroSimulation::MetroSimulation(const std::string& inputfile, std::ostream &errorstream, unsigned int runtime) : runtime(runtime), time(0) {
     _initCheck = this;
@@ -12,10 +13,16 @@ MetroSimulation::MetroSimulation(const std::string& inputfile, std::ostream &err
 
 void MetroSimulation::run(std::ostream &os) {
     REQUIRE(properlyInitialized(), "Metrosimulation was not properly initialised.");
+
     while (time<runtime) {
+        std::string timeStr = std::string(1,'0'+time);
+        MetroSystemOutput::createDotPng(system, "time"+timeStr);
+        os << "time: " + timeStr << std::endl;
         system->updateSystem(os);
         time++;
     }
+    std::string timeStr = std::string(1,'0'+time);
+    MetroSystemOutput::createDotPng(system, "time"+timeStr);
 }
 
 bool MetroSimulation::properlyInitialized() const {

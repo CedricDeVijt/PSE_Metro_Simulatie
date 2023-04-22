@@ -1,6 +1,7 @@
 #include "MetroSystemOutput.h"
 #include <iomanip>
 #include <typeinfo>
+#include <fstream>
 
 void MetroSystemOutput::simpleSystemOutput(MetroSystem *system, std::ostream &os) {
     // Get stations
@@ -132,8 +133,23 @@ void MetroSystemOutput::createDotFile(MetroSystem *system, std::ostream &os) {
         }
     }
     stream << "}" << std::endl;
-    os << "https://dreampuf.github.io/GraphvizOnline/#" << url_encode(stream.str()) << std::endl;
+//    os << "https://dreampuf.github.io/GraphvizOnline/#" << url_encode(stream.str()) << std::endl;
     os << stream.str();
+}
+
+void MetroSystemOutput::createDotPng(MetroSystem *system, const std::string &filename) {
+    std::string dotFileString = "./pngs/"+filename+".dot";
+    std::string pngFileString = "./pngs/"+filename+".png";
+
+    std::ofstream file((dotFileString).c_str());
+    createDotFile(system, file);
+    file.close();
+
+    std::string dotCmd = "dot -Tpng " + dotFileString + " -o " + pngFileString;
+    std::system(dotCmd.c_str());
+
+    bool succesDelete = std::remove(dotFileString.c_str())==0;
+    REQUIRE(succesDelete, "Failed to delete dot file.");
 }
 
 

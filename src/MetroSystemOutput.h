@@ -34,6 +34,8 @@ public:
      *          - DOT file format
      */
     static void createDotFile(MetroSystem *system, std::ostream &os);
+
+    static void createDotPng(MetroSystem *system, const std::string &filename);
 };
 
 
