@@ -128,8 +128,7 @@ void MetroSystemOutput::createDotFile(MetroSystem *system, std::ostream &os) {
         }
         for (int j = 0; j < static_cast<int>(l->getTrams().size()); ++j) {
             Tram *tram = l->getTrams()[j];
-            stream << "tram" << tram->getTramNumber() << "->" << tram->getCurrentStation()->getName() << ";\n";
-            stream << "tram" << tram->getTramNumber() << "[label=\"Tram " << tram->getTramNumber() << "\", color=" << colors[i] << ", shape=box];\n";
+            stream << tram->getCurrentStation()->getName() << "[label=\"" << tram->getCurrentStation()->getName() << "\\nTram " << tram->getTramNumber() << "\", color=" << colors[i] << ", fixedsize=4];\n";
         }
     }
     stream << "}" << std::endl;
