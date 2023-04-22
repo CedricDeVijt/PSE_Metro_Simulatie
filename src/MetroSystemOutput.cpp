@@ -119,6 +119,7 @@ void MetroSystemOutput::createDotFile(MetroSystem *system, std::ostream &os) {
     colors.push_back("blue");
     colors.push_back("yellow");
     stream << "digraph system {" << std::endl;
+    stream << "node [width=2, height=2];";
     std::vector<Line*> lines = system->getLines();
     for (int i = 0; i < static_cast<int>(lines.size()); i++) {
         Line *l = lines[i];
@@ -128,7 +129,7 @@ void MetroSystemOutput::createDotFile(MetroSystem *system, std::ostream &os) {
         }
         for (int j = 0; j < static_cast<int>(l->getTrams().size()); ++j) {
             Tram *tram = l->getTrams()[j];
-            stream << tram->getCurrentStation()->getName() << "[label=\"" << tram->getCurrentStation()->getName() << "\\nTram " << tram->getTramNumber() << "\", color=" << colors[i] << ", fixedsize=4];\n";
+            stream << tram->getCurrentStation()->getName() << "[label=\"" << tram->getCurrentStation()->getName() << "\\nTram " << tram->getTramNumber() << "\", color=" << colors[i] << "];\n";
         }
     }
     stream << "}" << std::endl;
