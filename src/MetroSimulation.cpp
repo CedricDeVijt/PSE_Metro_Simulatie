@@ -15,14 +15,14 @@ void MetroSimulation::run(std::ostream &os) {
     REQUIRE(properlyInitialized(), "Metrosimulation was not properly initialised.");
 
     while (time<runtime) {
-        std::string timeStr = std::string(1,'0'+time);
-        MetroSystemOutput::createDotPng(system, "time"+timeStr);
-        os << "time: " + timeStr << std::endl;
+//        std::string timeStr = std::string(1,'0'+time);
+//        MetroSystemOutput::createDotPng(system, "time"+timeStr);
+//        os << "time: " + timeStr << std::endl;
         system->updateSystem(os);
         time++;
     }
-    std::string timeStr = std::string(1,'0'+time);
-    MetroSystemOutput::createDotPng(system, "time"+timeStr);
+//    std::string timeStr = std::string(1,'0'+time);
+//    MetroSystemOutput::createDotPng(system, "time"+timeStr);
 }
 
 bool MetroSimulation::properlyInitialized() const {

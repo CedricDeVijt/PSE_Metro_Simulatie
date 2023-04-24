@@ -1,11 +1,12 @@
 #include "Tram.h"
 #include <sstream>
+#include <iostream>
 #include "DesignByContract.h"
 
 
 Tram::Tram(int tramNumber, int speed, TramStop *startStation, int repairTime, int defectAmount, int repairCost) :
 tramNumber(tramNumber), speed(speed), _initCheck(this), startStation(startStation), currentStation(startStation),
-repairCost(repairCost), repairTime(repairTime), defectAmount(defectAmount), totalCost(0) {
+repairCost(repairCost), repairTime(repairTime), defectAmount(defectAmount), totalCost(0), defect(false), repairSteps(0), steps(0) {
     ENSURE(properlyInitialized(), "constructor must end in properlyInitialized state");
 }
 
@@ -70,11 +71,32 @@ void Tram::drive(TramStop *destination, std::ostream &os) {
     os << *currentStation << "." << std::endl;
 }
 
-int Tram::getRepairCost() const {
-    return repairCost;
+int Tram::getTotalCost() const {
+    return totalCost;
 }
 
+void Tram::handleDefect(std::ostream &os) {
+    if (defect) {
+        repairSteps++;
+        defect = repairSteps>=repairTime;
+        if (!defect) {
+            os << *this << " was repaired.\n";
+            steps = 0;
+        }
+    } else {
+        steps++;
+        defect = steps >= defectAmount;
+        if (defect) {
+            os << *this << " broke down.\n";
+            totalCost += repairCost;
+            repairSteps = 0;
+        }
+    }
+}
 
+bool Tram::isDefect() const {
+    return defect;
+}
 
 PCC::PCC(int tramNumber, TramStop *startStation, int repairTime, int defectAmount, int repairCost) :
 Tram(tramNumber, 40, startStation, repairTime, defectAmount, repairCost) {}

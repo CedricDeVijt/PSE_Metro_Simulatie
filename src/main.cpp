@@ -15,4 +15,5 @@ int main() {
     MetroSystem sys;
     MetroSimulation sim(INPUTPATH+filename+".xml", std::cerr,10);
     sim.run(std::cout);
+    MetroSystemOutput::simpleSystemOutput(sim.getSystem(),std::cout);
 }

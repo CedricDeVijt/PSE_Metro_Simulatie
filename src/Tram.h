@@ -74,7 +74,7 @@ public:
      * @return The cost in euro's of the repairs.
      * @REQUIRE properlyInitialized(), "TramStop was not properly initialised."
      */
-    int getRepairCost() const;
+    int getTotalCost() const;
 
     /**
      * Sets the speed of the tram
@@ -100,6 +100,10 @@ public:
      */
     void drive(TramStop* destination, std::ostream &os);
 
+    void handleDefect(std::ostream &os);
+
+    bool isDefect() const;
+
 protected:
     friend std::ostream &operator<<(std::ostream &os, const Tram &tram);
     int tramNumber;
@@ -111,6 +115,10 @@ protected:
     int repairTime;
     int defectAmount;
     int totalCost;
+
+    bool defect;
+    int repairSteps;
+    int steps;
 };
 
 class PCC : public Tram {
