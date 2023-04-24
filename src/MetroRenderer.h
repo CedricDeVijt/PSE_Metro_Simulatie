@@ -9,10 +9,13 @@
 
 class RenderObject {
 public:
-    RenderObject(double x, double y, double rotation, std::string type);
+    RenderObject(double x, double y, std::string type);
+    RenderObject(double x, double y, double x2, double y2, const std::string &type);
+
     double x;
     double y;
-    double rotation;
+    double x2;
+    double y2;
     std::string type;
 };
 
