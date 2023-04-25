@@ -40,6 +40,7 @@ public:
      */
     void run(std::ostream &os);
 
+    void evaluate(std::ostream &os);
 private:
     MetroSystem *system;
     unsigned int runtime;

@@ -39,6 +39,25 @@ MetroSimulation::~MetroSimulation() {
     delete system;
 }
 
+void MetroSimulation::evaluate(std::ostream &os) {
+    std::cout << "System:\n";
+    MetroSystemOutput::simpleSystemOutput(system, os);
+
+    std::vector<Line*> lines = system->getLines();
+    std::vector<Line*>::iterator it = lines.begin();
+    int totalcost = 0;
+    while (it!=lines.end()) {
+        std::vector<Tram*> trams = (*it)->getTrams();
+        std::vector<Tram*>::iterator tramIt = trams.begin();
+        while (tramIt!=trams.end()) {
+            totalcost += (*tramIt)->getTotalCost();
+            tramIt++;
+        }
+        it++;
+    }
+    std::cout << "Total Cost: " << totalcost << " euro\n";
+}
+
 
 
 

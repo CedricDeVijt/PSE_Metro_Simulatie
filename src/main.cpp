@@ -12,10 +12,8 @@ const std::string OUTPUTPATH = "./xmlFiles/sims/output/";
 int main() {
     std::string filename = "simFile";
 
-    MetroSystem sys;
-    MetroXMLParser::loadMetroSystem(sys, INPUTPATH+filename+".xml", std::cerr);
-    MetroRenderer::createIni(sys, std::cout);
-//    MetroSimulation sim(INPUTPATH+filename+".xml", std::cerr,10);
-//    sim.run(std::cout);
-//    MetroSystemOutput::simpleSystemOutput(sim.getSystem(),std::cout);
+    MetroSimulation sim(INPUTPATH+filename+".xml", std::cerr,10);
+    sim.run(std::cout);
+    std::cout << std::endl;
+    sim.evaluate(std::cout);
 }
