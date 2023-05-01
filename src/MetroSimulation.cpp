@@ -17,15 +17,21 @@ void MetroSimulation::run(std::ostream &os) {
 
     while (time<runtime) {
         if (createPng) {
-            std::string timeStr = std::string(1,'0'+time);
+            std::stringstream s;
+            s << time;
+            std::string timeStr = s.str();
             MetroSystemOutput::createDotPng(system, "time"+timeStr);
+            std::cout << "time"+timeStr << std::endl;
         }
         system->updateSystem(os);
         time++;
     }
     if (createPng) {
-        std::string timeStr = std::string(1,'0'+time);
+        std::stringstream s;
+        s << time;
+        std::string timeStr = s.str();
         MetroSystemOutput::createDotPng(system, "time"+timeStr);
+        std::cout << "time"+timeStr << std::endl;
     }
 }
 
