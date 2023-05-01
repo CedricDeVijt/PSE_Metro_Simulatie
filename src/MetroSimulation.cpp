@@ -21,7 +21,6 @@ void MetroSimulation::run(std::ostream &os) {
             s << time;
             std::string timeStr = s.str();
             MetroSystemOutput::createDotPng(system, "time"+timeStr);
-            std::cout << "time"+timeStr << std::endl;
         }
         system->updateSystem(os);
         time++;
@@ -31,7 +30,6 @@ void MetroSimulation::run(std::ostream &os) {
         s << time;
         std::string timeStr = s.str();
         MetroSystemOutput::createDotPng(system, "time"+timeStr);
-        std::cout << "time"+timeStr << std::endl;
     }
 }
 
