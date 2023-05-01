@@ -99,7 +99,7 @@ Until one of the above criteria is met, TinyXML runs in Legacy Mode. </li>
 </pre></div><p>will have the Value() of "Far &amp; Away" when queried from the <a class="el" href="classTiXmlText.html" title="XML text.">TiXmlText</a> object, and will be written back to the XML stream/file as an ampersand. Older versions of TinyXML "preserved" character entities, but the newer versions will translate them into characters.</p>
 <p>Additionally, any character can be specified by its Unicode code point: The syntax "&amp;#xA0;" or "&amp;#160;" are both to the non-breaking space characher.</p>
 <h3>Printing </h3>
-<p>TinyXML can print output in several different ways that all have strengths and limitations.</p>
+<p>TinyXML can printStats output in several different ways that all have strengths and limitations.</p>
 <ul>
 <li>Print( FILE* ). Output to a std-C stream, which includes all C files as well as stdout.<ul>
 <li>"Pretty prints", but you don't have control over printing options.</li>
@@ -130,7 +130,7 @@ Until one of the above criteria is met, TinyXML runs in Legacy Mode. </li>
 <li>based on FILE*</li>
 <li>the Print() and SaveFile() methods</li>
 </ul>
-<p>Generates formatted output, with plenty of white space, intended to be as human-readable as possible. They are very fast, and tolerant of ill formed XML documents. For example, an XML document that contains 2 root elements and 2 declarations, will still print.</p>
+<p>Generates formatted output, with plenty of white space, intended to be as human-readable as possible. They are very fast, and tolerant of ill formed XML documents. For example, an XML document that contains 2 root elements and 2 declarations, will still printStats.</p>
 <p>C style input:</p>
 <ul>
 <li>based on FILE*</li>

@@ -201,11 +201,11 @@ public:
 	TiXmlBase()	:	userData(0)		{}
 	virtual ~TiXmlBase()			{}
 
-	/**	All TinyXml classes can print themselves to a filestream
+	/**	All TinyXml classes can printStats themselves to a filestream
 		or the string class (TiXmlString in non-STL mode, std::string
 		in STL mode.) Either or both cfile and str can be null.
 		
-		This is a formatted print, and will insert 
+		This is a formatted printStats, and will insert
 		tabs and newlines.
 		
 		(For an unformatted stream, use the << operator.)
@@ -1515,10 +1515,10 @@ public:
 												//errorLocation.last = 0; 
 											}
 
-	/** Write the document to standard out using formatted printing ("pretty print"). */
+	/** Write the document to standard out using formatted printing ("pretty printStats"). */
 	void Print() const						{ Print( stdout, 0 ); }
 
-	/* Write the document to a string using formatted printing ("pretty print"). This
+	/* Write the document to a string using formatted printing ("pretty printStats"). This
 		will allocate a character array (new char[]) and return it as a pointer. The
 		calling code pust call delete[] on the return char* to avoid a memory leak.
 	*/

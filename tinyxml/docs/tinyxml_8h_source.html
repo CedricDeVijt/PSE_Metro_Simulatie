@@ -176,7 +176,7 @@
 <a name="l00201"></a>00201     <a class="code" href="classTiXmlBase.html" title="TiXmlBase is a base class for every class in TinyXml.">TiXmlBase</a>() :   <a class="code" href="classTiXmlBase.html#ab242c01590191f644569fa89a080d97c" title="Field containing a generic user pointer.">userData</a>(0)     {}
 <a name="l00202"></a>00202     <span class="keyword">virtual</span> ~<a class="code" href="classTiXmlBase.html" title="TiXmlBase is a base class for every class in TinyXml.">TiXmlBase</a>()            {}
 <a name="l00203"></a>00203 
-<a name="l00213"></a>00213     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classTiXmlBase.html#a0de56b3f2ef14c65091a3b916437b512" title="All TinyXml classes can print themselves to a filestream or the string class (TiXmlString...">Print</a>( FILE* cfile, <span class="keywordtype">int</span> depth ) <span class="keyword">const</span> = 0;
+<a name="l00213"></a>00213     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classTiXmlBase.html#a0de56b3f2ef14c65091a3b916437b512" title="All TinyXml classes can printStats themselves to a filestream or the string class (TiXmlString...">Print</a>( FILE* cfile, <span class="keywordtype">int</span> depth ) <span class="keyword">const</span> = 0;
 <a name="l00214"></a>00214 
 <a name="l00221"></a><a class="code" href="classTiXmlBase.html#a0f799ec645bfb8d8a969e83478f379c1">00221</a>     <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classTiXmlBase.html#a0f799ec645bfb8d8a969e83478f379c1" title="The world does not agree on whether white space should be kept or not.">SetCondenseWhiteSpace</a>( <span class="keywordtype">bool</span> condense )      { condenseWhiteSpace = condense; }
 <a name="l00222"></a>00222 
@@ -638,10 +638,10 @@
 <a name="l00867"></a>00867     <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* Parse( <span class="keyword">const</span> <span class="keywordtype">char</span>* p, TiXmlParsingData* data, TiXmlEncoding encoding );
 <a name="l00868"></a>00868 
 <a name="l00869"></a>00869     <span class="comment">// Prints this Attribute to a FILE stream.</span>
-<a name="l00870"></a><a class="code" href="classTiXmlAttribute.html#acc04956c1d5c4c31fe74f7a7528d109a">00870</a>     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classTiXmlAttribute.html#acc04956c1d5c4c31fe74f7a7528d109a" title="All TinyXml classes can print themselves to a filestream or the string class (TiXmlString...">Print</a>( FILE* cfile, <span class="keywordtype">int</span> depth )<span class="keyword"> const </span>{
-<a name="l00871"></a>00871         <a class="code" href="classTiXmlAttribute.html#acc04956c1d5c4c31fe74f7a7528d109a" title="All TinyXml classes can print themselves to a filestream or the string class (TiXmlString...">Print</a>( cfile, depth, 0 );
+<a name="l00870"></a><a class="code" href="classTiXmlAttribute.html#acc04956c1d5c4c31fe74f7a7528d109a">00870</a>     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classTiXmlAttribute.html#acc04956c1d5c4c31fe74f7a7528d109a" title="All TinyXml classes can printStats themselves to a filestream or the string class (TiXmlString...">Print</a>( FILE* cfile, <span class="keywordtype">int</span> depth )<span class="keyword"> const </span>{
+<a name="l00871"></a>00871         <a class="code" href="classTiXmlAttribute.html#acc04956c1d5c4c31fe74f7a7528d109a" title="All TinyXml classes can printStats themselves to a filestream or the string class (TiXmlString...">Print</a>( cfile, depth, 0 );
 <a name="l00872"></a>00872     }
-<a name="l00873"></a>00873     <span class="keywordtype">void</span> <a class="code" href="classTiXmlAttribute.html#acc04956c1d5c4c31fe74f7a7528d109a" title="All TinyXml classes can print themselves to a filestream or the string class (TiXmlString...">Print</a>( FILE* cfile, <span class="keywordtype">int</span> depth, TIXML_STRING* str ) <span class="keyword">const</span>;
+<a name="l00873"></a>00873     <span class="keywordtype">void</span> <a class="code" href="classTiXmlAttribute.html#acc04956c1d5c4c31fe74f7a7528d109a" title="All TinyXml classes can printStats themselves to a filestream or the string class (TiXmlString...">Print</a>( FILE* cfile, <span class="keywordtype">int</span> depth, TIXML_STRING* str ) <span class="keyword">const</span>;
 <a name="l00874"></a>00874 
 <a name="l00875"></a>00875     <span class="comment">// [internal use]</span>
 <a name="l00876"></a>00876     <span class="comment">// Set the document pointer so the attribute can report errors.</span>
@@ -849,7 +849,7 @@
 <a name="l01175"></a>01175 
 <a name="l01177"></a>01177     <span class="keyword">virtual</span> <a class="code" href="classTiXmlNode.html" title="The parent class for everything in the Document Object Model.">TiXmlNode</a>* <a class="code" href="classTiXmlComment.html#a0d6662bdc52488b9e12b3c7a0453d028" title="Returns a copy of this Comment.">Clone</a>() <span class="keyword">const</span>;
 <a name="l01178"></a>01178     <span class="comment">// Write this Comment to a FILE stream.</span>
-<a name="l01179"></a>01179     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classTiXmlComment.html#a6b316527aaa8da0370cd68c22a5a0f5f" title="All TinyXml classes can print themselves to a filestream or the string class (TiXmlString...">Print</a>( FILE* cfile, <span class="keywordtype">int</span> depth ) <span class="keyword">const</span>;
+<a name="l01179"></a>01179     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classTiXmlComment.html#a6b316527aaa8da0370cd68c22a5a0f5f" title="All TinyXml classes can printStats themselves to a filestream or the string class (TiXmlString...">Print</a>( FILE* cfile, <span class="keywordtype">int</span> depth ) <span class="keyword">const</span>;
 <a name="l01180"></a>01180 
 <a name="l01181"></a>01181     <span class="comment">/*  Attribtue parsing starts: at the ! of the !--</span>
 <a name="l01182"></a>01182 <span class="comment">                         returns: next char past &#39;&gt;&#39;</span>
@@ -898,7 +898,7 @@
 <a name="l01237"></a>01237     <a class="code" href="classTiXmlText.html" title="XML text.">TiXmlText</a>&amp; operator=( <span class="keyword">const</span> <a class="code" href="classTiXmlText.html" title="XML text.">TiXmlText</a>&amp; base )                               { base.CopyTo( <span class="keyword">this</span> ); <span class="keywordflow">return</span> *<span class="keyword">this</span>; }
 <a name="l01238"></a>01238 
 <a name="l01239"></a>01239     <span class="comment">// Write this text object to a FILE stream.</span>
-<a name="l01240"></a>01240     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classTiXmlText.html#a0cafbf6f236c7f02d12b2bffc2b7976b" title="All TinyXml classes can print themselves to a filestream or the string class (TiXmlString...">Print</a>( FILE* cfile, <span class="keywordtype">int</span> depth ) <span class="keyword">const</span>;
+<a name="l01240"></a>01240     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classTiXmlText.html#a0cafbf6f236c7f02d12b2bffc2b7976b" title="All TinyXml classes can printStats themselves to a filestream or the string class (TiXmlString...">Print</a>( FILE* cfile, <span class="keywordtype">int</span> depth ) <span class="keyword">const</span>;
 <a name="l01241"></a>01241 
 <a name="l01243"></a><a class="code" href="classTiXmlText.html#ad1a6a6b83fa2271022dd97c072a2b586">01243</a>     <span class="keywordtype">bool</span> <a class="code" href="classTiXmlText.html#ad1a6a6b83fa2271022dd97c072a2b586" title="Queries whether this represents text using a CDATA section.">CDATA</a>()<span class="keyword"> const              </span>{ <span class="keywordflow">return</span> cdata; }
 <a name="l01245"></a><a class="code" href="classTiXmlText.html#acb17ff7c5d09b2c839393445a3de5ea9">01245</a>     <span class="keywordtype">void</span> <a class="code" href="classTiXmlText.html#acb17ff7c5d09b2c839393445a3de5ea9" title="Turns on or off a CDATA representation of text.">SetCDATA</a>( <span class="keywordtype">bool</span> _cdata )    { cdata = _cdata; }
@@ -952,7 +952,7 @@
 <a name="l01316"></a>01316     <span class="keyword">virtual</span> <a class="code" href="classTiXmlNode.html" title="The parent class for everything in the Document Object Model.">TiXmlNode</a>* <a class="code" href="classTiXmlDeclaration.html#a7cf459186040141cda7a180a6585ce2e" title="Creates a copy of this Declaration and returns it.">Clone</a>() <span class="keyword">const</span>;
 <a name="l01317"></a>01317     <span class="comment">// Print this declaration to a FILE stream.</span>
 <a name="l01318"></a>01318     <span class="keyword">virtual</span> <span class="keywordtype">void</span> Print( FILE* cfile, <span class="keywordtype">int</span> depth, TIXML_STRING* str ) <span class="keyword">const</span>;
-<a name="l01319"></a><a class="code" href="classTiXmlDeclaration.html#abf6303db4bd05b5be554036817ff1cb4">01319</a>     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classTiXmlDeclaration.html#abf6303db4bd05b5be554036817ff1cb4" title="All TinyXml classes can print themselves to a filestream or the string class (TiXmlString...">Print</a>( FILE* cfile, <span class="keywordtype">int</span> depth )<span class="keyword"> const </span>{
+<a name="l01319"></a><a class="code" href="classTiXmlDeclaration.html#abf6303db4bd05b5be554036817ff1cb4">01319</a>     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classTiXmlDeclaration.html#abf6303db4bd05b5be554036817ff1cb4" title="All TinyXml classes can printStats themselves to a filestream or the string class (TiXmlString...">Print</a>( FILE* cfile, <span class="keywordtype">int</span> depth )<span class="keyword"> const </span>{
 <a name="l01320"></a>01320         Print( cfile, depth, 0 );
 <a name="l01321"></a>01321     }
 <a name="l01322"></a>01322 
@@ -989,7 +989,7 @@
 <a name="l01362"></a>01362 
 <a name="l01364"></a>01364     <span class="keyword">virtual</span> <a class="code" href="classTiXmlNode.html" title="The parent class for everything in the Document Object Model.">TiXmlNode</a>* <a class="code" href="classTiXmlUnknown.html#a0960bb7428b3f341da46244229604d73" title="Creates a copy of this Unknown and returns it.">Clone</a>() <span class="keyword">const</span>;
 <a name="l01365"></a>01365     <span class="comment">// Print this Unknown to a FILE stream.</span>
-<a name="l01366"></a>01366     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classTiXmlUnknown.html#a31ba089a40fb5a1869750fce09b0bacb" title="All TinyXml classes can print themselves to a filestream or the string class (TiXmlString...">Print</a>( FILE* cfile, <span class="keywordtype">int</span> depth ) <span class="keyword">const</span>;
+<a name="l01366"></a>01366     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classTiXmlUnknown.html#a31ba089a40fb5a1869750fce09b0bacb" title="All TinyXml classes can printStats themselves to a filestream or the string class (TiXmlString...">Print</a>( FILE* cfile, <span class="keywordtype">int</span> depth ) <span class="keyword">const</span>;
 <a name="l01367"></a>01367 
 <a name="l01368"></a>01368     <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* Parse( <span class="keyword">const</span> <span class="keywordtype">char</span>* p, TiXmlParsingData* data, TiXmlEncoding encoding );
 <a name="l01369"></a>01369 
@@ -1068,15 +1068,15 @@
 <a name="l01515"></a>01515                                                 <span class="comment">//errorLocation.last = 0; </span>
 <a name="l01516"></a>01516                                             }
 <a name="l01517"></a>01517 
-<a name="l01519"></a><a class="code" href="classTiXmlDocument.html#af08389ec70ee9b2de7f800e206a18510">01519</a>     <span class="keywordtype">void</span> <a class="code" href="classTiXmlDocument.html#af08389ec70ee9b2de7f800e206a18510" title="Write the document to standard out using formatted printing (&amp;quot;pretty print&amp;quot;)...">Print</a>()<span class="keyword"> const                      </span>{ <a class="code" href="classTiXmlDocument.html#af08389ec70ee9b2de7f800e206a18510" title="Write the document to standard out using formatted printing (&amp;quot;pretty print&amp;quot;)...">Print</a>( stdout, 0 ); }
+<a name="l01519"></a><a class="code" href="classTiXmlDocument.html#af08389ec70ee9b2de7f800e206a18510">01519</a>     <span class="keywordtype">void</span> <a class="code" href="classTiXmlDocument.html#af08389ec70ee9b2de7f800e206a18510" title="Write the document to standard out using formatted printing (&amp;quot;pretty printStats&amp;quot;)...">Print</a>()<span class="keyword"> const                      </span>{ <a class="code" href="classTiXmlDocument.html#af08389ec70ee9b2de7f800e206a18510" title="Write the document to standard out using formatted printing (&amp;quot;pretty printStats&amp;quot;)...">Print</a>( stdout, 0 ); }
 <a name="l01520"></a>01520 
-<a name="l01521"></a>01521     <span class="comment">/* Write the document to a string using formatted printing (&quot;pretty print&quot;). This</span>
+<a name="l01521"></a>01521     <span class="comment">/* Write the document to a string using formatted printing (&quot;pretty printStats&quot;). This</span>
 <a name="l01522"></a>01522 <span class="comment">        will allocate a character array (new char[]) and return it as a pointer. The</span>
 <a name="l01523"></a>01523 <span class="comment">        calling code pust call delete[] on the return char* to avoid a memory leak.</span>
 <a name="l01524"></a>01524 <span class="comment">    */</span>
 <a name="l01525"></a>01525     <span class="comment">//char* PrintToMemory() const; </span>
 <a name="l01526"></a>01526 
-<a name="l01528"></a>01528     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classTiXmlDocument.html#af08389ec70ee9b2de7f800e206a18510" title="Write the document to standard out using formatted printing (&amp;quot;pretty print&amp;quot;)...">Print</a>( FILE* cfile, <span class="keywordtype">int</span> depth = 0 ) <span class="keyword">const</span>;
+<a name="l01528"></a>01528     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classTiXmlDocument.html#af08389ec70ee9b2de7f800e206a18510" title="Write the document to standard out using formatted printing (&amp;quot;pretty printStats&amp;quot;)...">Print</a>( FILE* cfile, <span class="keywordtype">int</span> depth = 0 ) <span class="keyword">const</span>;
 <a name="l01529"></a>01529     <span class="comment">// [internal use]</span>
 <a name="l01530"></a>01530     <span class="keywordtype">void</span> SetError( <span class="keywordtype">int</span> err, <span class="keyword">const</span> <span class="keywordtype">char</span>* errorLocation, TiXmlParsingData* prevData, TiXmlEncoding encoding );
 <a name="l01531"></a>01531 

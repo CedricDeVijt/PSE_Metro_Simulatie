@@ -197,7 +197,7 @@ class UnitTest;
 //   }
 //
 // Then the failed expectation EXPECT_TRUE(IsEven(Fib(5)))
-// will print the message
+// will printStats the message
 //
 //   Value of: IsEven(Fib(5))
 //     Actual: false (5 is odd)
@@ -223,7 +223,7 @@ class UnitTest;
 //       return testing::AssertionFailure() << n << " is odd";
 //   }
 //
-// Then a statement EXPECT_FALSE(IsEven(Fib(6))) will print
+// Then a statement EXPECT_FALSE(IsEven(Fib(6))) will printStats
 //
 //   Value of: IsEven(Fib(6))
 //     Actual: true (8 is even)
@@ -1346,7 +1346,7 @@ namespace internal {
 // compared by value with the string object.  If the value is a char
 // pointer but the other operand is not an STL string object, we don't
 // know whether the pointer is supposed to point to a NUL-terminated
-// string, and thus want to print it as a pointer to be safe.
+// string, and thus want to printStats it as a pointer to be safe.
 //
 // INTERNAL IMPLEMENTATION - DO NOT USE IN A USER PROGRAM.
 
@@ -1368,7 +1368,7 @@ class FormatForComparison<ToPrint[N], OtherOperand> {
   }
 };
 
-// By default, print C string as pointers to be safe, as we don't know
+// By default, printStats C string as pointers to be safe, as we don't know
 // whether they actually point to a NUL-terminated string.
 
 #define GTEST_IMPL_FORMAT_C_STRING_AS_POINTER_(CharType)                \
@@ -1388,7 +1388,7 @@ GTEST_IMPL_FORMAT_C_STRING_AS_POINTER_(const wchar_t);
 #undef GTEST_IMPL_FORMAT_C_STRING_AS_POINTER_
 
 // If a C string is compared with an STL string object, we know it's meant
-// to point to a NUL-terminated string, and thus can print it as a string.
+// to point to a NUL-terminated string, and thus can printStats it as a string.
 
 #define GTEST_IMPL_FORMAT_C_STRING_AS_STRING_(CharType, OtherStringType) \
   template <>                                                           \
@@ -1422,8 +1422,8 @@ GTEST_IMPL_FORMAT_C_STRING_AS_STRING_(const wchar_t, ::std::wstring);
 // Formats a comparison assertion (e.g. ASSERT_EQ, EXPECT_LT, and etc)
 // operand to be used in a failure message.  The type (but not value)
 // of the other operand may affect the format.  This allows us to
-// print a char* as a raw pointer when it is compared against another
-// char* or void*, and print it as a C string when it is compared
+// printStats a char* as a raw pointer when it is compared against another
+// char* or void*, and printStats it as a C string when it is compared
 // against an std::string object, for example.
 //
 // INTERNAL IMPLEMENTATION - DO NOT USE IN A USER PROGRAM.

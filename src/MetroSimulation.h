@@ -15,7 +15,7 @@ public:
      * @param runtime is the time the simulation needs to run
      * @ENSURE properlyInitialized(), "constructor must end in properlyInitialized state"
      */
-    MetroSimulation(const std::string &inputFile, std::ostream &errorstream, unsigned int runtime);
+    MetroSimulation(const std::string &inputFile, std::ostream &errorstream, unsigned int runtime, bool createPng);
     /**
      * Destructs a Metrosimulation
      *
@@ -33,6 +33,8 @@ public:
      */
     MetroSystem *getSystem() const;
 
+    unsigned int getTime() const;
+
     /**
      * Updates the metro-system so all the trams will move to their next location
      *
@@ -46,6 +48,7 @@ private:
     unsigned int runtime;
     unsigned int time;
     MetroSimulation* _initCheck;
+    bool createPng;
 };
 
 

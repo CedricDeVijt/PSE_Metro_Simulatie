@@ -144,7 +144,7 @@ GTEST_API_ std::string AppendUserMessage(
 // are enabled).  We derive it from std::runtime_error, which is for
 // errors presumably detectable only at run time.  Since
 // std::runtime_error inherits from std::exception, many testing
-// frameworks know how to extract and print the message inside it.
+// frameworks know how to extract and printStats the message inside it.
 class GTEST_API_ GoogleTestFailureException : public ::std::runtime_error {
  public:
   explicit GoogleTestFailureException(const TestPartResult& failure);

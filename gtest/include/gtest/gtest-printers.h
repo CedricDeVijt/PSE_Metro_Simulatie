@@ -31,12 +31,12 @@
 
 // Google Test - The Google C++ Testing Framework
 //
-// This file implements a universal value printer that can print a
+// This file implements a universal value printer that can printStats a
 // value of any type T:
 //
 //   void ::testing::internal::UniversalPrinter<T>::Print(value, ostream_ptr);
 //
-// A user can teach this function how to print a class type T by
+// A user can teach this function how to printStats a class type T by
 // defining either operator<<() or PrintTo() in the namespace that
 // defines T.  More specifically, the FIRST defined function in the
 // following list will be used (assuming T is defined in namespace
@@ -46,8 +46,8 @@
 //   2. operator<<(ostream&, const T&) defined in either foo or the
 //      global namespace.
 //
-// If none of the above is defined, it will print the debug string of
-// the value if it is a protocol buffer, or print the raw bytes in the
+// If none of the above is defined, it will printStats the debug string of
+// the value if it is a protocol buffer, or printStats the raw bytes in the
 // value otherwise.
 //
 // To aid debugging: when T is a reference type, the address of the
@@ -81,11 +81,11 @@
 //
 // Known limitation:
 //
-// The print primitives print the elements of an STL-style container
+// The print primitives printStats the elements of an STL-style container
 // using the compiler-inferred type of *iter where iter is a
 // const_iterator of the container.  When const_iterator is an input
 // iterator but not a forward iterator, this inferred type may not
-// match value_type, and the print output may be incorrect.  In
+// match value_type, and the printStats output may be incorrect.  In
 // practice, this is rarely a problem as for most containers
 // const_iterator is a forward iterator.  We'll fix this if there's an
 // actual need for it.  Note that this fix cannot rely on value_type
@@ -125,7 +125,7 @@ enum TypeKind {
 };
 
 // TypeWithoutFormatter<T, kTypeKind>::PrintValue(value, os) is called
-// by the universal printer to print a value of type T when neither
+// by the universal printer to printStats a value of type T when neither
 // operator<< nor PrintTo() is defined for T, where kTypeKind is the
 // "kind" of T as defined by enum TypeKind.
 template <typename T, TypeKind kTypeKind>
@@ -138,8 +138,8 @@ class TypeWithoutFormatter {
   }
 };
 
-// We print a protobuf using its ShortDebugString() when the string
-// doesn't exceed this many characters; otherwise we print it using
+// We printStats a protobuf using its ShortDebugString() when the string
+// doesn't exceed this many characters; otherwise we printStats it using
 // DebugString() for better readability.
 const size_t kProtobufOneLinerMaxLength = 50;
 
@@ -159,7 +159,7 @@ template <typename T>
 class TypeWithoutFormatter<T, kConvertibleToInteger> {
  public:
   // Since T has no << operator or PrintTo() but can be implicitly
-  // converted to BiggestInt, we print it as a BiggestInt.
+  // converted to BiggestInt, we printStats it as a BiggestInt.
   //
   // Most likely T is an enum type (either named or unnamed), in which
   // case printing it as an integer is the desired behavior.  In case
@@ -189,7 +189,7 @@ class TypeWithoutFormatter<T, kConvertibleToInteger> {
 // Note that this operator<< takes a generic std::basic_ostream<Char,
 // CharTraits> type instead of the more restricted std::ostream.  If
 // we define it to take an std::ostream instead, we'll get an
-// "ambiguous overloads" compiler error when trying to print a type
+// "ambiguous overloads" compiler error when trying to printStats a type
 // Foo that supports streaming to std::basic_ostream<Char,
 // CharTraits>, as the compiler cannot tell whether
 // operator<<(std::ostream&, const T&) or
@@ -212,7 +212,7 @@ template <typename Char, typename CharTraits, typename T>
 // magic needed for implementing UniversalPrinter won't work.
 namespace testing_internal {
 
-// Used to print a value that is not an STL-style container when the
+// Used to printStats a value that is not an STL-style container when the
 // user doesn't define PrintTo() for it.
 template <typename T>
 void DefaultPrintNonContainerTo(const T& value, ::std::ostream* os) {
@@ -263,13 +263,13 @@ class UniversalPrinter;
 template <typename T>
 void UniversalPrint(const T& value, ::std::ostream* os);
 
-// Used to print an STL-style container when the user doesn't define
+// Used to printStats an STL-style container when the user doesn't define
 // a PrintTo() for it.
 template <typename C>
 void DefaultPrintTo(IsContainer /* dummy */,
                     false_type /* is not a pointer */,
                     const C& container, ::std::ostream* os) {
-  const size_t kMaxCount = 32;  // The maximum number of elements to print.
+  const size_t kMaxCount = 32;  // The maximum number of elements to printStats.
   *os << '{';
   size_t count = 0;
   for (typename C::const_iterator it = container.begin();
@@ -293,7 +293,7 @@ void DefaultPrintTo(IsContainer /* dummy */,
   *os << '}';
 }
 
-// Used to print a pointer that is neither a char pointer nor a member
+// Used to printStats a pointer that is neither a char pointer nor a member
 // pointer, when the user doesn't define PrintTo() for it.  (A member
 // variable pointer or member function pointer doesn't really point to
 // a location in the address space.  Their representation is
@@ -312,13 +312,13 @@ void DefaultPrintTo(IsNotContainer /* dummy */,
     // IsTrue() silences warnings: "Condition is always true",
     // "unreachable code".
     if (IsTrue(ImplicitlyConvertible<T*, const void*>::value)) {
-      // T is not a function type.  We just call << to print p,
+      // T is not a function type.  We just call << to printStats p,
       // relying on ADL to pick up user-defined << for their pointer
       // types, if any.
       *os << p;
     } else {
       // T is a function type, so '*os << p' doesn't do what we want
-      // (it just prints p as bool).  We want to print p as a const
+      // (it just prints p as bool).  We want to printStats p as a const
       // void*.  However, we cannot cast it to const void* directly,
       // even using reinterpret_cast, as earlier versions of gcc
       // (e.g. 3.4.5) cannot compile the cast when p is a function
@@ -329,7 +329,7 @@ void DefaultPrintTo(IsNotContainer /* dummy */,
   }
 }
 
-// Used to print a non-container, non-pointer value when the user
+// Used to printStats a non-container, non-pointer value when the user
 // doesn't define PrintTo() for it.
 template <typename T>
 void DefaultPrintTo(IsNotContainer /* dummy */,
@@ -377,7 +377,7 @@ void PrintTo(const T& value, ::std::ostream* os) {
 }
 
 // The following list of PrintTo() overloads tells
-// UniversalPrinter<T>::Print() how to print standard types (built-in
+// UniversalPrinter<T>::Print() how to printStats standard types (built-in
 // types, strings, plain arrays, and pointers).
 
 // Overloads for various char types.
@@ -411,7 +411,7 @@ inline void PrintTo(char* s, ::std::ostream* os) {
 }
 
 // signed/unsigned char is often used for representing binary data, so
-// we print pointers to it as void* to be safe.
+// we printStats pointers to it as void* to be safe.
 inline void PrintTo(const signed char* s, ::std::ostream* os) {
   PrintTo(ImplicitCast_<const void*>(s), os);
 }

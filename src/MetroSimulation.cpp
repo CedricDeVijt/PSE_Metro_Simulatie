@@ -3,8 +3,9 @@
 #include "DesignByContract.h"
 #include "Logger.h"
 #include "MetroSystemOutput.h"
+#include "MetroSimStatistics.h"
 
-MetroSimulation::MetroSimulation(const std::string& inputfile, std::ostream &errorstream, unsigned int runtime) : runtime(runtime), time(0) {
+MetroSimulation::MetroSimulation(const std::string& inputfile, std::ostream &errorstream, unsigned int runtime, bool createPng) : runtime(runtime), time(0), createPng(createPng) {
     _initCheck = this;
     system = new MetroSystem();
     MetroXMLParser::loadMetroSystem(*system, inputfile, errorstream);
@@ -15,14 +16,17 @@ void MetroSimulation::run(std::ostream &os) {
     REQUIRE(properlyInitialized(), "Metrosimulation was not properly initialised.");
 
     while (time<runtime) {
-//        std::string timeStr = std::string(1,'0'+time);
-//        MetroSystemOutput::createDotPng(system, "time"+timeStr);
-//        os << "time: " + timeStr << std::endl;
+        if (createPng) {
+            std::string timeStr = std::string(1,'0'+time);
+            MetroSystemOutput::createDotPng(system, "time"+timeStr);
+        }
         system->updateSystem(os);
         time++;
     }
-//    std::string timeStr = std::string(1,'0'+time);
-//    MetroSystemOutput::createDotPng(system, "time"+timeStr);
+    if (createPng) {
+        std::string timeStr = std::string(1,'0'+time);
+        MetroSystemOutput::createDotPng(system, "time"+timeStr);
+    }
 }
 
 bool MetroSimulation::properlyInitialized() const {
@@ -40,22 +44,16 @@ MetroSimulation::~MetroSimulation() {
 }
 
 void MetroSimulation::evaluate(std::ostream &os) {
-    std::cout << "System:\n";
+    os << "System:\n";
     MetroSystemOutput::simpleSystemOutput(system, os);
 
-    std::vector<Line*> lines = system->getLines();
-    std::vector<Line*>::iterator it = lines.begin();
-    int totalcost = 0;
-    while (it!=lines.end()) {
-        std::vector<Tram*> trams = (*it)->getTrams();
-        std::vector<Tram*>::iterator tramIt = trams.begin();
-        while (tramIt!=trams.end()) {
-            totalcost += (*tramIt)->getTotalCost();
-            tramIt++;
-        }
-        it++;
-    }
-    std::cout << "Total Cost: " << totalcost << " euro\n";
+    os << "Stats:\n";
+    MetroSimStatistics stats(this);
+    stats.printStats(os);
+}
+
+unsigned int MetroSimulation::getTime() const {
+    return time;
 }
 
 

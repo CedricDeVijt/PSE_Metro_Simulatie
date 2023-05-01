@@ -246,7 +246,7 @@ C style output:
 	Generates formatted output, with plenty of white space, intended to be as 
 	human-readable as possible. They are very fast, and tolerant of ill formed 
 	XML documents. For example, an XML document that contains 2 root elements 
-	and 2 declarations, will still print.
+	and 2 declarations, will still printStats.
 
 C style input:
 	- based on FILE*

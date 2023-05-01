@@ -36,7 +36,7 @@ public:
      * Updates/Moves the trams of the line object.
      *
      * @REQUIRE properlyInitialised(), "The line was not properly initialised."
-     * @param os is the stream the print statements get send into
+     * @param os is the stream the printStats statements get send into
      */
     void update(std::ostream &os);
 
