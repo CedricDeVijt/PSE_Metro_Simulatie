@@ -2,7 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <stack>
 #include "../src/MetroSimulation.h"
+#include "GUI_MetroSimulation.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -31,7 +33,9 @@ private:
     std::ostringstream ss;
 
     std::string filename = "./xmlFiles/sims/input/simFile.xml";
-    MetroSimulation sim = MetroSimulation(filename, ss,10, true);
+    GUI_MetroSimulation sim = GUI_MetroSimulation(filename, ss,10, true);
+
+    std::stack<MetroSimulation> simStack;
 
 };
 #endif // MAINWINDOW_H

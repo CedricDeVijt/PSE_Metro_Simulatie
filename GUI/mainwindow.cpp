@@ -10,7 +10,7 @@ const std::string OUTPUTPATH = "../xmlFiles/sims/output/";
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
     ui->setupUi(this);
 
-    connect(&sim, &MetroSimulation::simulationProgressed, this, &MainWindow::updateGUI);
+    connect(&sim, &GUI_MetroSimulation::simulationProgressed, this, &MainWindow::updateGUI);
 
     connect(ui->pushButton_Start, SIGNAL(clicked()), this, SLOT(onPushButton_StartClicked()));
     connect(ui->pushButton_Stop, SIGNAL(clicked()), this, SLOT(onPushButton_StopClicked()));
@@ -56,10 +56,17 @@ void MainWindow::onPushButton_StopClicked(){
 
 void MainWindow::onPushButton_PreviousClicked(){
     ui->textBrowser_Simulation->append("Previous step");
+//    sim = std::move(simStack.pop());
+//    sim.getSystem()->updateSystem(ss);
+//    updateGUI();
 }
 
 void MainWindow::onPushButton_NextClicked(){
-    ui->textBrowser_Simulation->append("Next step");
+//    ui->textBrowser_Simulation->append("Next step");
+//    simStack.push(new MetroSimulation(sim));
+    sim.getSystem()->updateSystem(ss);
+    sim.updateTime();
+    updateGUI();
 }
 
 void MainWindow::onPushButton_FindRouteClicked() {
@@ -100,9 +107,15 @@ void MainWindow::onPushButton_FindRouteClicked() {
             TramStop* currentStop = beginStop;
             while (currentStop != connectionStop) {
                 currentStop = beginLine->getNext(currentStop);
-                ui->textBrowser_2->append("Station " + QString::fromStdString(currentStop->getName()));
+                ui->textBrowser_2->append("Line " + QString::number(endLine->getLineNumber()) + ":");
             }
 
+            ui->textBrowser_2->append("Station " + QString::fromStdString(currentStop->getName()));
+            while (currentStop != endStop){
+                currentStop = endLine->getNext(currentStop);
+                ui->textBrowser_2->append("Station " + QString::fromStdString(currentStop->getName()));
+            }
+            ui->textBrowser_2->append("Station " + QString::fromStdString(currentStop->getName()));
         }
     }
 }

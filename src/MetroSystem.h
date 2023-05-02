@@ -91,7 +91,7 @@ public:
 
     const std::vector<TramStop *> &getStations() const;
 
-    std::pair<std::vector<TramStop *>, std::vector<Line *>> getRoute(const std::string &beginStopName, const std::string &endStopName);
+    std::pair<std::vector<TramStop *>, std::vector<Line *> > getRoute(const std::string &beginStopName, const std::string &endStopName);
 
 
 private:
