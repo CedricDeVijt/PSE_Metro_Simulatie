@@ -1,6 +1,6 @@
 #include "MetroSimStatistics.h"
 
-MetroSimStatistics::MetroSimStatistics(MetroSimulation *sim) : sim(sim) {
+MetroSimStatistics::MetroSimStatistics(MetroSimulation *sim){
     MetroSystem *system = sim->getSystem();
 
     time = sim->getTime();

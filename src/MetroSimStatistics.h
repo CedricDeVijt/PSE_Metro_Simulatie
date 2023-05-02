@@ -15,7 +15,6 @@ public:
     int getDefectTrams() const;
     int getWorkingTrams() const;
 private:
-    MetroSimulation *sim;
     int time;
     int totalCost;
     int defectTrams;
