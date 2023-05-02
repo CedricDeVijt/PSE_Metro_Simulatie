@@ -1,4 +1,3 @@
 #include "SimThread.h"
 
-SimThread::SimThread(MetroSimulation *sim, std::ostringstream &ss) : ss(ss), sim(sim){
-}
+SimThread::SimThread(MetroSimulation *sim, std::ostringstream &ss) : sim(sim), ss(ss){}
