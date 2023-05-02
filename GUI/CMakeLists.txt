@@ -7,6 +7,8 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
 set(CMAKE_CXX_STANDARD 98)
+set(CMAKE_CXX_FLAGS "-std=c++98 -Wall -Werror -O2")
+set(CMAKE_EXE_LINKER_FLAGS -pthread)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(CMAKE_PREFIX_PATH "/Users/cedric/Qt/6.5.0/macos/lib/cmake")
@@ -17,9 +19,10 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 set(PROJECT_SOURCES
         main_GUI.cpp
         mainwindow.cpp
-        mainwindow.h
         mainwindow.ui
-        SimThread.cpp SimThread.h)
+        SimThread.cpp
+        GUI_MetroSimulation.cpp)
+
 set(METRO_SOURCE_FILES
         # Metro Files
         ../src/MetroSimulation.cpp
