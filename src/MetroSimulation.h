@@ -1,15 +1,13 @@
 #ifndef PSE_METRO_SIMULATIE_METROSIMULATION_H
 #define PSE_METRO_SIMULATIE_METROSIMULATION_H
 
-#include <Qt>
-#include <QObject>
 #include "MetroSystem.h"
 
 /**
  * Simulation system for metro-system
  */
-class MetroSimulation : public QObject {
-    Q_OBJECT
+class MetroSimulation {
+
 public:
     /**
      * Initializes a Metrosimulation
@@ -26,7 +24,6 @@ public:
      * @REQUIRE properlyInitialized(), "Metrosimulation was not properly initialised."
      */
     virtual ~MetroSimulation();
-
     bool properlyInitialized() const;
 
     /**
@@ -47,19 +44,18 @@ public:
     void run(std::ostream &os);
 
     void evaluate(std::ostream &os);
-
     void stopSystem();
+    void updateTime();
+
 private:
     MetroSystem *system;
     unsigned int runtime;
     unsigned int time;
     MetroSimulation* _initCheck;
     bool createPng;
-    bool stoppedSystem = false;
+    bool stoppedSystem;
 
-signals:
-    void simulationProgressed();
-
+    virtual void emitSimulationProgressed();
 };
 
 

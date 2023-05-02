@@ -5,9 +5,8 @@
 #include "MetroSystemOutput.h"
 #include "MetroSimStatistics.h"
 
-#include "../GUI/mainwindow.h"
 
-MetroSimulation::MetroSimulation(const std::string& inputfile, std::ostream &errorstream, unsigned int runtime, bool createPng) : runtime(runtime), time(0), createPng(createPng) {
+MetroSimulation::MetroSimulation(const std::string& inputfile, std::ostream &errorstream, unsigned int runtime, bool createPng) : runtime(runtime), time(0), createPng(createPng), stoppedSystem(false) {
     _initCheck = this;
     system = new MetroSystem();
     MetroXMLParser::loadMetroSystem(*system, inputfile, errorstream);
@@ -25,7 +24,7 @@ void MetroSimulation::run(std::ostream &os) {
             MetroSystemOutput::createDotPng(system, "time"+timeStr);
         }
         system->updateSystem(os);
-        emit simulationProgressed();
+        emitSimulationProgressed();
         time++;
     }
     if (createPng) {
@@ -65,5 +64,12 @@ unsigned int MetroSimulation::getTime() const {
 
 void MetroSimulation::stopSystem() {
     stoppedSystem = true;
+}
+
+void MetroSimulation::updateTime() {
+    time++;
+}
+
+void MetroSimulation::emitSimulationProgressed() {
 }
 
