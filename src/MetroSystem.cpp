@@ -128,3 +128,51 @@ const std::vector<Line *> &MetroSystem::getLines() const {
 const std::vector<TramStop *> &MetroSystem::getStations() const {
     return stations;
 }
+
+std::pair<std::vector<TramStop *>, std::vector<Line *>> MetroSystem::getRoute(const std::string &beginStopName, const std::string &endStopName) {
+    // Find Station* for the two strings and find lines where Stops are on
+    TramStop * beginStop;
+    TramStop * endStop;
+    std::vector<Line *> beginStopLines;
+    std::vector<Line *> endStopLines;
+    for (int i = 0; i < lines.size(); ++i) {
+        Line *line = lines[i];
+        std::vector<TramStop *>stops = line->getStations();
+        for (int j = 0; j < stops.size(); ++j) {
+            if (stops[j]->getName() == beginStopName){
+                beginStop = stops[j];
+                beginStopLines.emplace_back(line);
+            } else if (stops[j]->getName() == endStopName){
+                endStop = stops[j];
+                endStopLines.emplace_back(line);
+            }
+        }
+    }
+
+    // Check if endStation on same line as begin station
+    for (int i = 0; i < beginStopLines.size(); ++i) {
+        for (int j = 0; j < endStopLines.size(); ++j) {
+            if (beginStopLines[i] == endStopLines[j]){
+                return {{beginStop, endStop},{beginStopLines[i]}};
+            }
+        }
+    }
+
+    // Stations are on different lines -> find connection
+    for (int i = 0; i < beginStopLines.size(); ++i) {
+        for (int j = 0; j < endStopLines.size(); ++j) {
+            std::vector<TramStop *>beginStops = beginStopLines[i]->getStations();
+            std::vector<TramStop *>endStops = endStopLines[i]->getStations();
+            for (int k = 0; k < beginStops.size(); ++k) {
+                for (int l = 0; l < endStops.size(); ++l) {
+                    if (beginStops[k] == endStops[l]){
+                        return {{beginStop, beginStops[k], endStop},{beginStopLines[i], endStopLines[j]}};
+                    }
+                }
+            }
+        }
+    }
+
+    // No route
+    return {{beginStop, endStop},{}};
+}
