@@ -5,7 +5,7 @@
 #include <QObject>
 #include "../src/MetroSimulation.h"
 
-class GUI_MetroSimulation : public QObject, public MetroSimulation{
+class GUI_MetroSimulation : public QObject, public MetroSimulation {
 Q_OBJECT
 public:
     GUI_MetroSimulation(const std::string &inputFile, std::ostream &errorstream, unsigned int runtime, bool createPng);

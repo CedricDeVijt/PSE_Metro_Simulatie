@@ -8,9 +8,11 @@ const std::string INPUTPATH = "../xmlFiles/sims/input/";
 const std::string OUTPUTPATH = "../xmlFiles/sims/output/";
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
+    sim = new GUI_MetroSimulation(filename, ss,10, true);
+
     ui->setupUi(this);
 
-    connect(&sim, &GUI_MetroSimulation::simulationProgressed, this, &MainWindow::updateGUI);
+    connect(sim, &GUI_MetroSimulation::simulationProgressed, this, &MainWindow::updateGUI);
 
     connect(ui->pushButton_Start, SIGNAL(clicked()), this, SLOT(onPushButton_StartClicked()));
     connect(ui->pushButton_Stop, SIGNAL(clicked()), this, SLOT(onPushButton_StopClicked()));
@@ -20,8 +22,8 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
 
 
     // Add stations to comboxes in navigation
-    std::vector<TramStop *> stations = sim.getSystem()->getStations();
-    for (int i = 0; i < stations.size(); ++i) {
+    std::vector<TramStop *> stations = sim->getSystem()->getStations();
+    for (int i = 0; i < (int)stations.size(); ++i) {
         QString name = QString::fromStdString(stations[i]->getName());
         ui->comboBox->addItem(name);
         ui->comboBox_2->addItem(name);
@@ -44,13 +46,13 @@ MainWindow::~MainWindow()
 
 void MainWindow::onPushButton_StartClicked() {
     ui->textBrowser_Simulation->append("Started simulation");
-    SimThread *thread = new SimThread(&sim, ss);
+    SimThread *thread = new SimThread(sim, ss);
     thread->start();  //start the thread
-    sim.stopSystem();
+    sim->stopSystem();
 }
 
 void MainWindow::onPushButton_StopClicked(){
-    sim.stopSystem();
+    sim->stopSystem();
     ui->textBrowser_Simulation->append("Stopped simulation");
 }
 
@@ -64,8 +66,8 @@ void MainWindow::onPushButton_PreviousClicked(){
 void MainWindow::onPushButton_NextClicked(){
 //    ui->textBrowser_Simulation->append("Next step");
 //    simStack.push(new MetroSimulation(sim));
-    sim.getSystem()->updateSystem(ss);
-    sim.updateTime();
+    sim->getSystem()->updateSystem(ss);
+    sim->updateTime();
     updateGUI();
 }
 
@@ -74,7 +76,7 @@ void MainWindow::onPushButton_FindRouteClicked() {
     if (ui->comboBox->currentText() == ui->comboBox_2->currentText()){
         ui->textBrowser_2->append("You are already at your destination.");
     } else {
-        std::pair<std::vector<TramStop *>, std::vector<Line *>> route = sim.getSystem()->getRoute(ui->comboBox->currentText().toStdString(), ui->comboBox_2->currentText().toStdString());
+        std::pair<std::vector<TramStop *>, std::vector<Line *>> route = sim->getSystem()->getRoute(ui->comboBox->currentText().toStdString(), ui->comboBox_2->currentText().toStdString());
         if (route.second.empty()){
             // No route
             ui->textBrowser_2->append("No possible route to your destination.");
@@ -121,7 +123,7 @@ void MainWindow::onPushButton_FindRouteClicked() {
 }
 
 void MainWindow::updateGUI(){
-    MetroSimStatistics *stats = new MetroSimStatistics(&sim);
+    MetroSimStatistics *stats = new MetroSimStatistics(sim);
 
     // Time label
     ui->label_6->setText(QString::number(stats->getTime()));

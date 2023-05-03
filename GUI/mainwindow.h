@@ -33,7 +33,7 @@ private:
     std::ostringstream ss;
 
     std::string filename = "./xmlFiles/sims/input/simFile.xml";
-    GUI_MetroSimulation sim = GUI_MetroSimulation(filename, ss,10, true);
+    GUI_MetroSimulation *sim;
 
     std::stack<MetroSimulation> simStack;
 

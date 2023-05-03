@@ -135,10 +135,10 @@ std::pair<std::vector<TramStop *>, std::vector<Line *> > MetroSystem::getRoute(c
     TramStop * endStop;
     std::vector<Line *> beginStopLines;
     std::vector<Line *> endStopLines;
-    for (int i = 0; i < lines.size(); ++i) {
+    for (int i = 0; i < (int)lines.size(); ++i) {
         Line *line = lines[i];
         std::vector<TramStop *>stops = line->getStations();
-        for (int j = 0; j < stops.size(); ++j) {
+        for (int j = 0; j < (int)stops.size(); ++j) {
             if (stops[j]->getName() == beginStopName){
                 beginStop = stops[j];
                 beginStopLines.emplace_back(line);
@@ -150,8 +150,8 @@ std::pair<std::vector<TramStop *>, std::vector<Line *> > MetroSystem::getRoute(c
     }
 
     // Check if endStation on same line as begin station
-    for (int i = 0; i < beginStopLines.size(); ++i) {
-        for (int j = 0; j < endStopLines.size(); ++j) {
+    for (int i = 0; i < (int)beginStopLines.size(); ++i) {
+        for (int j = 0; j < (int)endStopLines.size(); ++j) {
             if (beginStopLines[i] == endStopLines[j]){
                 std::vector<TramStop *> resultingTramStops;
                 std::vector<Line *> resultingLines;
@@ -168,12 +168,12 @@ std::pair<std::vector<TramStop *>, std::vector<Line *> > MetroSystem::getRoute(c
     }
 
     // Stations are on different lines -> find connection
-    for (int i = 0; i < beginStopLines.size(); ++i) {
-        for (int j = 0; j < endStopLines.size(); ++j) {
+    for (int i = 0; i < (int)beginStopLines.size(); ++i) {
+        for (int j = 0; j < (int)endStopLines.size(); ++j) {
             std::vector<TramStop *>beginStops = beginStopLines[i]->getStations();
             std::vector<TramStop *>endStops = endStopLines[i]->getStations();
-            for (int k = 0; k < beginStops.size(); ++k) {
-                for (int l = 0; l < endStops.size(); ++l) {
+            for (int k = 0; k < (int)beginStops.size(); ++k) {
+                for (int l = 0; l < (int)endStops.size(); ++l) {
                     if (beginStops[k] == endStops[l]){
                         std::vector<TramStop *> resultingTramStops;
                         std::vector<Line *> resultingLines;
