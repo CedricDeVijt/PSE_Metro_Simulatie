@@ -16,4 +16,6 @@ int main() {
     sim.run(std::cout);
     std::cout << std::endl;
     sim.evaluate(std::cout);
+
+    MetroRenderer::createIni(sim.getSystem(),std::cout);
 }

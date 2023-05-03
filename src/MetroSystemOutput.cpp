@@ -137,21 +137,21 @@ void MetroSystemOutput::createDotFile(MetroSystem *system, std::ostream &os) {
     os << stream.str();
 }
 
-void MetroSystemOutput::createDotPng(MetroSystem *system, const std::string &filename) {
-    std::string dotFileString = "./pngs/"+filename+".dot";
-    std::string pngFileString = "./pngs/"+filename+".png";
+void MetroSystemOutput::createDotOutput(MetroSystem *system, const std::string &filename, const std::string &outputType) {
+    std::string dotFileString = "./dots/"+filename+".dot";
+    std::string outputFileString = "./dots/"+filename+outputType;
 
     std::ofstream file((dotFileString).c_str());
     createDotFile(system, file);
     file.close();
 
-    std::string dotCmd = "dot -Tpng " + dotFileString + " -o " + pngFileString;
+    std::string dotCmd = "dot ";
+    dotCmd += (outputType==".png") ? "-Tpng " : "-Tsvg ";
+    dotCmd += dotFileString + " -o " + outputFileString;
     std::system(dotCmd.c_str());
 
-    // TODO fix
-
-//    bool succesDelete = std::remove(dotFileString.c_str())==0;
-//    REQUIRE(succesDelete, "Failed to delete dot file.");
+    bool succesDelete = std::remove(dotFileString.c_str())==0;
+    REQUIRE(succesDelete, "Failed to delete dot file.");
 }
 
 

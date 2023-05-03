@@ -35,7 +35,7 @@ public:
      */
     static void createDotFile(MetroSystem *system, std::ostream &os);
 
-    static void createDotPng(MetroSystem *system, const std::string &filename);
+    static void createDotOutput(MetroSystem *system, const std::string &filename, const std::string &outputType);
 };
 
 

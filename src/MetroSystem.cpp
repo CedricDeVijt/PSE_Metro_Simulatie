@@ -141,10 +141,10 @@ std::pair<std::vector<TramStop *>, std::vector<Line *> > MetroSystem::getRoute(c
         for (int j = 0; j < (int)stops.size(); ++j) {
             if (stops[j]->getName() == beginStopName){
                 beginStop = stops[j];
-                beginStopLines.emplace_back(line);
+                beginStopLines.push_back(line);
             } else if (stops[j]->getName() == endStopName){
                 endStop = stops[j];
-                endStopLines.emplace_back(line);
+                endStopLines.push_back(line);
             }
         }
     }
