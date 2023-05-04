@@ -10,9 +10,19 @@
 #include "fstream"
 #include "map"
 
+/**
+ * Object that handles the rendering for a MetroSystem
+ */
 class MetroRenderer {
 public:
+    /**
+     * Creates an ini file compatible with Computer Graphics Engine
+     *
+     * @param system is the MetroSystem you want created into an ini file
+     * @param ostream is the stream the ini file gets written to
+     */
     static void createIni(MetroSystem *system, std::ostream &ostream);
+private:
     static void generateScene(MetroSystem *system, std::istringstream &svg, std::ostream &ostream);
     static void createGeneral(std::ostream &ostream);
     static std::string getSVGString(MetroSystem *system);

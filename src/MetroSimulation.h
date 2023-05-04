@@ -7,7 +7,7 @@
  * Simulation system for metro-system
  */
 class MetroSimulation {
-
+//Init
 public:
     /**
      * Initializes a Metrosimulation
@@ -26,27 +26,57 @@ public:
     virtual ~MetroSimulation();
     bool properlyInitialized() const;
 
-    /**
-     * Gives the metro-system that is used for the simulation
-     *
-     * @return a MetroSystem object
-     * @REQUIRE properlyInitialized(), "Metrosimulation was not properly initialised."
-     */
-    MetroSystem *getSystem() const;
-
-    unsigned int getTime() const;
-
+//functions
+public:
     /**
      * Updates the metro-system so all the trams will move to their next location
      *
+     * @REQUIRE properlyInitialized(), "Metrosimulation was not properly initialised."
      * @param os is a @b std::ostream: where the movement of the the trams gets written to
      */
     void run(std::ostream &os);
 
+    /**
+     * Outputs the current evaluation of the metroSim
+     *
+     * @REQUIRE properlyInitialized(), "Metrosimulation was not properly initialised."
+     * @param os is the outputstream
+     */
     void evaluate(std::ostream &os);
+
+//setters
+public:
+    /**
+     * Stops the system from running
+     *
+     * @REQUIRE properlyInitialized(), "Metrosimulation was not properly initialised."
+     * @ENSURE stoppedSystem, "Failed to stop system"
+     */
     void stopSystem();
+
+    /**
+     * Increments the clock by one
+     *
+     * @REQUIRE properlyInitialized(), "Metrosimulation was not properly initialised."
+     * @ENSURE timeBefore+1==time, "Failed to increment time"
+     */
     void updateTime();
 
+//getters
+public:
+    /**
+     * Returns the metro-system that is used for the simulation
+     *
+     * @REQUIRE properlyInitialized(), "Metrosimulation was not properly initialised."
+     */
+    MetroSystem *getSystem() const;
+
+    /**
+     * Returns the current time of the simulation
+     *
+     * @REQUIRE properlyInitialized(), "Metrosimulation was not properly initialised."
+     */
+    unsigned int getTime() const;
 private:
     MetroSystem *system;
     unsigned int runtime;

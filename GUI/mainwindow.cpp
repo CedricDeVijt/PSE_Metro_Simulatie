@@ -139,4 +139,6 @@ void MainWindow::updateGUI(){
     ui->textBrowser_Simulation->clear();
     ui->textBrowser_Simulation->append("Started simulation");
     ui->textBrowser_Simulation->append(QString::fromStdString(ss.str()));
+
+    delete stats;
 }

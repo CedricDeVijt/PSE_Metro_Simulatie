@@ -25,7 +25,7 @@ void MetroSimulation::run(std::ostream &os) {
         }
         system->updateSystem(os);
         emitSimulationProgressed();
-        time++;
+        updateTime();
     }
     if (createPng) {
         std::stringstream s;
@@ -50,6 +50,7 @@ MetroSimulation::~MetroSimulation() {
 }
 
 void MetroSimulation::evaluate(std::ostream &os) {
+    REQUIRE(properlyInitialized(), "Metrosimulation was not properly initialised.");
     os << "System:\n";
     MetroSystemOutput::simpleSystemOutput(system, os);
 
@@ -59,17 +60,28 @@ void MetroSimulation::evaluate(std::ostream &os) {
 }
 
 unsigned int MetroSimulation::getTime() const {
+    REQUIRE(properlyInitialized(), "Metrosimulation was not properly initialised.");
     return time;
 }
 
 void MetroSimulation::stopSystem() {
+    REQUIRE(properlyInitialized(), "Metrosimulation was not properly initialised.");
+
     stoppedSystem = true;
+
+    ENSURE(stoppedSystem, "Failed to stop system");
 }
 
 void MetroSimulation::updateTime() {
+    REQUIRE(properlyInitialized(), "Metrosimulation was not properly initialised.");
+
+    int timeBefore = time;
     time++;
+
+    ENSURE(timeBefore+1==time, "Failed to increment time");
 }
 
 void MetroSimulation::emitSimulationProgressed() {
+    REQUIRE(properlyInitialized(), "Metrosimulation was not properly initialised.");
 }
 

@@ -6,10 +6,12 @@
 #include "TramStop.h"
 #include "DesignByContract.h"
 #include "Logger.h"
+
 /**
  * System that represents a real life metro system with trams, stations and tracks
  */
 class MetroSystem {
+//Init
 public:
     /**
      * Creates a MetroSystem
@@ -25,9 +27,10 @@ public:
      * @REQUIRE(properlyInitialized(), "Metrosimulation is not properly initialised.");
      */
     virtual ~MetroSystem();
-
     bool properlyInitialized() const;
 
+//Functions
+public:
     /**
      * Updates the lines of the MetroSystem
      *
@@ -92,7 +95,6 @@ public:
     const std::vector<TramStop *> &getStations() const;
 
     std::pair<std::vector<TramStop *>, std::vector<Line *> > getRoute(const std::string &beginStopName, const std::string &endStopName);
-
 
 private:
     std::vector<Line*> lines;
