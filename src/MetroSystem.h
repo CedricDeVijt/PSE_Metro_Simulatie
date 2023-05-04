@@ -89,12 +89,30 @@ public:
      */
     void verify(std::ostream &errorStream);
 
-    //TODO comments
+    /**
+     * Returns the route between two stations
+     *
+     * @REQUIRE properlyInitialized(), "MetroSystem is not properly initialised."
+     * @param beginStopName
+     * @param endStopName
+     */
+    std::pair<std::vector<TramStop *>, std::vector<Line *> > getRoute(const std::string &beginStopName, const std::string &endStopName);
+
+//getters
+public:
+    /**
+     * Returns the lines of the MetroSystem
+     *
+     * @REQUIRE properlyInitialized(), "MetroSystem is not properly initialised."
+     */
     const std::vector<Line *> &getLines() const;
 
+    /**
+     * Returns the stations of the MetroSystem
+     *
+     * @REQUIRE properlyInitialized(), "MetroSystem is not properly initialised."
+     */
     const std::vector<TramStop *> &getStations() const;
-
-    std::pair<std::vector<TramStop *>, std::vector<Line *> > getRoute(const std::string &beginStopName, const std::string &endStopName);
 
 private:
     std::vector<Line*> lines;

@@ -8,6 +8,7 @@
  * Object that represents a tram
  */
 class Tram {
+//Init
 public:
     /**
      * Creates a Tram object
@@ -26,9 +27,10 @@ public:
      * @REQUIRE properlyInitialized(), "Tram was not properly initialised."
      */
     virtual ~Tram();
-
     bool properlyInitialized() const;
 
+//Functions
+public:
     /**
      * Converts Tram into a string
      *
@@ -36,6 +38,23 @@ public:
      */
     operator std::string();
 
+    /**
+     * Moves the tram to the next station
+     *
+     * @param os std::ostream: where the output of moving the train is written to
+     * @REQUIRE properlyInitialized(), "TramStop was not properly initialised."
+     */
+    void drive(TramStop* destination, std::ostream &os);
+
+    /**
+     * Handles the effect property of the tram
+     *
+     * @param os is the outputstream, in case of Defect/Reparation
+     */
+    void handleDefect(std::ostream &os);
+
+//Getters
+public:
     /**
      * Gives the speed of which the tram is capable
      *
@@ -77,34 +96,33 @@ public:
     int getTotalCost() const;
 
     /**
+     * Returns true if the Tram is defect
+     *
+     * @REQUIRE properlyInitialized(), "TramStop was not properly initialised."
+     */
+    bool isDefect() const;
+
+//Setters
+public:
+    /**
      * Sets the speed of the tram
      *
-     * @param speed int: speed of the tram
      * @REQUIRE properlyInitialized(), "TramStop was not properly initialised."
+     * @ENSURE getSpeed()==speed_, "Failed to set speed."
+     * @param speed int: speed of the tram
      */
     void setSpeed(int speed);
 
     /**
      * Sets the station where the train starts at the start of the system
      *
-     * @param startStation TramStop *: station where the tram starts form
      * @REQUIRE properlyInitialized(), "TramStop was not properly initialised."
+     * @ENSURE getStartStation()==startStation_, "SetStartstation failed."
+     * @param startStation TramStop *: station where the tram starts form
      */
     void setStartStation(TramStop *startStation);
 
-    /**
-     * Moves the tram to the next station
-     *
-     * @param os std::ostream: where the output of moving the train is written to
-     * @REQUIRE properlyInitialized(), "TramStop was not properly initialised."
-     */
-    void drive(TramStop* destination, std::ostream &os);
-
-    void handleDefect(std::ostream &os);
-
-    bool isDefect() const;
-
-protected:
+private:
     friend std::ostream &operator<<(std::ostream &os, const Tram &tram);
     int tramNumber;
     int speed;

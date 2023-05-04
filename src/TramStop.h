@@ -11,6 +11,7 @@ class Tram;
  * Object that represents a metro station that has a name, track-number and tracks.
  */
 class TramStop {
+//Init
 public:
     /**
      * Initializes TramStop object
@@ -26,9 +27,16 @@ public:
      * @REQUIRE properlyInitialized(), "TramStop was not properly initialised."
      */
     virtual ~TramStop();
-
     bool properlyInitialized() const;
 
+//Functions
+public:
+    bool operator<(const TramStop &rhs) const;
+
+    virtual bool acceptsTramType(Tram *tram)=0;
+
+//Getters
+public:
     /**
      * Gives the name of the station
      *
@@ -37,8 +45,6 @@ public:
      */
     const std::string &getName() const;
 
-    bool operator<(const TramStop &rhs) const;
-
     /**
      * Returns bool that contains info about occupation
      *
@@ -46,10 +52,9 @@ public:
      * @REQUIRE properlyInitialized(), "TramStop was not properly initialised."
      */
     bool isOccupied() const;
-
+//Setters
+public:
     void setOccupied(bool occupied);
-
-    virtual bool acceptsTramType(Tram *tram)=0;
 private:
     friend std::ostream &operator<<(std::ostream &os, const TramStop &station);
     std::string name;

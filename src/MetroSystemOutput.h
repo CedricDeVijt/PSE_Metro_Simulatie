@@ -35,6 +35,13 @@ public:
      */
     static void createDotFile(MetroSystem *system, std::ostream &os);
 
+    /**
+     * Outputs the dot file output to a given file type, and a filename
+     *
+     * @param system is the system the dot needs to get created to
+     * @param filename is the name of the file
+     * @param outputType is the type of the file: .svg or .dot
+     */
     static void createDotOutput(MetroSystem *system, const std::string &filename, const std::string &outputType);
 };
 

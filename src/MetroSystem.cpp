@@ -122,14 +122,18 @@ void MetroSystem::verify(std::ostream &errorStream) {
 }
 
 const std::vector<Line *> &MetroSystem::getLines() const {
+    REQUIRE(properlyInitialized(), "MetroSystem is not properly initialised.");
     return lines;
 }
 
 const std::vector<TramStop *> &MetroSystem::getStations() const {
+    REQUIRE(properlyInitialized(), "MetroSystem is not properly initialised.");
     return stations;
 }
 
 std::pair<std::vector<TramStop *>, std::vector<Line *> > MetroSystem::getRoute(const std::string &beginStopName, const std::string &endStopName) {
+    REQUIRE(properlyInitialized(), "MetroSystem is not properly initialised.");
+
     // Find Station* for the two strings and find lines where Stops are on
     TramStop * beginStop;
     TramStop * endStop;

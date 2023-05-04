@@ -75,7 +75,7 @@ void MetroSimulation::stopSystem() {
 void MetroSimulation::updateTime() {
     REQUIRE(properlyInitialized(), "Metrosimulation was not properly initialised.");
 
-    int timeBefore = time;
+    unsigned int timeBefore = time;
     time++;
 
     ENSURE(timeBefore+1==time, "Failed to increment time");
