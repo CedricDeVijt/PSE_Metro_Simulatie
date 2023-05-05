@@ -7,6 +7,11 @@
             <volgende>B</volgende>
             <vorige>C</vorige>
         </SPOOR>
+        <SPOOR>
+            <spoorNr>21</spoorNr>
+            <volgende>C</volgende>
+            <vorige>B</vorige>
+        </SPOOR>
     </STATION>
     <STATION>
         <naam>B</naam>
@@ -15,6 +20,11 @@
             <spoorNr>12</spoorNr>
             <volgende>C</volgende>
             <vorige>A</vorige>
+        </SPOOR>
+        <SPOOR>
+            <spoorNr>21</spoorNr>
+            <volgende>A</volgende>
+            <vorige>C</vorige>
         </SPOOR>
     </STATION>
     <STATION>
@@ -25,23 +35,22 @@
             <volgende>A</volgende>
             <vorige>B</vorige>
         </SPOOR>
+        <SPOOR>
+            <spoorNr>21</spoorNr>
+            <volgende>B</volgende>
+            <vorige>A</vorige>
+        </SPOOR>
     </STATION>
     <TRAM>
         <lijnNr>12</lijnNr>
         <type>PCC</type>
         <voertuigNr>1</voertuigNr>
         <beginStation>A</beginStation>
-        <aantalDefecten>5</aantalDefecten>
-        <reparatieTijd>1</reparatieTijd>
-        <reparatieKost>5</reparatieKost>
     </TRAM>
     <TRAM>
-        <lijnNr>12</lijnNr>
-        <type>PCC</type>
+        <lijnNr>21</lijnNr>
+        <type>Albatros</type>
         <voertuigNr>2</voertuigNr>
         <beginStation>B</beginStation>
-        <aantalDefecten>5</aantalDefecten>
-        <reparatieTijd>1</reparatieTijd>
-        <reparatieKost>10</reparatieKost>
     </TRAM>
 </METRONET>

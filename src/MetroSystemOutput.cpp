@@ -64,6 +64,7 @@ void MetroSystemOutput::advancedSystemOutput(MetroSystem *system, std::ostream &
         currentStation = line->getNext(currentStation);
         while (currentStation != startStation){
             os << "===" << currentStation->getName();
+            currentStation = line->getNext(currentStation);
         }
         os << "=\n";
 
@@ -81,6 +82,7 @@ void MetroSystemOutput::advancedSystemOutput(MetroSystem *system, std::ostream &
                     os << "    ";
                 }
             }
+            currentStation = line->getNext(currentStation);
         }
         os << " \n\n";
     }

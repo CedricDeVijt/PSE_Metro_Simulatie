@@ -17,11 +17,11 @@ TEST(TestOutput, simpleSystemOutput){
     MetroSystem system1;
     MetroXMLParser::loadMetroSystem(system1, INPUTFOLDER + "simFile.xml", std::cout);
     MetroSystem system2;
-    MetroXMLParser::loadMetroSystem(system2, INPUTFOLDER + "simFile2.xml", std::cout);
+    MetroXMLParser::loadMetroSystem(system2, INPUTFOLDER + "simFile3.xml", std::cout);
 
     //output streams to files
     std::ofstream system1Output((OUTPUTFOLDER + "simFileOutput.txt").c_str());
-    std::ofstream system2Output((OUTPUTFOLDER + "simFileOutput2.txt").c_str());
+    std::ofstream system2Output((OUTPUTFOLDER + "simFileOutput3.txt").c_str());
 
     // output metro-systeem
     MetroSystemOutput::simpleSystemOutput(&system1,system1Output);
@@ -31,7 +31,7 @@ TEST(TestOutput, simpleSystemOutput){
 
     // TODO change to EXPECT_TRUE
     EXPECT_FALSE(FileCompare(OUTPUTFOLDER+"simFileOutput.txt", COMPAREFOLDER+"simFileOutput.txt"));
-    EXPECT_FALSE(FileCompare(OUTPUTFOLDER+"simFileOutput2.txt", COMPAREFOLDER+"simFileOutput2.txt"));
+    EXPECT_FALSE(FileCompare(OUTPUTFOLDER+"simFileOutput3.txt", COMPAREFOLDER+"simFileOutput3.txt"));
 }
 
 TEST(TestOutput, advancedSystemOutput){
@@ -42,11 +42,11 @@ TEST(TestOutput, advancedSystemOutput){
     MetroSystem system1;
     MetroXMLParser::loadMetroSystem(system1, INPUTFOLDER + "simFile.xml", std::cout);
     MetroSystem system2;
-    MetroXMLParser::loadMetroSystem(system2, INPUTFOLDER + "simFile2.xml", std::cout);
+    MetroXMLParser::loadMetroSystem(system2, INPUTFOLDER + "simFile3.xml", std::cout);
 
     //output streams to files
     std::ofstream system1Output((OUTPUTFOLDER + "simFileOutput.txt").c_str());
-    std::ofstream system2Output((OUTPUTFOLDER + "simFileOutput2.txt").c_str());
+    std::ofstream system2Output((OUTPUTFOLDER + "simFileOutput3.txt").c_str());
 
     // output metro-systeem
     MetroSystemOutput::advancedSystemOutput(&system1,system1Output);
@@ -56,5 +56,5 @@ TEST(TestOutput, advancedSystemOutput){
 
     // TODO change to EXPECT_TRUE
     EXPECT_FALSE(FileCompare(OUTPUTFOLDER+"simFileOutput.txt", COMPAREFOLDER+"simFileOutput.txt"));
-    EXPECT_FALSE(FileCompare(OUTPUTFOLDER+"simFileOutput2.txt", COMPAREFOLDER+"simFileOutput2.txt"));
+    EXPECT_FALSE(FileCompare(OUTPUTFOLDER+"simFileOutput3.txt", COMPAREFOLDER+"simFileOutput3.txt"));
 }
