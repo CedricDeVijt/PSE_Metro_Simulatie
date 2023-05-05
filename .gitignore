@@ -12,7 +12,7 @@ CMakeFiles
 
 # other folder
 pngs
-.idea
+/.idea/
 
 ### C++ ###
 # Prerequisites
@@ -221,3 +221,4 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,windows,clion,c++
+
