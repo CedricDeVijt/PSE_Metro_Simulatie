@@ -13,11 +13,11 @@ int main() {
     std::string filename = "simFile";
 
     MetroSimulation sim(INPUTPATH+filename+".xml", std::cerr,10, true);
-//    sim.run(std::cout);
-//    std::cout << std::endl;
-//    sim.evaluate(std::cout);
+    sim.run(std::cout);
+    std::cout << std::endl;
+    sim.evaluate(std::cout);
 
     MetroSystemOutput::advancedSystemOutput(sim.getSystem(), std::cout);
 
-//    MetroRenderer::createIni(sim.getSystem(),std::cout);
+    MetroRenderer::createIni(sim.getSystem(),std::cout);
 }
