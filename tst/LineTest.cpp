@@ -92,3 +92,45 @@ TEST(LineTest, deployTramTest) {
     delete a;
 }
 
+TEST(LineTest, updateTestAlbatros) {
+    //We create line 0
+    Line l(0);
+
+    //Init Tramstops a,b,c
+    TramStop *a = new Metrostation("A");
+    TramStop *b = new Halte("B");
+    TramStop *c = new Metrostation("C");
+
+    //Add the tramstops to the line
+    l.addStation(a);
+    l.addStation(b);
+    l.addStation(c);
+    EXPECT_TRUE(l.getStations().size()==3);
+
+    //We connect the stations without an error
+    std::stringstream errorStreamConnection;
+    l.connect("A", "B", errorStreamConnection);
+    l.connect("B", "C", errorStreamConnection);
+    l.connect("C", "A", errorStreamConnection);
+    EXPECT_TRUE(errorStreamConnection.str().empty());
+
+    //Init tram and deploy on A without an error
+    Tram *alba = new Albatros(0, NULL, 0, 100, 0);
+    std::stringstream errorStreamDeploy;
+    l.deployTram(alba, "A", errorStreamDeploy);
+    EXPECT_TRUE(errorStreamDeploy.str().empty());
+    EXPECT_TRUE(alba->getCurrentStation()==a);
+
+    std::stringstream ignoreStream;
+    l.update(ignoreStream);
+    //Now the albatros should skip the Halte B because it's an albatros
+    EXPECT_TRUE(alba->getCurrentStation()==c);
+    //Now go back to a
+    l.update(ignoreStream);
+    EXPECT_TRUE(alba->getCurrentStation()==a);
+
+    //deallocate Mem
+    delete a;
+    delete b;
+    delete c;
+}
