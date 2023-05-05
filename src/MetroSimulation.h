@@ -78,7 +78,8 @@ public:
      * @REQUIRE properlyInitialized(), "Metrosimulation was not properly initialised."
      */
     unsigned int getTime() const;
-private:
+
+protected:
     MetroSystem *system;
     unsigned int runtime;
     unsigned int time;
