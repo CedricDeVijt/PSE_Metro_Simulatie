@@ -84,7 +84,7 @@ void Tram::handleDefect(std::ostream &os) {
     REQUIRE(properlyInitialized(), "Tram was not properly initialised.");
     if (defect) {
         repairSteps++;
-        defect = repairSteps>=repairTime;
+        defect = repairSteps<repairTime;
         if (!defect) {
             os << *this << " was repaired.\n";
             steps = 0;

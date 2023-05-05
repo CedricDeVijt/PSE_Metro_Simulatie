@@ -1,7 +1,7 @@
 #include "gtest/gtest.h"
 #include "../src/Line.h"
 
-class LineTest: public ::testing::Test{
+class LineTest: public ::testing::Test {
     virtual void SetUp() {}
     virtual void TearDown() {}
 };

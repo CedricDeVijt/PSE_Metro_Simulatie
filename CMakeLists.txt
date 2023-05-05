@@ -40,7 +40,7 @@ set(TEST_SOURCE_FILES
         #Tests
         tst/TestParser.cpp
         tst/TestFuncs.h tst/TestSim.cpp
-        tst/testf.cpp tst/TestOuput.cpp tst/LineTest.cpp)
+        tst/testf.cpp tst/TestOuput.cpp tst/LineTest.cpp tst/StatisticsTest.cpp)
 
 # Create RELEASE target
 add_executable(main_executable src/main.cpp ${METRO_SOURCE_FILES}   ${TINY_XML_SOURCE_FILES})
