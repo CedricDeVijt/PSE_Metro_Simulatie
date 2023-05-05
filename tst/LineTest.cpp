@@ -134,3 +134,90 @@ TEST(LineTest, updateTestAlbatros) {
     delete b;
     delete c;
 }
+
+TEST(LineTest, updateTestStadsLijner) {
+    //We create line 0
+    Line l(0);
+
+    //Init Tramstops a,b,c
+    TramStop *a = new Metrostation("A");
+    TramStop *b = new Halte("B");
+    TramStop *c = new Metrostation("C");
+
+    //Add the tramstops to the line
+    l.addStation(a);
+    l.addStation(b);
+    l.addStation(c);
+    EXPECT_TRUE(l.getStations().size()==3);
+
+    //We connect the stations without an error
+    std::stringstream errorStreamConnection;
+    l.connect("A", "B", errorStreamConnection);
+    l.connect("B", "C", errorStreamConnection);
+    l.connect("C", "A", errorStreamConnection);
+    EXPECT_TRUE(errorStreamConnection.str().empty());
+
+    //Init tram and deploy on A without an error
+    Tram *stadsL = new Stadslijner(0, NULL, 0, 100, 0);
+    std::stringstream errorStreamDeploy;
+    l.deployTram(stadsL, "A", errorStreamDeploy);
+    EXPECT_TRUE(errorStreamDeploy.str().empty());
+    EXPECT_TRUE(stadsL->getCurrentStation()==a);
+
+    std::stringstream ignoreStream;
+    l.update(ignoreStream);
+    //Now the Stadslijner should skip the Halte B because it's a Stadslijner
+    EXPECT_TRUE(stadsL->getCurrentStation()==c);
+    //Now go back to a
+    l.update(ignoreStream);
+    EXPECT_TRUE(stadsL->getCurrentStation()==a);
+
+    //deallocate Mem
+    delete a;
+    delete b;
+    delete c;
+}
+
+TEST(LineTest, updateTestPCC) {
+    //We create line 0
+    Line l(0);
+
+    //Init Tramstops a,b,c
+    TramStop *a = new Metrostation("A");
+    TramStop *b = new Halte("B");
+    TramStop *c = new Metrostation("C");
+
+    //Add the tramstops to the line
+    l.addStation(a);
+    l.addStation(b);
+    l.addStation(c);
+    EXPECT_TRUE(l.getStations().size()==3);
+
+    //We connect the stations without an error
+    std::stringstream errorStreamConnection;
+    l.connect("A", "B", errorStreamConnection);
+    l.connect("B", "C", errorStreamConnection);
+    l.connect("C", "A", errorStreamConnection);
+    EXPECT_TRUE(errorStreamConnection.str().empty());
+
+    //Init tram and deploy on A without an error
+    Tram *pcc = new PCC(0, NULL, 0, 100, 0);
+    std::stringstream errorStreamDeploy;
+    l.deployTram(pcc, "A", errorStreamDeploy);
+    EXPECT_TRUE(errorStreamDeploy.str().empty());
+    EXPECT_TRUE(pcc->getCurrentStation()==a);
+
+    std::stringstream ignoreStream;
+    l.update(ignoreStream);
+    //Now the pcc should not skip the Halte B because it's a pcc
+    EXPECT_TRUE(pcc->getCurrentStation()==b);
+    //Now go back to a
+    l.update(ignoreStream);
+    l.update(ignoreStream);
+    EXPECT_TRUE(pcc->getCurrentStation()==a);
+
+    //deallocate Mem
+    delete a;
+    delete b;
+    delete c;
+}
