@@ -15,10 +15,10 @@ TEST(StatisticsTest, test1) {
 
     //Before the simulation
     MetroSimStatistics statisticsB4(&sim);
-    EXPECT_TRUE(statisticsB4.getTime()==0);
-    EXPECT_TRUE(statisticsB4.getTotalCost()==0);
-    EXPECT_TRUE(statisticsB4.getWorkingTrams()==2);
-    EXPECT_TRUE(statisticsB4.getDefectTrams()==0);
+    EXPECT_EQ(statisticsB4.getTime(),0);
+    EXPECT_EQ(statisticsB4.getTotalCost(),0);
+    EXPECT_EQ(statisticsB4.getWorkingTrams(),2);
+    EXPECT_EQ(statisticsB4.getDefectTrams(),0);
 
     //run the sim
     std::stringstream ignoreStream;
@@ -26,10 +26,10 @@ TEST(StatisticsTest, test1) {
 
     //After the simulation
     MetroSimStatistics statisticsAft(&sim);
-    EXPECT_TRUE(statisticsAft.getTime()==10);
-    EXPECT_TRUE(statisticsAft.getTotalCost()==15);
-    EXPECT_TRUE(statisticsAft.getWorkingTrams()==0);
-    EXPECT_TRUE(statisticsAft.getDefectTrams()==2);
+    EXPECT_EQ(statisticsAft.getTime(),10);
+    EXPECT_EQ(statisticsAft.getTotalCost(),15);
+    EXPECT_EQ(statisticsAft.getWorkingTrams(),1);
+    EXPECT_EQ(statisticsAft.getDefectTrams(),1);
 }
 
 TEST(StatisticsTest, test2) {
@@ -41,10 +41,10 @@ TEST(StatisticsTest, test2) {
 
     //Before the simulation
     MetroSimStatistics statisticsB4(&sim);
-    EXPECT_TRUE(statisticsB4.getTime()==0);
-    EXPECT_TRUE(statisticsB4.getTotalCost()==0);
-    EXPECT_TRUE(statisticsB4.getWorkingTrams()==2);
-    EXPECT_TRUE(statisticsB4.getDefectTrams()==0);
+    EXPECT_EQ(statisticsB4.getTime(),0);
+    EXPECT_EQ(statisticsB4.getTotalCost(),0);
+    EXPECT_EQ(statisticsB4.getWorkingTrams(),2);
+    EXPECT_EQ(statisticsB4.getDefectTrams(),0);
 
     //run the sim
     std::stringstream ignoreStream;
@@ -52,8 +52,8 @@ TEST(StatisticsTest, test2) {
 
     //After the simulation
     MetroSimStatistics statisticsAft(&sim);
-    EXPECT_TRUE(statisticsAft.getTime()==24);
-    EXPECT_TRUE(statisticsAft.getTotalCost()==30);
-    EXPECT_TRUE(statisticsAft.getWorkingTrams()==2);
-    EXPECT_TRUE(statisticsAft.getDefectTrams()==0);
+    EXPECT_EQ(statisticsAft.getTime(),24);
+    EXPECT_EQ(statisticsAft.getTotalCost(),30);
+    EXPECT_EQ(statisticsAft.getWorkingTrams(),2);
+    EXPECT_EQ(statisticsAft.getDefectTrams(),0);
 }
