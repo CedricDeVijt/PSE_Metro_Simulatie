@@ -3,7 +3,6 @@
 
 #include <QMainWindow>
 #include <stack>
-#include "../src/MetroSimulation.h"
 #include "GUI_MetroSimulation.h"
 
 QT_BEGIN_NAMESPACE
@@ -35,7 +34,14 @@ private:
     std::string filename = "./xmlFiles/sims/input/simFile.xml";
     GUI_MetroSimulation *sim;
 
-    std::stack<MetroSimulation> simStack;
+    std::vector<std::string> streamStack;
+    std::vector<std::vector<int>> statStack;
+    int streamStackIndex;
 
+
+    bool systemStarted;
+    bool systemStopped;
+
+    std::vector<int> getSystemStats();
 };
 #endif // MAINWINDOW_H

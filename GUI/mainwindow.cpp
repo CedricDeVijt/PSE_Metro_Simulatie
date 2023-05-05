@@ -1,25 +1,28 @@
 #include "mainwindow.h"
-#include "./ui_mainwindow.h"
-#include "../src/MetroSimulation.h"
-#include "../src/MetroSimStatistics.h"
 #include "SimThread.h"
+#include "./ui_mainwindow.h"
+#include "../src/MetroSimStatistics.h"
 
 const std::string INPUTPATH = "../xmlFiles/sims/input/";
 const std::string OUTPUTPATH = "../xmlFiles/sims/output/";
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
-    sim = new GUI_MetroSimulation(filename, ss,10, true);
-
     ui->setupUi(this);
 
-    connect(sim, &GUI_MetroSimulation::simulationProgressed, this, &MainWindow::updateGUI);
+    // Metro simulation for GUI
+    sim = new GUI_MetroSimulation(filename, ss,10, true);
 
+    systemStarted = false;
+    systemStopped = false;
+    streamStackIndex = 0;
+
+    // Connect signals to slots
+    connect(sim, &GUI_MetroSimulation::simulationProgressed, this, &MainWindow::updateGUI);
     connect(ui->pushButton_Start, SIGNAL(clicked()), this, SLOT(onPushButton_StartClicked()));
     connect(ui->pushButton_Stop, SIGNAL(clicked()), this, SLOT(onPushButton_StopClicked()));
     connect(ui->pushButton_Previous, SIGNAL(clicked()), this, SLOT(onPushButton_PreviousClicked()));
     connect(ui->pushButton_Next, SIGNAL(clicked()), this, SLOT(onPushButton_NextClicked()));
     connect(ui->pushButton_FindRoute, SIGNAL(clicked()), this, SLOT(onPushButton_FindRouteClicked()));
-
 
     // Add stations to comboxes in navigation
     std::vector<TramStop *> stations = sim->getSystem()->getStations();
@@ -29,46 +32,73 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
         ui->comboBox_2->addItem(name);
     }
 
+    // Set stat labels
     ui->label_6->setText("/");
     ui->label_7->setText("/");
     ui->label_9->setText("/");
     ui->label_10->setText("/");
     ui->label_16->setText("/");
 
+    streamStack.push_back(ss.str());
+    statStack.push_back(getSystemStats());
 }
 
-MainWindow::~MainWindow()
-{
+MainWindow::~MainWindow(){
     delete ui;
+    delete sim;
 }
-
-
 
 void MainWindow::onPushButton_StartClicked() {
-    ui->textBrowser_Simulation->append("Started simulation");
-    SimThread *thread = new SimThread(sim, ss);
-    thread->start();  //start the thread
-    sim->stopSystem();
+    if (not systemStarted) {
+        ui->textBrowser_Simulation->append("Started simulation");
+        SimThread *thread = new SimThread(sim, ss);
+        thread->start();  //start the thread
+        systemStarted = true;
+    } else {
+        ui->textBrowser_Simulation->append("Simulation already started.");
+    }
 }
 
 void MainWindow::onPushButton_StopClicked(){
-    sim->stopSystem();
-    ui->textBrowser_Simulation->append("Stopped simulation");
-}
-
-void MainWindow::onPushButton_PreviousClicked(){
-    ui->textBrowser_Simulation->append("Previous step");
-//    sim = std::move(simStack.pop());
-//    sim.getSystem()->updateSystem(ss);
-//    updateGUI();
+    if (not systemStarted) {
+        ui->textBrowser_Simulation->append("System hasn't been started yet");
+    } else if (not systemStopped){
+        sim->stopSystem();
+        ui->textBrowser_Simulation->append("Stopped simulation");
+        systemStopped = true;
+    } else {
+        ui->textBrowser_Simulation->append("Simulation is already stopped");
+    }
 }
 
 void MainWindow::onPushButton_NextClicked(){
-//    ui->textBrowser_Simulation->append("Next step");
-//    simStack.push(new MetroSimulation(sim));
-    sim->getSystem()->updateSystem(ss);
-    sim->updateTime();
-    updateGUI();
+    systemStarted = true;
+    if (not systemStopped){
+        if (streamStackIndex == streamStack.size()-1){
+            sim->updateTime();
+            sim->getSystem()->updateSystem(ss);
+            // Push new data
+            statStack.push_back(getSystemStats());
+            streamStack.push_back(ss.str());
+        } else {
+            ss.str(streamStack[streamStackIndex]);
+        }
+        updateGUI();
+        streamStackIndex++;
+    }
+}
+
+void MainWindow::onPushButton_PreviousClicked(){
+    if (not systemStopped){
+        if (streamStackIndex >= 0){
+            streamStackIndex--;
+            ss.str(streamStack[streamStackIndex]);
+            updateGUI();
+        } else {
+            ss.str("");
+        }
+        updateGUI();
+    }
 }
 
 void MainWindow::onPushButton_FindRouteClicked() {
@@ -95,7 +125,7 @@ void MainWindow::onPushButton_FindRouteClicked() {
                 currentStop = line->getNext(currentStop);
                 ui->textBrowser_2->append("Station " + QString::fromStdString(currentStop->getName()));
             }
-        } else{
+        } else {
             // Route with connection
             TramStop* beginStop = route.first[0];
             TramStop* connectionStop = route.first[1];
@@ -122,23 +152,35 @@ void MainWindow::onPushButton_FindRouteClicked() {
     }
 }
 
-void MainWindow::updateGUI(){
-    MetroSimStatistics *stats = new MetroSimStatistics(sim);
+void MainWindow::updateGUI() {
+
+    std::vector<int> stats = statStack[streamStackIndex+1];
 
     // Time label
-    ui->label_6->setText(QString::number(stats->getTime()));
+    ui->label_6->setText(QString::number(stats[0]));
     // Total Trams  label
-    ui->label_7->setText(QString::number(stats->getWorkingTrams() + stats->getDefectTrams()));
+    ui->label_7->setText(QString::number(stats[1] + stats[2]));
     // Working trams
-    ui->label_9->setText(QString::number(stats->getWorkingTrams()));
+    ui->label_9->setText(QString::number(stats[1]));
     // Broken trams
-    ui->label_10->setText(QString::number(stats->getDefectTrams()));
+    ui->label_10->setText(QString::number(stats[2]));
     // Total cost
-    ui->label_16->setText(QString::number(stats->getTotalCost()));
+    ui->label_16->setText(QString::number(stats[3]));
 
     ui->textBrowser_Simulation->clear();
+
     ui->textBrowser_Simulation->append("Started simulation");
     ui->textBrowser_Simulation->append(QString::fromStdString(ss.str()));
 
-    delete stats;
+
+}
+
+std::vector<int> MainWindow::getSystemStats() {
+    MetroSimStatistics *stats = new MetroSimStatistics(sim);
+    return {
+            stats->getTime(),
+            stats->getWorkingTrams(),
+            stats->getDefectTrams(),
+            stats->getTotalCost()
+    };
 }

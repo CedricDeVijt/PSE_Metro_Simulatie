@@ -2,13 +2,13 @@
 #define PSE_GUI_SIMTHREAD_H
 
 #include <QThread>
-#include "../src/MetroSimulation.h"
+#include "GUI_MetroSimulation.h"
 
 class SimThread : public QThread{
 public:
-    SimThread(MetroSimulation *sim, std::ostringstream &ss);
+    SimThread(GUI_MetroSimulation *sim, std::ostringstream &ss);
 private:
-    MetroSimulation *sim;
+    GUI_MetroSimulation *sim;
     std::ostringstream &ss;
 
 protected:
