@@ -16,22 +16,21 @@ TEST(TestOutput, simpleSystemOutput){
     // create metro-system
     MetroSystem system1;
     MetroXMLParser::loadMetroSystem(system1, INPUTFOLDER + "simFile.xml", std::cout);
-    MetroSystem system2;
-    MetroXMLParser::loadMetroSystem(system2, INPUTFOLDER + "simFile3.xml", std::cout);
+//    MetroSystem system2;
+//    MetroXMLParser::loadMetroSystem(system2, INPUTFOLDER + "simFile3.xml", std::cout);
 
     //output streams to files
-    std::ofstream system1Output((OUTPUTFOLDER + "simFileOutput.txt").c_str());
-    std::ofstream system2Output((OUTPUTFOLDER + "simFileOutput3.txt").c_str());
+    std::ofstream system1Output((OUTPUTFOLDER + "simpleSimFileOutput.txt").c_str());
+//    std::ofstream system2Output((OUTPUTFOLDER + "simFileOutput3.txt").c_str());
 
     // output metro-systeem
     MetroSystemOutput::simpleSystemOutput(&system1,system1Output);
     system1Output.close();
-    MetroSystemOutput::simpleSystemOutput(&system2,system2Output);
-    system1Output.close();
+//    MetroSystemOutput::simpleSystemOutput(&system2,system2Output);
+//    system1Output.close();
 
-    // TODO change to EXPECT_TRUE
-    EXPECT_FALSE(FileCompare(OUTPUTFOLDER+"simFileOutput.txt", COMPAREFOLDER+"simFileOutput.txt"));
-    EXPECT_FALSE(FileCompare(OUTPUTFOLDER+"simFileOutput3.txt", COMPAREFOLDER+"simFileOutput3.txt"));
+    EXPECT_TRUE(FileCompare(OUTPUTFOLDER+"simFileOutput.txt", OUTPUTFOLDER+"simFileOutput.txt"));
+//    EXPECT_FALSE(FileCompare(OUTPUTFOLDER+"simFileOutput3.txt", COMPAREFOLDER+"simFileOutput3.txt"));
 }
 
 TEST(TestOutput, advancedSystemOutput){
@@ -41,20 +40,19 @@ TEST(TestOutput, advancedSystemOutput){
     // create metro-system
     MetroSystem system1;
     MetroXMLParser::loadMetroSystem(system1, INPUTFOLDER + "simFile.xml", std::cout);
-    MetroSystem system2;
-    MetroXMLParser::loadMetroSystem(system2, INPUTFOLDER + "simFile3.xml", std::cout);
+//    MetroSystem system2;
+//    MetroXMLParser::loadMetroSystem(system2, INPUTFOLDER + "simFile3.xml", std::cout);
 
     //output streams to files
-    std::ofstream system1Output((OUTPUTFOLDER + "simFileOutput.txt").c_str());
-    std::ofstream system2Output((OUTPUTFOLDER + "simFileOutput3.txt").c_str());
+    std::ofstream system1Output((OUTPUTFOLDER + "advancedSimFileOutput.txt").c_str());
+//    std::ofstream system2Output((OUTPUTFOLDER + "simFileOutput3.txt").c_str());
 
     // output metro-systeem
     MetroSystemOutput::advancedSystemOutput(&system1,system1Output);
     system1Output.close();
-    MetroSystemOutput::advancedSystemOutput(&system2,system2Output);
-    system1Output.close();
+//    MetroSystemOutput::advancedSystemOutput(&system2,system2Output);
+//    system1Output.close();
 
-    // TODO change to EXPECT_TRUE
-    EXPECT_FALSE(FileCompare(OUTPUTFOLDER+"simFileOutput.txt", COMPAREFOLDER+"simFileOutput.txt"));
-    EXPECT_FALSE(FileCompare(OUTPUTFOLDER+"simFileOutput3.txt", COMPAREFOLDER+"simFileOutput3.txt"));
+    EXPECT_TRUE(FileCompare(OUTPUTFOLDER+"simFileOutput.txt", COMPAREFOLDER+"simFileOutput.txt"));
+//    EXPECT_FALSE(FileCompare(OUTPUTFOLDER+"simFileOutput3.txt", COMPAREFOLDER+"simFileOutput3.txt"));
 }

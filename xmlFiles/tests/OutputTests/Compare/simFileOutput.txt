@@ -1,13 +1,3 @@
-TramStop A
-<- TramStop C
--> TramStop B
+=B===C===A=
+         T        
 
-TramStop B
-<- TramStop A
--> TramStop C
-
-TramStop C
-<- TramStop B
--> TramStop A
-
-Tram 0 in TramStop A
