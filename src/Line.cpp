@@ -116,6 +116,7 @@ void Line::deployTram(Tram *newTram, const std::string &stationName, std::ostrea
         if (station->getName()==stationName) {
             if (station->isOccupied()) {
                 Logger::writeError(errorStream, "Deploy error, this station was already occupied.");
+                delete newTram;
                 verified = false;
                 return;
             }

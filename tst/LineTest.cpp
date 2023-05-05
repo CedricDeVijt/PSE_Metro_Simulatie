@@ -83,12 +83,10 @@ TEST(LineTest, deployTramTest) {
     Tram *t1 = new Albatros(1,NULL,0,0,0);
     //This tram also wants to deploy on an occupied station!? -> problem
     std::stringstream errorStream2;
-    l.deployTram(t0, "A", errorStream2);
+    l.deployTram(t1, "A", errorStream2);
     //There should be errors
     EXPECT_TRUE(!errorStream2.str().empty());
 
-    delete t0;
-    delete t1;
     delete a;
 }
 
