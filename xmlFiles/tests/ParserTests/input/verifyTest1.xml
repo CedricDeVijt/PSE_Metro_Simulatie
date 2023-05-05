@@ -1,25 +1,47 @@
 <METRONET>
     <STATION>
         <naam>A</naam>
-        <volgende>B</volgende>
-        <vorige>G</vorige>
-        <spoorNr>12</spoorNr>
+        <type>Metrostation</type>
+        <SPOOR>
+            <spoorNr>12</spoorNr>
+            <volgende>G</volgende>
+            <vorige>C</vorige>
+        </SPOOR>
     </STATION>
     <STATION>
         <naam>B</naam>
-        <volgende>C</volgende>
-        <vorige>A</vorige>
-        <spoorNr>12</spoorNr>
+        <type>Metrostation</type>
+        <SPOOR>
+            <spoorNr>12</spoorNr>
+            <volgende>C</volgende>
+            <vorige>A</vorige>
+        </SPOOR>
     </STATION>
     <STATION>
         <naam>C</naam>
-        <volgende>A</volgende>
-        <vorige>B</vorige>
-        <spoorNr>12</spoorNr>
+        <type>Metrostation</type>
+        <SPOOR>
+            <spoorNr>12</spoorNr>
+            <volgende>A</volgende>
+            <vorige>B</vorige>
+        </SPOOR>
     </STATION>
     <TRAM>
         <lijnNr>12</lijnNr>
-        <snelheid>60</snelheid>
+        <type>PCC</type>
+        <voertuigNr>1</voertuigNr>
         <beginStation>A</beginStation>
+        <aantalDefecten>5</aantalDefecten>
+        <reparatieTijd>1</reparatieTijd>
+        <reparatieKost>5</reparatieKost>
+    </TRAM>
+    <TRAM>
+        <lijnNr>12</lijnNr>
+        <type>PCC</type>
+        <voertuigNr>2</voertuigNr>
+        <beginStation>B</beginStation>
+        <aantalDefecten>5</aantalDefecten>
+        <reparatieTijd>1</reparatieTijd>
+        <reparatieKost>10</reparatieKost>
     </TRAM>
 </METRONET>

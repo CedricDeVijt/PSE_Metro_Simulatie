@@ -1,4 +1,3 @@
-ERROR: Invalid Information: "type" element not found
-ERROR: Invalid Information: "type" element not found
-ERROR: Invalid Information: "type" element not found
-ERROR: Invalid Information: "voertuigNr" element not found
+ERROR: Failed to connect: EndStation not found in Line
+ERROR: Failed to connect: niet elk station is verbonden met een voorgaand en een volgend station voor elk spoor
+ERROR: Inconsistent Metronet

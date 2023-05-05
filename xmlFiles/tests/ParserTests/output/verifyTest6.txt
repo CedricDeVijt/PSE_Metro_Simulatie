@@ -1,3 +1,2 @@
-ERROR: Invalid Information: "type" element not found
-ERROR: Invalid Information: "type" element not found
-ERROR: Invalid Information: "type" element not found
+ERROR: VerificationError: er zijn sporen waarvoor geen tram bestaat
+ERROR: Inconsistent Metronet

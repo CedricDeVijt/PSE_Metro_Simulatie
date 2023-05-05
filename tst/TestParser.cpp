@@ -52,6 +52,11 @@ TEST_F(ParserTest, VerifyTest6) {
     compareLog("verifyTest6");
 }
 
+//Double deploy
+TEST_F(ParserTest, VerifyTest7) {
+    compareLog("verifyTest7");
+}
+
 //No file in dir
 TEST_F(ParserTest, LoadFileTest1) {
     compareLog("baba");
