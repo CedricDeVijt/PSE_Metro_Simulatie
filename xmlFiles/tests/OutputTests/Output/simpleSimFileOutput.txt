@@ -1,0 +1,29 @@
+--== STATIONS ==--
+= A =
+* Spoor 12:
+    -> B
+    <- C
+
+= B =
+* Spoor 12:
+    -> C
+    <- A
+
+= C =
+* Spoor 12:
+    -> A
+    <- B
+
+--== TRAMS ==--
+Tram 12 nr 1
+    type: P4Tram
+    snelheid: 40
+    huidig station: A
+    reparatiekosten: 0 euro
+
+Tram 12 nr 2
+    type: P4Tram
+    snelheid: 40
+    huidig station: B
+    reparatiekosten: 0 euro
+
