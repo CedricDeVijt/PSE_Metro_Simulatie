@@ -114,6 +114,11 @@ void Line::deployTram(Tram *newTram, const std::string &stationName, std::ostrea
     while (it!=stations.end()) {
         TramStop *station = *it;
         if (station->getName()==stationName) {
+            if (station->isOccupied()) {
+                Logger::writeError(errorStream, "Deploy error, this station was already occupied.");
+                verified = false;
+                return;
+            }
             trams.push_back(newTram);
             newTram->setStartStation(station);
             station->setOccupied(true);

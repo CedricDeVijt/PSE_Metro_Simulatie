@@ -18,7 +18,7 @@ TEST(SimTest, automaticDriving) {
     file.open((OUTPUTFOLDERPATH+filename).c_str(), std::ios::out);
     EXPECT_TRUE(file);
 
-    MetroSimulation sim(INPUTFOLDERPATH+filename, file, 10);
+    MetroSimulation sim(INPUTFOLDERPATH+filename, file, 10, false);
 
     if (file) {
         sim.run(file);
