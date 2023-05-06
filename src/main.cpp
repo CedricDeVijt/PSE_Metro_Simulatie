@@ -10,7 +10,7 @@ const std::string INPUTPATH = "./xmlFiles/sims/input/";
 const std::string OUTPUTPATH = "./xmlFiles/sims/output/";
 
 int main() {
-    std::string filename = "simFile";
+    std::string filename = "simAdvanced";
 
     MetroSimulation sim(INPUTPATH+filename+".xml", std::cerr,10, true);
     sim.run(std::cout);

@@ -15,7 +15,7 @@ TEST(TestOutput, simpleSystemOutput){
     const std::string COMPAREFOLDER = "xmlFiles/tests/OutputTests/Compare/";
     // create metro-system
     MetroSystem system1;
-    MetroXMLParser::loadMetroSystem(system1, INPUTFOLDER + "simFile.xml", std::cout);
+    MetroXMLParser::loadMetroSystem(system1, INPUTFOLDER + "simAdvanced.xml", std::cout);
 //    MetroSystem system2;
 //    MetroXMLParser::loadMetroSystem(system2, INPUTFOLDER + "simFile3.xml", std::cout);
 
@@ -39,7 +39,7 @@ TEST(TestOutput, advancedSystemOutput){
     const std::string COMPAREFOLDER = "xmlFiles/tests/OutputTests/Compare/";
     // create metro-system
     MetroSystem system1;
-    MetroXMLParser::loadMetroSystem(system1, INPUTFOLDER + "simFile.xml", std::cout);
+    MetroXMLParser::loadMetroSystem(system1, INPUTFOLDER + "simAdvanced.xml", std::cout);
 //    MetroSystem system2;
 //    MetroXMLParser::loadMetroSystem(system2, INPUTFOLDER + "simFile3.xml", std::cout);
 
