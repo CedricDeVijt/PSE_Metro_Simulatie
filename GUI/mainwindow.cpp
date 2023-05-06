@@ -75,16 +75,22 @@ void MainWindow::onPushButton_NextClicked(){
     systemStarted = true;
     if (not systemStopped){
         if (streamStackIndex == streamStack.size()-1){
+            streamStackIndex++;
             sim->updateTime();
+            ss.str("");
             sim->getSystem()->updateSystem(ss);
             // Push new data
             statStack.push_back(getSystemStats());
             streamStack.push_back(ss.str());
+
         } else {
-            ss.str(streamStack[streamStackIndex]);
+            streamStackIndex++;
+        }
+        ss.str("");
+        for (int i = 0; i < streamStackIndex+1; ++i) {
+            ss << streamStack[i];
         }
         updateGUI();
-        streamStackIndex++;
     }
 }
 
@@ -92,7 +98,10 @@ void MainWindow::onPushButton_PreviousClicked(){
     if (not systemStopped){
         if (streamStackIndex >= 0){
             streamStackIndex--;
-            ss.str(streamStack[streamStackIndex]);
+            ss.str("");
+            for (int i = 0; i < streamStackIndex+1; ++i) {
+                ss << streamStack[i];
+            }
             updateGUI();
         } else {
             ss.str("");
@@ -156,7 +165,7 @@ void MainWindow::onPushButton_FindRouteClicked() {
 
 void MainWindow::updateGUI() {
 
-    std::vector<int> stats = getSystemStats();
+    std::vector<int> stats = statStack[streamStackIndex];
 
     // Time label
     ui->label_6->setText(QString::number(stats[0]));
