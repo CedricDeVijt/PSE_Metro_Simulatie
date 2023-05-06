@@ -33,7 +33,7 @@ void MetroSystemOutput::simpleSystemOutput(MetroSystem *system, std::ostream &os
         for (std::vector<Tram *>::iterator tramIt = trams.begin(); tramIt != trams.end(); ++tramIt){
             Tram* tram = *tramIt;
             os << "Tram " << line->getLineNumber() << " nr " << tram->getTramNumber() << "\n";
-            os << "    type: " << typeid(tram).name() << "\n";
+            os << "    type: " << tram->getVehicleType() << "\n";
             os << "    snelheid: " << tram->getSpeed() << "\n";
             os << "    huidig station: " << tram->getCurrentStation()->getName() << "\n";
             os << "    reparatiekosten: " << tram->getTotalCost() << " euro\n\n";

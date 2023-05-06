@@ -7,6 +7,7 @@
 Tram::Tram(int tramNumber, int speed, TramStop *startStation, int repairTime, int defectAmount, int repairCost) :
 tramNumber(tramNumber), speed(speed), _initCheck(this), startStation(startStation), currentStation(startStation),
 repairCost(repairCost), repairTime(repairTime), defectAmount(defectAmount), totalCost(0), defect(false), repairSteps(0), steps(0) {
+    vehicleType = "Tram";
     ENSURE(properlyInitialized(), "constructor must end in properlyInitialized state");
 }
 
@@ -105,11 +106,22 @@ bool Tram::isDefect() const {
     return defect;
 }
 
+const std::string &Tram::getVehicleType() const {
+    REQUIRE(properlyInitialized(), "Tram was not properly initialised.");
+    return vehicleType;
+}
+
 PCC::PCC(int tramNumber, TramStop *startStation, int repairTime, int defectAmount, int repairCost) :
-Tram(tramNumber, 40, startStation, repairTime, defectAmount, repairCost) {}
+Tram(tramNumber, 40, startStation, repairTime, defectAmount, repairCost) {
+     vehicleType = "PCC";
+}
 
 Albatros::Albatros(int tramNumber, Metrostation *startStation, int repairTime, int defectAmount, int repairCost) :
-Tram(tramNumber, 70, startStation, repairTime, defectAmount, repairCost)  {}
+Tram(tramNumber, 70, startStation, repairTime, defectAmount, repairCost)  {
+    vehicleType = "Albatros";
+}
 
 Stadslijner::Stadslijner(int tramNumber, Metrostation *startStation, int repairTime, int defectAmount, int repairCost) :
-Tram(tramNumber, 70, startStation, repairTime, defectAmount, repairCost)  {}
+Tram(tramNumber, 70, startStation, repairTime, defectAmount, repairCost)  {
+    vehicleType = "Stadslijner";
+}

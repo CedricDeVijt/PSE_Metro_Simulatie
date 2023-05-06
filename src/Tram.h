@@ -96,6 +96,14 @@ public:
     int getTotalCost() const;
 
     /**
+     * Gives the type of the tram.
+     *
+     * @return The name of the type of tram.
+     * @REQUIRE properlyInitialized(), "TramStop was not properly initialised."
+     */
+    const std::string &getVehicleType() const;
+
+    /**
      * Returns true if the Tram is defect
      *
      * @REQUIRE properlyInitialized(), "TramStop was not properly initialised."
@@ -137,6 +145,9 @@ private:
     bool defect;
     int repairSteps;
     int steps;
+
+protected:
+    std::string vehicleType;
 };
 
 class PCC : public Tram {
