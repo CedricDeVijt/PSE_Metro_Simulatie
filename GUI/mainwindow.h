@@ -18,6 +18,7 @@ public:
     ~MainWindow();
 
     void updateGUI();
+    void updateGUIAuto();
 
 private slots:
     void onPushButton_StartClicked();

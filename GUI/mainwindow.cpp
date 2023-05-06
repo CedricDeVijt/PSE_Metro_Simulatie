@@ -17,7 +17,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     streamStackIndex = 0;
 
     // Connect signals to slots
-    connect(sim, &GUI_MetroSimulation::simulationProgressed, this, &MainWindow::updateGUI);
+    connect(sim, &GUI_MetroSimulation::simulationProgressed, this, &MainWindow::updateGUIAuto);
     connect(ui->pushButton_Start, SIGNAL(clicked()), this, SLOT(onPushButton_StartClicked()));
     connect(ui->pushButton_Stop, SIGNAL(clicked()), this, SLOT(onPushButton_StopClicked()));
     connect(ui->pushButton_Previous, SIGNAL(clicked()), this, SLOT(onPushButton_PreviousClicked()));
@@ -184,6 +184,25 @@ void MainWindow::updateGUI() {
     ui->textBrowser_Simulation->append(QString::fromStdString(ss.str()));
 
 
+}
+
+void MainWindow::updateGUIAuto() {
+    std::vector<int> stats= getSystemStats();
+    // Time label
+    ui->label_6->setText(QString::number(stats[0]));
+    // Total Trams  label
+    ui->label_7->setText(QString::number(stats[1] + stats[2]));
+    // Working trams
+    ui->label_9->setText(QString::number(stats[1]));
+    // Broken trams
+    ui->label_10->setText(QString::number(stats[2]));
+    // Total cost
+    ui->label_16->setText(QString::number(stats[3]));
+
+    ui->textBrowser_Simulation->clear();
+
+    ui->textBrowser_Simulation->append("Started simulation");
+    ui->textBrowser_Simulation->append(QString::fromStdString(ss.str()));
 }
 
 std::vector<int> MainWindow::getSystemStats() {
