@@ -27,9 +27,9 @@
 -[ ] Use case 3.9: Statistische verwerking simulatie
 
 ### Case 4: Gebruikersinterface
--[ ] Use case 4.1: GUI voor de simulatie
--[ ] Use case 4.2: GUI voor routeplanner
--[ ] Use case 4.3: GUI voor statistische gegevens
+-[x] Use case 4.1: GUI voor de simulatie
+-[x] Use case 4.2: GUI voor routeplanner
+-[x] Use case 4.3: GUI voor statistische gegevens
 
 
 ## Test
@@ -37,19 +37,4 @@
 - [x] Properly initialized (_initCheck)
 - [ ] startSystem
 - [ ] updateSystem
-- [ ] outputMetroSimulation
-### MetroXMLParser
-- [x] Properly initialized (_initCheck)
-- [ ] test x
-### TramStop
-- [x] Properly initialized (_initCheck)
-- [ ] test x
-### Track
-- [x] Properly initialized (_initCheck)
-- [ ] test x
-### Tram
-- [x] Properly initialized (_initCheck)
-- [ ] test x
-### Line
-- [x] Properly initialized (_initCheck)
-- [ ] test x
+- [x] outputMetroSimulation

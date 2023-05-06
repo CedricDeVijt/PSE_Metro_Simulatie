@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.5)
 
 project(PSE_GUI VERSION 0.1 LANGUAGES CXX)
+set_property(TARGET ${PSE_GUI} PROPERTY CXX_STANDARD 98)
 
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)

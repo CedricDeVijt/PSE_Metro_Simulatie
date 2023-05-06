@@ -16,6 +16,7 @@ public:
      * @param inputFile is a .xml file that contains METRODATA
      * @param errorstream is the stream the errors get outputted to
      * @param runtime is the time the simulation needs to run
+     * @param createPng if the system needs to create png's of all the conditions the system goes through
      * @ENSURE properlyInitialized(), "constructor must end in properlyInitialized state"
      */
     MetroSimulation(const std::string &inputFile, std::ostream &errorstream, unsigned int runtime, bool createPng);
