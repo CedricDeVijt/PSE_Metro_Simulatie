@@ -135,21 +135,20 @@ std::pair<std::vector<TramStop *>, std::vector<Line *> > MetroSystem::getRoute(c
     REQUIRE(properlyInitialized(), "MetroSystem is not properly initialised.");
 
     // Find Station* for the two strings and find lines where Stops are on
-    TramStop * beginStop;
-    TramStop * endStop;
+    TramStop *beginStop;
+    TramStop *endStop;
     std::vector<Line *> beginStopLines;
     std::vector<Line *> endStopLines;
     for (int i = 0; i < (int)lines.size(); ++i) {
         Line *line = lines[i];
-        std::vector<TramStop *>stops = line->getStations();
-        for (int j = 0; j < (int)stops.size(); ++j) {
-            if (stops[j]->getName() == beginStopName){
-                beginStop = stops[j];
-                beginStopLines.push_back(line);
-            } else if (stops[j]->getName() == endStopName){
-                endStop = stops[j];
-                endStopLines.push_back(line);
-            }
+
+        if (line->getStation(beginStopName) != NULL){
+            beginStop = line->getStation(beginStopName);
+            beginStopLines.push_back(line);
+        }
+        if (line->getStation(endStopName) != NULL){
+            endStop = line->getStation(endStopName);
+            endStopLines.push_back(line);
         }
     }
 
@@ -160,35 +159,20 @@ std::pair<std::vector<TramStop *>, std::vector<Line *> > MetroSystem::getRoute(c
                 std::vector<TramStop *> resultingTramStops;
                 std::vector<Line *> resultingLines;
 
-                resultingTramStops.push_back(beginStop);
-                resultingTramStops.push_back(endStop);
-                resultingLines.push_back(beginStopLines[i]);
-
-                std::pair<std::vector<TramStop *>, std::vector<Line *> > result(resultingTramStops, resultingLines);
-
-                return result;
+                return {{beginStop, endStop},{beginStopLines[i]}};
             }
         }
     }
 
     // Stations are on different lines -> find connection
     for (int i = 0; i < (int)beginStopLines.size(); ++i) {
+        std::vector<TramStop *>beginStops = beginStopLines[i]->getStations();
         for (int j = 0; j < (int)endStopLines.size(); ++j) {
-            std::vector<TramStop *>beginStops = beginStopLines[i]->getStations();
-            std::vector<TramStop *>endStops = endStopLines[i]->getStations();
+            std::vector<TramStop *>endStops = endStopLines[j]->getStations();
             for (int k = 0; k < (int)beginStops.size(); ++k) {
                 for (int l = 0; l < (int)endStops.size(); ++l) {
                     if (beginStops[k] == endStops[l]){
-                        std::vector<TramStop *> resultingTramStops;
-                        std::vector<Line *> resultingLines;
-
-                        resultingTramStops.push_back(beginStop);
-                        resultingTramStops.push_back(beginStops[k]);
-                        resultingTramStops.push_back(endStop);
-                        resultingLines.push_back(beginStopLines[i]);
-
-                        std::pair<std::vector<TramStop *>, std::vector<Line *> > result(resultingTramStops, resultingLines);
-                        return result;
+                        return {{beginStop, beginStops[k], endStop},{beginStopLines[i], endStopLines[l]}};
                     }
                 }
             }
@@ -196,12 +180,5 @@ std::pair<std::vector<TramStop *>, std::vector<Line *> > MetroSystem::getRoute(c
     }
 
     // No route
-    std::vector<TramStop *> resultingTramStops;
-    std::vector<Line *> resultingLines;
-
-    resultingTramStops.push_back(beginStop);
-    resultingTramStops.push_back(endStop);
-
-    std::pair<std::vector<TramStop *>, std::vector<Line *> > result(resultingTramStops, resultingLines);
-    return result;
+    return {{beginStop, endStop},{}};
 }

@@ -31,7 +31,7 @@ private:
 
     std::ostringstream ss;
 
-    std::string filename = "./xmlFiles/sims/input/simAdvanced.xml.xml";
+    std::string filename = "./xmlFiles/sims/input/simAdvanced.xml";
     GUI_MetroSimulation *sim;
 
     std::vector<std::string> streamStack;

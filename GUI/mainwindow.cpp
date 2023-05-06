@@ -10,7 +10,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     ui->setupUi(this);
 
     // Metro simulation for GUI
-    sim = new GUI_MetroSimulation(filename, ss,10, true);
+    sim = new GUI_MetroSimulation(filename, ss,100, true);
 
     systemStarted = false;
     systemStopped = false;
@@ -106,11 +106,13 @@ void MainWindow::onPushButton_FindRouteClicked() {
     if (ui->comboBox->currentText() == ui->comboBox_2->currentText()){
         ui->textBrowser_2->append("You are already at your destination.");
     } else {
-        std::pair<std::vector<TramStop *>, std::vector<Line *>> route = sim->getSystem()->getRoute(ui->comboBox->currentText().toStdString(), ui->comboBox_2->currentText().toStdString());
+        std::string from = ui->comboBox->currentText().toStdString();
+        std::string to = ui->comboBox_2->currentText().toStdString();
+        std::pair<std::vector<TramStop *>, std::vector<Line *>> route = sim->getSystem()->getRoute(from, to);
         if (route.second.empty()){
             // No route
             ui->textBrowser_2->append("No possible route to your destination.");
-        } else if (route.second.size() == 1) {
+        } else if (route.first.size() == 2) {
             // Route on one track
             TramStop* beginStop = route.first[0];
             TramStop* endStop = route.first[1];
@@ -138,14 +140,14 @@ void MainWindow::onPushButton_FindRouteClicked() {
 
             TramStop* currentStop = beginStop;
             while (currentStop != connectionStop) {
-                currentStop = beginLine->getNext(currentStop);
-                ui->textBrowser_2->append("Line " + QString::number(endLine->getLineNumber()) + ":");
-            }
-
-            ui->textBrowser_2->append("Station " + QString::fromStdString(currentStop->getName()));
-            while (currentStop != endStop){
-                currentStop = endLine->getNext(currentStop);
                 ui->textBrowser_2->append("Station " + QString::fromStdString(currentStop->getName()));
+                currentStop = beginLine->getNext(currentStop);
+            }
+            ui->textBrowser_2->append("Station " + QString::fromStdString(currentStop->getName()));
+            ui->textBrowser_2->append("Line " + QString::number(endLine->getLineNumber()) + ":");
+            while (currentStop != endStop){
+                ui->textBrowser_2->append("Station " + QString::fromStdString(currentStop->getName()));
+                currentStop = endLine->getNext(currentStop);
             }
             ui->textBrowser_2->append("Station " + QString::fromStdString(currentStop->getName()));
         }
@@ -154,7 +156,7 @@ void MainWindow::onPushButton_FindRouteClicked() {
 
 void MainWindow::updateGUI() {
 
-    std::vector<int> stats = statStack[streamStackIndex+1];
+    std::vector<int> stats = getSystemStats();
 
     // Time label
     ui->label_6->setText(QString::number(stats[0]));
