@@ -152,19 +152,43 @@ protected:
 
 class PCC : public Tram {
 public:
-    // Constructor
+    /**
+     * Creates a PCC Tram object
+     *
+     * @param tramNumber is the Number of the Tram
+     * @param speed is the Speed of the tram
+     * @param startStation is the startstation of the tram
+     *
+     * @ENSURE properlyInitialized(), "constructor must end in properlyInitialized state"
+     */
     PCC(int tramNumber, TramStop *startStation, int repairTime, int defectAmount, int repairCost);
 };
 
 class Albatros : public Tram {
 public:
-    // Constructor
+    /**
+     * Creates a Albatros Tram object
+     *
+     * @param tramNumber is the Number of the Tram
+     * @param speed is the Speed of the tram
+     * @param startStation is the startstation of the tram
+     *
+     * @ENSURE properlyInitialized(), "constructor must end in properlyInitialized state"
+     */
     Albatros(int tramNumber, Metrostation *startStation, int repairTime, int defectAmount, int repairCost);
 };
 
 class Stadslijner : public Tram {
 public:
-    // Constructor
+    /**
+     * Creates a Stadslijner Tram object
+     *
+     * @param tramNumber is the Number of the Tram
+     * @param speed is the Speed of the tram
+     * @param startStation is the startstation of the tram
+     *
+     * @ENSURE properlyInitialized(), "constructor must end in properlyInitialized state"
+     */
     Stadslijner(int tramNumber, Metrostation *startStation, int repairTime, int defectAmount, int repairCost);
 };
 
