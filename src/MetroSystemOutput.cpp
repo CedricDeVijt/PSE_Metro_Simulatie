@@ -43,46 +43,31 @@ void MetroSystemOutput::simpleSystemOutput(MetroSystem *system, std::ostream &os
 
 void MetroSystemOutput::advancedSystemOutput(MetroSystem *system, std::ostream &os) {
     std::vector<Line *> lines = system->getLines();
-    std::vector<TramStop *> stations = system->getStations();
 
-    for (std::vector<Line *>::iterator lineIt = lines.begin(); lineIt != lines.end(); ++lineIt){
-        Line* line = *lineIt;
+    for (int i = 0; i < (int)lines.size(); ++i) {
+        Line *currentLine = lines[i];
 
-        // Find a station to set as start for line
-        TramStop *startStation = NULL;
-        for (std::vector<TramStop*>::iterator it = stations.begin(); it != stations.end(); ++it) {
-            TramStop* stop = line->getNext(*it);
-            if (stop != NULL){
-                startStation = stop;
-                break;
+        // Output stations
+        std::vector<TramStop *> currentStops = currentLine->getStations();
+        for (int j = 0; j < (int)currentStops.size(); ++j) {
+            TramStop *currentStop = currentStops[j];
+            if (j == 0){
+                os << "=" << currentStop->getName();
+            } else {
+                os << "===" << currentStop->getName();
             }
-        }
-
-        // Output track
-        TramStop* currentStation = startStation;
-        os << "=" << currentStation->getName();
-        currentStation = line->getNext(currentStation);
-        while (currentStation != startStation){
-            os << "===" << currentStation->getName();
-            currentStation = line->getNext(currentStation);
         }
         os << "=\n";
 
-        // Output trams in stations
-        std::vector<Tram*> trams = line->getTrams();
-        currentStation = startStation;
+        // Output if trams is at station
         os << " ";
-        currentStation = line->getNext(currentStation);
-        while (currentStation != startStation){
-            for (std::vector<Tram *>::iterator tramIt = trams.begin(); tramIt != trams.end(); ++tramIt){
-                Tram* tram = *tramIt;
-                if (tram->getCurrentStation() == currentStation){
-                    os << "T   ";
-                } else {
-                    os << "    ";
-                }
+        for (int j = 0; j < (int)currentStops.size(); ++j) {
+            TramStop *currentStop = currentStops[j];
+            if (currentStop->isOccupied()){
+                os << "T   ";
+            } else {
+                os << "    ";
             }
-            currentStation = line->getNext(currentStation);
         }
         os << " \n\n";
     }
