@@ -1,0 +1,2 @@
+ERROR: Deploy error, this station was already occupied.
+ERROR: Inconsistent Metronet

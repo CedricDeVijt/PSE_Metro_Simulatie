@@ -1,4 +1,3 @@
-ERROR: Invalid Information: "type" element not found
-ERROR: Invalid Information: "type" element not found
-ERROR: Invalid Information: "type" element not found
-ERROR: Invalid Information: "voertuigNr" element not found
+ERROR: StartStation Of Tram Not Found
+ERROR: Deploy Error: Niet elke tram heeft een lijn die overeenkomt met een spoor in zijn beginstation
+ERROR: Inconsistent Metronet

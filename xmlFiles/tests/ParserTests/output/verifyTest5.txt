@@ -1,1 +1,4 @@
-ERROR: Invalid Information: "voertuigNr" element not found
+ERROR: deployTram: Line Not found
+ERROR: deployTram: Niet elke tram heeft een lijn die overeenkomt met een spoor in zijn beginstation
+ERROR: deployTram: Line Not found
+ERROR: deployTram: Niet elke tram heeft een lijn die overeenkomt met een spoor in zijn beginstation

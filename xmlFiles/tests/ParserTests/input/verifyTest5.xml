@@ -1,7 +1,20 @@
 <METRONET>
     <TRAM>
         <lijnNr>12</lijnNr>
-        <snelheid>60</snelheid>
+        <type>PCC</type>
+        <voertuigNr>1</voertuigNr>
         <beginStation>A</beginStation>
+        <aantalDefecten>5</aantalDefecten>
+        <reparatieTijd>1</reparatieTijd>
+        <reparatieKost>5</reparatieKost>
+    </TRAM>
+    <TRAM>
+        <lijnNr>12</lijnNr>
+        <type>PCC</type>
+        <voertuigNr>2</voertuigNr>
+        <beginStation>B</beginStation>
+        <aantalDefecten>5</aantalDefecten>
+        <reparatieTijd>1</reparatieTijd>
+        <reparatieKost>10</reparatieKost>
     </TRAM>
 </METRONET>
