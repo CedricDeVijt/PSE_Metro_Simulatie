@@ -1,0 +1,97 @@
+\hypertarget{class_metro_sim_statistics}{}\doxysection{Metro\+Sim\+Statistics Class Reference}
+\label{class_metro_sim_statistics}\index{MetroSimStatistics@{MetroSimStatistics}}
+
+
+{\ttfamily \#include $<$Metro\+Sim\+Statistics.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_metro_sim_statistics_a850e7acd8d8496e7d651a29b2856779c}{Metro\+Sim\+Statistics}} (\mbox{\hyperlink{class_metro_simulation}{Metro\+Simulation}} $\ast$sim)
+\item 
+\mbox{\Hypertarget{class_metro_sim_statistics_a9946e310eadca420727e9e81eb3dca21}\label{class_metro_sim_statistics_a9946e310eadca420727e9e81eb3dca21}} 
+bool {\bfseries properly\+Initialized} () const
+\item 
+void \mbox{\hyperlink{class_metro_sim_statistics_ae924e1f66042b18356503026530f64a1}{print\+Stats}} (std\+::ostream \&os) const
+\item 
+int \mbox{\hyperlink{class_metro_sim_statistics_afa595dc01cae04d51c6198ad5fdc39c9}{get\+Time}} () const
+\item 
+int \mbox{\hyperlink{class_metro_sim_statistics_a41429956abf540afc998eb17f42e6ddb}{get\+Total\+Cost}} () const
+\item 
+int \mbox{\hyperlink{class_metro_sim_statistics_ac68b581a5ed14d0164bf4044173b2817}{get\+Defect\+Trams}} () const
+\item 
+int \mbox{\hyperlink{class_metro_sim_statistics_ab8de400b2066583684d62e7e7eef043c}{get\+Working\+Trams}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Object that gets the stats from a Metro\+Sim at a certain state 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_metro_sim_statistics_a850e7acd8d8496e7d651a29b2856779c}\label{class_metro_sim_statistics_a850e7acd8d8496e7d651a29b2856779c}} 
+\index{MetroSimStatistics@{MetroSimStatistics}!MetroSimStatistics@{MetroSimStatistics}}
+\index{MetroSimStatistics@{MetroSimStatistics}!MetroSimStatistics@{MetroSimStatistics}}
+\doxysubsubsection{\texorpdfstring{MetroSimStatistics()}{MetroSimStatistics()}}
+{\footnotesize\ttfamily Metro\+Sim\+Statistics\+::\+Metro\+Sim\+Statistics (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_metro_simulation}{Metro\+Simulation}} $\ast$}]{sim }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+Initializes the statistics class
+
+@\+ENSURE properly\+Initialized(), \char`\"{}constructor must end in properly\+Initialized state\char`\"{} 
+\begin{DoxyParams}{Parameters}
+{\em sim} & is the given \mbox{\hyperlink{class_metro_simulation}{Metro\+Simulation}} \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_metro_sim_statistics_ac68b581a5ed14d0164bf4044173b2817}\label{class_metro_sim_statistics_ac68b581a5ed14d0164bf4044173b2817}} 
+\index{MetroSimStatistics@{MetroSimStatistics}!getDefectTrams@{getDefectTrams}}
+\index{getDefectTrams@{getDefectTrams}!MetroSimStatistics@{MetroSimStatistics}}
+\doxysubsubsection{\texorpdfstring{getDefectTrams()}{getDefectTrams()}}
+{\footnotesize\ttfamily int Metro\+Sim\+Statistics\+::get\+Defect\+Trams (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns the amount of defect trams of the current stat-\/check
+
+@\+REQUIRE properly\+Initialized(), \char`\"{}\+Metro\+Sim\+Statistics was not properly initialised.\char`\"{} \mbox{\Hypertarget{class_metro_sim_statistics_afa595dc01cae04d51c6198ad5fdc39c9}\label{class_metro_sim_statistics_afa595dc01cae04d51c6198ad5fdc39c9}} 
+\index{MetroSimStatistics@{MetroSimStatistics}!getTime@{getTime}}
+\index{getTime@{getTime}!MetroSimStatistics@{MetroSimStatistics}}
+\doxysubsubsection{\texorpdfstring{getTime()}{getTime()}}
+{\footnotesize\ttfamily int Metro\+Sim\+Statistics\+::get\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns the time of the current stat-\/check
+
+@\+REQUIRE properly\+Initialized(), \char`\"{}\+Metro\+Sim\+Statistics was not properly initialised.\char`\"{} \mbox{\Hypertarget{class_metro_sim_statistics_a41429956abf540afc998eb17f42e6ddb}\label{class_metro_sim_statistics_a41429956abf540afc998eb17f42e6ddb}} 
+\index{MetroSimStatistics@{MetroSimStatistics}!getTotalCost@{getTotalCost}}
+\index{getTotalCost@{getTotalCost}!MetroSimStatistics@{MetroSimStatistics}}
+\doxysubsubsection{\texorpdfstring{getTotalCost()}{getTotalCost()}}
+{\footnotesize\ttfamily int Metro\+Sim\+Statistics\+::get\+Total\+Cost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns the total cost of the current stat-\/check
+
+@\+REQUIRE properly\+Initialized(), \char`\"{}\+Metro\+Sim\+Statistics was not properly initialised.\char`\"{} \mbox{\Hypertarget{class_metro_sim_statistics_ab8de400b2066583684d62e7e7eef043c}\label{class_metro_sim_statistics_ab8de400b2066583684d62e7e7eef043c}} 
+\index{MetroSimStatistics@{MetroSimStatistics}!getWorkingTrams@{getWorkingTrams}}
+\index{getWorkingTrams@{getWorkingTrams}!MetroSimStatistics@{MetroSimStatistics}}
+\doxysubsubsection{\texorpdfstring{getWorkingTrams()}{getWorkingTrams()}}
+{\footnotesize\ttfamily int Metro\+Sim\+Statistics\+::get\+Working\+Trams (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns the amount of working trams of the current stat-\/check
+
+@\+REQUIRE properly\+Initialized(), \char`\"{}\+Metro\+Sim\+Statistics was not properly initialised.\char`\"{} \mbox{\Hypertarget{class_metro_sim_statistics_ae924e1f66042b18356503026530f64a1}\label{class_metro_sim_statistics_ae924e1f66042b18356503026530f64a1}} 
+\index{MetroSimStatistics@{MetroSimStatistics}!printStats@{printStats}}
+\index{printStats@{printStats}!MetroSimStatistics@{MetroSimStatistics}}
+\doxysubsubsection{\texorpdfstring{printStats()}{printStats()}}
+{\footnotesize\ttfamily void Metro\+Sim\+Statistics\+::print\+Stats (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption}) const}
+
+Prints the statistics to the given output\+Stream
+
+@\+REQUIRE properly\+Initialized(), \char`\"{}\+Metro\+Sim\+Statistics was not properly initialised.\char`\"{} 
+\begin{DoxyParams}{Parameters}
+{\em os} & is the given output\+Stream \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/arne/\+Documents/2022-\/2023/s2/\+PSE/\+PSE\+\_\+\+Metro\+\_\+\+Simulatie/src/Metro\+Sim\+Statistics.\+h\item 
+C\+:/\+Users/arne/\+Documents/2022-\/2023/s2/\+PSE/\+PSE\+\_\+\+Metro\+\_\+\+Simulatie/src/Metro\+Sim\+Statistics.\+cpp\end{DoxyCompactItemize}

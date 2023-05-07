@@ -1,0 +1,108 @@
+\hypertarget{class_g_u_i___metro_simulation}{}\doxysection{GUI\+\_\+\+Metro\+Simulation Class Reference}
+\label{class_g_u_i___metro_simulation}\index{GUI\_MetroSimulation@{GUI\_MetroSimulation}}
+
+
+The \mbox{\hyperlink{class_g_u_i___metro_simulation}{GUI\+\_\+\+Metro\+Simulation}} class is responsible for creating and running a metro simulation with GUI support. It inherits from QObject and \mbox{\hyperlink{class_metro_simulation}{Metro\+Simulation}} classes.  
+
+
+
+
+{\ttfamily \#include $<$GUI\+\_\+\+Metro\+Simulation.\+h$>$}
+
+Inheritance diagram for GUI\+\_\+\+Metro\+Simulation\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_g_u_i___metro_simulation}
+\end{center}
+\end{figure}
+\doxysubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_g_u_i___metro_simulation_ad33e6c481a0a1183cc197d2462633a35}\label{class_g_u_i___metro_simulation_ad33e6c481a0a1183cc197d2462633a35}} 
+void {\bfseries simulation\+Progressed} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_g_u_i___metro_simulation_a552c61ff01c3d394e938168739a6191d}{GUI\+\_\+\+Metro\+Simulation}} (const std\+::string \&input\+File, std\+::ostream \&errorstream, unsigned int runtime, bool create\+Png)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_metro_simulation}{Metro\+Simulation}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_metro_simulation_a5d1ebdf50e33f0225c2c5912f26cd789}{Metro\+Simulation}} (const std\+::string \&input\+File, std\+::ostream \&errorstream, unsigned int runtime, bool create\+Png)
+\item 
+virtual \mbox{\hyperlink{class_metro_simulation_aa06b3a7667d3c20559a5c78dc92fea34}{$\sim$\+Metro\+Simulation}} ()
+\item 
+\mbox{\Hypertarget{class_metro_simulation_af4fc782977c74a204d4acec2bf604adc}\label{class_metro_simulation_af4fc782977c74a204d4acec2bf604adc}} 
+bool {\bfseries properly\+Initialized} () const
+\item 
+void \mbox{\hyperlink{class_metro_simulation_a89228b9522897d8b4187ba9d93a5ed7f}{run}} (std\+::ostream \&os)
+\item 
+void \mbox{\hyperlink{class_metro_simulation_ad4968e244ccd32dd8a976a22a60af42c}{evaluate}} (std\+::ostream \&os)
+\item 
+void \mbox{\hyperlink{class_metro_simulation_a1aaaeb6234327b60ec8eb73cbb1d441c}{stop\+System}} ()
+\item 
+void \mbox{\hyperlink{class_metro_simulation_aca27801cdfad8c91b7a3404aa3896576}{update\+Time}} ()
+\item 
+\mbox{\hyperlink{class_metro_system}{Metro\+System}} $\ast$ \mbox{\hyperlink{class_metro_simulation_aa26de2c80ddf9b93a1b04329feda3009}{get\+System}} () const
+\item 
+unsigned int \mbox{\hyperlink{class_metro_simulation_a08b99faddde65cc16798e96eb9186e12}{get\+Time}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_metro_simulation_a937a008330bd63d4e6bc06484fd1a059}\label{class_metro_simulation_a937a008330bd63d4e6bc06484fd1a059}} 
+virtual void {\bfseries emit\+Simulation\+Progressed} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_metro_simulation}{Metro\+Simulation}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_metro_simulation_a3e2cf177f037d21abf82912966ac0726}\label{class_metro_simulation_a3e2cf177f037d21abf82912966ac0726}} 
+\mbox{\hyperlink{class_metro_system}{Metro\+System}} $\ast$ {\bfseries system}
+\item 
+\mbox{\Hypertarget{class_metro_simulation_a37d7f2dfb87597e2a258fe5cc61c9140}\label{class_metro_simulation_a37d7f2dfb87597e2a258fe5cc61c9140}} 
+unsigned int {\bfseries runtime}
+\item 
+\mbox{\Hypertarget{class_metro_simulation_a1157c676f220fbd547e2570204bf2895}\label{class_metro_simulation_a1157c676f220fbd547e2570204bf2895}} 
+unsigned int {\bfseries time}
+\item 
+\mbox{\Hypertarget{class_metro_simulation_a9822922bf0aa4568d5796f595e1a6587}\label{class_metro_simulation_a9822922bf0aa4568d5796f595e1a6587}} 
+\mbox{\hyperlink{class_metro_simulation}{Metro\+Simulation}} $\ast$ {\bfseries \+\_\+init\+Check}
+\item 
+\mbox{\Hypertarget{class_metro_simulation_abbe421f43e3efc3b13ea61d27f795dd9}\label{class_metro_simulation_abbe421f43e3efc3b13ea61d27f795dd9}} 
+bool {\bfseries create\+Png}
+\item 
+\mbox{\Hypertarget{class_metro_simulation_a64f9d8027b720504fecc685ddfdbf0ee}\label{class_metro_simulation_a64f9d8027b720504fecc685ddfdbf0ee}} 
+bool {\bfseries stopped\+System}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{class_g_u_i___metro_simulation}{GUI\+\_\+\+Metro\+Simulation}} class is responsible for creating and running a metro simulation with GUI support. It inherits from QObject and \mbox{\hyperlink{class_metro_simulation}{Metro\+Simulation}} classes. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_g_u_i___metro_simulation_a552c61ff01c3d394e938168739a6191d}\label{class_g_u_i___metro_simulation_a552c61ff01c3d394e938168739a6191d}} 
+\index{GUI\_MetroSimulation@{GUI\_MetroSimulation}!GUI\_MetroSimulation@{GUI\_MetroSimulation}}
+\index{GUI\_MetroSimulation@{GUI\_MetroSimulation}!GUI\_MetroSimulation@{GUI\_MetroSimulation}}
+\doxysubsubsection{\texorpdfstring{GUI\_MetroSimulation()}{GUI\_MetroSimulation()}}
+{\footnotesize\ttfamily GUI\+\_\+\+Metro\+Simulation\+::\+GUI\+\_\+\+Metro\+Simulation (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{input\+File,  }\item[{std\+::ostream \&}]{errorstream,  }\item[{unsigned int}]{runtime,  }\item[{bool}]{create\+Png }\end{DoxyParamCaption})}
+
+Initializes a Metrosimulation
+
+
+\begin{DoxyParams}{Parameters}
+{\em input\+File} & is a .xml file that contains METRODATA \\
+\hline
+{\em errorstream} & is the stream the errors get outputted to \\
+\hline
+{\em runtime} & is the time the simulation needs to run \\
+\hline
+{\em create\+Png} & if the system needs to create png\textquotesingle{}s of all the conditions the system goes through @\+ENSURE properly\+Initialized(), \char`\"{}constructor must end in properly\+Initialized state\char`\"{} \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/arne/\+Documents/2022-\/2023/s2/\+PSE/\+PSE\+\_\+\+Metro\+\_\+\+Simulatie/\+GUI/GUI\+\_\+\+Metro\+Simulation.\+h\item 
+C\+:/\+Users/arne/\+Documents/2022-\/2023/s2/\+PSE/\+PSE\+\_\+\+Metro\+\_\+\+Simulatie/\+GUI/GUI\+\_\+\+Metro\+Simulation.\+cpp\end{DoxyCompactItemize}

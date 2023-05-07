@@ -1,0 +1,99 @@
+\hypertarget{class_tram_stop}{}\doxysection{Tram\+Stop Class Reference}
+\label{class_tram_stop}\index{TramStop@{TramStop}}
+
+
+{\ttfamily \#include $<$Tram\+Stop.\+h$>$}
+
+Inheritance diagram for Tram\+Stop\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_tram_stop}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_tram_stop_ab31a47bdc2845af26f7cfe4a132aba8e}{Tram\+Stop}} (const std\+::string \&name)
+\item 
+virtual \mbox{\hyperlink{class_tram_stop_a0469869f794f4c80a495417deff554fe}{$\sim$\+Tram\+Stop}} ()
+\item 
+\mbox{\Hypertarget{class_tram_stop_a471e9c27b70db8ac280b55f48bf6e094}\label{class_tram_stop_a471e9c27b70db8ac280b55f48bf6e094}} 
+bool {\bfseries properly\+Initialized} () const
+\item 
+\mbox{\Hypertarget{class_tram_stop_a321ff2bcd3f934a3573d91a325bdb8dd}\label{class_tram_stop_a321ff2bcd3f934a3573d91a325bdb8dd}} 
+bool {\bfseries operator$<$} (const \mbox{\hyperlink{class_tram_stop}{Tram\+Stop}} \&rhs) const
+\item 
+\mbox{\Hypertarget{class_tram_stop_a046fc8742b861b69162d15d17c3948b3}\label{class_tram_stop_a046fc8742b861b69162d15d17c3948b3}} 
+virtual bool {\bfseries accepts\+Tram\+Type} (\mbox{\hyperlink{class_tram}{Tram}} $\ast$tram)=0
+\item 
+const std\+::string \& \mbox{\hyperlink{class_tram_stop_aa24bb6ddebd7930dc727684e145d321f}{get\+Name}} () const
+\item 
+bool \mbox{\hyperlink{class_tram_stop_a773485d261653b6e7515d3801bfa14c2}{is\+Occupied}} () const
+\item 
+\mbox{\Hypertarget{class_tram_stop_a43466a250e0d0fc24889202df84d383f}\label{class_tram_stop_a43466a250e0d0fc24889202df84d383f}} 
+void {\bfseries set\+Occupied} (bool occupied)
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_tram_stop_a265b963d8ae9b67f072c41e8fa31c3a7}\label{class_tram_stop_a265b963d8ae9b67f072c41e8fa31c3a7}} 
+std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, const \mbox{\hyperlink{class_tram_stop}{Tram\+Stop}} \&station)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Object that represents a metro station that has a name, track-\/number and tracks. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_tram_stop_ab31a47bdc2845af26f7cfe4a132aba8e}\label{class_tram_stop_ab31a47bdc2845af26f7cfe4a132aba8e}} 
+\index{TramStop@{TramStop}!TramStop@{TramStop}}
+\index{TramStop@{TramStop}!TramStop@{TramStop}}
+\doxysubsubsection{\texorpdfstring{TramStop()}{TramStop()}}
+{\footnotesize\ttfamily Tram\+Stop\+::\+Tram\+Stop (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})}
+
+Initializes \mbox{\hyperlink{class_tram_stop}{Tram\+Stop}} object
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & is the name of the station @\+ENSURE properly\+Initialized(), \char`\"{}constructor must end in properly\+Initialized state\char`\"{} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_tram_stop_a0469869f794f4c80a495417deff554fe}\label{class_tram_stop_a0469869f794f4c80a495417deff554fe}} 
+\index{TramStop@{TramStop}!````~TramStop@{$\sim$TramStop}}
+\index{````~TramStop@{$\sim$TramStop}!TramStop@{TramStop}}
+\doxysubsubsection{\texorpdfstring{$\sim$TramStop()}{~TramStop()}}
+{\footnotesize\ttfamily Tram\+Stop\+::$\sim$\+Tram\+Stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Destructs a \mbox{\hyperlink{class_tram_stop}{Tram\+Stop}} object
+
+@\+REQUIRE properly\+Initialized(), \char`\"{}\+Tram\+Stop was not properly initialised.\char`\"{} 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_tram_stop_aa24bb6ddebd7930dc727684e145d321f}\label{class_tram_stop_aa24bb6ddebd7930dc727684e145d321f}} 
+\index{TramStop@{TramStop}!getName@{getName}}
+\index{getName@{getName}!TramStop@{TramStop}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily const std\+::string \& Tram\+Stop\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Gives the name of the station
+
+\begin{DoxyReturn}{Returns}
+{\bfseries{string\+:}} name of the station @\+REQUIRE properly\+Initialized(), \char`\"{}\+Tram\+Stop was not properly initialised.\char`\"{} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_tram_stop_a773485d261653b6e7515d3801bfa14c2}\label{class_tram_stop_a773485d261653b6e7515d3801bfa14c2}} 
+\index{TramStop@{TramStop}!isOccupied@{isOccupied}}
+\index{isOccupied@{isOccupied}!TramStop@{TramStop}}
+\doxysubsubsection{\texorpdfstring{isOccupied()}{isOccupied()}}
+{\footnotesize\ttfamily bool Tram\+Stop\+::is\+Occupied (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns bool that contains info about occupation
+
+\begin{DoxyReturn}{Returns}
+{\bfseries{bool\+:}} occupation of station @\+REQUIRE properly\+Initialized(), \char`\"{}\+Tram\+Stop was not properly initialised.\char`\"{} 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/arne/\+Documents/2022-\/2023/s2/\+PSE/\+PSE\+\_\+\+Metro\+\_\+\+Simulatie/src/Tram\+Stop.\+h\item 
+C\+:/\+Users/arne/\+Documents/2022-\/2023/s2/\+PSE/\+PSE\+\_\+\+Metro\+\_\+\+Simulatie/src/Tram\+Stop.\+cpp\end{DoxyCompactItemize}

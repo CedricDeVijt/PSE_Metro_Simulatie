@@ -1,0 +1,62 @@
+\hypertarget{_tram_stop_8h_source}{}\doxysection{Tram\+Stop.\+h}
+\label{_tram_stop_8h_source}\index{C:/Users/arne/Documents/2022-\/2023/s2/PSE/PSE\_Metro\_Simulatie/src/TramStop.h@{C:/Users/arne/Documents/2022-\/2023/s2/PSE/PSE\_Metro\_Simulatie/src/TramStop.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ PSE\_METRO\_SIMULATIE\_TRAMSTOP\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ PSE\_METRO\_SIMULATIE\_TRAMSTOP\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <ostream>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_track}{Track}};}
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_tram}{Tram}};}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_tram_stop}{TramStop}}\ \{}
+\DoxyCodeLine{00014\ \textcolor{comment}{//Init}}
+\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{class_tram_stop}{TramStop}}(\textcolor{keyword}{const}\ std::string\ \&name);}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_tram_stop_a0469869f794f4c80a495417deff554fe}{\string~TramStop}}();}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{bool}\ properlyInitialized()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{comment}{//Functions}}
+\DoxyCodeLine{00033\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{bool}\ operator<(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_tram_stop}{TramStop}}\ \&rhs)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ acceptsTramType(\mbox{\hyperlink{class_tram}{Tram}}\ *tram)=0;}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{comment}{//Getters}}
+\DoxyCodeLine{00039\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&\mbox{\hyperlink{class_tram_stop_aa24bb6ddebd7930dc727684e145d321f}{getName}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_tram_stop_a773485d261653b6e7515d3801bfa14c2}{isOccupied}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00055\ \textcolor{comment}{//Setters}}
+\DoxyCodeLine{00056\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ setOccupied(\textcolor{keywordtype}{bool}\ occupied);}
+\DoxyCodeLine{00058\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keyword}{friend}\ std::ostream\ \&operator<<(std::ostream\ \&os,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_tram_stop}{TramStop}}\ \&station);}
+\DoxyCodeLine{00060\ \ \ \ \ std::string\ name;}
+\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{class_tram_stop}{TramStop}}*\ \_initCheck;}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{bool}\ occupied;}
+\DoxyCodeLine{00063\ \};}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_metrostation}{Metrostation}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_tram_stop}{TramStop}}\{}
+\DoxyCodeLine{00066\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_metrostation}{Metrostation}}(\textcolor{keyword}{const}\ std::string\ \&name);}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_metrostation}{\string~Metrostation}}();}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{bool}\ acceptsTramType(\mbox{\hyperlink{class_tram}{Tram}}\ *tram);}
+\DoxyCodeLine{00071\ \};}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_halte}{Halte}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_tram_stop}{TramStop}}\{}
+\DoxyCodeLine{00074\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_halte}{Halte}}(\textcolor{keyword}{const}\ std::string\ \&name);}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_halte}{\string~Halte}}();}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{bool}\ acceptsTramType(\mbox{\hyperlink{class_tram}{Tram}}\ *tram);}
+\DoxyCodeLine{00080\ \};}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//PSE\_METRO\_SIMULATIE\_TRAMSTOP\_H}}
+
+\end{DoxyCode}
