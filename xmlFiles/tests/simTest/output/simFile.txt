@@ -1,0 +1,13 @@
+Tram 2 reed van TramStop: B naar TramStop: C.
+Tram 1 reed van TramStop: A naar TramStop: B.
+Tram 2 reed van TramStop: C naar TramStop: A.
+Tram 1 reed van TramStop: B naar TramStop: C.
+Tram 2 reed van TramStop: A naar TramStop: B.
+Tram 1 reed van TramStop: C naar TramStop: A.
+Tram 2 reed van TramStop: B naar TramStop: C.
+Tram 1 reed van TramStop: A naar TramStop: B.
+Tram 2 reed van TramStop: C naar TramStop: A.
+Tram 2 broke down.
+Tram 2 was repaired.
+Tram 1 reed van TramStop: B naar TramStop: C.
+Tram 1 broke down.

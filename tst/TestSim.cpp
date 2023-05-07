@@ -12,18 +12,16 @@ TEST(SimTest, automaticDriving) {
     std::string OUTPUTFOLDERPATH  = "xmlFiles/tests/simTest/output/";
     std::string COMPAREFOLDERPATH = "xmlFiles/tests/simTest/compare/";
 
-    std::string filename = "simFile.xml";
+    std::string filename = "simFile";
 
     std::ofstream file;
-    file.open((OUTPUTFOLDERPATH+filename).c_str(), std::ios::out);
-    EXPECT_TRUE(file);
+    file.open((OUTPUTFOLDERPATH+filename+".txt").c_str());
+    EXPECT_TRUE(file.is_open());
 
-    MetroSimulation sim(INPUTFOLDERPATH+filename, file, 10, false);
+    MetroSimulation sim(INPUTFOLDERPATH+filename+".xml", file, 10, false);
 
-    if (file) {
-        sim.run(file);
-        file.close();
+    sim.run(file);
+    file.close();
 
-        EXPECT_TRUE(FileCompare(COMPAREFOLDERPATH+filename, OUTPUTFOLDERPATH+filename));
-    }
+    EXPECT_TRUE(FileCompare(COMPAREFOLDERPATH+filename+".txt", OUTPUTFOLDERPATH+filename+".txt"));
 }
