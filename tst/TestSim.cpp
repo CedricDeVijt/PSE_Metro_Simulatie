@@ -12,7 +12,7 @@ TEST(SimTest, automaticDriving) {
     std::string OUTPUTFOLDERPATH  = "xmlFiles/tests/simTest/output/";
     std::string COMPAREFOLDERPATH = "xmlFiles/tests/simTest/compare/";
 
-    std::string filename = "test1.xml";
+    std::string filename = "simFile.xml";
 
     std::ofstream file;
     file.open((OUTPUTFOLDERPATH+filename).c_str(), std::ios::out);
