@@ -1,0 +1,80 @@
+\hypertarget{class_p_c_c}{}\doxysection{PCC Class Reference}
+\label{class_p_c_c}\index{PCC@{PCC}}
+Inheritance diagram for PCC\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_p_c_c}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_p_c_c_aca6935ebc48ffac394684411684a6bb6}{PCC}} (int tram\+Number, \mbox{\hyperlink{class_tram_stop}{Tram\+Stop}} $\ast$start\+Station, int repair\+Time, int defect\+Amount, int repair\+Cost)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_tram}{Tram}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_tram_a206f1d8e2f7267987417ad3fa3c6384d}{Tram}} (int tram\+Number, int speed, \mbox{\hyperlink{class_tram_stop}{Tram\+Stop}} $\ast$start\+Station, int repair\+Time, int defect\+Amount, int repair\+Cost)
+\item 
+virtual \mbox{\hyperlink{class_tram_acd6056d2289f2dccd371bc226cd2cb17}{$\sim$\+Tram}} ()
+\item 
+\mbox{\Hypertarget{class_tram_a54135dd1028b6362213abdd10150266a}\label{class_tram_a54135dd1028b6362213abdd10150266a}} 
+bool {\bfseries properly\+Initialized} () const
+\item 
+\mbox{\hyperlink{class_tram_a69f52091a1bcfd5325c85373e8664c6c}{operator std\+::string}} ()
+\item 
+void \mbox{\hyperlink{class_tram_aca64a5d5c147202ee5266219476c7943}{drive}} (\mbox{\hyperlink{class_tram_stop}{Tram\+Stop}} $\ast$destination, std\+::ostream \&os)
+\item 
+void \mbox{\hyperlink{class_tram_ade0b2858cb25307df5ea159793829ac5}{handle\+Defect}} (std\+::ostream \&os)
+\item 
+int \mbox{\hyperlink{class_tram_a50cb3002960956a32511073310bb6169}{get\+Speed}} () const
+\item 
+\mbox{\hyperlink{class_tram_stop}{Tram\+Stop}} $\ast$ \mbox{\hyperlink{class_tram_a61e9736eaa6200f20d077812c5ea84e9}{get\+Start\+Station}} () const
+\item 
+int \mbox{\hyperlink{class_tram_a1b0ae56c0014371f192b0e678112001d}{get\+Tram\+Number}} () const
+\item 
+\mbox{\hyperlink{class_tram_stop}{Tram\+Stop}} $\ast$ \mbox{\hyperlink{class_tram_ae4d3215d7d6baf6266ce9bac1ff1b127}{get\+Current\+Station}} () const
+\item 
+int \mbox{\hyperlink{class_tram_ab97c785360641247d1a223e307f7fae6}{get\+Total\+Cost}} () const
+\item 
+const std\+::string \& \mbox{\hyperlink{class_tram_a35c5a17f1b277b09d5f24c7d2e77cdef}{get\+Vehicle\+Type}} () const
+\item 
+bool \mbox{\hyperlink{class_tram_a98d41c0b709ff9d0bdc799bf45bbffdb}{is\+Defect}} () const
+\item 
+void \mbox{\hyperlink{class_tram_ae35a608ef4581fd1806b198cafbada32}{set\+Speed}} (int speed)
+\item 
+void \mbox{\hyperlink{class_tram_a57dc71bebaac0147d5c3bd65b820d0dd}{set\+Start\+Station}} (\mbox{\hyperlink{class_tram_stop}{Tram\+Stop}} $\ast$start\+Station)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+\doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_tram}{Tram}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_tram_a6924c0f89b636b98e1ab0d4bd4f12be3}\label{class_tram_a6924c0f89b636b98e1ab0d4bd4f12be3}} 
+std\+::string {\bfseries vehicle\+Type}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_p_c_c_aca6935ebc48ffac394684411684a6bb6}\label{class_p_c_c_aca6935ebc48ffac394684411684a6bb6}} 
+\index{PCC@{PCC}!PCC@{PCC}}
+\index{PCC@{PCC}!PCC@{PCC}}
+\doxysubsubsection{\texorpdfstring{PCC()}{PCC()}}
+{\footnotesize\ttfamily PCC\+::\+PCC (\begin{DoxyParamCaption}\item[{int}]{tram\+Number,  }\item[{\mbox{\hyperlink{class_tram_stop}{Tram\+Stop}} $\ast$}]{start\+Station,  }\item[{int}]{repair\+Time,  }\item[{int}]{defect\+Amount,  }\item[{int}]{repair\+Cost }\end{DoxyParamCaption})}
+
+Creates a \mbox{\hyperlink{class_p_c_c}{PCC}} \mbox{\hyperlink{class_tram}{Tram}} object
+
+
+\begin{DoxyParams}{Parameters}
+{\em tram\+Number} & is the Number of the \mbox{\hyperlink{class_tram}{Tram}} \\
+\hline
+{\em speed} & is the Speed of the tram \\
+\hline
+{\em start\+Station} & is the startstation of the tram\\
+\hline
+\end{DoxyParams}
+@\+ENSURE properly\+Initialized(), \char`\"{}constructor must end in properly\+Initialized state\char`\"{} 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/arne/\+Documents/2022-\/2023/s2/\+PSE/\+PSE\+\_\+\+Metro\+\_\+\+Simulatie/src/Tram.\+h\item 
+C\+:/\+Users/arne/\+Documents/2022-\/2023/s2/\+PSE/\+PSE\+\_\+\+Metro\+\_\+\+Simulatie/src/Tram.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,76 @@
+\hypertarget{class_track}{}\doxysection{Track Class Reference}
+\label{class_track}\index{Track@{Track}}
+
+
+{\ttfamily \#include $<$Track.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_track_aea2eae03a4ee4fa83a3c6856feadf716}{Track}} (\mbox{\hyperlink{class_tram_stop}{Tram\+Stop}} $\ast$begin, \mbox{\hyperlink{class_tram_stop}{Tram\+Stop}} $\ast$an\+End)
+\item 
+virtual \mbox{\hyperlink{class_track_a416e75e66accc8eb9e3fafc3e8555216}{$\sim$\+Track}} ()
+\item 
+\mbox{\Hypertarget{class_track_aefaaef487bf0e11e4934f6ccfa30aa4b}\label{class_track_aefaaef487bf0e11e4934f6ccfa30aa4b}} 
+bool {\bfseries properly\+Initialized} () const
+\item 
+\mbox{\hyperlink{class_tram_stop}{Tram\+Stop}} $\ast$ \mbox{\hyperlink{class_track_a1d155fa2f79ff96f3a4fa207354099a7}{get\+Begin}} () const
+\item 
+\mbox{\hyperlink{class_tram_stop}{Tram\+Stop}} $\ast$ \mbox{\hyperlink{class_track_a3a9341354bc8738110302f5ac27330f1}{get\+An\+End}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Object that represents a track for a metro 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_track_aea2eae03a4ee4fa83a3c6856feadf716}\label{class_track_aea2eae03a4ee4fa83a3c6856feadf716}} 
+\index{Track@{Track}!Track@{Track}}
+\index{Track@{Track}!Track@{Track}}
+\doxysubsubsection{\texorpdfstring{Track()}{Track()}}
+{\footnotesize\ttfamily Track\+::\+Track (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_tram_stop}{Tram\+Stop}} $\ast$}]{begin,  }\item[{\mbox{\hyperlink{class_tram_stop}{Tram\+Stop}} $\ast$}]{an\+End }\end{DoxyParamCaption})}
+
+Initializes \mbox{\hyperlink{class_track}{Track}} Object
+
+
+\begin{DoxyParams}{Parameters}
+{\em begin} & is the beginstation of the \mbox{\hyperlink{class_track}{Track}} \\
+\hline
+{\em an\+End} & is the end\+Station of the \mbox{\hyperlink{class_track}{Track}} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_track_a416e75e66accc8eb9e3fafc3e8555216}\label{class_track_a416e75e66accc8eb9e3fafc3e8555216}} 
+\index{Track@{Track}!````~Track@{$\sim$Track}}
+\index{````~Track@{$\sim$Track}!Track@{Track}}
+\doxysubsubsection{\texorpdfstring{$\sim$Track()}{~Track()}}
+{\footnotesize\ttfamily Track\+::$\sim$\+Track (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Destructs a \mbox{\hyperlink{class_track}{Track}} object
+
+@\+REQUIRE properly\+Initialized(), \char`\"{}\+Track was not properly initialised.\char`\"{} 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_track_a3a9341354bc8738110302f5ac27330f1}\label{class_track_a3a9341354bc8738110302f5ac27330f1}} 
+\index{Track@{Track}!getAnEnd@{getAnEnd}}
+\index{getAnEnd@{getAnEnd}!Track@{Track}}
+\doxysubsubsection{\texorpdfstring{getAnEnd()}{getAnEnd()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_tram_stop}{Tram\+Stop}} $\ast$ Track\+::get\+An\+End (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Gets the station at the end of the track \begin{DoxyReturn}{Returns}
+Tram\+Stop$\ast$ to the station at the end of the track @\+REQUIRE properly\+Initialized(), \char`\"{}\+Track was not properly initialised.\char`\"{} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_track_a1d155fa2f79ff96f3a4fa207354099a7}\label{class_track_a1d155fa2f79ff96f3a4fa207354099a7}} 
+\index{Track@{Track}!getBegin@{getBegin}}
+\index{getBegin@{getBegin}!Track@{Track}}
+\doxysubsubsection{\texorpdfstring{getBegin()}{getBegin()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_tram_stop}{Tram\+Stop}} $\ast$ Track\+::get\+Begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Gets the station at the beginning of the track \begin{DoxyReturn}{Returns}
+Tram\+Stop$\ast$ to the station at the beginning of the track @\+REQUIRE properly\+Initialized(), \char`\"{}\+Track was not properly initialised.\char`\"{} 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/arne/\+Documents/2022-\/2023/s2/\+PSE/\+PSE\+\_\+\+Metro\+\_\+\+Simulatie/src/Track.\+h\item 
+C\+:/\+Users/arne/\+Documents/2022-\/2023/s2/\+PSE/\+PSE\+\_\+\+Metro\+\_\+\+Simulatie/src/Track.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,55 @@
+\hypertarget{_metro_system_8h_source}{}\doxysection{Metro\+System.\+h}
+\label{_metro_system_8h_source}\index{C:/Users/arne/Documents/2022-\/2023/s2/PSE/PSE\_Metro\_Simulatie/src/MetroSystem.h@{C:/Users/arne/Documents/2022-\/2023/s2/PSE/PSE\_Metro\_Simulatie/src/MetroSystem.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ PSE\_METRO\_SIMULATIE\_METROSYSTEM\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ PSE\_METRO\_SIMULATIE\_METROSYSTEM\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}vector"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Line.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}TramStop.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}DesignByContract.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}Logger.h"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_metro_system}{MetroSystem}}\ \{}
+\DoxyCodeLine{00014\ \textcolor{comment}{//Init}}
+\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_metro_system_a7d4bb5398acd811950f16029bd05be7f}{MetroSystem}}();}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_metro_system_a39379f4b069d4054fcc751bb029b31eb}{\string~MetroSystem}}();}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{bool}\ properlyInitialized()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{comment}{//Functions}}
+\DoxyCodeLine{00033\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_metro_system_a909b6a0c686edbd1bbd751c1c6708f6b}{updateSystem}}(std::ostream\ \&os);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_metro_system_a77487e0e23ed005a08e8fc8dc00d45a4}{addLine}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \&lineNumber);}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_metro_system_a506eb96e2994e77199e1d3144a27eb1a}{addStation}}(\mbox{\hyperlink{class_tram_stop}{TramStop}}*\ newStation,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \&lineNumber,\ std::ostream\ \&errorStream);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_metro_system_a9f250440f39b909955980a688658c809}{deployTram}}(\mbox{\hyperlink{class_tram}{Tram}}*\ newTram,\ \textcolor{keyword}{const}\ std::string\ \&startStation,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \&lineNumber,\ std::ostream\ \&errorStream);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_metro_system_af0afde90ec1b58f7502d5a659b722569}{addConnection}}(\textcolor{keyword}{const}\ std::string\ \&start,\ \textcolor{keyword}{const}\ std::string\ \&end,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \&lineNumber,\ std::ostream\ \&errorStream);}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_metro_system_a7126f50414f68c5aa3be16fb9eb57105}{verify}}(std::ostream\ \&errorStream);}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00099\ \ \ \ \ std::pair<std::vector<TramStop\ *>,\ std::vector<Line\ *>\ >\ \mbox{\hyperlink{class_metro_system_aa1538182fb438eecbdad23d9b5f05a04}{getRoute}}(\textcolor{keyword}{const}\ std::string\ \&beginStopName,\ \textcolor{keyword}{const}\ std::string\ \&endStopName);}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \textcolor{comment}{//getters}}
+\DoxyCodeLine{00102\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<Line\ *>\ \&\mbox{\hyperlink{class_metro_system_aad5a546e1194bd9a2e1c8ad37aa6b521}{getLines}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<TramStop\ *>\ \&\mbox{\hyperlink{class_metro_system_a829ca4f12c354b21792c8f49dd46c914}{getStations}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00118\ \ \ \ \ std::vector<Line*>\ lines;}
+\DoxyCodeLine{00119\ \ \ \ \ std::vector<int>\ takenTramNumbers;}
+\DoxyCodeLine{00120\ \ \ \ \ std::vector<TramStop*>\ stations;}
+\DoxyCodeLine{00121\ \ \ \ \ \mbox{\hyperlink{class_metro_system}{MetroSystem}}*\ \_initCheck;}
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordtype}{bool}\ consistent;}
+\DoxyCodeLine{00123\ \};}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//PSE\_METRO\_SIMULATIE\_METROSYSTEM\_H}}
+
+\end{DoxyCode}
