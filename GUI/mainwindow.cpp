@@ -74,7 +74,7 @@ void MainWindow::onPushButton_StopClicked(){
 void MainWindow::onPushButton_NextClicked(){
     systemStarted = true;
     if (not systemStopped){
-        if (streamStackIndex == streamStack.size()-1){
+        if (streamStackIndex == (int)streamStack.size()-1){
             streamStackIndex++;
             sim->updateTime();
             ss.str("");
@@ -121,7 +121,7 @@ void MainWindow::onPushButton_FindRouteClicked() {
         if (route.second.empty()){
             // No route
             ui->textBrowser_2->append("No possible route to your destination.");
-        } else if (route.first.size() == 2) {
+        } else if ((int)route.first.size() == 2) {
             // Route on one track
             TramStop* beginStop = route.first[0];
             TramStop* endStop = route.first[1];

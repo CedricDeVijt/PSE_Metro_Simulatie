@@ -135,7 +135,8 @@ void MetroSystemOutput::createDotOutput(MetroSystem *system, const std::string &
     std::string dotCmd = "dot ";
     dotCmd += (outputType==".png") ? "-Tpng " : "-Tsvg ";
     dotCmd += dotFileString + " -o " + outputFileString;
-    std::system(dotCmd.c_str());
+    int rc = std::system(dotCmd.c_str());
+    REQUIRE(rc != -1 , "Dot command failed");
 
     bool succesDelete = std::remove(dotFileString.c_str())==0;
     REQUIRE(succesDelete, "Failed to delete dot file.");

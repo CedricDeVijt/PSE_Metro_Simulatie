@@ -61,14 +61,14 @@ void extraUseCase_dot() {
 }
 
 int main() {
-//    useCase1_1to1_4();
-//
-//    useCase2_2();
-//    useCase2_3();
-//    useCase2_4();
+    useCase1_1to1_4();
 
-//    useCase3_1to3_8();
-//    useCase3_9();
-//
-//    extraUseCase_dot();
+    useCase2_2();
+    useCase2_3();
+    useCase2_4();
+
+    useCase3_1to3_8();
+    useCase3_9();
+
+    extraUseCase_dot();
 }
