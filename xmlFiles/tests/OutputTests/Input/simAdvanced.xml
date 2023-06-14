@@ -92,9 +92,6 @@
         <type>Stadslijner</type>
         <voertuigNr>4</voertuigNr>
         <beginStation>E</beginStation>
-        <aantalDefecten>5</aantalDefecten>
-        <reparatieTijd>1</reparatieTijd>
-        <reparatieKost>10</reparatieKost>
     </TRAM>
 
     <TRAM>

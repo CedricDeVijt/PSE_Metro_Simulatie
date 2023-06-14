@@ -4,9 +4,8 @@
 #include "DesignByContract.h"
 
 
-Tram::Tram(int tramNumber, int speed, TramStop *startStation, int repairTime, int defectAmount, int repairCost) :
-tramNumber(tramNumber), speed(speed), _initCheck(this), startStation(startStation), currentStation(startStation),
-repairCost(repairCost), repairTime(repairTime), defectAmount(defectAmount), totalCost(0), defect(false), repairSteps(0), steps(0) {
+Tram::Tram(int tramNumber, int speed, TramStop *startStation) :
+tramNumber(tramNumber), speed(speed), _initCheck(this), startStation(startStation), currentStation(startStation) {
     vehicleType = "Tram";
     ENSURE(properlyInitialized(), "constructor must end in properlyInitialized state");
 }
@@ -64,7 +63,9 @@ bool Tram::properlyInitialized() const {
     return _initCheck == this;
 }
 
-void Tram::drive(TramStop *destination, std::ostream &os) {
+void Tram::drive(TramStop *destination, bool blocked, std::ostream &os) {
+    if (blocked) return;
+
     REQUIRE(currentStation->isOccupied(), "Tram is leaving a station but is was not occupied in the first place.");
     REQUIRE(!destination->isOccupied(), "Tram is entering an occupied station.");
 
@@ -76,12 +77,20 @@ void Tram::drive(TramStop *destination, std::ostream &os) {
     os << *currentStation << "." << std::endl;
 }
 
-int Tram::getTotalCost() const {
+void PCC::drive(TramStop *destination, bool blocked, std::ostream &os) {
+    REQUIRE(properlyInitialized(), "Tram was not properly initialised.");
+    handleDefect(os);
+    if (!defect) {
+        Tram::drive(destination, blocked,os);
+    }
+}
+
+int PCC::getTotalCost() const {
     REQUIRE(properlyInitialized(), "Tram was not properly initialised.");
     return totalCost;
 }
 
-void Tram::handleDefect(std::ostream &os) {
+void PCC::handleDefect(std::ostream &os) {
     REQUIRE(properlyInitialized(), "Tram was not properly initialised.");
     if (defect) {
         repairSteps++;
@@ -101,27 +110,27 @@ void Tram::handleDefect(std::ostream &os) {
     }
 }
 
-bool Tram::isDefect() const {
-    REQUIRE(properlyInitialized(), "Tram was not properly initialised.");
-    return defect;
-}
-
 const std::string &Tram::getVehicleType() const {
     REQUIRE(properlyInitialized(), "Tram was not properly initialised.");
     return vehicleType;
 }
 
 PCC::PCC(int tramNumber, TramStop *startStation, int repairTime, int defectAmount, int repairCost) :
-Tram(tramNumber, 40, startStation, repairTime, defectAmount, repairCost) {
+Tram(tramNumber, 40, startStation), repairCost(repairCost), repairTime(repairTime), defectAmount(defectAmount), totalCost(0), defect(false), repairSteps(0), steps(0) {
      vehicleType = "PCC";
 }
 
-Albatros::Albatros(int tramNumber, Metrostation *startStation, int repairTime, int defectAmount, int repairCost) :
-Tram(tramNumber, 70, startStation, repairTime, defectAmount, repairCost)  {
+bool PCC::isDefect() const {
+    REQUIRE(properlyInitialized(), "Tram was not properly initialised.");
+    return defect;
+}
+
+Albatros::Albatros(int tramNumber, Metrostation *startStation) :
+Tram(tramNumber, 70, startStation)  {
     vehicleType = "Albatros";
 }
 
-Stadslijner::Stadslijner(int tramNumber, Metrostation *startStation, int repairTime, int defectAmount, int repairCost) :
-Tram(tramNumber, 70, startStation, repairTime, defectAmount, repairCost)  {
+Stadslijner::Stadslijner(int tramNumber, Metrostation *startStation) :
+Tram(tramNumber, 70, startStation)  {
     vehicleType = "Stadslijner";
 }

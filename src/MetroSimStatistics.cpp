@@ -16,9 +16,12 @@ MetroSimStatistics::MetroSimStatistics(MetroSimulation *sim) : _initCheck(this) 
         std::vector<Tram*>::iterator tramIt = trams.begin();
         while (tramIt!=trams.end()) {
             Tram *tram = *tramIt;
-            totalCost += tram->getTotalCost();
-            workingTrams += (tram->isDefect()) ? 0 : 1;
-            defectTrams += (tram->isDefect()) ? 1 : 0;
+            if (dynamic_cast<PCC*>(tram)) {
+                PCC *pcctram = dynamic_cast<PCC*>(tram);
+                totalCost += pcctram->getTotalCost();
+                workingTrams += (pcctram->isDefect()) ? 0 : 1;
+                defectTrams += (pcctram->isDefect()) ? 1 : 0;
+            }
             tramIt++;
         }
         it++;
