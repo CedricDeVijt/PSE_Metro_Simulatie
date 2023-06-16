@@ -35,7 +35,6 @@ set(METRO_SOURCE_FILES
         ../src/MetroSystem.cpp
         ../src/Logger.h
         ../src/MetroSystemOutput.cpp
-        ../src/MetroRenderer.cpp
         ../src/MetroSimStatistics.cpp)
 
 set(TINY_XML_SOURCE_FILES
