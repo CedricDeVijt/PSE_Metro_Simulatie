@@ -19,7 +19,7 @@ public:
      * @param createPng if the system needs to create png's of all the conditions the system goes through
      * @ENSURE properlyInitialized(), "constructor must end in properlyInitialized state"
      */
-    MetroSimulation(const std::string &inputFile, std::ostream &errorstream, unsigned int runtime, bool createPng);
+    MetroSimulation(const std::string &inputFile, unsigned int runtime, bool createPng);
     /**
      * Destructs a Metrosimulation
      *
@@ -36,7 +36,7 @@ public:
      * @REQUIRE properlyInitialized(), "Metrosimulation was not properly initialised."
      * @param os is a @b std::ostream: where the movement of the the trams gets written to
      */
-    void run(std::ostream &os);
+    void run();
 
     /**
      * Outputs the current evaluation of the metroSim

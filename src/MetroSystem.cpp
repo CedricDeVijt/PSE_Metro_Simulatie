@@ -18,10 +18,10 @@ bool MetroSystem::properlyInitialized() const {
     return _initCheck==this;
 }
 
-void MetroSystem::updateSystem(std::ostream &os) {
+void MetroSystem::updateSystem() {
     REQUIRE(properlyInitialized(), "MetroSystem is not properly initialised.");
     for (int j = 0; j < static_cast<int>(lines.size()); ++j) {
-        lines[j]->update(os);
+        lines[j]->update();
     }
 }
 
@@ -38,7 +38,7 @@ void MetroSystem::addLine(const int &lineNumber) {
     lines.push_back(new Line(lineNumber));
 }
 
-void MetroSystem::addStation(TramStop *newStation, const int &lineNumber, std::ostream &errorStream) {
+void MetroSystem::addStation(TramStop *newStation, const int &lineNumber) {
     REQUIRE(properlyInitialized(), "MetroSystem is not properly initialised.");
     //Dont make a new Pointer if a Statoin with this name exists
     std::vector<TramStop*>::iterator it1 = stations.begin();
@@ -63,17 +63,17 @@ void MetroSystem::addStation(TramStop *newStation, const int &lineNumber, std::o
         }
         it++;
     }
-    Logger::writeError(errorStream, "addStation: Line not found, station not added");
+    Logger::error("addStation: Line not found, station not added");
 }
 
-void MetroSystem::deployTram(Tram *newTram, const std::string &startStation, const int &lineNumber,std::ostream &errorStream) {
+void MetroSystem::deployTram(Tram *newTram, const std::string &startStation, const int &lineNumber) {
     REQUIRE(properlyInitialized(), "MetroSystem is not properly initialised.");
     //Check for double tramnumbers
     int newNumber = newTram->getTramNumber();
     std::vector<int>::iterator it1 = takenTramNumbers.begin();
     while (it1!=takenTramNumbers.end()) {
         if (*it1==newNumber) {
-            Logger::writeError(errorStream, "Deploy Error: er zijn twee trams met hetzelfde voertuignummer");
+            Logger::error("Deploy Error: er zijn twee trams met hetzelfde voertuignummer");
             consistent = false;
             return;
         }
@@ -86,38 +86,38 @@ void MetroSystem::deployTram(Tram *newTram, const std::string &startStation, con
     while (it != lines.end()) {
         Line* line = *it;
         if (line->getLineNumber()==lineNumber) {
-            line->deployTram(newTram, startStation, errorStream);
+            line->deployTram(newTram, startStation);
             return;
         }
         it++;
     }
-    Logger::writeError(errorStream, "deployTram: Line Not found");
-    Logger::writeError(errorStream, "deployTram: Niet elke tram heeft een lijn die overeenkomt met een spoor in zijn beginstation");
+    Logger::error("deployTram: Line Not found");
+    Logger::error("deployTram: Niet elke tram heeft een lijn die overeenkomt met een spoor in zijn beginstation");
 }
 
-void MetroSystem::addConnection(const std::string &start, const std::string &end, const int &lineNumber,std::ostream &errorStream) {
+void MetroSystem::addConnection(const std::string &start, const std::string &end, const int &lineNumber) {
     REQUIRE(properlyInitialized(), "MetroSystem is not properly initialised.");
     std::vector<Line*>::iterator it = lines.begin();
     while (it != lines.end()) {
         Line* line = *it;
         if (line->getLineNumber()==lineNumber) {
-            line->connect(start, end, errorStream);
+            line->connect(start, end);
             return;
         }
         it++;
     }
 }
 
-void MetroSystem::verify(std::ostream &errorStream) {
+void MetroSystem::verify() {
     REQUIRE(properlyInitialized(), "MetroSystem is not properly initialised.");
     std::vector<Line*>::iterator it = lines.begin();
     while (it != lines.end()) {
         Line* line = *it;
-        consistent = consistent && line->verify(errorStream);
+        consistent = consistent && line->verify();
         it++;
     }
     if (!consistent) {
-        Logger::writeError(errorStream, "Inconsistent Metronet");
+        Logger::error("Inconsistent Metronet");
     }
 }
 

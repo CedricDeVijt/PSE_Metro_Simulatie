@@ -37,7 +37,7 @@ public:
      * @REQUIRE properlyInitialized(), "Metrosimulation is not properly initialised."
      * @param os The output stream where the updates of the system get written to
      */
-    void updateSystem(std::ostream &os);
+    void updateSystem();
 
     /**
      * Creates a new Line in the MetroSystem \n
@@ -57,7 +57,7 @@ public:
      * @param lineNumber is the LineNumber where the station should get added to
      * @param errorStream is the stream the errors get sent to
      */
-    void addStation(TramStop* newStation, const int &lineNumber, std::ostream &errorStream);
+    void addStation(TramStop* newStation, const int &lineNumber);
 
     /**
      * Deploys a tram to the corresponding TramStop name and on the right Line \n
@@ -68,7 +68,7 @@ public:
      * @param lineNumber is the LineNumber of the line it needs to get Deployed on
      * @param errorStream is the stream the errors get sent to
      */
-    void deployTram(Tram* newTram, const std::string &startStation, const int &lineNumber, std::ostream &errorStream);
+    void deployTram(Tram* newTram, const std::string &startStation, const int &lineNumber);
 
     /**
      * Adds a connection between two Stations on the corresponding LineNumber
@@ -79,7 +79,7 @@ public:
      * @param lineNumber is the LineNumber of the line the connection needs to get added onto
      * @param errorStream is the stream the errors get sent to
      */
-    void addConnection(const std::string &start, const std::string &end, const int &lineNumber, std::ostream &errorStream);
+    void addConnection(const std::string &start, const std::string &end, const int &lineNumber);
 
     /**
      * Verifies all the Lines on the MetroSystem, if a line is not consisten it outputs an error to errorStream \n
@@ -87,7 +87,7 @@ public:
      * @REQUIRE properlyInitialized(), "MetroSystem is not properly initialised."
      * @param errorStream is the stream the errors get sent to
      */
-    void verify(std::ostream &errorStream);
+    void verify();
 
     /**
      * Returns the route between two stations

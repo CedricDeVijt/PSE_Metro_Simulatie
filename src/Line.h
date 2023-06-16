@@ -38,7 +38,7 @@ public:
      * @REQUIRE properlyInitialised(), "The line was not properly initialised."
      * @param os is the stream the printStats statements get send into
      */
-    void update(std::ostream &os);
+    void update();
 
     /**
      * Returns the vector of tracks.
@@ -78,7 +78,7 @@ public:
      * @return @b bool: returns true if verified, els false
      */
 
-    bool verify(std::ostream &errorStream);
+    bool verify();
 
     /**
      * Returns the next TramStop* according to the connections
@@ -124,7 +124,7 @@ public:
      * @param end is the name of the endStation
      * @param errorStream is the stream errors get output to
      */
-    void connect(const std::string &start, const std::string &end, std::ostream &errorStream);
+    void connect(const std::string &start, const std::string &end);
 
     /**
      * Deploys a tram to the given TramStop with the StationName
@@ -134,7 +134,7 @@ public:
      * @param stationName is the name of a TramStop Corresponding to where the tram gets deployed to
      * @param errorStream is the stream errors get output to
      */
-    void deployTram(Tram* newTram, const std::string &stationName, std::ostream &errorStream);
+    void deployTram(Tram* newTram, const std::string &stationName);
 private:
     int lineNumber;
     std::vector<TramStop*> stations;

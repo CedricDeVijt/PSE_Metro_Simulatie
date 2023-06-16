@@ -4,6 +4,7 @@
 #include "../Include/obj_parser.h"
 #include "algorithm"
 #include <fstream>
+#include <sstream>
 
 Object3D Object3D::Object3DFactory::createCube() {
     Object3D cube;
@@ -216,27 +217,38 @@ Object3D Object3D::Object3DFactory::createCone(const int &n, const double &h) {
 
 Object3D Object3D::Object3DFactory::loadObj(const std::string &filename) {
     Object3D obj;
-    obj::OBJFile obj_parser;
-    std::ifstream input_stream(filename);
-    input_stream>>obj_parser;
-    input_stream.close();
-
-    obj::ObjectGroup object = obj_parser.get_object();
-
-    std::vector<std::vector<double>> vectVertexes = object.get_vertexes();
-    for (std::vector<double> vertex:vectVertexes) {
-        if (vertex.size()==3){
-            obj.vertexes.push_back(Vector3D::point(vertex[0], vertex[1], vertex[2]));
-        }
+    std::ifstream in(filename, std::ios::in);
+    if (!in)
+    {
+        std::cerr << "Cannot open " << filename << std::endl;
+        exit(1);
     }
-    std::vector<obj::Polygon> polygons = object.get_polygons();
-    for (obj::Polygon p:polygons){
-        std::vector<int> indexes{};
-        //my face indexes start from 0
-        for (int i : p.get_indexes()) {
-            indexes.push_back(i-1);
+    std::string line;
+    while (std::getline(in, line))
+    {
+        if (line.substr(0,2) == "v "){
+            std::istringstream v(line.substr(2));
+            Vector3D vert;
+            double x, y, z;
+            v >> x; v >> y; v >> z;
+            vert = Vector3D::point(x, y, z);
+            obj.vertexes.push_back(vert);
         }
-        obj.faces.push_back(Face(indexes));
+        else if (line.substr(0,2) == "f "){
+            std::istringstream f(line.substr(2));
+            std::string vertexStr;
+            std::vector<int> vertexIndices;
+
+            while (f >> vertexStr) {
+                std::istringstream indexStream(vertexStr);
+                int index;
+                indexStream >> index;
+                vertexIndices.push_back(index - 1);
+            }
+
+            Face face(vertexIndices);
+            obj.faces.push_back(face);
+        }
     }
     return obj;
 }

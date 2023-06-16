@@ -6,14 +6,14 @@
 #include "MetroSimStatistics.h"
 
 
-MetroSimulation::MetroSimulation(const std::string& inputfile, std::ostream &errorstream, unsigned int runtime, bool createPng) : runtime(runtime), time(0), createPng(createPng), stoppedSystem(false) {
+MetroSimulation::MetroSimulation(const std::string& inputfile, unsigned int runtime, bool createPng) : runtime(runtime), time(0), createPng(createPng), stoppedSystem(false) {
     _initCheck = this;
     system = new MetroSystem();
-    MetroXMLParser::loadMetroSystem(*system, inputfile, errorstream);
+    MetroXMLParser::loadMetroSystem(*system, inputfile);
     ENSURE(properlyInitialized(), "constructor must end in properlyInitialized state");
 }
 
-void MetroSimulation::run(std::ostream &os) {
+void MetroSimulation::run() {
     REQUIRE(properlyInitialized(), "Metrosimulation was not properly initialised.");
     stoppedSystem = false;
     while (time<runtime && not stoppedSystem) {
@@ -23,7 +23,7 @@ void MetroSimulation::run(std::ostream &os) {
             std::string timeStr = s.str();
             MetroSystemOutput::createDotOutput(*system, "time"+timeStr, ".png");
         }
-        system->updateSystem(os);
+        system->updateSystem();
         emitSimulationProgressed();
         updateTime();
     }

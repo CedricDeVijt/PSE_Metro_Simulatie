@@ -2,7 +2,8 @@
 #include <sstream>
 #include <iostream>
 #include "DesignByContract.h"
-
+#include "Logger.h"
+#include "sstream"
 
 Tram::Tram(int tramNumber, int speed, TramStop *startStation) :
 tramNumber(tramNumber), speed(speed), _initCheck(this), startStation(startStation), currentStation(startStation) {
@@ -63,7 +64,7 @@ bool Tram::properlyInitialized() const {
     return _initCheck == this;
 }
 
-void Tram::drive(TramStop *destination, bool blocked, std::ostream &os) {
+void Tram::drive(TramStop *destination, bool blocked) {
     if (blocked) return;
 
     REQUIRE(currentStation->isOccupied(), "Tram is leaving a station but is was not occupied in the first place.");
@@ -72,16 +73,16 @@ void Tram::drive(TramStop *destination, bool blocked, std::ostream &os) {
     currentStation->setOccupied(false);
     destination->setOccupied(true);
 
-    os << *this << " reed van " << *currentStation << " naar ";
-    currentStation = destination;
-    os << *currentStation << "." << std::endl;
+    std::stringstream num;
+    num << getTramNumber();
+    Logger::info("Tram " + num.str() + " reed van " + currentStation->getName() + " naar " + destination->getName() + ".");
 }
 
-void PCC::drive(TramStop *destination, bool blocked, std::ostream &os) {
+void PCC::drive(TramStop *destination, bool blocked) {
     REQUIRE(properlyInitialized(), "Tram was not properly initialised.");
-    handleDefect(os);
+    handleDefect();
     if (!defect) {
-        Tram::drive(destination, blocked,os);
+        Tram::drive(destination, blocked);
     }
 }
 
@@ -90,20 +91,24 @@ int PCC::getTotalCost() const {
     return totalCost;
 }
 
-void PCC::handleDefect(std::ostream &os) {
+void PCC::handleDefect() {
     REQUIRE(properlyInitialized(), "Tram was not properly initialised.");
     if (defect) {
         repairSteps++;
         defect = repairSteps<repairTime;
         if (!defect) {
-            os << *this << " was repaired.\n";
+            std::stringstream num;
+            num << getTramNumber();
+            Logger::info("Tram " + num.str() + " was repaired.");
             steps = 0;
         }
     } else {
         steps++;
         defect = steps >= defectAmount;
         if (defect) {
-            os << *this << " broke down.\n";
+            std::stringstream num;
+            num << getTramNumber();
+            Logger::info("Tram " + num.str() + " broke down.");
             totalCost += repairCost;
             repairSteps = 0;
         }

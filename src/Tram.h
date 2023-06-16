@@ -44,7 +44,7 @@ public:
      * @param os std::ostream: where the output of moving the train is written to
      * @REQUIRE properlyInitialized(), "TramStop was not properly initialised."
      */
-    virtual void drive(TramStop* destination, bool blocked, std::ostream &os);
+    virtual void drive(TramStop* destination, bool blocked);
 
 //Getters
 public:
@@ -132,7 +132,7 @@ public:
      */
     PCC(int tramNumber, TramStop *startStation, int repairTime, int defectAmount, int repairCost);
 
-    void drive(TramStop *destination, bool blocked, std::ostream &os);
+    void drive(TramStop *destination, bool blocked);
 
     /**
      * Gives the cost of the repairs of the tram.
@@ -154,7 +154,7 @@ private:
      *
      * @param os is the outputstream, in case of Defect/Reparation
      */
-    void handleDefect(std::ostream &os);
+    void handleDefect();
 private:
     int repairCost;
     int repairTime;

@@ -1,14 +1,14 @@
 #include "MetroXMLParser.h"
 
-void MetroXMLParser::loadMetroSystem(MetroSystem &system, const std::string &filename, std::ostream &errorStream) {
+void MetroXMLParser::loadMetroSystem(MetroSystem &system, const std::string &filename) {
     TiXmlDocument doc(filename.c_str());
     if (!doc.LoadFile()) {
-        Logger::writeError(errorStream,"Failed to load file: File not found");
+        Logger::error("Failed to load file: File not found");
         return;
     }
     TiXmlElement* root = doc.FirstChildElement("METRONET");
     if (root==NULL) {
-        Logger::writeError(errorStream, "Failed to load file: No METRONET element");
+        Logger::error("Failed to load file: No METRONET element");
         return;
     }
 
@@ -17,9 +17,9 @@ void MetroXMLParser::loadMetroSystem(MetroSystem &system, const std::string &fil
     while (elem) {
         std::string elemName = elem->Value();
         if (elemName == "STATION") {
-            parseStation(system, elem, errorStream);
+            parseStation(system, elem);
         } else if (elemName != "TRAM") {
-            Logger::writeError(errorStream, "Unknown Element");
+            Logger::error("Unknown Element");
         }
         elem = elem->NextSiblingElement();
     }
@@ -29,33 +29,33 @@ void MetroXMLParser::loadMetroSystem(MetroSystem &system, const std::string &fil
     while (elem) {
         std::string elemName = elem->Value();
         if (elemName == "STATION") {
-            parseConnection(system, elem, errorStream);
+            parseConnection(system, elem);
         } else if (elemName == "TRAM") {
-            parseTram(system, elem, errorStream);
+            parseTram(system, elem);
         }
         elem = elem->NextSiblingElement();
     }
     doc.Clear();
     //verify every line
-    system.verify(errorStream);
+    system.verify();
 }
 
-std::pair<std::string,bool> MetroXMLParser::readKey(const TiXmlElement *elem, const std::string &key, std::ostream &errorStream) {
+std::pair<std::string,bool> MetroXMLParser::readKey(const TiXmlElement *elem, const std::string &key) {
     elem = elem->FirstChildElement(key.c_str());
     if (elem == NULL) {
-        Logger::writeError(errorStream, "Invalid Information: \"" + key + "\" element not found");
+        Logger::error("Invalid Information: \"" + key + "\" element not found");
         return std::pair<std::string,bool> ("", false);
     }
     return std::pair<std::string,bool> (elem->GetText(), true);
 }
 
-void MetroXMLParser::parseStation(MetroSystem &system, TiXmlElement* stationElem, std::ostream &errorStream) {
+void MetroXMLParser::parseStation(MetroSystem &system, TiXmlElement* stationElem) {
     std::pair<std::string,bool> p;
-    p = readKey(stationElem, "naam", errorStream);
+    p = readKey(stationElem, "naam");
     if (!p.second) return;
     std::string name = p.first;
 
-    p = readKey(stationElem, "type", errorStream);
+    p = readKey(stationElem, "type");
     if (!p.second) return;
     std::string type = p.first;
     TramStop* newStop;
@@ -64,7 +64,7 @@ void MetroXMLParser::parseStation(MetroSystem &system, TiXmlElement* stationElem
     } else if (type=="Halte") {
         newStop = new Halte(name);
     } else {
-        Logger::writeError(errorStream, "Invalid Station type");
+        Logger::error("Invalid Station type");
         return;
     }
 
@@ -72,46 +72,46 @@ void MetroXMLParser::parseStation(MetroSystem &system, TiXmlElement* stationElem
     while (elem) {
         std::string elemName = elem->Value();
         if (elemName == "SPOOR") {
-            p = readKey(elem, "spoorNr", errorStream);
+            p = readKey(elem, "spoorNr");
             if (!p.second) return;
             int lineNr = atoi(p.first.c_str());
 
             system.addLine(lineNr);
-            system.addStation(newStop, lineNr, errorStream);
+            system.addStation(newStop, lineNr);
         }
         elem = elem->NextSiblingElement();
     }
 }
 
-void MetroXMLParser::parseTram(MetroSystem &system, TiXmlElement* tramElem, std::ostream &errorStream) {
+void MetroXMLParser::parseTram(MetroSystem &system, TiXmlElement* tramElem) {
     std::pair<std::string,bool> p;
 
-    p = readKey(tramElem, "voertuigNr", errorStream);
+    p = readKey(tramElem, "voertuigNr");
     if (!p.second) return;
     int tramNr = atoi(p.first.c_str());
 
-    p = readKey(tramElem, "lijnNr", errorStream);
+    p = readKey(tramElem, "lijnNr");
     if (!p.second) return;
     int lijnNr = atoi(p.first.c_str());
 
-    p = readKey(tramElem, "beginStation",errorStream);
+    p = readKey(tramElem, "beginStation");
     if (!p.second) return;
     std::string begin = p.first;
 
-    p = readKey(tramElem, "type", errorStream);
+    p = readKey(tramElem, "type");
     if (!p.second) return;
     std::string type = p.first;
     Tram *newTram;
     if (type=="PCC") {
-        p = readKey(tramElem, "aantalDefecten", errorStream);
+        p = readKey(tramElem, "aantalDefecten");
         if (!p.second) return;
         int aantalDefecten = atoi(p.first.c_str());
 
-        p = readKey(tramElem, "reparatieTijd", errorStream);
+        p = readKey(tramElem, "reparatieTijd");
         if (!p.second) return;
         int reparatieTijd = atoi(p.first.c_str());
 
-        p = readKey(tramElem, "reparatieKost", errorStream);
+        p = readKey(tramElem, "reparatieKost");
         if (!p.second) return;
         int reparatieKost = atoi(p.first.c_str());
 
@@ -121,15 +121,15 @@ void MetroXMLParser::parseTram(MetroSystem &system, TiXmlElement* tramElem, std:
     } else if (type=="Albatros") {
         newTram = new Albatros(tramNr, NULL);
     } else {
-        Logger::writeError(errorStream, "Invalid Tram type");
+        Logger::error("Invalid Tram type");
         return;
     }
-    system.deployTram(newTram, begin, lijnNr,errorStream);
+    system.deployTram(newTram, begin, lijnNr);
 }
 
-void MetroXMLParser::parseConnection(MetroSystem &system, TiXmlElement *stationElem, std::ostream &errorStream) {
+void MetroXMLParser::parseConnection(MetroSystem &system, TiXmlElement *stationElem) {
     std::pair<std::string,bool> p;
-    p = readKey(stationElem, "naam", errorStream);
+    p = readKey(stationElem, "naam");
     if (!p.second) return;
     std::string name = p.first;
 
@@ -137,20 +137,20 @@ void MetroXMLParser::parseConnection(MetroSystem &system, TiXmlElement *stationE
     while (elem) {
         std::string elemName = elem->Value();
         if (elemName == "SPOOR") {
-            p = readKey(elem, "volgende", errorStream);
+            p = readKey(elem, "volgende");
             if (!p.second) return;
             std::string next = p.first;
 
-            p = readKey(elem, "vorige", errorStream);
+            p = readKey(elem, "vorige");
             if (!p.second) return;
             std::string prev = p.first;
 
-            p = readKey(elem, "spoorNr", errorStream);
+            p = readKey(elem, "spoorNr");
             if (!p.second) return;
             int lineNr = atoi(p.first.c_str());
 
-            system.addConnection(name, next, lineNr, errorStream);
-            system.addConnection(prev, name, lineNr, errorStream);
+            system.addConnection(name, next, lineNr);
+            system.addConnection(prev, name, lineNr);
         }
         elem = elem->NextSiblingElement();
     }
