@@ -1,6 +1,6 @@
+#include <algorithm>
 #include "Calculator.h"
-#define _USE_MATH_DEFINES
-#include <cmath>
+
 
 double Calculator::degToRad(double degrees) {
     return degrees * M_PI / 180;
@@ -91,4 +91,78 @@ Matrix Calculator::eyePointMatrix(const Vector3D &eye) {
     m(3,3) = cos(phi);
     m(4,3) = -r;
     return m;
+}
+
+Vector3D Calculator::calcNormal(const Vector3D &A, const Vector3D &B, const Vector3D &C) {
+    return Vector3D::normalise(Vector3D::cross(B - A, C - A));
+}
+
+
+void Calculator::findBounds(const Point2D &P, const Point2D &Q, const double &y, double &xL, double &xR, bool &foundL, bool &foundR) {
+    if ((y < P.y && y < Q.y) || (y > P.y && y > Q.y)) { return; }
+    if (P.x == Q.x) {return;}
+
+    double slope = (P.x - Q.x) / (P.y - Q.y);
+    double x = Q.x + slope * (y - Q.y);
+
+    if (x < xL) {
+        foundL = true;
+        xL = x;
+    }
+    if (x > xR) {
+        foundR = true;
+        xR = x;
+    }
+}
+
+void Calculator::calculateDZs(const Vector3D &A, const Vector3D &B, const Vector3D &C, const double &d, double &dzdx, double &dzdy) {
+    Vector3D w = Vector3D::cross(B - A, C - A);
+
+    double k = Vector3D::dot(w, A);
+
+    dzdx = w.x/(-d*k);
+    dzdy = w.y/(-d*k);
+}
+
+void Calculator::fill_zbuf_triag(ZBuffer &buffer, const Triangle &t, const double &d, const double &dx, const double &dy) {
+    Vector3D A = t.A;
+    Vector3D B = t.B;
+    Vector3D C = t.C;
+
+    Point2D newA = Calculator::projectPoint(A,d, dx, dy);
+    Point2D newB = Calculator::projectPoint(B,d, dx, dy);
+    Point2D newC = Calculator::projectPoint(C,d, dx, dy);
+
+    std::vector<double> yVals = {newA.y, newB.y, newC.y};
+    double yMind = *std::min_element(yVals.begin(), yVals.end()), yMaxd = *std::max_element(yVals.begin(), yVals.end());
+    int yMin = lround(yMind+0.5), yMax = lround(yMaxd-0.5);
+
+    double xG = (newA.x+newB.x+newC.x)/3;
+    double yG = (newA.y+newB.y+newC.y)/3;
+    double oneOverzG = (1/(3*newA.z)) + (1/(3*newB.z)) + (1/(3*newC.z));
+
+    double dzdx, dzdy;
+    calculateDZs(A, B, C, d, dzdx, dzdy);
+    double xL, xR;
+    for (int y = yMin; y <= yMax; y++) {
+        xL = std::numeric_limits<double>::infinity();
+        xR = -std::numeric_limits<double>::infinity();
+
+        bool foundR = false, foundL = false;
+        findBounds(newA, newB, y, xL, xR, foundL, foundR);
+        findBounds(newA, newC, y, xL, xR, foundL, foundR);
+        findBounds(newB, newC, y, xL, xR, foundL, foundR);
+        if (!foundL || !foundR) continue;
+
+        int xLint = lround(xL+0.5);
+        int xRint = lround(xR-0.5);
+        for (int x = xLint; x <= xRint; x++) {
+            double bufVal  = oneOverzG + (x-xG)*dzdx + (y-yG)*dzdy;
+            buffer.apply(x,y,bufVal);
+        }
+    }
+}
+
+Point2D Calculator::projectPoint(const Vector3D &point, const double &d, const double &dx, const double &dy) {
+    return {((d*point.x)/-point.z)+dx, ((d*point.y)/-point.z)+dy, point.z};
 }

@@ -12,7 +12,7 @@ set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} ${OWN_GXX_FLAGS}")
 set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} ${OWN_GXX_FLAGS}")
 
 ############################################################
-# List all engine sources
+# List all sources
 ############################################################
 set(engine_sources
         engine.cc
@@ -24,14 +24,13 @@ set(engine_sources
 
         ./Objects/Face.h
         ./Objects/Object3D.cpp ./Objects/Object3D.h
-        ./Objects/Wireframe.cpp ./Objects/Wireframe.h
         ./Objects/Camera.h
         ./Objects/Line2D.h ./Objects/Point2D.h
         ./Objects/LSystem2D.cpp
         ./Objects/Calculator.cpp ./Objects/Calculator.h
 
         ./Objects/Face.cpp ./Objects/IniLoader.cpp ./Objects/IniLoader.h ./Objects/LSystem3D.cpp ./Objects/LSystem3D.h
-        ./Objects/ZBuffer.cpp ./Objects/Scene.cpp ./Objects/Triangle.h Objects/Renderer.h Objects/Renderer.cpp Objects/Light.h)
+        ./Objects/ZBuffer.cpp ./Objects/Scene.cpp ./Objects/Triangle.h Objects/Renderer.h Objects/Renderer.cpp Objects/Light.h Objects/Object3DFactory.cpp Objects/ShadowLight.cpp Objects/ImageDetails.h Objects/ImageDetails.cpp Objects/AmbientLight.cpp Objects/PointLight.cpp Objects/InfLight.cpp)
 
 ############################################################
 # List all metro sources

@@ -6,53 +6,42 @@
 #include "../Include/vector3d.h"
 #include "Object3D.h"
 #include "cmath"
+#include "ClippingSettings.h"
+#include "Light.h"
 
 class Camera {
 public:
-    explicit Camera(const ini::DoubleTuple &pos, const bool &clipping_, const ini::DoubleTuple &viewDirection_,
-                    const int &dNear_, const int &dFar_, const int &hfov_, const double &aspectRatio_) {
-        position = Vector3D::point(pos[0], pos[1], pos[2]);
-
-        clipping = clipping_;
-        if (!clipping) {
-            viewDirection = -position;
-        } else {
-            viewDirection = Vector3D::vector(viewDirection_[0],viewDirection_[1],viewDirection_[2]);
-        }
-        dNear = dNear_;
-        dFar = dFar_;
-        hfov = hfov_;
-        aspectRatio = aspectRatio_;
+    explicit Camera(const ini::DoubleTuple &pos, const ClippingSettings &settings)
+    : position(Vector3D::point(pos[0], pos[1], pos[2])), settings(settings) {
+        eyeMatrix = Calculator::eyePointMatrix(position);
     }
-    Camera() {};
 
-    void eyePointTransform(Objects3D &objects) const {
-        if (clipping) {
-            Vector3D sphereCoordinates;
-            double r = viewDirection.length();
-            double theta = atan2(position.y,position.x);
-            double phi = acos(position.z/r);
-
-            Matrix eyeMatrix = Calculator::eyePointMatrix(theta, phi, r);
-            for (Object3D &obj : objects) {
-                obj.applyTransformation(eyeMatrix);
-            }
-            return;
-        }
-
-        Matrix eyeMatrix = Calculator::eyePointMatrix(position);
+    void eyePointTransformObjects(Objects3D &objects) const {
         for (Object3D &obj : objects) {
             obj.applyTransformation(eyeMatrix);
+            clipObject(obj);
         }
     };
 
+    void eyePointTransformLights(std::vector<Light*> &lights) const {
+        for (Light *light : lights) {
+            light->applyTransformation(eyeMatrix);
+        }
+    }
+
+    void clipObject(Object3D &object) const {
+        if (!settings.clipping) return;
+
+        for (Face &f : object.faces) {
+            Vector3D A = object.vertexes[f.point_indexes[0]];
+            Vector3D B = object.vertexes[f.point_indexes[1]];
+            Vector3D C = object.vertexes[f.point_indexes[2]];
+        }
+    }
+
+    Matrix eyeMatrix;
     Vector3D position;
-    bool clipping;
-    Vector3D viewDirection;
-    int dNear;
-    int dFar;
-    int hfov;
-    double aspectRatio;
+    ClippingSettings settings;
 };
 
 
