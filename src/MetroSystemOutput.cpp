@@ -36,7 +36,10 @@ void MetroSystemOutput::simpleSystemOutput(MetroSystem *system, std::ostream &os
             os << "    type: " << tram->getVehicleType() << "\n";
             os << "    snelheid: " << tram->getSpeed() << "\n";
             os << "    huidig station: " << tram->getCurrentStation()->getName() << "\n";
-            os << "    reparatiekosten: " << tram->getTotalCost() << " euro\n\n";
+            if (dynamic_cast<PCC*>(tram)) {
+                PCC *pcctram = dynamic_cast<PCC*>(tram);
+                os << "    reparatiekosten: " << pcctram->getTotalCost() << " euro\n\n";
+            }
         }
     }
 }

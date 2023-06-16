@@ -19,7 +19,7 @@ public:
      *
      * @ENSURE properlyInitialized(), "constructor must end in properlyInitialized state"
      */
-    Tram(int tramNumber, int speed, TramStop *startStation, int repairTime, int defectAmount, int repairCost);
+    Tram(int tramNumber, int speed, TramStop *startStation);
 
     /**
      * Destructs a tram object
@@ -44,14 +44,7 @@ public:
      * @param os std::ostream: where the output of moving the train is written to
      * @REQUIRE properlyInitialized(), "TramStop was not properly initialised."
      */
-    void drive(TramStop* destination, std::ostream &os);
-
-    /**
-     * Handles the effect property of the tram
-     *
-     * @param os is the outputstream, in case of Defect/Reparation
-     */
-    void handleDefect(std::ostream &os);
+    virtual void drive(TramStop* destination, bool blocked, std::ostream &os);
 
 //Getters
 public:
@@ -88,27 +81,12 @@ public:
     TramStop *getCurrentStation() const;
 
     /**
-     * Gives the cost of the repairs of the tram.
-     *
-     * @return The cost in euro's of the repairs.
-     * @REQUIRE properlyInitialized(), "TramStop was not properly initialised."
-     */
-    int getTotalCost() const;
-
-    /**
      * Gives the type of the tram.
      *
      * @return The name of the type of tram.
      * @REQUIRE properlyInitialized(), "TramStop was not properly initialised."
      */
     const std::string &getVehicleType() const;
-
-    /**
-     * Returns true if the Tram is defect
-     *
-     * @REQUIRE properlyInitialized(), "TramStop was not properly initialised."
-     */
-    bool isDefect() const;
 
 //Setters
 public:
@@ -137,15 +115,6 @@ private:
     Tram* _initCheck;
     TramStop *startStation;
     TramStop *currentStation;
-    int repairCost;
-    int repairTime;
-    int defectAmount;
-    int totalCost;
-
-    bool defect;
-    int repairSteps;
-    int steps;
-
 protected:
     std::string vehicleType;
 };
@@ -162,6 +131,39 @@ public:
      * @ENSURE properlyInitialized(), "constructor must end in properlyInitialized state"
      */
     PCC(int tramNumber, TramStop *startStation, int repairTime, int defectAmount, int repairCost);
+
+    void drive(TramStop *destination, bool blocked, std::ostream &os);
+
+    /**
+     * Gives the cost of the repairs of the tram.
+     *
+     * @return The cost in euro's of the repairs.
+     * @REQUIRE properlyInitialized(), "TramStop was not properly initialised."
+     */
+    int getTotalCost() const;
+
+    /**
+    * Returns true if the Tram is defect
+    *
+    * @REQUIRE properlyInitialized(), "Tram was not properly initialised."
+    */
+    bool isDefect() const;
+private:
+    /**
+     * Handles the effect property of the tram
+     *
+     * @param os is the outputstream, in case of Defect/Reparation
+     */
+    void handleDefect(std::ostream &os);
+private:
+    int repairCost;
+    int repairTime;
+    int defectAmount;
+    int totalCost;
+
+    bool defect;
+    int repairSteps;
+    int steps;
 };
 
 class Albatros : public Tram {
@@ -175,7 +177,7 @@ public:
      *
      * @ENSURE properlyInitialized(), "constructor must end in properlyInitialized state"
      */
-    Albatros(int tramNumber, Metrostation *startStation, int repairTime, int defectAmount, int repairCost);
+    Albatros(int tramNumber, Metrostation *startStation);
 };
 
 class Stadslijner : public Tram {
@@ -189,7 +191,7 @@ public:
      *
      * @ENSURE properlyInitialized(), "constructor must end in properlyInitialized state"
      */
-    Stadslijner(int tramNumber, Metrostation *startStation, int repairTime, int defectAmount, int repairCost);
+    Stadslijner(int tramNumber, Metrostation *startStation);
 };
 
 

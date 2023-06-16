@@ -23,10 +23,6 @@ void Line::update(std::ostream &os) {
     std::vector<std::pair<Tram*,TramStop*> > drivers;
     for (int i = 0; i < static_cast<int>(trams.size()); i++) {
         Tram* tram = trams[i];
-        if (tram->isDefect()) {
-            tram->handleDefect(os);
-            continue;
-        }
         TramStop *currentStation = tram->getCurrentStation();
         TramStop *next = getNext(currentStation);
         while (!next->acceptsTramType(tram) && !next->acceptsTramType(tram)) {
@@ -34,12 +30,13 @@ void Line::update(std::ostream &os) {
         }
         if (!next->isOccupied()) {
             drivers.push_back(std::pair<Tram*,TramStop*>(tram,next));
+        } else {
+            tram->drive(next, true, os);
         }
     }
     for (int i = 0; i < static_cast<int>(drivers.size()); i++) {
         std::pair<Tram*,TramStop*> drive = drivers[i];
-        drive.first->drive(drive.second,os);
-        drive.first->handleDefect(os);
+        drive.first->drive(drive.second,false,os);
     }
 }
 

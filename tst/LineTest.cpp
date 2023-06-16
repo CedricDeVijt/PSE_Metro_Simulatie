@@ -65,7 +65,7 @@ TEST(LineTest, deployTramTest) {
     EXPECT_EQ((int)l.getStations().size(),1);
 
     //We create an Albatros tram 0 that sits on no station yet
-    Tram *t0 = new Albatros(0,NULL,0,0,0);
+    Tram *t0 = new Albatros(0,NULL);
 
     //We deploy the tram to station A
     std::stringstream errorStream;
@@ -80,7 +80,7 @@ TEST(LineTest, deployTramTest) {
     EXPECT_TRUE(a->isOccupied());
 
     //We create an Albatros tram 1
-    Tram *t1 = new Albatros(1,NULL,0,0,0);
+    Tram *t1 = new Albatros(1,NULL);
     //This tram also wants to deploy on an occupied station!? -> problem
     std::stringstream errorStream2;
     l.deployTram(t1, "A", errorStream2);
@@ -113,7 +113,7 @@ TEST(LineTest, updateTestAlbatros) {
     EXPECT_TRUE(errorStreamConnection.str().empty());
 
     //Init tram and deploy on A without an error
-    Tram *alba = new Albatros(0, NULL, 0, 100, 0);
+    Tram *alba = new Albatros(0, NULL);
     std::stringstream errorStreamDeploy;
     l.deployTram(alba, "A", errorStreamDeploy);
     EXPECT_TRUE(errorStreamDeploy.str().empty());
@@ -156,7 +156,7 @@ TEST(LineTest, updateTestStadsLijner) {
     EXPECT_TRUE(errorStreamConnection.str().empty());
 
     //Init tram and deploy on A without an error
-    Tram *stadsL = new Stadslijner(0, NULL, 0, 100, 0);
+    Tram *stadsL = new Stadslijner(0, NULL);
     std::stringstream errorStreamDeploy;
     l.deployTram(stadsL, "A", errorStreamDeploy);
     EXPECT_TRUE(errorStreamDeploy.str().empty());
