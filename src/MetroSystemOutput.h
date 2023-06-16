@@ -14,7 +14,7 @@ public:
      * @param system metro-system that is used for the output.
      * @param os output stream the text is written to.
      */
-    static void simpleSystemOutput(MetroSystem *system, std::ostream &os);
+    static void simpleSystemOutput(const MetroSystem &system, std::ostream &os);
 
     /**
      * Writes an advanced system output to the given output steam. The output consists all the tracks and if there are
@@ -23,7 +23,7 @@ public:
      * @param system metro-system that is used for the output.
      * @param os output stream the text is written to.
      */
-    static void advancedSystemOutput(MetroSystem *system, std::ostream &os);
+    static void advancedSystemOutput(const MetroSystem &system, std::ostream &os);
 
     /**
      * Creates DOT file of the current metro-system
@@ -33,7 +33,7 @@ public:
      * @outputs - URL to the visualizer with the DOT file loaded in \n
      *          - DOT file format
      */
-    static void createDotFile(MetroSystem *system, std::ostream &os);
+    static void createDotFile(const MetroSystem &system, std::ostream &os);
 
     /**
      * Outputs the dot file output to a given file type, and a filename
@@ -42,7 +42,7 @@ public:
      * @param filename is the name of the file
      * @param outputType is the type of the file: .svg or .dot
      */
-    static void createDotOutput(MetroSystem *system, const std::string &filename, const std::string &outputType);
+    static void createDotOutput(const MetroSystem &system, const std::string &filename, const std::string &outputType);
 };
 
 

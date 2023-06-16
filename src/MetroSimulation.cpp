@@ -21,7 +21,7 @@ void MetroSimulation::run(std::ostream &os) {
             std::stringstream s;
             s << time;
             std::string timeStr = s.str();
-            MetroSystemOutput::createDotOutput(system, "time"+timeStr, ".png");
+            MetroSystemOutput::createDotOutput(*system, "time"+timeStr, ".png");
         }
         system->updateSystem(os);
         emitSimulationProgressed();
@@ -31,7 +31,7 @@ void MetroSimulation::run(std::ostream &os) {
         std::stringstream s;
         s << time;
         std::string timeStr = s.str();
-        MetroSystemOutput::createDotOutput(system, "time"+timeStr, ".png");
+        MetroSystemOutput::createDotOutput(*system, "time"+timeStr, ".png");
     }
 }
 
@@ -52,7 +52,7 @@ MetroSimulation::~MetroSimulation() {
 void MetroSimulation::evaluate(std::ostream &os) {
     REQUIRE(properlyInitialized(), "Metrosimulation was not properly initialised.");
     os << "System:\n";
-    MetroSystemOutput::simpleSystemOutput(system, os);
+    MetroSystemOutput::simpleSystemOutput(*system, os);
 
     os << "Stats:\n";
     MetroSimStatistics stats(this);

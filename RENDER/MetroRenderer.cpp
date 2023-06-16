@@ -12,33 +12,25 @@
 
 
 void MetroRenderer::renderSystem(const MetroSystem &system, const std::string &fileName) {
-    Scene s;
-
+    Objects3D objects;
     for (RenderObject * object : getObjects(system)) {
-        s.objects3D.push_back(object->createRender());
+        objects.push_back(object->createRender());
         delete object;
     }
 
-    s.camera = Camera(ini::DoubleTuple({2000,2000,1000}), false, ini::DoubleTuple({0,0,0}),0,0,0,0);
+    ClippingSettings clippingSettings(false, ini::DoubleTuple({0,0,0}),0,0,0,0);
+    Camera camera = Camera(ini::DoubleTuple({2000,2000,1000}),clippingSettings);
 
-    InfLight *infL =new InfLight();
-    infL->ambientLight = {1,1,1};
-    infL->diffuseLight = {1,1,1};
+    std::vector<double> ambientLight = {1,1,1};
+    std::vector<double> diffuseLight = {1,1,1};
+    std::vector<double> specularLight = {1,1,1};
+    Vector3D ldVector = Vector3D::vector(-1, -1, -1);
+    InfLight *infL = new InfLight(ambientLight, diffuseLight, specularLight, ldVector);
 
-    ini::DoubleTuple directionTuple({-1,-1,-1});
-    Vector3D dir;
-    dir.x = directionTuple[0];
-    dir.y = directionTuple[1];
-    dir.z = directionTuple[2];
-    infL->ldVector = Vector3D::normalise(dir);
-    s.lights.push_back(infL);
-
-    s.triangulate();
-    s.camera.eyePointTransform(s.objects3D);
+    Scene s(objects, camera, {infL}, true);
 
     img::EasyImage image;
-//    image = Renderer::drawZBufTriangles(img::Color(0,0,0),s.getTriangles(), s.project(1), 1000, s.lights);
-    image = Renderer::draw2DLines(img::Color(0,0,0), s.project(1), 1000, true);
+    image = Renderer::drawZBufTriangles(s, img::Color(0,0,0), 1000);
     std::string outputName = fileName;
     if(image.get_height() > 0 && image.get_width() > 0)
     {

@@ -34,7 +34,7 @@ SpoorRender::SpoorRender(double x, double y, double z, double x2, double y2, dou
 
 Object3D PCCRender::createRender() const {
     Object3D obj;
-    obj = Object3D::createCube();
+    obj = Object3D::Object3DFactory::createCube();
     obj.applyTransformation(Calculator::superMatrix(size, 0, 0, 0, Vector3D::point(getX(), getY(), getZ())));
     obj.ambientReflection = randRGB;
     obj.diffuseReflection = randRGB;
@@ -44,7 +44,7 @@ Object3D PCCRender::createRender() const {
 
 Object3D AlbatrosRender::createRender() const {
     Object3D obj;
-    obj = Object3D::createCube();
+    obj = Object3D::Object3DFactory::createCube();
     obj.applyTransformation(Calculator::superMatrix(size, 0, 0, 0, Vector3D::point(getX(), getY(), getZ())));
     obj.ambientReflection = randRGB;
     obj.diffuseReflection = randRGB;
@@ -54,7 +54,7 @@ Object3D AlbatrosRender::createRender() const {
 
 Object3D StadsLijnerRender::createRender() const {
     Object3D obj;
-    obj = Object3D::createCube();
+    obj = Object3D::Object3DFactory::createCube();
     obj.applyTransformation(Calculator::superMatrix(size, 0, 0, 0, Vector3D::point(getX(), getY(), getZ())));
     obj.ambientReflection = randRGB;
     obj.diffuseReflection = randRGB;
@@ -65,7 +65,7 @@ Object3D StadsLijnerRender::createRender() const {
 
 Object3D HalteRender::createRender() const {
     Object3D obj;
-    obj = Object3D::createCube();
+    obj = Object3D::Object3DFactory::createCube();
     obj.applyTransformation(Calculator::superMatrix(size, 0, 0, 0, Vector3D::point(getX(), getY(), getZ())));
     obj.ambientReflection = randRGB;
     obj.diffuseReflection = randRGB;
@@ -76,7 +76,7 @@ Object3D HalteRender::createRender() const {
 
 Object3D MetrostationRender::createRender() const {
     Object3D obj;
-    obj = Object3D::createCube();
+    obj = Object3D::Object3DFactory::createCube();
     obj.applyTransformation(Calculator::superMatrix(size, 0, 0, 0, Vector3D::point(getX(), getY(), getZ())));
     obj.ambientReflection = randRGB;
     obj.diffuseReflection = randRGB;

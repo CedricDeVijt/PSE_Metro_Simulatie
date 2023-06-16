@@ -3,10 +3,10 @@
 #include <typeinfo>
 #include <fstream>
 
-void MetroSystemOutput::simpleSystemOutput(MetroSystem *system, std::ostream &os) {
+void MetroSystemOutput::simpleSystemOutput(const MetroSystem &system, std::ostream &os) {
     // Get stations
-    std::vector<TramStop *> stations = system->getStations();
-    std::vector<Line *> lines = system->getLines();
+    std::vector<TramStop *> stations = system.getStations();
+    std::vector<Line *> lines = system.getLines();
 
     os << "--== STATIONS ==--\n";
     // Loop over all stops
@@ -44,8 +44,8 @@ void MetroSystemOutput::simpleSystemOutput(MetroSystem *system, std::ostream &os
     }
 }
 
-void MetroSystemOutput::advancedSystemOutput(MetroSystem *system, std::ostream &os) {
-    std::vector<Line *> lines = system->getLines();
+void MetroSystemOutput::advancedSystemOutput(const MetroSystem &system, std::ostream &os) {
+    std::vector<Line *> lines = system.getLines();
 
     for (int i = 0; i < (int)lines.size(); ++i) {
         Line *currentLine = lines[i];
@@ -100,7 +100,7 @@ std::string url_encode(const std::string &value) {
     return escaped.str();
 }
 
-void MetroSystemOutput::createDotFile(MetroSystem *system, std::ostream &os) {
+void MetroSystemOutput::createDotFile(const MetroSystem &system, std::ostream &os) {
     std::stringstream stream;
 
     std::vector<std::string> colors;
@@ -110,7 +110,7 @@ void MetroSystemOutput::createDotFile(MetroSystem *system, std::ostream &os) {
     colors.push_back("yellow");
     stream << "digraph system {" << std::endl;
     stream << "node [width=2, height=2];";
-    std::vector<Line*> lines = system->getLines();
+    std::vector<Line*> lines = system.getLines();
     for (int i = 0; i < static_cast<int>(lines.size()); i++) {
         Line *l = lines[i];
         for (int j = 0; j < static_cast<int>(l->getTracks().size()); ++j) {
@@ -127,7 +127,7 @@ void MetroSystemOutput::createDotFile(MetroSystem *system, std::ostream &os) {
     os << stream.str();
 }
 
-void MetroSystemOutput::createDotOutput(MetroSystem *system, const std::string &filename, const std::string &outputType) {
+void MetroSystemOutput::createDotOutput(const MetroSystem &system, const std::string &filename, const std::string &outputType) {
     std::string dotFileString = "./dots/"+filename+".dot";
     std::string outputFileString = "./dots/"+filename+outputType;
 
