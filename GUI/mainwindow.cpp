@@ -10,7 +10,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     ui->setupUi(this);
 
     // Metro simulation for GUI
-    sim = new GUI_MetroSimulation(filename, ss,100, true);
+    sim = new GUI_MetroSimulation(filename, &ss,100, true);
 
     systemStarted = false;
     systemStopped = false;
@@ -51,7 +51,7 @@ MainWindow::~MainWindow(){
 void MainWindow::onPushButton_StartClicked() {
     if (not systemStarted) {
         ui->textBrowser_Simulation->append("Started simulation");
-        SimThread *thread = new SimThread(sim, ss);
+        SimThread *thread = new SimThread(sim, &ss);
         thread->start();  //start the thread
         systemStarted = true;
     } else {
@@ -78,7 +78,7 @@ void MainWindow::onPushButton_NextClicked(){
             streamStackIndex++;
             sim->updateTime();
             ss.str("");
-            sim->getSystem()->updateSystem(ss);
+            sim->getSystem()->updateSystem();
             // Push new data
             statStack.push_back(getSystemStats());
             streamStack.push_back(ss.str());
