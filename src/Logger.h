@@ -6,15 +6,13 @@
 enum logLevel {  ERROR, INFO };
 
 /**
- * Logger object for simple output formatting
+ * Singleton class responsible for logging
  */
 class Logger {
 public:
     /**
-     * Writes an error message to the given stream, with right formatting
-     * @param stream is the stream the error message needs to be written to
+     * Writes an error message to the set error stream
      * @param msg is the message that needs to be formatted
-     * @attention newline gets added by default
      */
     static void error(const std::string& msg) {
         Logger *logger = getLogger();
@@ -23,6 +21,10 @@ public:
         }
     }
 
+    /**
+     * Writes an info message to the set output stream
+     * @param msg is the message that needs to be formatted
+     */
     static void info(const std::string& msg) {
         Logger* logger = getLogger();
         if (logger->logLevel >= INFO) {
@@ -30,16 +32,28 @@ public:
         }
     }
 
+    /**
+     * Sets the loglevel
+     * @param level
+     */
     static void setLogLevel(const logLevel& level) {
         Logger* logger = getLogger();
         logger->logLevel = level;
     }
 
+    /**
+     * Sets the errorstream
+     * @param errorstream
+     */
     static void setErrorStream(std::ostream* errorstream) {
         Logger* logger = getLogger();
         logger->errorstream = errorstream;
     }
 
+    /**
+     * Sets the outputstream
+     * @param outputstream
+     */
     static void setOutputStream(std::ostream* outputstream) {
         Logger* logger = getLogger();
         logger->outputstream = outputstream;

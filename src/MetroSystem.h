@@ -55,7 +55,6 @@ public:
      * @REQUIRE properlyInitialized(), "MetroSystem is not properly initialised."
      * @param newStation is a TramStop* pointing to the new TramStop that needs to get added to the system
      * @param lineNumber is the LineNumber where the station should get added to
-     * @param errorStream is the stream the errors get sent to
      */
     void addStation(TramStop* newStation, const int &lineNumber);
 
@@ -66,7 +65,6 @@ public:
      * @param newTram is a Tram* pointing to the tram that needs to get Deployed
      * @param startStation is the name of the station it needs to get Deployed on
      * @param lineNumber is the LineNumber of the line it needs to get Deployed on
-     * @param errorStream is the stream the errors get sent to
      */
     void deployTram(Tram* newTram, const std::string &startStation, const int &lineNumber);
 
@@ -77,7 +75,6 @@ public:
      * @param start is the name of the station at the begin of the connection
      * @param end is the name of the station at the end of the connection
      * @param lineNumber is the LineNumber of the line the connection needs to get added onto
-     * @param errorStream is the stream the errors get sent to
      */
     void addConnection(const std::string &start, const std::string &end, const int &lineNumber);
 
@@ -85,7 +82,6 @@ public:
      * Verifies all the Lines on the MetroSystem, if a line is not consisten it outputs an error to errorStream \n
      *
      * @REQUIRE properlyInitialized(), "MetroSystem is not properly initialised."
-     * @param errorStream is the stream the errors get sent to
      */
     void verify();
 

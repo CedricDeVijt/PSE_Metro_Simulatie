@@ -24,7 +24,6 @@ public:
      *
      * @param system is the MetroSystem the data needs to get added to
      * @param filename is the path to a .xml file with the data
-     * @param errorStream is the stream errors get output to
      */
     static void loadMetroSystem(MetroSystem &system, const std::string &filename);
 private:
@@ -34,7 +33,6 @@ private:
      *
      * @param system is the MetroSystem the data needs to get added to
      * @param stationElem tinyXML element that contains information about a station
-     * @param errorStream is the stream errors get output to
      */
     static void parseStation(MetroSystem &system, TiXmlElement* stationElem);
     /**
@@ -43,7 +41,6 @@ private:
      *
      * @param system is the MetroSystem the data needs to get added to
      * @param tramElem tinyXML element that contains information about a tram
-     * @param errorStream is the stream errors get output to
      */
     static void parseTram(MetroSystem &system, TiXmlElement* tramElem);
     /**
@@ -52,7 +49,6 @@ private:
      *
      * @param system is the MetroSystem the data needs to get added to
      * @param stationElem tinyXML element that contains information about a station
-     * @param errorStream is the stream errors get output to
      */
     static void parseConnection(MetroSystem &system, TiXmlElement* stationElem);
     /**

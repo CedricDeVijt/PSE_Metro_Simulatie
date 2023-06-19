@@ -41,7 +41,7 @@ public:
     /**
      * Moves the tram to the next station
      *
-     * @param os std::ostream: where the output of moving the train is written to
+     * @bool true if the tram is blocked by another tram
      * @REQUIRE properlyInitialized(), "TramStop was not properly initialised."
      */
     virtual void drive(TramStop* destination, bool blocked);
@@ -132,6 +132,12 @@ public:
      */
     PCC(int tramNumber, TramStop *startStation, int repairTime, int defectAmount, int repairCost);
 
+    /**
+     * Moves the tram to the next station
+     *
+     * @bool true if the tram is blocked by another tram
+     * @REQUIRE properlyInitialized(), "TramStop was not properly initialised."
+     */
     void drive(TramStop *destination, bool blocked);
 
     /**
