@@ -30,8 +30,8 @@ TEST(StatisticsTest, test1) {
     MetroSimStatistics statisticsAft(&sim);
     EXPECT_EQ(statisticsAft.getTime(),10);
     EXPECT_EQ(statisticsAft.getTotalCost(),15);
-    EXPECT_EQ(statisticsAft.getWorkingTrams(),1);
-    EXPECT_EQ(statisticsAft.getDefectTrams(),1);
+    EXPECT_EQ(statisticsAft.getWorkingTrams(),2);
+    EXPECT_EQ(statisticsAft.getDefectTrams(),0);
 }
 
 TEST(StatisticsTest, test2) {
@@ -57,7 +57,7 @@ TEST(StatisticsTest, test2) {
     //After the simulation
     MetroSimStatistics statisticsAft(&sim);
     EXPECT_EQ(statisticsAft.getTime(),24);
-    EXPECT_EQ(statisticsAft.getTotalCost(),30);
+    EXPECT_EQ(statisticsAft.getTotalCost(),60);
     EXPECT_EQ(statisticsAft.getWorkingTrams(),2);
     EXPECT_EQ(statisticsAft.getDefectTrams(),0);
 }

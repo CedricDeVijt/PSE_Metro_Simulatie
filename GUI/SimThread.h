@@ -14,14 +14,15 @@ public:
      * @param sim A pointer to the GUI_MetroSimulation.
      * @param ss A reference to an the outputstream of the sim.
      */
-    SimThread(GUI_MetroSimulation *sim, std::ostringstream &ss);
+    SimThread(GUI_MetroSimulation *sim, std::ostringstream *ss);
 private:
     GUI_MetroSimulation *sim;
-    std::ostringstream &ss;
+    std::ostringstream *ss;
 
 protected:
     void run(){
-        sim->run(ss);
+        Logger::setOutputStream(ss);
+        sim->run();
     }
 };
 

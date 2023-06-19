@@ -55,8 +55,6 @@ Tram 12 nr 4
     type: Stadslijner
     snelheid: 70
     huidig station: E
-    reparatiekosten: 0 euro
-
 Tram 10 nr 5
     type: PCC
     snelheid: 40

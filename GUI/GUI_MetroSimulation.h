@@ -21,7 +21,7 @@ public:
      * @param createPng if the system needs to create png's of all the conditions the system goes through
      * @ENSURE properlyInitialized(), "constructor must end in properlyInitialized state"
      */
-    GUI_MetroSimulation(const std::string &inputFile, std::ostream &errorstream, unsigned int runtime, bool createPng);
+    GUI_MetroSimulation(const std::string &inputFile, std::ostringstream* errorstream, unsigned int runtime, bool createPng);
 
 private:
     void emitSimulationProgressed() override;

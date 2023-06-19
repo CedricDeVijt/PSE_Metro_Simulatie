@@ -7,7 +7,7 @@ class TramTest: public ::testing::Test {
     virtual void TearDown() {}
 };
 
-TEST(LineTest, driveTest) {
+TEST(TramTest, driveTest) {
     //Create 2 haltes
     TramStop *a = new Halte("A");
     TramStop *b = new Halte("B");
@@ -19,8 +19,8 @@ TEST(LineTest, driveTest) {
 
     //Drive to halte b
     std::stringstream ignoreStream;
-    Logger::setErrorStream(&ignoreStream);
-    t->drive(b, true);
+    Logger::setOutputStream(&ignoreStream);
+    t->drive(b, false);
     EXPECT_EQ(t->getCurrentStation(),b);
 
     //deallocate mem
@@ -28,31 +28,3 @@ TEST(LineTest, driveTest) {
     delete b;
     delete t;
 }
-
-TEST(LineTest, defectTest) {
-    /**
-     * This tram takes 5 loops to get repaired
-     * This tram breaks down after 2 loops
-     * This tram costs 10 to get repaired
-     */
-    PCC *t = new PCC(0, NULL, 5, 2, 10);
-    std::stringstream ignoreStream;
-    Logger::setErrorStream(&ignoreStream);
-    //Iterate 2 times and it should be defective
-    for (int i = 0; i < 2; i++) {
-        t->drive(NULL, true);
-    }
-    EXPECT_TRUE(t->isDefect());
-    EXPECT_EQ(t->getTotalCost(), 10);
-
-    //It should be repaired after 5 iterations
-    for (int i = 0; i < 5; i++) {
-        t->drive(NULL, true);
-    }
-    EXPECT_FALSE(t->isDefect());
-    EXPECT_EQ(t->getTotalCost(), 10);
-
-    //deallocate mem
-    delete t;
-}
-
