@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['halte_0',['Halte',['../class_halte.html',1,'']]]
+  ['line_0',['Line',['../class_line.html',1,'']]],
+  ['logger_1',['Logger',['../class_logger.html',1,'']]]
 ];

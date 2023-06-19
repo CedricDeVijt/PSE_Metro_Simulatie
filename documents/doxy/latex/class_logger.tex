@@ -7,30 +7,77 @@
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-static void \mbox{\hyperlink{class_logger_a980f719dcade1ffe5dae57e60851f839}{write\+Error}} (std\+::ostream \&stream, const std\+::string \&msg)
+static void \mbox{\hyperlink{class_logger_a117364e1794475deb0bbdfdfeb574007}{error}} (const std\+::string \&msg)
+\item 
+static void \mbox{\hyperlink{class_logger_a39bd25f673c7c398446499a18fb5645a}{info}} (const std\+::string \&msg)
+\item 
+static void \mbox{\hyperlink{class_logger_ab9e7257f858c1831851afd91f2c7b7a0}{set\+Log\+Level}} (const Log\+Level \&level)
+\item 
+static void \mbox{\hyperlink{class_logger_a9a9ae16c9a52c58611819044d1f9a478}{set\+Error\+Stream}} (std\+::ostream $\ast$errorstream)
+\item 
+static void \mbox{\hyperlink{class_logger_adb3e88243de3c5de58446c31b310ea2e}{set\+Output\+Stream}} (std\+::ostream $\ast$outputstream)
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-\mbox{\hyperlink{class_logger}{Logger}} object for simple output formatting 
+Singleton class responsible for logging 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_logger_a980f719dcade1ffe5dae57e60851f839}\label{class_logger_a980f719dcade1ffe5dae57e60851f839}} 
-\index{Logger@{Logger}!writeError@{writeError}}
-\index{writeError@{writeError}!Logger@{Logger}}
-\doxysubsubsection{\texorpdfstring{writeError()}{error()}}
-{\footnotesize\ttfamily static void Logger\+::write\+Error (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{stream,  }\item[{const std\+::string \&}]{msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+\mbox{\Hypertarget{class_logger_a117364e1794475deb0bbdfdfeb574007}\label{class_logger_a117364e1794475deb0bbdfdfeb574007}} 
+\index{Logger@{Logger}!error@{error}}
+\index{error@{error}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{error()}{error()}}
+{\footnotesize\ttfamily static void Logger\+::error (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
 
-Writes an error message to the given stream, with right formatting 
+Writes an error message to the currently set error stream, with right formatting 
 \begin{DoxyParams}{Parameters}
-{\em stream} & is the stream the error message needs to be written to \\
-\hline
 {\em msg} & is the message that needs to be formatted \\
 \hline
 \end{DoxyParams}
-\begin{DoxyAttention}{Attention}
-newline gets added by default 
-\end{DoxyAttention}
+\mbox{\Hypertarget{class_logger_a39bd25f673c7c398446499a18fb5645a}\label{class_logger_a39bd25f673c7c398446499a18fb5645a}} 
+\index{Logger@{Logger}!info@{info}}
+\index{info@{info}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{info()}{info()}}
+{\footnotesize\ttfamily static void Logger\+::info (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Writes an error message to the currently set output stream, with right formatting 
+\begin{DoxyParams}{Parameters}
+{\em msg} & is the message that needs to be formatted \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_logger_a9a9ae16c9a52c58611819044d1f9a478}\label{class_logger_a9a9ae16c9a52c58611819044d1f9a478}} 
+\index{Logger@{Logger}!setErrorStream@{setErrorStream}}
+\index{setErrorStream@{setErrorStream}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{setErrorStream()}{setErrorStream()}}
+{\footnotesize\ttfamily static void Logger\+::set\+Error\+Stream (\begin{DoxyParamCaption}\item[{std\+::ostream $\ast$}]{errorstream }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Sets the errorstream 
+\begin{DoxyParams}{Parameters}
+{\em errorstream} & is the wanted stream \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_logger_ab9e7257f858c1831851afd91f2c7b7a0}\label{class_logger_ab9e7257f858c1831851afd91f2c7b7a0}} 
+\index{Logger@{Logger}!setLogLevel@{setLogLevel}}
+\index{setLogLevel@{setLogLevel}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{setLogLevel()}{setLogLevel()}}
+{\footnotesize\ttfamily static void Logger\+::set\+Log\+Level (\begin{DoxyParamCaption}\item[{const Log\+Level \&}]{level }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+sets the log level 
+\begin{DoxyParams}{Parameters}
+{\em level} & is the wanted level \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_logger_adb3e88243de3c5de58446c31b310ea2e}\label{class_logger_adb3e88243de3c5de58446c31b310ea2e}} 
+\index{Logger@{Logger}!setOutputStream@{setOutputStream}}
+\index{setOutputStream@{setOutputStream}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{setOutputStream()}{setOutputStream()}}
+{\footnotesize\ttfamily static void Logger\+::set\+Output\+Stream (\begin{DoxyParamCaption}\item[{std\+::ostream $\ast$}]{outputstream }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Sets the outputstream 
+\begin{DoxyParams}{Parameters}
+{\em outputstream} & is the wanted stream \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

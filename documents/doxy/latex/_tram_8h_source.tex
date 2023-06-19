@@ -11,7 +11,7 @@
 \DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_tram}{Tram}}\ \{}
 \DoxyCodeLine{00011\ \textcolor{comment}{//Init}}
 \DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{class_tram}{Tram}}(\textcolor{keywordtype}{int}\ tramNumber,\ \textcolor{keywordtype}{int}\ speed,\ \mbox{\hyperlink{class_tram_stop}{TramStop}}\ *startStation,\ \textcolor{keywordtype}{int}\ repairTime,\ \textcolor{keywordtype}{int}\ defectAmount,\ \textcolor{keywordtype}{int}\ repairCost);}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{class_tram}{Tram}}(\textcolor{keywordtype}{int}\ tramNumber,\ \textcolor{keywordtype}{int}\ speed,\ \mbox{\hyperlink{class_tram_stop}{TramStop}}\ *startStation);}
 \DoxyCodeLine{00023\ }
 \DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_tram_acd6056d2289f2dccd371bc226cd2cb17}{\string~Tram}}();}
 \DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{bool}\ properlyInitialized()\ \textcolor{keyword}{const};}
@@ -20,68 +20,70 @@
 \DoxyCodeLine{00033\ \textcolor{keyword}{public}:}
 \DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{operator}\ std::string();}
 \DoxyCodeLine{00040\ }
-\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tram_aca64a5d5c147202ee5266219476c7943}{drive}}(\mbox{\hyperlink{class_tram_stop}{TramStop}}*\ destination,\ std::ostream\ \&os);}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tram_a8738d7444615e20a4df8869cbb84bf35}{drive}}(\mbox{\hyperlink{class_tram_stop}{TramStop}}*\ destination,\ \textcolor{keywordtype}{bool}\ blocked);}
 \DoxyCodeLine{00048\ }
-\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tram_ade0b2858cb25307df5ea159793829ac5}{handleDefect}}(std::ostream\ \&os);}
-\DoxyCodeLine{00055\ }
-\DoxyCodeLine{00056\ \textcolor{comment}{//Getters}}
-\DoxyCodeLine{00057\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tram_a50cb3002960956a32511073310bb6169}{getSpeed}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00065\ }
-\DoxyCodeLine{00072\ \ \ \ \ \mbox{\hyperlink{class_tram_stop}{TramStop}}\ *\mbox{\hyperlink{class_tram_a61e9736eaa6200f20d077812c5ea84e9}{getStartStation}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00073\ }
-\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tram_a1b0ae56c0014371f192b0e678112001d}{getTramNumber}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00081\ }
-\DoxyCodeLine{00088\ \ \ \ \ \mbox{\hyperlink{class_tram_stop}{TramStop}}\ *\mbox{\hyperlink{class_tram_ae4d3215d7d6baf6266ce9bac1ff1b127}{getCurrentStation}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00089\ }
-\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tram_ab97c785360641247d1a223e307f7fae6}{getTotalCost}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00097\ }
-\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&\mbox{\hyperlink{class_tram_a35c5a17f1b277b09d5f24c7d2e77cdef}{getVehicleType}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00105\ }
-\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_tram_a98d41c0b709ff9d0bdc799bf45bbffdb}{isDefect}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00112\ }
-\DoxyCodeLine{00113\ \textcolor{comment}{//Setters}}
-\DoxyCodeLine{00114\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tram_ae35a608ef4581fd1806b198cafbada32}{setSpeed}}(\textcolor{keywordtype}{int}\ speed);}
-\DoxyCodeLine{00123\ }
-\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tram_a57dc71bebaac0147d5c3bd65b820d0dd}{setStartStation}}(\mbox{\hyperlink{class_tram_stop}{TramStop}}\ *startStation);}
-\DoxyCodeLine{00132\ }
-\DoxyCodeLine{00133\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keyword}{friend}\ std::ostream\ \&operator<<(std::ostream\ \&os,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_tram}{Tram}}\ \&tram);}
-\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordtype}{int}\ tramNumber;}
-\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordtype}{int}\ speed;}
-\DoxyCodeLine{00137\ \ \ \ \ \mbox{\hyperlink{class_tram}{Tram}}*\ \_initCheck;}
-\DoxyCodeLine{00138\ \ \ \ \ \mbox{\hyperlink{class_tram_stop}{TramStop}}\ *startStation;}
-\DoxyCodeLine{00139\ \ \ \ \ \mbox{\hyperlink{class_tram_stop}{TramStop}}\ *currentStation;}
-\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keywordtype}{int}\ repairCost;}
-\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordtype}{int}\ repairTime;}
-\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keywordtype}{int}\ defectAmount;}
-\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordtype}{int}\ totalCost;}
-\DoxyCodeLine{00144\ }
-\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keywordtype}{bool}\ defect;}
-\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keywordtype}{int}\ repairSteps;}
-\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordtype}{int}\ steps;}
-\DoxyCodeLine{00148\ }
-\DoxyCodeLine{00149\ \textcolor{keyword}{protected}:}
-\DoxyCodeLine{00150\ \ \ \ \ std::string\ vehicleType;}
-\DoxyCodeLine{00151\ \};}
-\DoxyCodeLine{00152\ }
-\DoxyCodeLine{00153\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_p_c_c}{PCC}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_tram}{Tram}}\ \{}
-\DoxyCodeLine{00154\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00164\ \ \ \ \ \mbox{\hyperlink{class_p_c_c}{PCC}}(\textcolor{keywordtype}{int}\ tramNumber,\ \mbox{\hyperlink{class_tram_stop}{TramStop}}\ *startStation,\ \textcolor{keywordtype}{int}\ repairTime,\ \textcolor{keywordtype}{int}\ defectAmount,\ \textcolor{keywordtype}{int}\ repairCost);}
-\DoxyCodeLine{00165\ \};}
-\DoxyCodeLine{00166\ }
-\DoxyCodeLine{00167\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_albatros}{Albatros}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_tram}{Tram}}\ \{}
-\DoxyCodeLine{00168\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00178\ \ \ \ \ \mbox{\hyperlink{class_albatros}{Albatros}}(\textcolor{keywordtype}{int}\ tramNumber,\ \mbox{\hyperlink{class_metrostation}{Metrostation}}\ *startStation,\ \textcolor{keywordtype}{int}\ repairTime,\ \textcolor{keywordtype}{int}\ defectAmount,\ \textcolor{keywordtype}{int}\ repairCost);}
-\DoxyCodeLine{00179\ \};}
-\DoxyCodeLine{00180\ }
-\DoxyCodeLine{00181\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_stadslijner}{Stadslijner}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_tram}{Tram}}\ \{}
-\DoxyCodeLine{00182\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00192\ \ \ \ \ \mbox{\hyperlink{class_stadslijner}{Stadslijner}}(\textcolor{keywordtype}{int}\ tramNumber,\ \mbox{\hyperlink{class_metrostation}{Metrostation}}\ *startStation,\ \textcolor{keywordtype}{int}\ repairTime,\ \textcolor{keywordtype}{int}\ defectAmount,\ \textcolor{keywordtype}{int}\ repairCost);}
-\DoxyCodeLine{00193\ \};}
-\DoxyCodeLine{00194\ }
-\DoxyCodeLine{00195\ }
-\DoxyCodeLine{00196\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//PSE\_METRO\_SIMULATIE\_TRAM\_H}}
+\DoxyCodeLine{00049\ \textcolor{comment}{//Getters}}
+\DoxyCodeLine{00050\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tram_a50cb3002960956a32511073310bb6169}{getSpeed}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{class_tram_stop}{TramStop}}\ *\mbox{\hyperlink{class_tram_a61e9736eaa6200f20d077812c5ea84e9}{getStartStation}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tram_a1b0ae56c0014371f192b0e678112001d}{getTramNumber}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00081\ \ \ \ \ \mbox{\hyperlink{class_tram_stop}{TramStop}}\ *\mbox{\hyperlink{class_tram_ae4d3215d7d6baf6266ce9bac1ff1b127}{getCurrentStation}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&\mbox{\hyperlink{class_tram_a35c5a17f1b277b09d5f24c7d2e77cdef}{getVehicleType}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \textcolor{comment}{//Setters}}
+\DoxyCodeLine{00092\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tram_ae35a608ef4581fd1806b198cafbada32}{setSpeed}}(\textcolor{keywordtype}{int}\ speed);}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tram_a57dc71bebaac0147d5c3bd65b820d0dd}{setStartStation}}(\mbox{\hyperlink{class_tram_stop}{TramStop}}\ *startStation);}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keyword}{friend}\ std::ostream\ \&operator<<(std::ostream\ \&os,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_tram}{Tram}}\ \&tram);}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordtype}{int}\ tramNumber;}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordtype}{int}\ speed;}
+\DoxyCodeLine{00115\ \ \ \ \ \mbox{\hyperlink{class_tram}{Tram}}*\ \_initCheck;}
+\DoxyCodeLine{00116\ \ \ \ \ \mbox{\hyperlink{class_tram_stop}{TramStop}}\ *startStation;}
+\DoxyCodeLine{00117\ \ \ \ \ \mbox{\hyperlink{class_tram_stop}{TramStop}}\ *currentStation;}
+\DoxyCodeLine{00118\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00119\ \ \ \ \ std::string\ vehicleType;}
+\DoxyCodeLine{00120\ \};}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_p_c_c}{PCC}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_tram}{Tram}}\ \{}
+\DoxyCodeLine{00123\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00133\ \ \ \ \ \mbox{\hyperlink{class_p_c_c}{PCC}}(\textcolor{keywordtype}{int}\ tramNumber,\ \mbox{\hyperlink{class_tram_stop}{TramStop}}\ *startStation,\ \textcolor{keywordtype}{int}\ repairTime,\ \textcolor{keywordtype}{int}\ defectAmount,\ \textcolor{keywordtype}{int}\ repairCost);}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_p_c_c_a0352d52f9282047c7ccea43f8059bf19}{drive}}(\mbox{\hyperlink{class_tram_stop}{TramStop}}\ *destination,\ \textcolor{keywordtype}{bool}\ blocked);}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_p_c_c_a36e9f445daf2a811422e9a84bc9655d1}{getTotalCost}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_p_c_c_a4e519deeb22cd85eaf5a265381fde9c3}{isDefect}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00157\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keywordtype}{void}\ handleDefect();}
+\DoxyCodeLine{00164\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keywordtype}{int}\ repairCost;}
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{keywordtype}{int}\ repairTime;}
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keywordtype}{int}\ defectAmount;}
+\DoxyCodeLine{00168\ \ \ \ \ \textcolor{keywordtype}{int}\ totalCost;}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \ \ \ \ \textcolor{keywordtype}{bool}\ defect;}
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keywordtype}{int}\ repairSteps;}
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{keywordtype}{int}\ steps;}
+\DoxyCodeLine{00173\ \};}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_albatros}{Albatros}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_tram}{Tram}}\ \{}
+\DoxyCodeLine{00176\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00186\ \ \ \ \ \mbox{\hyperlink{class_albatros}{Albatros}}(\textcolor{keywordtype}{int}\ tramNumber,\ \mbox{\hyperlink{class_metrostation}{Metrostation}}\ *startStation);}
+\DoxyCodeLine{00187\ \};}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00189\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_stadslijner}{Stadslijner}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_tram}{Tram}}\ \{}
+\DoxyCodeLine{00190\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00200\ \ \ \ \ \mbox{\hyperlink{class_stadslijner}{Stadslijner}}(\textcolor{keywordtype}{int}\ tramNumber,\ \mbox{\hyperlink{class_metrostation}{Metrostation}}\ *startStation);}
+\DoxyCodeLine{00201\ \};}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00204\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//PSE\_METRO\_SIMULATIE\_TRAM\_H}}
 
 \end{DoxyCode}

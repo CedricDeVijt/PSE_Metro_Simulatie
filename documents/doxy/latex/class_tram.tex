@@ -13,7 +13,7 @@ Inheritance diagram for Tram\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_tram_a206f1d8e2f7267987417ad3fa3c6384d}{Tram}} (int tram\+Number, int speed, \mbox{\hyperlink{class_tram_stop}{Tram\+Stop}} $\ast$start\+Station, int repair\+Time, int defect\+Amount, int repair\+Cost)
+\mbox{\hyperlink{class_tram_a4a778cbe695803f4b8667e35cb6b5f44}{Tram}} (int tram\+Number, int speed, \mbox{\hyperlink{class_tram_stop}{Tram\+Stop}} $\ast$start\+Station)
 \item 
 virtual \mbox{\hyperlink{class_tram_acd6056d2289f2dccd371bc226cd2cb17}{$\sim$\+Tram}} ()
 \item 
@@ -22,9 +22,7 @@ bool {\bfseries properly\+Initialized} () const
 \item 
 \mbox{\hyperlink{class_tram_a69f52091a1bcfd5325c85373e8664c6c}{operator std\+::string}} ()
 \item 
-void \mbox{\hyperlink{class_tram_aca64a5d5c147202ee5266219476c7943}{drive}} (\mbox{\hyperlink{class_tram_stop}{Tram\+Stop}} $\ast$destination, std\+::ostream \&os)
-\item 
-void \mbox{\hyperlink{class_tram_ade0b2858cb25307df5ea159793829ac5}{handle\+Defect}} (std\+::ostream \&os)
+virtual void \mbox{\hyperlink{class_tram_a8738d7444615e20a4df8869cbb84bf35}{drive}} (\mbox{\hyperlink{class_tram_stop}{Tram\+Stop}} $\ast$destination, bool blocked)
 \item 
 int \mbox{\hyperlink{class_tram_a50cb3002960956a32511073310bb6169}{get\+Speed}} () const
 \item 
@@ -34,11 +32,7 @@ int \mbox{\hyperlink{class_tram_a1b0ae56c0014371f192b0e678112001d}{get\+Tram\+Nu
 \item 
 \mbox{\hyperlink{class_tram_stop}{Tram\+Stop}} $\ast$ \mbox{\hyperlink{class_tram_ae4d3215d7d6baf6266ce9bac1ff1b127}{get\+Current\+Station}} () const
 \item 
-int \mbox{\hyperlink{class_tram_ab97c785360641247d1a223e307f7fae6}{get\+Total\+Cost}} () const
-\item 
 const std\+::string \& \mbox{\hyperlink{class_tram_a35c5a17f1b277b09d5f24c7d2e77cdef}{get\+Vehicle\+Type}} () const
-\item 
-bool \mbox{\hyperlink{class_tram_a98d41c0b709ff9d0bdc799bf45bbffdb}{is\+Defect}} () const
 \item 
 void \mbox{\hyperlink{class_tram_ae35a608ef4581fd1806b198cafbada32}{set\+Speed}} (int speed)
 \item 
@@ -62,11 +56,11 @@ std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, const \mbox{\
 Object that represents a tram 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{class_tram_a206f1d8e2f7267987417ad3fa3c6384d}\label{class_tram_a206f1d8e2f7267987417ad3fa3c6384d}} 
+\mbox{\Hypertarget{class_tram_a4a778cbe695803f4b8667e35cb6b5f44}\label{class_tram_a4a778cbe695803f4b8667e35cb6b5f44}} 
 \index{Tram@{Tram}!Tram@{Tram}}
 \index{Tram@{Tram}!Tram@{Tram}}
 \doxysubsubsection{\texorpdfstring{Tram()}{Tram()}}
-{\footnotesize\ttfamily Tram\+::\+Tram (\begin{DoxyParamCaption}\item[{int}]{tram\+Number,  }\item[{int}]{speed,  }\item[{\mbox{\hyperlink{class_tram_stop}{Tram\+Stop}} $\ast$}]{start\+Station,  }\item[{int}]{repair\+Time,  }\item[{int}]{defect\+Amount,  }\item[{int}]{repair\+Cost }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Tram\+::\+Tram (\begin{DoxyParamCaption}\item[{int}]{tram\+Number,  }\item[{int}]{speed,  }\item[{\mbox{\hyperlink{class_tram_stop}{Tram\+Stop}} $\ast$}]{start\+Station }\end{DoxyParamCaption})}
 
 Creates a \mbox{\hyperlink{class_tram}{Tram}} object
 
@@ -90,19 +84,18 @@ Destructs a tram object
 @\+REQUIRE properly\+Initialized(), \char`\"{}\+Tram was not properly initialised.\char`\"{} 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_tram_aca64a5d5c147202ee5266219476c7943}\label{class_tram_aca64a5d5c147202ee5266219476c7943}} 
+\mbox{\Hypertarget{class_tram_a8738d7444615e20a4df8869cbb84bf35}\label{class_tram_a8738d7444615e20a4df8869cbb84bf35}} 
 \index{Tram@{Tram}!drive@{drive}}
 \index{drive@{drive}!Tram@{Tram}}
 \doxysubsubsection{\texorpdfstring{drive()}{drive()}}
-{\footnotesize\ttfamily void Tram\+::drive (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_tram_stop}{Tram\+Stop}} $\ast$}]{destination,  }\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Tram\+::drive (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_tram_stop}{Tram\+Stop}} $\ast$}]{destination,  }\item[{bool}]{blocked }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 Moves the tram to the next station
 
+@bool true if the tram is blocked by another tram @\+REQUIRE properly\+Initialized(), \char`\"{}\+Tram\+Stop was not properly initialised.\char`\"{} 
 
-\begin{DoxyParams}{Parameters}
-{\em os} & std\+::ostream\+: where the output of moving the train is written to @\+REQUIRE properly\+Initialized(), \char`\"{}\+Tram\+Stop was not properly initialised.\char`\"{} \\
-\hline
-\end{DoxyParams}
+Reimplemented in \mbox{\hyperlink{class_p_c_c_a0352d52f9282047c7ccea43f8059bf19}{PCC}}.
+
 \mbox{\Hypertarget{class_tram_ae4d3215d7d6baf6266ce9bac1ff1b127}\label{class_tram_ae4d3215d7d6baf6266ce9bac1ff1b127}} 
 \index{Tram@{Tram}!getCurrentStation@{getCurrentStation}}
 \index{getCurrentStation@{getCurrentStation}!Tram@{Tram}}
@@ -136,17 +129,6 @@ Gives the station where the track starts
 \begin{DoxyReturn}{Returns}
 Tram\+Stop$\ast$ to the station where the track starts @\+REQUIRE properly\+Initialized(), \char`\"{}\+Tram\+Stop was not properly initialised.\char`\"{} 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_tram_ab97c785360641247d1a223e307f7fae6}\label{class_tram_ab97c785360641247d1a223e307f7fae6}} 
-\index{Tram@{Tram}!getTotalCost@{getTotalCost}}
-\index{getTotalCost@{getTotalCost}!Tram@{Tram}}
-\doxysubsubsection{\texorpdfstring{getTotalCost()}{getTotalCost()}}
-{\footnotesize\ttfamily int Tram\+::get\+Total\+Cost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
-
-Gives the cost of the repairs of the tram.
-
-\begin{DoxyReturn}{Returns}
-The cost in euro\textquotesingle{}s of the repairs. @\+REQUIRE properly\+Initialized(), \char`\"{}\+Tram\+Stop was not properly initialised.\char`\"{} 
-\end{DoxyReturn}
 \mbox{\Hypertarget{class_tram_a1b0ae56c0014371f192b0e678112001d}\label{class_tram_a1b0ae56c0014371f192b0e678112001d}} 
 \index{Tram@{Tram}!getTramNumber@{getTramNumber}}
 \index{getTramNumber@{getTramNumber}!Tram@{Tram}}
@@ -169,28 +151,7 @@ Gives the type of the tram.
 \begin{DoxyReturn}{Returns}
 The name of the type of tram. @\+REQUIRE properly\+Initialized(), \char`\"{}\+Tram\+Stop was not properly initialised.\char`\"{} 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_tram_ade0b2858cb25307df5ea159793829ac5}\label{class_tram_ade0b2858cb25307df5ea159793829ac5}} 
-\index{Tram@{Tram}!handleDefect@{handleDefect}}
-\index{handleDefect@{handleDefect}!Tram@{Tram}}
-\doxysubsubsection{\texorpdfstring{handleDefect()}{handleDefect()}}
-{\footnotesize\ttfamily void Tram\+::handle\+Defect (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})}
-
-Handles the effect property of the tram
-
-
-\begin{DoxyParams}{Parameters}
-{\em os} & is the outputstream, in case of Defect/\+Reparation \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{class_tram_a98d41c0b709ff9d0bdc799bf45bbffdb}\label{class_tram_a98d41c0b709ff9d0bdc799bf45bbffdb}} 
-\index{Tram@{Tram}!isDefect@{isDefect}}
-\index{isDefect@{isDefect}!Tram@{Tram}}
-\doxysubsubsection{\texorpdfstring{isDefect()}{isDefect()}}
-{\footnotesize\ttfamily bool Tram\+::is\+Defect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
-
-Returns true if the \mbox{\hyperlink{class_tram}{Tram}} is defect
-
-@\+REQUIRE properly\+Initialized(), \char`\"{}\+Tram\+Stop was not properly initialised.\char`\"{} \mbox{\Hypertarget{class_tram_a69f52091a1bcfd5325c85373e8664c6c}\label{class_tram_a69f52091a1bcfd5325c85373e8664c6c}} 
+\mbox{\Hypertarget{class_tram_a69f52091a1bcfd5325c85373e8664c6c}\label{class_tram_a69f52091a1bcfd5325c85373e8664c6c}} 
 \index{Tram@{Tram}!operator std::string@{operator std::string}}
 \index{operator std::string@{operator std::string}!Tram@{Tram}}
 \doxysubsubsection{\texorpdfstring{operator std::string()}{operator std::string()}}

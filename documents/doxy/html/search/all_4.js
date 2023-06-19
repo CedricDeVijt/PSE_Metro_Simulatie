@@ -16,11 +16,10 @@ var searchData=
   ['getstations_13',['getStations',['../class_line.html#a074f582e5f0b37b8ac24e61a2398c288',1,'Line::getStations()'],['../class_metro_system.html#a829ca4f12c354b21792c8f49dd46c914',1,'MetroSystem::getStations()']]],
   ['getsystem_14',['getSystem',['../class_metro_simulation.html#aa26de2c80ddf9b93a1b04329feda3009',1,'MetroSimulation']]],
   ['gettime_15',['getTime',['../class_metro_sim_statistics.html#afa595dc01cae04d51c6198ad5fdc39c9',1,'MetroSimStatistics::getTime()'],['../class_metro_simulation.html#a08b99faddde65cc16798e96eb9186e12',1,'MetroSimulation::getTime()']]],
-  ['gettotalcost_16',['getTotalCost',['../class_metro_sim_statistics.html#a41429956abf540afc998eb17f42e6ddb',1,'MetroSimStatistics::getTotalCost()'],['../class_tram.html#ab97c785360641247d1a223e307f7fae6',1,'Tram::getTotalCost()']]],
+  ['gettotalcost_16',['getTotalCost',['../class_metro_sim_statistics.html#a41429956abf540afc998eb17f42e6ddb',1,'MetroSimStatistics::getTotalCost()'],['../class_p_c_c.html#a36e9f445daf2a811422e9a84bc9655d1',1,'PCC::getTotalCost()']]],
   ['gettracks_17',['getTracks',['../class_line.html#af42d38b3a876ac2d9dbd196fabfd61b9',1,'Line']]],
   ['gettramnumber_18',['getTramNumber',['../class_tram.html#a1b0ae56c0014371f192b0e678112001d',1,'Tram']]],
   ['gettrams_19',['getTrams',['../class_line.html#a91f3d66249e8d57454fb606bb15fb293',1,'Line']]],
   ['getvehicletype_20',['getVehicleType',['../class_tram.html#a35c5a17f1b277b09d5f24c7d2e77cdef',1,'Tram']]],
-  ['getworkingtrams_21',['getWorkingTrams',['../class_metro_sim_statistics.html#ab8de400b2066583684d62e7e7eef043c',1,'MetroSimStatistics']]],
-  ['gui_5fmetrosimulation_22',['GUI_MetroSimulation',['../class_g_u_i___metro_simulation.html',1,'GUI_MetroSimulation'],['../class_g_u_i___metro_simulation.html#a552c61ff01c3d394e938168739a6191d',1,'GUI_MetroSimulation::GUI_MetroSimulation()']]]
+  ['getworkingtrams_21',['getWorkingTrams',['../class_metro_sim_statistics.html#ab8de400b2066583684d62e7e7eef043c',1,'MetroSimStatistics']]]
 ];

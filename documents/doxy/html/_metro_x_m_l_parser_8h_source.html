@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.6"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Metro_simulation: C:/Users/arne/Documents/2022-2023/s2/PSE/PSE_Metro_Simulatie/src/MetroXMLParser.h Source File</title>
+<title>PSE_METRO: C:/Users/arne/Documents/2022-2023/s2/PSE/PSE_Metro_Simulatie/src/MetroXMLParser.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="metro.jpg"/></td>
   <td id="projectalign">
-   <div id="projectname">Metro_simulation
+   <div id="projectname">PSE_METRO<span id="projectnumber">&#160;2.1</span>
    </div>
   </td>
  </tr>
@@ -70,7 +70,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_f396504afdc959660871b003fa10164d.html">Documents</a></li><li class="navelem"><a class="el" href="dir_782be16791bb1f791cd144671833d32b.html">2022-2023</a></li><li class="navelem"><a class="el" href="dir_cdf5b8fc85ee4048172bbfe35a83585e.html">s2</a></li><li class="navelem"><a class="el" href="dir_72e107b194c0b79b5f1c9f9ae46c09c7.html">PSE</a></li><li class="navelem"><a class="el" href="dir_f8cd56151dd318a5fbfbcd122e760aab.html">PSE_Metro_Simulatie</a></li><li class="navelem"><a class="el" href="dir_8a156837437d3883bf0bcfddb846b2d2.html">src</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_1482f2cf6edef8c428e619a1d4470587.html">PSE_Metro_Simulatie</a></li><li class="navelem"><a class="el" href="dir_0a0e2afbad6a4716a88f7ef1974fbf32.html">src</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -95,18 +95,18 @@ $(function() {
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="class_metro_x_m_l_parser.html">   20</a></span><span class="keyword">class </span><a class="code hl_class" href="class_metro_x_m_l_parser.html">MetroXMLParser</a> {</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_metro_x_m_l_parser.html#ac979b6add260eca2244a04e63e25d60c">loadMetroSystem</a>(<a class="code hl_class" href="class_metro_system.html">MetroSystem</a> &amp;system, <span class="keyword">const</span> std::string &amp;filename, std::ostream &amp;errorStream);</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> parseStation(<a class="code hl_class" href="class_metro_system.html">MetroSystem</a> &amp;system, TiXmlElement* stationElem, std::ostream &amp;errorStream);</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> parseTram(<a class="code hl_class" href="class_metro_system.html">MetroSystem</a> &amp;system, TiXmlElement* tramElem, std::ostream &amp;errorStream);</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> parseConnection(<a class="code hl_class" href="class_metro_system.html">MetroSystem</a> &amp;system, TiXmlElement* stationElem, std::ostream &amp;errorStream);</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keyword">static</span> std::pair&lt;std::string, bool&gt; readKey(<span class="keyword">const</span> TiXmlElement* elem, <span class="keyword">const</span> std::string &amp;key, std::ostream &amp;errorStream);</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>};</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="preprocessor">#endif </span><span class="comment">//PSE_METRO_SIMULATIE_XMLPARSER_H</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_metro_x_m_l_parser.html#a0e39e80c907433d05c284bcab0f602fd">loadMetroSystem</a>(<a class="code hl_class" href="class_metro_system.html">MetroSystem</a> &amp;system, <span class="keyword">const</span> std::string &amp;filename);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> parseStation(<a class="code hl_class" href="class_metro_system.html">MetroSystem</a> &amp;system, TiXmlElement* stationElem);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> parseTram(<a class="code hl_class" href="class_metro_system.html">MetroSystem</a> &amp;system, TiXmlElement* tramElem);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> parseConnection(<a class="code hl_class" href="class_metro_system.html">MetroSystem</a> &amp;system, TiXmlElement* stationElem);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keyword">static</span> std::pair&lt;std::string, bool&gt; readKey(<span class="keyword">const</span> TiXmlElement* elem, <span class="keyword">const</span> std::string &amp;key);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>};</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="preprocessor">#endif </span><span class="comment">//PSE_METRO_SIMULATIE_XMLPARSER_H</span></div>
 <div class="ttc" id="aclass_metro_system_html"><div class="ttname"><a href="class_metro_system.html">MetroSystem</a></div><div class="ttdef"><b>Definition:</b> MetroSystem.h:13</div></div>
 <div class="ttc" id="aclass_metro_x_m_l_parser_html"><div class="ttname"><a href="class_metro_x_m_l_parser.html">MetroXMLParser</a></div><div class="ttdef"><b>Definition:</b> MetroXMLParser.h:20</div></div>
-<div class="ttc" id="aclass_metro_x_m_l_parser_html_ac979b6add260eca2244a04e63e25d60c"><div class="ttname"><a href="class_metro_x_m_l_parser.html#ac979b6add260eca2244a04e63e25d60c">MetroXMLParser::loadMetroSystem</a></div><div class="ttdeci">static void loadMetroSystem(MetroSystem &amp;system, const std::string &amp;filename, std::ostream &amp;errorStream)</div><div class="ttdef"><b>Definition:</b> MetroXMLParser.cpp:3</div></div>
+<div class="ttc" id="aclass_metro_x_m_l_parser_html_a0e39e80c907433d05c284bcab0f602fd"><div class="ttname"><a href="class_metro_x_m_l_parser.html#a0e39e80c907433d05c284bcab0f602fd">MetroXMLParser::loadMetroSystem</a></div><div class="ttdeci">static void loadMetroSystem(MetroSystem &amp;system, const std::string &amp;filename)</div><div class="ttdef"><b>Definition:</b> MetroXMLParser.cpp:3</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -7,14 +7,51 @@
 \DoxyCodeLine{00003\ }
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <iostream>}}
 \DoxyCodeLine{00005\ }
-\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_logger}{Logger}}\ \{}
-\DoxyCodeLine{00010\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_logger_a980f719dcade1ffe5dae57e60851f839}{error}}(std::ostream\ \&stream,\ \textcolor{keyword}{const}\ std::string\ \&msg)\ \{}
-\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ stream\ <<\ \textcolor{stringliteral}{"{}ERROR:\ "{}}\ <<\ msg\ <<\ std::endl;}
-\DoxyCodeLine{00019\ \ \ \ \ \}}
-\DoxyCodeLine{00020\ \};}
-\DoxyCodeLine{00021\ }
-\DoxyCodeLine{00022\ }
-\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//PSE\_METRO\_SIMULATIE\_LOGGER\_H}}
+\DoxyCodeLine{00006\ \textcolor{keyword}{enum}\ LogLevel\ \{\ \ ERROR,\ INFO\ \};}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_logger}{Logger}}\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_logger_a117364e1794475deb0bbdfdfeb574007}{error}}(\textcolor{keyword}{const}\ std::string\&\ msg)\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_logger}{Logger}}\ *logger\ =\ getLogger();}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (logger-\/>logLevel\ >=\ ERROR)\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ *logger-\/>errorstream\ <<\ \textcolor{stringliteral}{"{}ERROR:\ "{}}\ <<\ msg\ <<\ std::endl;}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00022\ \ \ \ \ \}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_logger_a39bd25f673c7c398446499a18fb5645a}{info}}(\textcolor{keyword}{const}\ std::string\&\ msg)\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_logger}{Logger}}*\ logger\ =\ getLogger();}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (logger-\/>logLevel\ >=\ INFO)\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ *logger-\/>outputstream\ <<\ \textcolor{stringliteral}{"{}INFO:\ "{}}\ <<\ msg\ <<\ std::endl;}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00033\ \ \ \ \ \}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_logger_ab9e7257f858c1831851afd91f2c7b7a0}{setLogLevel}}(\textcolor{keyword}{const}\ LogLevel\&\ level)\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_logger}{Logger}}*\ logger\ =\ getLogger();}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ logger-\/>logLevel\ =\ level;}
+\DoxyCodeLine{00042\ \ \ \ \ \}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_logger_a9a9ae16c9a52c58611819044d1f9a478}{setErrorStream}}(std::ostream*\ errorstream)\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_logger}{Logger}}*\ logger\ =\ getLogger();}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ logger-\/>errorstream\ =\ errorstream;}
+\DoxyCodeLine{00051\ \ \ \ \ \}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_logger_adb3e88243de3c5de58446c31b310ea2e}{setOutputStream}}(std::ostream*\ outputstream)\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_logger}{Logger}}*\ logger\ =\ getLogger();}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ logger-\/>outputstream\ =\ outputstream;}
+\DoxyCodeLine{00060\ \ \ \ \ \}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{class_logger}{Logger}}()\ :\ logLevel(INFO),\ errorstream(\&std::cerr),\ outputstream(\&std::cout)\ \{\}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_logger}{Logger}}*\ getLogger()\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_logger}{Logger}}\ myLogger;}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \&myLogger;}
+\DoxyCodeLine{00068\ \ \ \ \ \}}
+\DoxyCodeLine{00069\ \ \ \ \ LogLevel\ logLevel;}
+\DoxyCodeLine{00070\ \ \ \ \ std::ostream*\ errorstream;}
+\DoxyCodeLine{00071\ \ \ \ \ std::ostream*\ outputstream;}
+\DoxyCodeLine{00072\ \};}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//PSE\_METRO\_SIMULATIE\_LOGGER\_H}}
 
 \end{DoxyCode}

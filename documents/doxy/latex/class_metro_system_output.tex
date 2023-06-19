@@ -3,22 +3,22 @@
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-static void \mbox{\hyperlink{class_metro_system_output_a3b3c95d4a09cc72e2612e74a119716d5}{simple\+System\+Output}} (\mbox{\hyperlink{class_metro_system}{Metro\+System}} $\ast$system, std\+::ostream \&os)
+static void \mbox{\hyperlink{class_metro_system_output_a646b65efedae6ac9d61261f569330f59}{simple\+System\+Output}} (const \mbox{\hyperlink{class_metro_system}{Metro\+System}} \&system, std\+::ostream \&os)
 \item 
-static void \mbox{\hyperlink{class_metro_system_output_a51595f9f40d31ed086fd3b91c48bf403}{advanced\+System\+Output}} (\mbox{\hyperlink{class_metro_system}{Metro\+System}} $\ast$system, std\+::ostream \&os)
+static void \mbox{\hyperlink{class_metro_system_output_a84e36a22b76cd26fc2ebce112d130cfb}{advanced\+System\+Output}} (const \mbox{\hyperlink{class_metro_system}{Metro\+System}} \&system, std\+::ostream \&os)
 \item 
-static void \mbox{\hyperlink{class_metro_system_output_ac666949a0a814bbe80518dc57ea08931}{create\+Dot\+File}} (\mbox{\hyperlink{class_metro_system}{Metro\+System}} $\ast$system, std\+::ostream \&os)
+static void \mbox{\hyperlink{class_metro_system_output_a1a4cfedac731c0527a6370762b74684f}{create\+Dot\+File}} (const \mbox{\hyperlink{class_metro_system}{Metro\+System}} \&system, std\+::ostream \&os)
 \item 
-static void \mbox{\hyperlink{class_metro_system_output_af948425d0231ee57e580ac91c89bc0a0}{create\+Dot\+Output}} (\mbox{\hyperlink{class_metro_system}{Metro\+System}} $\ast$system, const std\+::string \&filename, const std\+::string \&output\+Type)
+static void \mbox{\hyperlink{class_metro_system_output_a945c541e1d480a494e7134541d6d55ee}{create\+Dot\+Output}} (const \mbox{\hyperlink{class_metro_system}{Metro\+System}} \&system, const std\+::string \&filename, const std\+::string \&output\+Type)
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_metro_system_output_a51595f9f40d31ed086fd3b91c48bf403}\label{class_metro_system_output_a51595f9f40d31ed086fd3b91c48bf403}} 
+\mbox{\Hypertarget{class_metro_system_output_a84e36a22b76cd26fc2ebce112d130cfb}\label{class_metro_system_output_a84e36a22b76cd26fc2ebce112d130cfb}} 
 \index{MetroSystemOutput@{MetroSystemOutput}!advancedSystemOutput@{advancedSystemOutput}}
 \index{advancedSystemOutput@{advancedSystemOutput}!MetroSystemOutput@{MetroSystemOutput}}
 \doxysubsubsection{\texorpdfstring{advancedSystemOutput()}{advancedSystemOutput()}}
-{\footnotesize\ttfamily void Metro\+System\+Output\+::advanced\+System\+Output (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_metro_system}{Metro\+System}} $\ast$}]{system,  }\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily void Metro\+System\+Output\+::advanced\+System\+Output (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_metro_system}{Metro\+System}} \&}]{system,  }\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 Writes an advanced system output to the given output steam. The output consists all the tracks and if there are any trams at those stations. @\+REQUIRE(properly\+Initialized(), \char`\"{}\+Metrosimulation is not properly initialised.\char`\"{}); 
 \begin{DoxyParams}{Parameters}
@@ -27,11 +27,11 @@ Writes an advanced system output to the given output steam. The output consists 
 {\em os} & output stream the text is written to. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{class_metro_system_output_ac666949a0a814bbe80518dc57ea08931}\label{class_metro_system_output_ac666949a0a814bbe80518dc57ea08931}} 
+\mbox{\Hypertarget{class_metro_system_output_a1a4cfedac731c0527a6370762b74684f}\label{class_metro_system_output_a1a4cfedac731c0527a6370762b74684f}} 
 \index{MetroSystemOutput@{MetroSystemOutput}!createDotFile@{createDotFile}}
 \index{createDotFile@{createDotFile}!MetroSystemOutput@{MetroSystemOutput}}
 \doxysubsubsection{\texorpdfstring{createDotFile()}{createDotFile()}}
-{\footnotesize\ttfamily void Metro\+System\+Output\+::create\+Dot\+File (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_metro_system}{Metro\+System}} $\ast$}]{system,  }\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily void Metro\+System\+Output\+::create\+Dot\+File (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_metro_system}{Metro\+System}} \&}]{system,  }\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 Creates DOT file of the current metro-\/system
 
@@ -46,11 +46,11 @@ Creates DOT file of the current metro-\/system
 \end{DoxyItemize}\\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{class_metro_system_output_af948425d0231ee57e580ac91c89bc0a0}\label{class_metro_system_output_af948425d0231ee57e580ac91c89bc0a0}} 
+\mbox{\Hypertarget{class_metro_system_output_a945c541e1d480a494e7134541d6d55ee}\label{class_metro_system_output_a945c541e1d480a494e7134541d6d55ee}} 
 \index{MetroSystemOutput@{MetroSystemOutput}!createDotOutput@{createDotOutput}}
 \index{createDotOutput@{createDotOutput}!MetroSystemOutput@{MetroSystemOutput}}
 \doxysubsubsection{\texorpdfstring{createDotOutput()}{createDotOutput()}}
-{\footnotesize\ttfamily void Metro\+System\+Output\+::create\+Dot\+Output (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_metro_system}{Metro\+System}} $\ast$}]{system,  }\item[{const std\+::string \&}]{filename,  }\item[{const std\+::string \&}]{output\+Type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily void Metro\+System\+Output\+::create\+Dot\+Output (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_metro_system}{Metro\+System}} \&}]{system,  }\item[{const std\+::string \&}]{filename,  }\item[{const std\+::string \&}]{output\+Type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 Outputs the dot file output to a given file type, and a filename
 
@@ -63,11 +63,11 @@ Outputs the dot file output to a given file type, and a filename
 {\em output\+Type} & is the type of the file\+: .svg or .dot \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{class_metro_system_output_a3b3c95d4a09cc72e2612e74a119716d5}\label{class_metro_system_output_a3b3c95d4a09cc72e2612e74a119716d5}} 
+\mbox{\Hypertarget{class_metro_system_output_a646b65efedae6ac9d61261f569330f59}\label{class_metro_system_output_a646b65efedae6ac9d61261f569330f59}} 
 \index{MetroSystemOutput@{MetroSystemOutput}!simpleSystemOutput@{simpleSystemOutput}}
 \index{simpleSystemOutput@{simpleSystemOutput}!MetroSystemOutput@{MetroSystemOutput}}
 \doxysubsubsection{\texorpdfstring{simpleSystemOutput()}{simpleSystemOutput()}}
-{\footnotesize\ttfamily void Metro\+System\+Output\+::simple\+System\+Output (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_metro_system}{Metro\+System}} $\ast$}]{system,  }\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily void Metro\+System\+Output\+::simple\+System\+Output (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_metro_system}{Metro\+System}} \&}]{system,  }\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 Writes a simple system output to the given output steam. The output consists of all the stations, with all it\textquotesingle{}s tracks and all the trams with their specifications. @\+REQUIRE given metro-\/system has a map for a virtual metro network. 
 \begin{DoxyParams}{Parameters}

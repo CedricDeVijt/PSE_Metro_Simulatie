@@ -4,23 +4,17 @@
 
 {\ttfamily \#include $<$Metro\+Simulation.\+h$>$}
 
-Inheritance diagram for Metro\+Simulation\+:\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[height=2.000000cm]{class_metro_simulation}
-\end{center}
-\end{figure}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_metro_simulation_a5d1ebdf50e33f0225c2c5912f26cd789}{Metro\+Simulation}} (const std\+::string \&input\+File, std\+::ostream \&errorstream, unsigned int runtime, bool create\+Png)
+\mbox{\hyperlink{class_metro_simulation_a3814a4b357cb3fcdd4e9ac2c4555f9a3}{Metro\+Simulation}} (const std\+::string \&input\+File, unsigned int runtime, bool create\+Png)
 \item 
 virtual \mbox{\hyperlink{class_metro_simulation_aa06b3a7667d3c20559a5c78dc92fea34}{$\sim$\+Metro\+Simulation}} ()
 \item 
 \mbox{\Hypertarget{class_metro_simulation_af4fc782977c74a204d4acec2bf604adc}\label{class_metro_simulation_af4fc782977c74a204d4acec2bf604adc}} 
 bool {\bfseries properly\+Initialized} () const
 \item 
-void \mbox{\hyperlink{class_metro_simulation_a89228b9522897d8b4187ba9d93a5ed7f}{run}} (std\+::ostream \&os)
+void \mbox{\hyperlink{class_metro_simulation_ac45942f4d207f624fd4f6ea7f4d0f6c1}{run}} ()
 \item 
 void \mbox{\hyperlink{class_metro_simulation_ad4968e244ccd32dd8a976a22a60af42c}{evaluate}} (std\+::ostream \&os)
 \item 
@@ -65,19 +59,17 @@ bool {\bfseries stopped\+System}
 Simulation system for metro-\/system 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{class_metro_simulation_a5d1ebdf50e33f0225c2c5912f26cd789}\label{class_metro_simulation_a5d1ebdf50e33f0225c2c5912f26cd789}} 
+\mbox{\Hypertarget{class_metro_simulation_a3814a4b357cb3fcdd4e9ac2c4555f9a3}\label{class_metro_simulation_a3814a4b357cb3fcdd4e9ac2c4555f9a3}} 
 \index{MetroSimulation@{MetroSimulation}!MetroSimulation@{MetroSimulation}}
 \index{MetroSimulation@{MetroSimulation}!MetroSimulation@{MetroSimulation}}
 \doxysubsubsection{\texorpdfstring{MetroSimulation()}{MetroSimulation()}}
-{\footnotesize\ttfamily Metro\+Simulation\+::\+Metro\+Simulation (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{input\+File,  }\item[{std\+::ostream \&}]{errorstream,  }\item[{unsigned int}]{runtime,  }\item[{bool}]{create\+Png }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Metro\+Simulation\+::\+Metro\+Simulation (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{input\+File,  }\item[{unsigned int}]{runtime,  }\item[{bool}]{create\+Png }\end{DoxyParamCaption})}
 
 Initializes a Metrosimulation
 
 
 \begin{DoxyParams}{Parameters}
 {\em input\+File} & is a .xml file that contains METRODATA \\
-\hline
-{\em errorstream} & is the stream the errors get outputted to \\
 \hline
 {\em runtime} & is the time the simulation needs to run \\
 \hline
@@ -103,12 +95,7 @@ Destructs a Metrosimulation
 
 Outputs the current evaluation of the metro\+Sim
 
-@\+REQUIRE properly\+Initialized(), \char`\"{}\+Metrosimulation was not properly initialised.\char`\"{} 
-\begin{DoxyParams}{Parameters}
-{\em os} & is the outputstream \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{class_metro_simulation_aa26de2c80ddf9b93a1b04329feda3009}\label{class_metro_simulation_aa26de2c80ddf9b93a1b04329feda3009}} 
+@\+REQUIRE properly\+Initialized(), \char`\"{}\+Metrosimulation was not properly initialised.\char`\"{} \mbox{\Hypertarget{class_metro_simulation_aa26de2c80ddf9b93a1b04329feda3009}\label{class_metro_simulation_aa26de2c80ddf9b93a1b04329feda3009}} 
 \index{MetroSimulation@{MetroSimulation}!getSystem@{getSystem}}
 \index{getSystem@{getSystem}!MetroSimulation@{MetroSimulation}}
 \doxysubsubsection{\texorpdfstring{getSystem()}{getSystem()}}
@@ -124,20 +111,15 @@ Returns the metro-\/system that is used for the simulation
 
 Returns the current time of the simulation
 
-@\+REQUIRE properly\+Initialized(), \char`\"{}\+Metrosimulation was not properly initialised.\char`\"{} \mbox{\Hypertarget{class_metro_simulation_a89228b9522897d8b4187ba9d93a5ed7f}\label{class_metro_simulation_a89228b9522897d8b4187ba9d93a5ed7f}} 
+@\+REQUIRE properly\+Initialized(), \char`\"{}\+Metrosimulation was not properly initialised.\char`\"{} \mbox{\Hypertarget{class_metro_simulation_ac45942f4d207f624fd4f6ea7f4d0f6c1}\label{class_metro_simulation_ac45942f4d207f624fd4f6ea7f4d0f6c1}} 
 \index{MetroSimulation@{MetroSimulation}!run@{run}}
 \index{run@{run}!MetroSimulation@{MetroSimulation}}
 \doxysubsubsection{\texorpdfstring{run()}{run()}}
-{\footnotesize\ttfamily void Metro\+Simulation\+::run (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Metro\+Simulation\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 Updates the metro-\/system so all the trams will move to their next location
 
-@\+REQUIRE properly\+Initialized(), \char`\"{}\+Metrosimulation was not properly initialised.\char`\"{} 
-\begin{DoxyParams}{Parameters}
-{\em os} & is a {\bfseries{std\+::ostream\+:}} where the movement of the the trams gets written to \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{class_metro_simulation_a1aaaeb6234327b60ec8eb73cbb1d441c}\label{class_metro_simulation_a1aaaeb6234327b60ec8eb73cbb1d441c}} 
+@\+REQUIRE properly\+Initialized(), \char`\"{}\+Metrosimulation was not properly initialised.\char`\"{} \mbox{\Hypertarget{class_metro_simulation_a1aaaeb6234327b60ec8eb73cbb1d441c}\label{class_metro_simulation_a1aaaeb6234327b60ec8eb73cbb1d441c}} 
 \index{MetroSimulation@{MetroSimulation}!stopSystem@{stopSystem}}
 \index{stopSystem@{stopSystem}!MetroSimulation@{MetroSimulation}}
 \doxysubsubsection{\texorpdfstring{stopSystem()}{stopSystem()}}

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.6"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Metro_simulation: Logger Class Reference</title>
+<title>PSE_METRO: Logger Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="metro.jpg"/></td>
   <td id="projectalign">
-   <div id="projectname">Metro_simulation
+   <div id="projectname">PSE_METRO<span id="projectnumber">&#160;2.1</span>
    </div>
   </td>
  </tr>
@@ -81,14 +81,22 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a980f719dcade1ffe5dae57e60851f839"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_logger.html#a980f719dcade1ffe5dae57e60851f839">error</a> (std::ostream &amp;stream, const std::string &amp;msg)</td></tr>
-<tr class="separator:a980f719dcade1ffe5dae57e60851f839"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a117364e1794475deb0bbdfdfeb574007"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_logger.html#a117364e1794475deb0bbdfdfeb574007">error</a> (const std::string &amp;msg)</td></tr>
+<tr class="separator:a117364e1794475deb0bbdfdfeb574007"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39bd25f673c7c398446499a18fb5645a"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_logger.html#a39bd25f673c7c398446499a18fb5645a">info</a> (const std::string &amp;msg)</td></tr>
+<tr class="separator:a39bd25f673c7c398446499a18fb5645a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9e7257f858c1831851afd91f2c7b7a0"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_logger.html#ab9e7257f858c1831851afd91f2c7b7a0">setLogLevel</a> (const LogLevel &amp;level)</td></tr>
+<tr class="separator:ab9e7257f858c1831851afd91f2c7b7a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a9ae16c9a52c58611819044d1f9a478"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_logger.html#a9a9ae16c9a52c58611819044d1f9a478">setErrorStream</a> (std::ostream *errorstream)</td></tr>
+<tr class="separator:a9a9ae16c9a52c58611819044d1f9a478"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb3e88243de3c5de58446c31b310ea2e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_logger.html#adb3e88243de3c5de58446c31b310ea2e">setOutputStream</a> (std::ostream *outputstream)</td></tr>
+<tr class="separator:adb3e88243de3c5de58446c31b310ea2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="class_logger.html">Logger</a> object for simple output formatting </p>
+<div class="textblock"><p>Singleton class responsible for logging </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a980f719dcade1ffe5dae57e60851f839" name="a980f719dcade1ffe5dae57e60851f839"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a980f719dcade1ffe5dae57e60851f839">&#9670;&#160;</a></span>error()</h2>
+<a id="a117364e1794475deb0bbdfdfeb574007" name="a117364e1794475deb0bbdfdfeb574007"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a117364e1794475deb0bbdfdfeb574007">&#9670;&#160;</a></span>error()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -99,19 +107,9 @@ Static Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">static void Logger::error </td>
           <td>(</td>
-          <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>stream</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>msg</em>&#160;</td>
-        </tr>
-        <tr>
+          <td class="paramname"><em>msg</em></td><td>)</td>
           <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -120,14 +118,140 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Writes an error message to the given stream, with right formatting </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Writes an error message to the currently set error stream, with right formatting </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">stream</td><td>is the stream the error message needs to be written to </td></tr>
     <tr><td class="paramname">msg</td><td>is the message that needs to be formatted </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section attention"><dt>Attention</dt><dd>newline gets added by default </dd></dl>
+
+</div>
+</div>
+<a id="a39bd25f673c7c398446499a18fb5645a" name="a39bd25f673c7c398446499a18fb5645a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39bd25f673c7c398446499a18fb5645a">&#9670;&#160;</a></span>info()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void Logger::info </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>msg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Writes an error message to the currently set output stream, with right formatting </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">msg</td><td>is the message that needs to be formatted </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9a9ae16c9a52c58611819044d1f9a478" name="a9a9ae16c9a52c58611819044d1f9a478"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a9ae16c9a52c58611819044d1f9a478">&#9670;&#160;</a></span>setErrorStream()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void Logger::setErrorStream </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream *&#160;</td>
+          <td class="paramname"><em>errorstream</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Sets the errorstream </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">errorstream</td><td>is the wanted stream </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab9e7257f858c1831851afd91f2c7b7a0" name="ab9e7257f858c1831851afd91f2c7b7a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9e7257f858c1831851afd91f2c7b7a0">&#9670;&#160;</a></span>setLogLevel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void Logger::setLogLevel </td>
+          <td>(</td>
+          <td class="paramtype">const LogLevel &amp;&#160;</td>
+          <td class="paramname"><em>level</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>sets the log level </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">level</td><td>is the wanted level </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="adb3e88243de3c5de58446c31b310ea2e" name="adb3e88243de3c5de58446c31b310ea2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb3e88243de3c5de58446c31b310ea2e">&#9670;&#160;</a></span>setOutputStream()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void Logger::setOutputStream </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream *&#160;</td>
+          <td class="paramname"><em>outputstream</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Sets the outputstream </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">outputstream</td><td>is the wanted stream </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

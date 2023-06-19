@@ -10,11 +10,17 @@ Inheritance diagram for PCC\+:\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{class_p_c_c_aca6935ebc48ffac394684411684a6bb6}{PCC}} (int tram\+Number, \mbox{\hyperlink{class_tram_stop}{Tram\+Stop}} $\ast$start\+Station, int repair\+Time, int defect\+Amount, int repair\+Cost)
+\item 
+void \mbox{\hyperlink{class_p_c_c_a0352d52f9282047c7ccea43f8059bf19}{drive}} (\mbox{\hyperlink{class_tram_stop}{Tram\+Stop}} $\ast$destination, bool blocked)
+\item 
+int \mbox{\hyperlink{class_p_c_c_a36e9f445daf2a811422e9a84bc9655d1}{get\+Total\+Cost}} () const
+\item 
+bool \mbox{\hyperlink{class_p_c_c_a4e519deeb22cd85eaf5a265381fde9c3}{is\+Defect}} () const
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_tram}{Tram}}}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_tram_a206f1d8e2f7267987417ad3fa3c6384d}{Tram}} (int tram\+Number, int speed, \mbox{\hyperlink{class_tram_stop}{Tram\+Stop}} $\ast$start\+Station, int repair\+Time, int defect\+Amount, int repair\+Cost)
+\mbox{\hyperlink{class_tram_a4a778cbe695803f4b8667e35cb6b5f44}{Tram}} (int tram\+Number, int speed, \mbox{\hyperlink{class_tram_stop}{Tram\+Stop}} $\ast$start\+Station)
 \item 
 virtual \mbox{\hyperlink{class_tram_acd6056d2289f2dccd371bc226cd2cb17}{$\sim$\+Tram}} ()
 \item 
@@ -23,9 +29,7 @@ bool {\bfseries properly\+Initialized} () const
 \item 
 \mbox{\hyperlink{class_tram_a69f52091a1bcfd5325c85373e8664c6c}{operator std\+::string}} ()
 \item 
-void \mbox{\hyperlink{class_tram_aca64a5d5c147202ee5266219476c7943}{drive}} (\mbox{\hyperlink{class_tram_stop}{Tram\+Stop}} $\ast$destination, std\+::ostream \&os)
-\item 
-void \mbox{\hyperlink{class_tram_ade0b2858cb25307df5ea159793829ac5}{handle\+Defect}} (std\+::ostream \&os)
+virtual void \mbox{\hyperlink{class_tram_a8738d7444615e20a4df8869cbb84bf35}{drive}} (\mbox{\hyperlink{class_tram_stop}{Tram\+Stop}} $\ast$destination, bool blocked)
 \item 
 int \mbox{\hyperlink{class_tram_a50cb3002960956a32511073310bb6169}{get\+Speed}} () const
 \item 
@@ -35,11 +39,7 @@ int \mbox{\hyperlink{class_tram_a1b0ae56c0014371f192b0e678112001d}{get\+Tram\+Nu
 \item 
 \mbox{\hyperlink{class_tram_stop}{Tram\+Stop}} $\ast$ \mbox{\hyperlink{class_tram_ae4d3215d7d6baf6266ce9bac1ff1b127}{get\+Current\+Station}} () const
 \item 
-int \mbox{\hyperlink{class_tram_ab97c785360641247d1a223e307f7fae6}{get\+Total\+Cost}} () const
-\item 
 const std\+::string \& \mbox{\hyperlink{class_tram_a35c5a17f1b277b09d5f24c7d2e77cdef}{get\+Vehicle\+Type}} () const
-\item 
-bool \mbox{\hyperlink{class_tram_a98d41c0b709ff9d0bdc799bf45bbffdb}{is\+Defect}} () const
 \item 
 void \mbox{\hyperlink{class_tram_ae35a608ef4581fd1806b198cafbada32}{set\+Speed}} (int speed)
 \item 
@@ -73,6 +73,40 @@ Creates a \mbox{\hyperlink{class_p_c_c}{PCC}} \mbox{\hyperlink{class_tram}{Tram}
 \hline
 \end{DoxyParams}
 @\+ENSURE properly\+Initialized(), \char`\"{}constructor must end in properly\+Initialized state\char`\"{} 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_p_c_c_a0352d52f9282047c7ccea43f8059bf19}\label{class_p_c_c_a0352d52f9282047c7ccea43f8059bf19}} 
+\index{PCC@{PCC}!drive@{drive}}
+\index{drive@{drive}!PCC@{PCC}}
+\doxysubsubsection{\texorpdfstring{drive()}{drive()}}
+{\footnotesize\ttfamily void PCC\+::drive (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_tram_stop}{Tram\+Stop}} $\ast$}]{destination,  }\item[{bool}]{blocked }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Moves the tram to the next station
+
+@bool true if the tram is blocked by another tram @\+REQUIRE properly\+Initialized(), \char`\"{}\+Tram\+Stop was not properly initialised.\char`\"{} 
+
+Reimplemented from \mbox{\hyperlink{class_tram_a8738d7444615e20a4df8869cbb84bf35}{Tram}}.
+
+\mbox{\Hypertarget{class_p_c_c_a36e9f445daf2a811422e9a84bc9655d1}\label{class_p_c_c_a36e9f445daf2a811422e9a84bc9655d1}} 
+\index{PCC@{PCC}!getTotalCost@{getTotalCost}}
+\index{getTotalCost@{getTotalCost}!PCC@{PCC}}
+\doxysubsubsection{\texorpdfstring{getTotalCost()}{getTotalCost()}}
+{\footnotesize\ttfamily int PCC\+::get\+Total\+Cost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Gives the cost of the repairs of the tram.
+
+\begin{DoxyReturn}{Returns}
+The cost in euro\textquotesingle{}s of the repairs. @\+REQUIRE properly\+Initialized(), \char`\"{}\+Tram\+Stop was not properly initialised.\char`\"{} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_p_c_c_a4e519deeb22cd85eaf5a265381fde9c3}\label{class_p_c_c_a4e519deeb22cd85eaf5a265381fde9c3}} 
+\index{PCC@{PCC}!isDefect@{isDefect}}
+\index{isDefect@{isDefect}!PCC@{PCC}}
+\doxysubsubsection{\texorpdfstring{isDefect()}{isDefect()}}
+{\footnotesize\ttfamily bool PCC\+::is\+Defect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns true if the \mbox{\hyperlink{class_tram}{Tram}} is defect
+
+@\+REQUIRE properly\+Initialized(), \char`\"{}\+Tram was not properly initialised.\char`\"{} 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

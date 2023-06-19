@@ -9,12 +9,12 @@ Inheritance diagram for Albatros\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_albatros_afb5de2b194cf219a61b866f0deb3ef48}{Albatros}} (int tram\+Number, \mbox{\hyperlink{class_metrostation}{Metrostation}} $\ast$start\+Station, int repair\+Time, int defect\+Amount, int repair\+Cost)
+\mbox{\hyperlink{class_albatros_a7fd7744045903fd347d1ac6685176e5b}{Albatros}} (int tram\+Number, \mbox{\hyperlink{class_metrostation}{Metrostation}} $\ast$start\+Station)
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_tram}{Tram}}}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_tram_a206f1d8e2f7267987417ad3fa3c6384d}{Tram}} (int tram\+Number, int speed, \mbox{\hyperlink{class_tram_stop}{Tram\+Stop}} $\ast$start\+Station, int repair\+Time, int defect\+Amount, int repair\+Cost)
+\mbox{\hyperlink{class_tram_a4a778cbe695803f4b8667e35cb6b5f44}{Tram}} (int tram\+Number, int speed, \mbox{\hyperlink{class_tram_stop}{Tram\+Stop}} $\ast$start\+Station)
 \item 
 virtual \mbox{\hyperlink{class_tram_acd6056d2289f2dccd371bc226cd2cb17}{$\sim$\+Tram}} ()
 \item 
@@ -23,9 +23,7 @@ bool {\bfseries properly\+Initialized} () const
 \item 
 \mbox{\hyperlink{class_tram_a69f52091a1bcfd5325c85373e8664c6c}{operator std\+::string}} ()
 \item 
-void \mbox{\hyperlink{class_tram_aca64a5d5c147202ee5266219476c7943}{drive}} (\mbox{\hyperlink{class_tram_stop}{Tram\+Stop}} $\ast$destination, std\+::ostream \&os)
-\item 
-void \mbox{\hyperlink{class_tram_ade0b2858cb25307df5ea159793829ac5}{handle\+Defect}} (std\+::ostream \&os)
+virtual void \mbox{\hyperlink{class_tram_a8738d7444615e20a4df8869cbb84bf35}{drive}} (\mbox{\hyperlink{class_tram_stop}{Tram\+Stop}} $\ast$destination, bool blocked)
 \item 
 int \mbox{\hyperlink{class_tram_a50cb3002960956a32511073310bb6169}{get\+Speed}} () const
 \item 
@@ -35,11 +33,7 @@ int \mbox{\hyperlink{class_tram_a1b0ae56c0014371f192b0e678112001d}{get\+Tram\+Nu
 \item 
 \mbox{\hyperlink{class_tram_stop}{Tram\+Stop}} $\ast$ \mbox{\hyperlink{class_tram_ae4d3215d7d6baf6266ce9bac1ff1b127}{get\+Current\+Station}} () const
 \item 
-int \mbox{\hyperlink{class_tram_ab97c785360641247d1a223e307f7fae6}{get\+Total\+Cost}} () const
-\item 
 const std\+::string \& \mbox{\hyperlink{class_tram_a35c5a17f1b277b09d5f24c7d2e77cdef}{get\+Vehicle\+Type}} () const
-\item 
-bool \mbox{\hyperlink{class_tram_a98d41c0b709ff9d0bdc799bf45bbffdb}{is\+Defect}} () const
 \item 
 void \mbox{\hyperlink{class_tram_ae35a608ef4581fd1806b198cafbada32}{set\+Speed}} (int speed)
 \item 
@@ -55,11 +49,11 @@ std\+::string {\bfseries vehicle\+Type}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{class_albatros_afb5de2b194cf219a61b866f0deb3ef48}\label{class_albatros_afb5de2b194cf219a61b866f0deb3ef48}} 
+\mbox{\Hypertarget{class_albatros_a7fd7744045903fd347d1ac6685176e5b}\label{class_albatros_a7fd7744045903fd347d1ac6685176e5b}} 
 \index{Albatros@{Albatros}!Albatros@{Albatros}}
 \index{Albatros@{Albatros}!Albatros@{Albatros}}
 \doxysubsubsection{\texorpdfstring{Albatros()}{Albatros()}}
-{\footnotesize\ttfamily Albatros\+::\+Albatros (\begin{DoxyParamCaption}\item[{int}]{tram\+Number,  }\item[{\mbox{\hyperlink{class_metrostation}{Metrostation}} $\ast$}]{start\+Station,  }\item[{int}]{repair\+Time,  }\item[{int}]{defect\+Amount,  }\item[{int}]{repair\+Cost }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Albatros\+::\+Albatros (\begin{DoxyParamCaption}\item[{int}]{tram\+Number,  }\item[{\mbox{\hyperlink{class_metrostation}{Metrostation}} $\ast$}]{start\+Station }\end{DoxyParamCaption})}
 
 Creates a \mbox{\hyperlink{class_albatros}{Albatros}} \mbox{\hyperlink{class_tram}{Tram}} object
 

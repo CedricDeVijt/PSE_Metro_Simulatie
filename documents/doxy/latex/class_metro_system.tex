@@ -14,17 +14,17 @@ virtual \mbox{\hyperlink{class_metro_system_a39379f4b069d4054fcc751bb029b31eb}{$
 \mbox{\Hypertarget{class_metro_system_aa0746f0549ed34e560696d1a444e8793}\label{class_metro_system_aa0746f0549ed34e560696d1a444e8793}} 
 bool {\bfseries properly\+Initialized} () const
 \item 
-void \mbox{\hyperlink{class_metro_system_a909b6a0c686edbd1bbd751c1c6708f6b}{update\+System}} (std\+::ostream \&os)
+void \mbox{\hyperlink{class_metro_system_a24eab07489a8c5eb5e8b71ea9ac96654}{update\+System}} ()
 \item 
 void \mbox{\hyperlink{class_metro_system_a77487e0e23ed005a08e8fc8dc00d45a4}{add\+Line}} (const int \&line\+Number)
 \item 
-void \mbox{\hyperlink{class_metro_system_a506eb96e2994e77199e1d3144a27eb1a}{add\+Station}} (\mbox{\hyperlink{class_tram_stop}{Tram\+Stop}} $\ast$new\+Station, const int \&line\+Number, std\+::ostream \&error\+Stream)
+void \mbox{\hyperlink{class_metro_system_a9f0fbb488eb97612a036e7369ae2d838}{add\+Station}} (\mbox{\hyperlink{class_tram_stop}{Tram\+Stop}} $\ast$new\+Station, const int \&line\+Number)
 \item 
-void \mbox{\hyperlink{class_metro_system_a9f250440f39b909955980a688658c809}{deploy\+Tram}} (\mbox{\hyperlink{class_tram}{Tram}} $\ast$new\+Tram, const std\+::string \&start\+Station, const int \&line\+Number, std\+::ostream \&error\+Stream)
+void \mbox{\hyperlink{class_metro_system_a531e220491966f45c063fe7cbd6d2ab4}{deploy\+Tram}} (\mbox{\hyperlink{class_tram}{Tram}} $\ast$new\+Tram, const std\+::string \&start\+Station, const int \&line\+Number)
 \item 
-void \mbox{\hyperlink{class_metro_system_af0afde90ec1b58f7502d5a659b722569}{add\+Connection}} (const std\+::string \&start, const std\+::string \&end, const int \&line\+Number, std\+::ostream \&error\+Stream)
+void \mbox{\hyperlink{class_metro_system_a9f598141117960ec09a884dc0b2eef10}{add\+Connection}} (const std\+::string \&start, const std\+::string \&end, const int \&line\+Number)
 \item 
-void \mbox{\hyperlink{class_metro_system_a7126f50414f68c5aa3be16fb9eb57105}{verify}} (std\+::ostream \&error\+Stream)
+void \mbox{\hyperlink{class_metro_system_a373285ffb14971f7d73256509dc89d75}{verify}} ()
 \item 
 std\+::pair$<$ std\+::vector$<$ \mbox{\hyperlink{class_tram_stop}{Tram\+Stop}} $\ast$ $>$, std\+::vector$<$ \mbox{\hyperlink{class_line}{Line}} $\ast$ $>$ $>$ \mbox{\hyperlink{class_metro_system_aa1538182fb438eecbdad23d9b5f05a04}{get\+Route}} (const std\+::string \&begin\+Stop\+Name, const std\+::string \&end\+Stop\+Name)
 \item 
@@ -64,11 +64,11 @@ Destructs a Metrosystem
 @\+REQUIRE(properly\+Initialized(), \char`\"{}\+Metrosimulation is not properly initialised.\char`\"{}); 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_metro_system_af0afde90ec1b58f7502d5a659b722569}\label{class_metro_system_af0afde90ec1b58f7502d5a659b722569}} 
+\mbox{\Hypertarget{class_metro_system_a9f598141117960ec09a884dc0b2eef10}\label{class_metro_system_a9f598141117960ec09a884dc0b2eef10}} 
 \index{MetroSystem@{MetroSystem}!addConnection@{addConnection}}
 \index{addConnection@{addConnection}!MetroSystem@{MetroSystem}}
 \doxysubsubsection{\texorpdfstring{addConnection()}{addConnection()}}
-{\footnotesize\ttfamily void Metro\+System\+::add\+Connection (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{start,  }\item[{const std\+::string \&}]{end,  }\item[{const int \&}]{line\+Number,  }\item[{std\+::ostream \&}]{error\+Stream }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Metro\+System\+::add\+Connection (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{start,  }\item[{const std\+::string \&}]{end,  }\item[{const int \&}]{line\+Number }\end{DoxyParamCaption})}
 
 Adds a connection between two Stations on the corresponding Line\+Number
 
@@ -79,8 +79,6 @@ Adds a connection between two Stations on the corresponding Line\+Number
 {\em end} & is the name of the station at the end of the connection \\
 \hline
 {\em line\+Number} & is the Line\+Number of the line the connection needs to get added onto \\
-\hline
-{\em error\+Stream} & is the stream the errors get sent to \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{class_metro_system_a77487e0e23ed005a08e8fc8dc00d45a4}\label{class_metro_system_a77487e0e23ed005a08e8fc8dc00d45a4}} 
@@ -96,11 +94,11 @@ If a line with this number already exists, ignore ~\newline
 {\em line\+Number} & is the Number for the new \mbox{\hyperlink{class_line}{Line}} \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{class_metro_system_a506eb96e2994e77199e1d3144a27eb1a}\label{class_metro_system_a506eb96e2994e77199e1d3144a27eb1a}} 
+\mbox{\Hypertarget{class_metro_system_a9f0fbb488eb97612a036e7369ae2d838}\label{class_metro_system_a9f0fbb488eb97612a036e7369ae2d838}} 
 \index{MetroSystem@{MetroSystem}!addStation@{addStation}}
 \index{addStation@{addStation}!MetroSystem@{MetroSystem}}
 \doxysubsubsection{\texorpdfstring{addStation()}{addStation()}}
-{\footnotesize\ttfamily void Metro\+System\+::add\+Station (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_tram_stop}{Tram\+Stop}} $\ast$}]{new\+Station,  }\item[{const int \&}]{line\+Number,  }\item[{std\+::ostream \&}]{error\+Stream }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Metro\+System\+::add\+Station (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_tram_stop}{Tram\+Stop}} $\ast$}]{new\+Station,  }\item[{const int \&}]{line\+Number }\end{DoxyParamCaption})}
 
 Adds a new \mbox{\hyperlink{class_tram_stop}{Tram\+Stop}} to the proper \mbox{\hyperlink{class_line}{Line}} and to the System ~\newline
 If the \mbox{\hyperlink{class_line}{Line}} is not in the \mbox{\hyperlink{class_metro_system}{Metro\+System}}, an error gets written out to error\+Stream ~\newline
@@ -110,14 +108,12 @@ If the \mbox{\hyperlink{class_line}{Line}} is not in the \mbox{\hyperlink{class_
 \hline
 {\em line\+Number} & is the Line\+Number where the station should get added to \\
 \hline
-{\em error\+Stream} & is the stream the errors get sent to \\
-\hline
 \end{DoxyParams}
-\mbox{\Hypertarget{class_metro_system_a9f250440f39b909955980a688658c809}\label{class_metro_system_a9f250440f39b909955980a688658c809}} 
+\mbox{\Hypertarget{class_metro_system_a531e220491966f45c063fe7cbd6d2ab4}\label{class_metro_system_a531e220491966f45c063fe7cbd6d2ab4}} 
 \index{MetroSystem@{MetroSystem}!deployTram@{deployTram}}
 \index{deployTram@{deployTram}!MetroSystem@{MetroSystem}}
 \doxysubsubsection{\texorpdfstring{deployTram()}{deployTram()}}
-{\footnotesize\ttfamily void Metro\+System\+::deploy\+Tram (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_tram}{Tram}} $\ast$}]{new\+Tram,  }\item[{const std\+::string \&}]{start\+Station,  }\item[{const int \&}]{line\+Number,  }\item[{std\+::ostream \&}]{error\+Stream }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Metro\+System\+::deploy\+Tram (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_tram}{Tram}} $\ast$}]{new\+Tram,  }\item[{const std\+::string \&}]{start\+Station,  }\item[{const int \&}]{line\+Number }\end{DoxyParamCaption})}
 
 Deploys a tram to the corresponding \mbox{\hyperlink{class_tram_stop}{Tram\+Stop}} name and on the right \mbox{\hyperlink{class_line}{Line}} ~\newline
  @\+REQUIRE properly\+Initialized(), \char`\"{}\+Metro\+System is not properly initialised.\char`\"{} 
@@ -127,8 +123,6 @@ Deploys a tram to the corresponding \mbox{\hyperlink{class_tram_stop}{Tram\+Stop
 {\em start\+Station} & is the name of the station it needs to get Deployed on \\
 \hline
 {\em line\+Number} & is the Line\+Number of the line it needs to get Deployed on \\
-\hline
-{\em error\+Stream} & is the stream the errors get sent to \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{class_metro_system_aad5a546e1194bd9a2e1c8ad37aa6b521}\label{class_metro_system_aad5a546e1194bd9a2e1c8ad37aa6b521}} 
@@ -162,11 +156,11 @@ Returns the route between two stations
 
 Returns the stations of the \mbox{\hyperlink{class_metro_system}{Metro\+System}}
 
-@\+REQUIRE properly\+Initialized(), \char`\"{}\+Metro\+System is not properly initialised.\char`\"{} \mbox{\Hypertarget{class_metro_system_a909b6a0c686edbd1bbd751c1c6708f6b}\label{class_metro_system_a909b6a0c686edbd1bbd751c1c6708f6b}} 
+@\+REQUIRE properly\+Initialized(), \char`\"{}\+Metro\+System is not properly initialised.\char`\"{} \mbox{\Hypertarget{class_metro_system_a24eab07489a8c5eb5e8b71ea9ac96654}\label{class_metro_system_a24eab07489a8c5eb5e8b71ea9ac96654}} 
 \index{MetroSystem@{MetroSystem}!updateSystem@{updateSystem}}
 \index{updateSystem@{updateSystem}!MetroSystem@{MetroSystem}}
 \doxysubsubsection{\texorpdfstring{updateSystem()}{updateSystem()}}
-{\footnotesize\ttfamily void Metro\+System\+::update\+System (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Metro\+System\+::update\+System (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 Updates the lines of the \mbox{\hyperlink{class_metro_system}{Metro\+System}}
 
@@ -175,19 +169,14 @@ Updates the lines of the \mbox{\hyperlink{class_metro_system}{Metro\+System}}
 {\em os} & The output stream where the updates of the system get written to \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{class_metro_system_a7126f50414f68c5aa3be16fb9eb57105}\label{class_metro_system_a7126f50414f68c5aa3be16fb9eb57105}} 
+\mbox{\Hypertarget{class_metro_system_a373285ffb14971f7d73256509dc89d75}\label{class_metro_system_a373285ffb14971f7d73256509dc89d75}} 
 \index{MetroSystem@{MetroSystem}!verify@{verify}}
 \index{verify@{verify}!MetroSystem@{MetroSystem}}
 \doxysubsubsection{\texorpdfstring{verify()}{verify()}}
-{\footnotesize\ttfamily void Metro\+System\+::verify (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{error\+Stream }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Metro\+System\+::verify (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 Verifies all the Lines on the \mbox{\hyperlink{class_metro_system}{Metro\+System}}, if a line is not consisten it outputs an error to error\+Stream ~\newline
  @\+REQUIRE properly\+Initialized(), \char`\"{}\+Metro\+System is not properly initialised.\char`\"{} 
-\begin{DoxyParams}{Parameters}
-{\em error\+Stream} & is the stream the errors get sent to \\
-\hline
-\end{DoxyParams}
-
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

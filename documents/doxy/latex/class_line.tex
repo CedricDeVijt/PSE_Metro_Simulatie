@@ -14,7 +14,7 @@ virtual \mbox{\hyperlink{class_line_aabe85f48d22d92b62257091f48174fac}{$\sim$\+L
 \mbox{\Hypertarget{class_line_ab03e68ed58e3952e53591d742fc4c1db}\label{class_line_ab03e68ed58e3952e53591d742fc4c1db}} 
 bool {\bfseries properly\+Initialised} () const
 \item 
-void \mbox{\hyperlink{class_line_ad90cce37e8eb32e63335997bf38418e1}{update}} (std\+::ostream \&os)
+void \mbox{\hyperlink{class_line_ae6ea5b7357dd90fb7b2f1cafe9957d6b}{update}} ()
 \item 
 const std\+::vector$<$ \mbox{\hyperlink{class_track}{Track}} $\ast$ $>$ \& \mbox{\hyperlink{class_line_af42d38b3a876ac2d9dbd196fabfd61b9}{get\+Tracks}} () const
 \item 
@@ -24,7 +24,7 @@ int \mbox{\hyperlink{class_line_a081f2607cf45d04d34d1d9ab174c7e9b}{get\+Line\+Nu
 \item 
 void \mbox{\hyperlink{class_line_ab89665cec7f90b68b3701ab4c5d99f71}{add\+Station}} (\mbox{\hyperlink{class_tram_stop}{Tram\+Stop}} $\ast$station)
 \item 
-bool \mbox{\hyperlink{class_line_a05e02db89b5683c3f5834f2494c0b394}{verify}} (std\+::ostream \&error\+Stream)
+bool \mbox{\hyperlink{class_line_a0c3918b03273f26d26d9b8b0772a4678}{verify}} ()
 \item 
 \mbox{\hyperlink{class_tram_stop}{Tram\+Stop}} $\ast$ \mbox{\hyperlink{class_line_a8787dda5c3205b9644fb7236954c6c8f}{get\+Next}} (\mbox{\hyperlink{class_tram_stop}{Tram\+Stop}} $\ast$station)
 \item 
@@ -34,9 +34,9 @@ bool \mbox{\hyperlink{class_line_a05e02db89b5683c3f5834f2494c0b394}{verify}} (st
 \item 
 const std\+::vector$<$ \mbox{\hyperlink{class_tram_stop}{Tram\+Stop}} $\ast$ $>$ \& \mbox{\hyperlink{class_line_a074f582e5f0b37b8ac24e61a2398c288}{get\+Stations}} () const
 \item 
-void \mbox{\hyperlink{class_line_a0533e500a75015ecc8e158315fda54b2}{connect}} (const std\+::string \&start, const std\+::string \&end, std\+::ostream \&error\+Stream)
+void \mbox{\hyperlink{class_line_a9a839398e3538e568fefa87cf0a0b1dc}{connect}} (const std\+::string \&start, const std\+::string \&end)
 \item 
-void \mbox{\hyperlink{class_line_a3b6f5ddefbc9465f123c3548763d5f7a}{deploy\+Tram}} (\mbox{\hyperlink{class_tram}{Tram}} $\ast$new\+Tram, const std\+::string \&station\+Name, std\+::ostream \&error\+Stream)
+void \mbox{\hyperlink{class_line_ae3aca449b5df122a2b355fdd8ffb93fa}{deploy\+Tram}} (\mbox{\hyperlink{class_tram}{Tram}} $\ast$new\+Tram, const std\+::string \&station\+Name)
 \end{DoxyCompactItemize}
 
 
@@ -82,11 +82,11 @@ If the station is already in the \mbox{\hyperlink{class_line}{Line}}, it does no
 {\em station} & is the \mbox{\hyperlink{class_tram_stop}{Tram\+Stop}} that needs to get added \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{class_line_a0533e500a75015ecc8e158315fda54b2}\label{class_line_a0533e500a75015ecc8e158315fda54b2}} 
+\mbox{\Hypertarget{class_line_a9a839398e3538e568fefa87cf0a0b1dc}\label{class_line_a9a839398e3538e568fefa87cf0a0b1dc}} 
 \index{Line@{Line}!connect@{connect}}
 \index{connect@{connect}!Line@{Line}}
 \doxysubsubsection{\texorpdfstring{connect()}{connect()}}
-{\footnotesize\ttfamily void Line\+::connect (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{start,  }\item[{const std\+::string \&}]{end,  }\item[{std\+::ostream \&}]{error\+Stream }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Line\+::connect (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{start,  }\item[{const std\+::string \&}]{end }\end{DoxyParamCaption})}
 
 Creates a connection between two Stations
 
@@ -96,14 +96,12 @@ Creates a connection between two Stations
 \hline
 {\em end} & is the name of the end\+Station \\
 \hline
-{\em error\+Stream} & is the stream errors get output to \\
-\hline
 \end{DoxyParams}
-\mbox{\Hypertarget{class_line_a3b6f5ddefbc9465f123c3548763d5f7a}\label{class_line_a3b6f5ddefbc9465f123c3548763d5f7a}} 
+\mbox{\Hypertarget{class_line_ae3aca449b5df122a2b355fdd8ffb93fa}\label{class_line_ae3aca449b5df122a2b355fdd8ffb93fa}} 
 \index{Line@{Line}!deployTram@{deployTram}}
 \index{deployTram@{deployTram}!Line@{Line}}
 \doxysubsubsection{\texorpdfstring{deployTram()}{deployTram()}}
-{\footnotesize\ttfamily void Line\+::deploy\+Tram (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_tram}{Tram}} $\ast$}]{new\+Tram,  }\item[{const std\+::string \&}]{station\+Name,  }\item[{std\+::ostream \&}]{error\+Stream }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Line\+::deploy\+Tram (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_tram}{Tram}} $\ast$}]{new\+Tram,  }\item[{const std\+::string \&}]{station\+Name }\end{DoxyParamCaption})}
 
 Deploys a tram to the given \mbox{\hyperlink{class_tram_stop}{Tram\+Stop}} with the Station\+Name
 
@@ -112,8 +110,6 @@ Deploys a tram to the given \mbox{\hyperlink{class_tram_stop}{Tram\+Stop}} with 
 {\em new\+Tram} & is the \mbox{\hyperlink{class_tram}{Tram}} that gets deployed \\
 \hline
 {\em station\+Name} & is the name of a \mbox{\hyperlink{class_tram_stop}{Tram\+Stop}} Corresponding to where the tram gets deployed to \\
-\hline
-{\em error\+Stream} & is the stream errors get output to \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{class_line_a081f2607cf45d04d34d1d9ab174c7e9b}\label{class_line_a081f2607cf45d04d34d1d9ab174c7e9b}} 
@@ -204,33 +200,23 @@ Returns the vector of tracks.
 
 Returns the vector of trams.
 
-@\+REQUIRE properly\+Initialised(), \char`\"{}\+The line was not properly initialised.\char`\"{} \mbox{\Hypertarget{class_line_ad90cce37e8eb32e63335997bf38418e1}\label{class_line_ad90cce37e8eb32e63335997bf38418e1}} 
+@\+REQUIRE properly\+Initialised(), \char`\"{}\+The line was not properly initialised.\char`\"{} \mbox{\Hypertarget{class_line_ae6ea5b7357dd90fb7b2f1cafe9957d6b}\label{class_line_ae6ea5b7357dd90fb7b2f1cafe9957d6b}} 
 \index{Line@{Line}!update@{update}}
 \index{update@{update}!Line@{Line}}
 \doxysubsubsection{\texorpdfstring{update()}{update()}}
-{\footnotesize\ttfamily void Line\+::update (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Line\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 Updates/\+Moves the trams of the line object.
 
-@\+REQUIRE properly\+Initialised(), \char`\"{}\+The line was not properly initialised.\char`\"{} 
-\begin{DoxyParams}{Parameters}
-{\em os} & is the stream the print\+Stats statements get send into \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{class_line_a05e02db89b5683c3f5834f2494c0b394}\label{class_line_a05e02db89b5683c3f5834f2494c0b394}} 
+@\+REQUIRE properly\+Initialised(), \char`\"{}\+The line was not properly initialised.\char`\"{} \mbox{\Hypertarget{class_line_a0c3918b03273f26d26d9b8b0772a4678}\label{class_line_a0c3918b03273f26d26d9b8b0772a4678}} 
 \index{Line@{Line}!verify@{verify}}
 \index{verify@{verify}!Line@{Line}}
 \doxysubsubsection{\texorpdfstring{verify()}{verify()}}
-{\footnotesize\ttfamily bool Line\+::verify (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{error\+Stream }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily bool Line\+::verify (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 Verifies a \mbox{\hyperlink{class_line}{Line}}
 
-@\+REQUIRE properly\+Initialised(), \char`\"{}\+The line was not properly initialised.\char`\"{} 
-\begin{DoxyParams}{Parameters}
-{\em error\+Stream} & is the stream errors get output to \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+@\+REQUIRE properly\+Initialised(), \char`\"{}\+The line was not properly initialised.\char`\"{} \begin{DoxyReturn}{Returns}
 {\bfseries{bool\+:}} returns true if verified, els false 
 \end{DoxyReturn}
 

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['isdefect_0',['isDefect',['../class_tram.html#a98d41c0b709ff9d0bdc799bf45bbffdb',1,'Tram']]],
-  ['isoccupied_1',['isOccupied',['../class_tram_stop.html#a773485d261653b6e7515d3801bfa14c2',1,'TramStop']]]
+  ['line_0',['Line',['../class_line.html#a8e906b599e10bb4914bccee8f021d67c',1,'Line']]],
+  ['loadmetrosystem_1',['loadMetroSystem',['../class_metro_x_m_l_parser.html#a0e39e80c907433d05c284bcab0f602fd',1,'MetroXMLParser']]]
 ];

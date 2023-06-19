@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.6"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Metro_simulation: C:/Users/arne/Documents/2022-2023/s2/PSE/PSE_Metro_Simulatie/src/Logger.h Source File</title>
+<title>PSE_METRO: C:/Users/arne/Documents/2022-2023/s2/PSE/PSE_Metro_Simulatie/src/Logger.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="metro.jpg"/></td>
   <td id="projectalign">
-   <div id="projectname">Metro_simulation
+   <div id="projectname">PSE_METRO<span id="projectnumber">&#160;2.1</span>
    </div>
   </td>
  </tr>
@@ -70,7 +70,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_f396504afdc959660871b003fa10164d.html">Documents</a></li><li class="navelem"><a class="el" href="dir_782be16791bb1f791cd144671833d32b.html">2022-2023</a></li><li class="navelem"><a class="el" href="dir_cdf5b8fc85ee4048172bbfe35a83585e.html">s2</a></li><li class="navelem"><a class="el" href="dir_72e107b194c0b79b5f1c9f9ae46c09c7.html">PSE</a></li><li class="navelem"><a class="el" href="dir_f8cd56151dd318a5fbfbcd122e760aab.html">PSE_Metro_Simulatie</a></li><li class="navelem"><a class="el" href="dir_8a156837437d3883bf0bcfddb846b2d2.html">src</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_1482f2cf6edef8c428e619a1d4470587.html">PSE_Metro_Simulatie</a></li><li class="navelem"><a class="el" href="dir_0a0e2afbad6a4716a88f7ef1974fbf32.html">src</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -82,17 +82,58 @@ $(function() {
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="class_logger.html">    9</a></span><span class="keyword">class </span><a class="code hl_class" href="class_logger.html">Logger</a> {</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="class_logger.html#a980f719dcade1ffe5dae57e60851f839">   17</a></span>    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_logger.html#a980f719dcade1ffe5dae57e60851f839">error</a>(std::ostream &amp;stream, <span class="keyword">const</span> std::string &amp;msg) {</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        stream &lt;&lt; <span class="stringliteral">&quot;ERROR: &quot;</span> &lt;&lt; msg &lt;&lt; std::endl;</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    }</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>};</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#endif </span><span class="comment">//PSE_METRO_SIMULATIE_LOGGER_H</span></div>
-<div class="ttc" id="aclass_logger_html"><div class="ttname"><a href="class_logger.html">Logger</a></div><div class="ttdef"><b>Definition:</b> Logger.h:9</div></div>
-<div class="ttc" id="aclass_logger_html_a980f719dcade1ffe5dae57e60851f839"><div class="ttname"><a href="class_logger.html#a980f719dcade1ffe5dae57e60851f839">Logger::error</a></div><div class="ttdeci">static void error(std::ostream &amp;stream, const std::string &amp;msg)</div><div class="ttdef"><b>Definition:</b> Logger.h:17</div></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">enum</span> LogLevel {  ERROR, INFO };</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="class_logger.html">   11</a></span><span class="keyword">class </span><a class="code hl_class" href="class_logger.html">Logger</a> {</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="class_logger.html#a117364e1794475deb0bbdfdfeb574007">   17</a></span>    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_logger.html#a117364e1794475deb0bbdfdfeb574007">error</a>(<span class="keyword">const</span> std::string&amp; msg) {</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        <a class="code hl_class" href="class_logger.html">Logger</a> *logger = getLogger();</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        <span class="keywordflow">if</span> (logger-&gt;logLevel &gt;= ERROR) {</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>            *logger-&gt;errorstream &lt;&lt; <span class="stringliteral">&quot;ERROR: &quot;</span> &lt;&lt; msg &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        }</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    }</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="class_logger.html#a39bd25f673c7c398446499a18fb5645a">   28</a></span>    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_logger.html#a39bd25f673c7c398446499a18fb5645a">info</a>(<span class="keyword">const</span> std::string&amp; msg) {</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        <a class="code hl_class" href="class_logger.html">Logger</a>* logger = getLogger();</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        <span class="keywordflow">if</span> (logger-&gt;logLevel &gt;= INFO) {</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>            *logger-&gt;outputstream &lt;&lt; <span class="stringliteral">&quot;INFO: &quot;</span> &lt;&lt; msg &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        }</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    }</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="class_logger.html#ab9e7257f858c1831851afd91f2c7b7a0">   39</a></span>    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_logger.html#ab9e7257f858c1831851afd91f2c7b7a0">setLogLevel</a>(<span class="keyword">const</span> LogLevel&amp; level) {</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        <a class="code hl_class" href="class_logger.html">Logger</a>* logger = getLogger();</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        logger-&gt;logLevel = level;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    }</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="class_logger.html#a9a9ae16c9a52c58611819044d1f9a478">   48</a></span>    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_logger.html#a9a9ae16c9a52c58611819044d1f9a478">setErrorStream</a>(std::ostream* errorstream) {</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <a class="code hl_class" href="class_logger.html">Logger</a>* logger = getLogger();</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        logger-&gt;errorstream = errorstream;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    }</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="class_logger.html#adb3e88243de3c5de58446c31b310ea2e">   57</a></span>    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_logger.html#adb3e88243de3c5de58446c31b310ea2e">setOutputStream</a>(std::ostream* outputstream) {</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <a class="code hl_class" href="class_logger.html">Logger</a>* logger = getLogger();</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        logger-&gt;outputstream = outputstream;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    }</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <a class="code hl_class" href="class_logger.html">Logger</a>() : logLevel(INFO), errorstream(&amp;std::cerr), outputstream(&amp;std::cout) {}</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keyword">static</span> <a class="code hl_class" href="class_logger.html">Logger</a>* getLogger() {</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        <span class="keyword">static</span> <a class="code hl_class" href="class_logger.html">Logger</a> myLogger;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        <span class="keywordflow">return</span> &amp;myLogger;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    }</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    LogLevel logLevel;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    std::ostream* errorstream;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    std::ostream* outputstream;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>};</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="preprocessor">#endif </span><span class="comment">//PSE_METRO_SIMULATIE_LOGGER_H</span></div>
+<div class="ttc" id="aclass_logger_html"><div class="ttname"><a href="class_logger.html">Logger</a></div><div class="ttdef"><b>Definition:</b> Logger.h:11</div></div>
+<div class="ttc" id="aclass_logger_html_a117364e1794475deb0bbdfdfeb574007"><div class="ttname"><a href="class_logger.html#a117364e1794475deb0bbdfdfeb574007">Logger::error</a></div><div class="ttdeci">static void error(const std::string &amp;msg)</div><div class="ttdef"><b>Definition:</b> Logger.h:17</div></div>
+<div class="ttc" id="aclass_logger_html_a39bd25f673c7c398446499a18fb5645a"><div class="ttname"><a href="class_logger.html#a39bd25f673c7c398446499a18fb5645a">Logger::info</a></div><div class="ttdeci">static void info(const std::string &amp;msg)</div><div class="ttdef"><b>Definition:</b> Logger.h:28</div></div>
+<div class="ttc" id="aclass_logger_html_a9a9ae16c9a52c58611819044d1f9a478"><div class="ttname"><a href="class_logger.html#a9a9ae16c9a52c58611819044d1f9a478">Logger::setErrorStream</a></div><div class="ttdeci">static void setErrorStream(std::ostream *errorstream)</div><div class="ttdef"><b>Definition:</b> Logger.h:48</div></div>
+<div class="ttc" id="aclass_logger_html_ab9e7257f858c1831851afd91f2c7b7a0"><div class="ttname"><a href="class_logger.html#ab9e7257f858c1831851afd91f2c7b7a0">Logger::setLogLevel</a></div><div class="ttdeci">static void setLogLevel(const LogLevel &amp;level)</div><div class="ttdef"><b>Definition:</b> Logger.h:39</div></div>
+<div class="ttc" id="aclass_logger_html_adb3e88243de3c5de58446c31b310ea2e"><div class="ttname"><a href="class_logger.html#adb3e88243de3c5de58446c31b310ea2e">Logger::setOutputStream</a></div><div class="ttdeci">static void setOutputStream(std::ostream *outputstream)</div><div class="ttdef"><b>Definition:</b> Logger.h:57</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
