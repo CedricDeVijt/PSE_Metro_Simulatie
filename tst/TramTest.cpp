@@ -1,5 +1,6 @@
 #include "gtest/gtest.h"
 #include "../src/Tram.h"
+#include "../src/Logger.h"
 
 class TramTest: public ::testing::Test {
     virtual void SetUp() {}
@@ -18,7 +19,8 @@ TEST(LineTest, driveTest) {
 
     //Drive to halte b
     std::stringstream ignoreStream;
-    t->drive(b, true, ignoreStream);
+    Logger::setErrorStream(&ignoreStream);
+    t->drive(b, true);
     EXPECT_EQ(t->getCurrentStation(),b);
 
     //deallocate mem
@@ -35,17 +37,17 @@ TEST(LineTest, defectTest) {
      */
     PCC *t = new PCC(0, NULL, 5, 2, 10);
     std::stringstream ignoreStream;
-
+    Logger::setErrorStream(&ignoreStream);
     //Iterate 2 times and it should be defective
     for (int i = 0; i < 2; i++) {
-        t->drive(NULL, true,ignoreStream);
+        t->drive(NULL, true);
     }
     EXPECT_TRUE(t->isDefect());
     EXPECT_EQ(t->getTotalCost(), 10);
 
     //It should be repaired after 5 iterations
     for (int i = 0; i < 5; i++) {
-        t->drive(NULL, true,ignoreStream);
+        t->drive(NULL, true);
     }
     EXPECT_FALSE(t->isDefect());
     EXPECT_EQ(t->getTotalCost(), 10);

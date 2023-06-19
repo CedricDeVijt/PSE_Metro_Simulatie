@@ -16,13 +16,13 @@ TEST(TestOutput, simpleSystemOutput_1){
 
     // create metro-system
     MetroSystem system;
-    MetroXMLParser::loadMetroSystem(system, INPUTFOLDER + "simFile.xml", std::cout);
+    MetroXMLParser::loadMetroSystem(system, INPUTFOLDER + "simFile.xml");
 
     //output streams to files
     std::ofstream systemOutput((OUTPUTFOLDER + "simpleSystemOutput_1.txt").c_str());
 
     // output metro-systeem
-    MetroSystemOutput::simpleSystemOutput(&system, systemOutput);
+    MetroSystemOutput::simpleSystemOutput(system, systemOutput);
     systemOutput.close();
 
     EXPECT_TRUE(FileCompare(COMPAREFOLDER+"simpleSystemOutput_1.txt", OUTPUTFOLDER+"simpleSystemOutput_1.txt"));
@@ -35,13 +35,13 @@ TEST(TestOutput, simpleSystemOutput_2){
 
     // create metro-system
     MetroSystem system;
-    MetroXMLParser::loadMetroSystem(system, INPUTFOLDER + "simAdvanced.xml", std::cout);
+    MetroXMLParser::loadMetroSystem(system, INPUTFOLDER + "simAdvanced.xml");
 
     //output streams to files
     std::ofstream systemOutput((OUTPUTFOLDER + "simpleSystemOutput_2.txt").c_str());
 
     // output metro-systeem
-    MetroSystemOutput::simpleSystemOutput(&system,systemOutput);
+    MetroSystemOutput::simpleSystemOutput(system,systemOutput);
     systemOutput.close();
 
     EXPECT_TRUE(FileCompare(COMPAREFOLDER+"simpleSystemOutput_2.txt", OUTPUTFOLDER+"simpleSystemOutput_2.txt"));
@@ -54,13 +54,13 @@ TEST(TestOutput, advancedSystemOutput_1){
 
     // create metro-system
     MetroSystem system;
-    MetroXMLParser::loadMetroSystem(system, INPUTFOLDER + "simFile.xml", std::cout);
+    MetroXMLParser::loadMetroSystem(system, INPUTFOLDER + "simFile.xml");
 
     //output streams to files
     std::ofstream systemOutput((OUTPUTFOLDER + "advancedSystemOutput_1.txt").c_str());
 
     // output metro-systeem
-    MetroSystemOutput::advancedSystemOutput(&system, systemOutput);
+    MetroSystemOutput::advancedSystemOutput(system, systemOutput);
     systemOutput.close();
 
     EXPECT_TRUE(FileCompare(COMPAREFOLDER+"advancedSystemOutput_1.txt", OUTPUTFOLDER+"advancedSystemOutput_1.txt"));
@@ -73,13 +73,13 @@ TEST(TestOutput, advancedSystemOutput_2){
 
     // create metro-system
     MetroSystem system;
-    MetroXMLParser::loadMetroSystem(system, INPUTFOLDER + "simAdvanced.xml", std::cout);
+    MetroXMLParser::loadMetroSystem(system, INPUTFOLDER + "simAdvanced.xml");
 
     //output streams to files
     std::ofstream systemOutput((OUTPUTFOLDER + "advancedSystemOutput_2.txt").c_str());
 
     // output metro-systeem
-    MetroSystemOutput::advancedSystemOutput(&system,systemOutput);
+    MetroSystemOutput::advancedSystemOutput(system,systemOutput);
     systemOutput.close();
 
     EXPECT_TRUE(FileCompare(COMPAREFOLDER+"advancedSystemOutput_2.txt", OUTPUTFOLDER+"advancedSystemOutput_2.txt"));

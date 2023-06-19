@@ -39,7 +39,8 @@ TEST(LineTest, connectTest) {
 
     //We connect the stations in both ways
     std::stringstream errorStream;
-    l.connect("A", "B", errorStream);
+    Logger::setErrorStream(&errorStream);
+    l.connect("A", "B");
     //There should be no errors
     EXPECT_TRUE(errorStream.str().empty());
 
@@ -69,7 +70,8 @@ TEST(LineTest, deployTramTest) {
 
     //We deploy the tram to station A
     std::stringstream errorStream;
-    l.deployTram(t0, "A", errorStream);
+    Logger::setErrorStream(&errorStream);
+    l.deployTram(t0, "A");
     //There should be no errors
     EXPECT_TRUE(errorStream.str().empty());
 
@@ -83,7 +85,8 @@ TEST(LineTest, deployTramTest) {
     Tram *t1 = new Albatros(1,NULL);
     //This tram also wants to deploy on an occupied station!? -> problem
     std::stringstream errorStream2;
-    l.deployTram(t1, "A", errorStream2);
+    Logger::setErrorStream(&errorStream2);
+    l.deployTram(t1, "A");
     //There should be errors
     EXPECT_FALSE(errorStream2.str().empty());
 
@@ -107,24 +110,27 @@ TEST(LineTest, updateTestAlbatros) {
 
     //We connect the stations without an error
     std::stringstream errorStreamConnection;
-    l.connect("A", "B", errorStreamConnection);
-    l.connect("B", "C", errorStreamConnection);
-    l.connect("C", "A", errorStreamConnection);
+    Logger::setErrorStream(&errorStreamConnection);
+    l.connect("A", "B");
+    l.connect("B", "C");
+    l.connect("C", "A");
     EXPECT_TRUE(errorStreamConnection.str().empty());
 
     //Init tram and deploy on A without an error
     Tram *alba = new Albatros(0, NULL);
     std::stringstream errorStreamDeploy;
-    l.deployTram(alba, "A", errorStreamDeploy);
+    Logger::setErrorStream(&errorStreamDeploy);
+    l.deployTram(alba, "A");
     EXPECT_TRUE(errorStreamDeploy.str().empty());
     EXPECT_EQ(alba->getCurrentStation(),a);
 
     std::stringstream ignoreStream;
-    l.update(ignoreStream);
+    Logger::setOutputStream(&ignoreStream);
+    l.update();
     //Now the albatros should skip the Halte B because it's an albatros
     EXPECT_EQ(alba->getCurrentStation(),c);
     //Now go back to a
-    l.update(ignoreStream);
+    l.update();
     EXPECT_EQ(alba->getCurrentStation(),a);
 
     //deallocate Mem
@@ -150,24 +156,27 @@ TEST(LineTest, updateTestStadsLijner) {
 
     //We connect the stations without an error
     std::stringstream errorStreamConnection;
-    l.connect("A", "B", errorStreamConnection);
-    l.connect("B", "C", errorStreamConnection);
-    l.connect("C", "A", errorStreamConnection);
+    Logger::setErrorStream(&errorStreamConnection);
+    l.connect("A", "B");
+    l.connect("B", "C");
+    l.connect("C", "A");
     EXPECT_TRUE(errorStreamConnection.str().empty());
 
     //Init tram and deploy on A without an error
     Tram *stadsL = new Stadslijner(0, NULL);
     std::stringstream errorStreamDeploy;
-    l.deployTram(stadsL, "A", errorStreamDeploy);
+    Logger::setErrorStream(&errorStreamDeploy);
+    l.deployTram(stadsL, "A");
     EXPECT_TRUE(errorStreamDeploy.str().empty());
     EXPECT_EQ(stadsL->getCurrentStation(),a);
 
     std::stringstream ignoreStream;
-    l.update(ignoreStream);
+    Logger::setOutputStream(&ignoreStream);
+    l.update();
     //Now the Stadslijner should skip the Halte B because it's a Stadslijner
     EXPECT_EQ(stadsL->getCurrentStation(),c);
     //Now go back to a
-    l.update(ignoreStream);
+    l.update();
     EXPECT_EQ(stadsL->getCurrentStation(),a);
 
     //deallocate Mem
@@ -193,25 +202,28 @@ TEST(LineTest, updateTestPCC) {
 
     //We connect the stations without an error
     std::stringstream errorStreamConnection;
-    l.connect("A", "B", errorStreamConnection);
-    l.connect("B", "C", errorStreamConnection);
-    l.connect("C", "A", errorStreamConnection);
+    Logger::setErrorStream(&errorStreamConnection);
+    l.connect("A", "B");
+    l.connect("B", "C");
+    l.connect("C", "A");
     EXPECT_TRUE(errorStreamConnection.str().empty());
 
     //Init tram and deploy on A without an error
     Tram *pcc = new PCC(0, NULL, 0, 100, 0);
     std::stringstream errorStreamDeploy;
-    l.deployTram(pcc, "A", errorStreamDeploy);
+    Logger::setErrorStream(&errorStreamDeploy);
+    l.deployTram(pcc, "A");
     EXPECT_TRUE(errorStreamDeploy.str().empty());
     EXPECT_EQ(pcc->getCurrentStation(),a);
 
     std::stringstream ignoreStream;
-    l.update(ignoreStream);
+    Logger::setOutputStream(&ignoreStream);
+    l.update();
     //Now the pcc should not skip the Halte B because it's a pcc
     EXPECT_EQ(pcc->getCurrentStation(),b);
     //Now go back to a
-    l.update(ignoreStream);
-    l.update(ignoreStream);
+    l.update();
+    l.update();
     EXPECT_EQ(pcc->getCurrentStation(),a);
 
     //deallocate Mem

@@ -18,9 +18,12 @@ TEST(SimTest, automaticDriving) {
     file.open((OUTPUTFOLDERPATH+filename+".txt").c_str());
     EXPECT_TRUE(file.is_open());
 
-    MetroSimulation sim(INPUTFOLDERPATH+filename+".xml", file, 10, false);
+    Logger::setErrorStream(&file);
+    Logger::setOutputStream(&file);
 
-    sim.run(file);
+    MetroSimulation sim(INPUTFOLDERPATH+filename+".xml", 10, false);
+
+    sim.run();
     file.close();
 
     EXPECT_TRUE(FileCompare(COMPAREFOLDERPATH+filename+".txt", OUTPUTFOLDERPATH+filename+".txt"));
