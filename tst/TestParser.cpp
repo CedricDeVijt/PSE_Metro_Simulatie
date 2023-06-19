@@ -15,8 +15,10 @@ void compareLog(const std::string &filename) {
     std::ofstream file((OUTPUTFOLDERPATH+filename+".txt").c_str());
     EXPECT_TRUE(file.is_open());
 
+    Logger::setErrorStream(&file);
+
     MetroSystem sys;
-    MetroXMLParser::loadMetroSystem(sys, INPUTFOLDERPATH+filename+".xml", file);
+    MetroXMLParser::loadMetroSystem(sys, INPUTFOLDERPATH+filename+".xml");
     file.close();
 
     EXPECT_TRUE(FileCompare(COMPAREFOLDERPATH+filename+".txt", OUTPUTFOLDERPATH+filename+".txt"));

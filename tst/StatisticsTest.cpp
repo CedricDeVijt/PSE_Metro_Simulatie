@@ -9,7 +9,8 @@ class StatisticsTest: public ::testing::Test {
 TEST(StatisticsTest, test1) {
     std::string filename = "xmlFiles/tests/StatisticsTest/test1.xml";
     std::stringstream  errorStream;
-    MetroSimulation sim(filename, errorStream, 10, false);
+    Logger::setErrorStream(&errorStream);
+    MetroSimulation sim(filename, 10, false);
     //No error should occur
     EXPECT_TRUE(errorStream.str().empty());
 
@@ -22,7 +23,8 @@ TEST(StatisticsTest, test1) {
 
     //run the sim
     std::stringstream ignoreStream;
-    sim.run(ignoreStream);
+    Logger::setOutputStream(&ignoreStream);
+    sim.run();
 
     //After the simulation
     MetroSimStatistics statisticsAft(&sim);
@@ -35,7 +37,8 @@ TEST(StatisticsTest, test1) {
 TEST(StatisticsTest, test2) {
     std::string filename = "xmlFiles/tests/StatisticsTest/test1.xml";
     std::stringstream  errorStream;
-    MetroSimulation sim(filename, errorStream, 24, false);
+    Logger::setErrorStream(&errorStream);
+    MetroSimulation sim(filename, 24, false);
     //No error should occur
     EXPECT_TRUE(errorStream.str().empty());
 
@@ -48,7 +51,8 @@ TEST(StatisticsTest, test2) {
 
     //run the sim
     std::stringstream ignoreStream;
-    sim.run(ignoreStream);
+    Logger::setOutputStream(&ignoreStream);
+    sim.run();
 
     //After the simulation
     MetroSimStatistics statisticsAft(&sim);
