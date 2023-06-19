@@ -8,6 +8,6 @@ const std::string OUTPUTPATH = "./xmlFiles/sims/output/";
 
 int main()
 {
-    MetroSimulation sim(INPUTPATH+"simFile.xml", std::cerr,10, false);
+    MetroSimulation sim(INPUTPATH+"simFile.xml",10, false);
     MetroRenderer::renderSystem(*sim.getSystem(), "test");
 }

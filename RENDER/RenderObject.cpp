@@ -65,7 +65,7 @@ Object3D StadsLijnerRender::createRender() const {
 
 Object3D HalteRender::createRender() const {
     Object3D obj;
-    obj = Object3D::Object3DFactory::loadObj("./RENDER/blends/station.obj");
+    obj = Object3D::Object3DFactory::createCube();
     obj.applyTransformation(Calculator::superMatrix(size, 0, 0, 0, Vector3D::point(getX(), getY(), getZ())));
     obj.ambientReflection = randRGB;
     obj.diffuseReflection = randRGB;
@@ -76,7 +76,7 @@ Object3D HalteRender::createRender() const {
 
 Object3D MetrostationRender::createRender() const {
     Object3D obj;
-    obj = Object3D::Object3DFactory::loadObj("./RENDER/blends/station.obj");
+    obj = Object3D::Object3DFactory::createCube();
     obj.applyTransformation(Calculator::superMatrix(size, 0, 0, 0, Vector3D::point(getX(), getY(), getZ())));
     obj.ambientReflection = randRGB;
     obj.diffuseReflection = randRGB;

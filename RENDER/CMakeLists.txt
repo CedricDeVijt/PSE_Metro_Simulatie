@@ -58,7 +58,7 @@ set(TINY_XML_SOURCE_FILES
         ../tinyxml/tinystr.cpp
         ../tinyxml/tinyxml.cpp
         ../tinyxml/tinyxmlparser.cpp
-        )
+)
 ############################################################
 # Create an executable
 ############################################################
