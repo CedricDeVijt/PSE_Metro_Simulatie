@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-enum logLevel {  ERROR, INFO };
+enum LogLevel {  ERROR, INFO };
 
 /**
  * Singleton class responsible for logging
@@ -11,7 +11,7 @@ enum logLevel {  ERROR, INFO };
 class Logger {
 public:
     /**
-     * Writes an error message to the set error stream
+     * Writes an error message to the currently set error stream, with right formatting
      * @param msg is the message that needs to be formatted
      */
     static void error(const std::string& msg) {
@@ -22,7 +22,7 @@ public:
     }
 
     /**
-     * Writes an info message to the set output stream
+     * Writes an error message to the currently set output stream, with right formatting
      * @param msg is the message that needs to be formatted
      */
     static void info(const std::string& msg) {
@@ -33,17 +33,17 @@ public:
     }
 
     /**
-     * Sets the loglevel
-     * @param level
+     * sets the log level
+     * @param level is the wanted level
      */
-    static void setLogLevel(const logLevel& level) {
+    static void setLogLevel(const LogLevel& level) {
         Logger* logger = getLogger();
         logger->logLevel = level;
     }
 
     /**
      * Sets the errorstream
-     * @param errorstream
+     * @param errorstream is the wanted stream
      */
     static void setErrorStream(std::ostream* errorstream) {
         Logger* logger = getLogger();
@@ -52,7 +52,7 @@ public:
 
     /**
      * Sets the outputstream
-     * @param outputstream
+     * @param outputstream is the wanted stream
      */
     static void setOutputStream(std::ostream* outputstream) {
         Logger* logger = getLogger();
@@ -66,7 +66,7 @@ private:
         static Logger myLogger;
         return &myLogger;
     }
-    logLevel logLevel;
+    LogLevel logLevel;
     std::ostream* errorstream;
     std::ostream* outputstream;
 };
