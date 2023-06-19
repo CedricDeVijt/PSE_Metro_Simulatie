@@ -76,6 +76,8 @@ void Tram::drive(TramStop *destination, bool blocked) {
     std::stringstream num;
     num << getTramNumber();
     Logger::info("Tram " + num.str() + " reed van " + currentStation->getName() + " naar " + destination->getName() + ".");
+
+    currentStation = destination;
 }
 
 void PCC::drive(TramStop *destination, bool blocked) {
