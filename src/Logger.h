@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-enum logLevel {  ERROR, INFO };
+enum LogLevel {  ERROR, INFO };
 
 /**
  * Logger object for simple output formatting
@@ -30,7 +30,7 @@ public:
         }
     }
 
-    static void setLogLevel(const logLevel& level) {
+    static void setLogLevel(const LogLevel& level) {
         Logger* logger = getLogger();
         logger->logLevel = level;
     }
@@ -52,7 +52,7 @@ private:
         static Logger myLogger;
         return &myLogger;
     }
-    logLevel logLevel;
+    LogLevel logLevel;
     std::ostream* errorstream;
     std::ostream* outputstream;
 };
